@@ -26,41 +26,60 @@ export default function FAQPage() {
   });
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingBottom: "80px" }}>
-      {/* Hero — Perspective Blue Architecture with High Contrast Typography */}
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
+      {/* Daylight Subpage Hero */}
       <section
-        className="perspective-blue-hero"
         style={{
-          padding: "68px 0 64px",
+          position: "relative",
+          backgroundColor: "#ffffff",
+          padding: "54px 0 46px",
+          borderBottom: "1px solid #edf2f7",
+          overflow: "hidden",
         }}
       >
         <AbstractHeroBackground variant="subpage" />
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumb theme="dark" items={[{ label: "Frequently Asked Questions" }]} />
+          <Breadcrumb items={[{ label: "Frequently Asked Questions" }]} />
 
           <div style={{ maxWidth: "800px" }}>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "4px 14px",
+                padding: "4px 12px",
                 borderRadius: "9999px",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                backgroundColor: "rgba(0, 102, 245, 0.25)",
-                color: "#38bdf8",
-                border: "1px solid rgba(56, 189, 248, 0.4)",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#eff6ff",
+                color: "#0066f5",
+                border: "1px solid #dbeafe",
                 marginBottom: "14px",
-                boxShadow: "0 0 16px rgba(0, 102, 245, 0.2)",
               }}
             >
               Help Center & Inquiries
             </span>
-            <h1 style={{ fontSize: "clamp(2.3rem, 4.5vw, 3.5rem)", color: "#ffffff", marginBottom: "16px", lineHeight: "1.15", fontWeight: 800, letterSpacing: "-0.03em", textShadow: "0 2px 25px rgba(0, 0, 0, 0.6)" }}>
-              Frequently Asked <span style={{ color: "#38bdf8", textShadow: "0 0 25px rgba(56, 189, 248, 0.35)" }}>Questions</span>.
+            <h1
+              style={{
+                fontSize: "clamp(2.2rem, 4vw, 3.2rem)",
+                color: "#0c2340",
+                marginBottom: "14px",
+                lineHeight: "1.15",
+                fontWeight: 800,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Frequently Asked <span style={{ color: "#0066f5" }}>Questions.</span>
             </h1>
-            <p style={{ fontSize: "1.15rem", color: "#cbd5e1", lineHeight: "1.7", marginBottom: "32px", fontWeight: 400, textShadow: "0 1px 10px rgba(0, 0, 0, 0.4)" }}>
+            <p
+              style={{
+                fontSize: "1.05rem",
+                color: "#475569",
+                lineHeight: "1.65",
+                marginBottom: "26px",
+                fontWeight: 400,
+              }}
+            >
               Find transparent answers to common inquiries regarding company registration, document prerequisites, Startup India recognition, taxation, and consulting with Corpunex.
             </p>
 

@@ -2,56 +2,53 @@
 
 :root {
   /* Typography */
-  --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
-  --font-heading: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-  /* Razorpay Official Color Palette */
-  --rzp-blue: #0b72e7;
-  --rzp-blue-hover: #095ec4;
-  --rzp-blue-light: #eef4ff;
-  --rzp-blue-border: #d0e2ff;
-  --rzp-blue-glow: rgba(11, 114, 231, 0.15);
+  /* International Corporate Color Palette */
+  --cx-primary: #0066f5;
+  --cx-primary-hover: #0052cc;
+  --cx-primary-light: #eff6ff;
+  --cx-primary-border: #bfdbfe;
+  --cx-primary-glow: rgba(0, 102, 245, 0.12);
 
-  --rzp-navy: #0c2340;
-  --rzp-navy-hover: #07172b;
-  --rzp-navy-light: #194389;
+  --cx-navy: #0c2340;
+  --cx-navy-hover: #07172b;
+  --cx-navy-muted: #1e293b;
 
-  --rzp-green: #00b574;
-  --rzp-green-light: #e6f9f2;
-  --rzp-green-border: #b8f0dc;
+  --cx-emerald: #059669;
+  --cx-emerald-light: #ecfdf5;
+  --cx-emerald-border: #a7f3d0;
 
-  --rzp-orange: #ff8a00;
-  --rzp-orange-light: #fff4e6;
+  --cx-amber: #d97706;
+  --cx-amber-light: #fffbeb;
+  --cx-amber-border: #fde68a;
 
   --bg-primary: #ffffff;
-  --bg-secondary: #f5f7fa;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
   --bg-card: #ffffff;
-  --bg-hero: radial-gradient(circle at 85% 35%, rgba(11, 114, 231, 0.10) 0%, rgba(240, 246, 255, 0.7) 40%, #ffffff 80%);
 
   --text-headline: #0c2340;
-  --text-main: #2b334a;
-  --text-muted: #515978;
-  --text-dim: #7f8ba4;
+  --text-main: #1e293b;
+  --text-muted: #475569;
+  --text-dim: #64748b;
 
-  --border-subtle: #e8edf5;
-  --border-default: #dbe3ee;
-  --border-active: #0b72e7;
+  --border-subtle: #f1f5f9;
+  --border-default: #e2e8f0;
+  --border-strong: #cbd5e1;
 
-  --primary: #0b72e7;
-  --primary-hover: #095ec4;
-  --primary-text: #ffffff;
+  --shadow-xs: 0 1px 2px rgba(12, 35, 64, 0.04);
+  --shadow-sm: 0 2px 6px rgba(12, 35, 64, 0.05);
+  --shadow-md: 0 6px 18px rgba(12, 35, 64, 0.06);
+  --shadow-lg: 0 16px 36px -8px rgba(12, 35, 64, 0.08);
+  --shadow-card: 0 4px 20px -2px rgba(12, 35, 64, 0.05), 0 0 0 1px #edf2f7;
 
-  --shadow-xs: 0 1px 2px rgba(12, 35, 64, 0.05);
-  --shadow-sm: 0 2px 6px rgba(12, 35, 64, 0.06);
-  --shadow-md: 0 6px 18px rgba(12, 35, 64, 0.08);
-  --shadow-lg: 0 14px 30px rgba(12, 35, 64, 0.10);
-  --shadow-card: 0 4px 20px -2px rgba(12, 35, 64, 0.07);
-
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  --radius-xl: 14px;
-  --radius-2xl: 20px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 }
 
@@ -86,9 +83,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--text-headline);
 }
 
@@ -99,7 +96,7 @@ p {
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 /* Layout Container */
@@ -112,230 +109,246 @@ a {
   padding-right: 24px;
 }
 
-/* Razorpay Card Styling */
+/* Elevated Corporate Cards */
+.cx-card,
 .rzp-card,
 .cent-card {
   background: #ffffff;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(12, 35, 64, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.cx-card:hover,
 .rzp-card:hover,
 .cent-card:hover {
-  border-color: var(--rzp-blue-border);
-  box-shadow: 0 12px 30px -4px rgba(11, 114, 231, 0.12), 0 4px 8px -2px rgba(12, 35, 64, 0.04);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px -6px rgba(12, 35, 64, 0.08), 0 0 0 1px #e2edfd;
   transform: translateY(-2px);
 }
 
-/* Razorpay Buttons */
+/* Interactive Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 11px 22px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.btn-primary {
-  background-color: var(--rzp-blue);
-  color: #ffffff;
-  box-shadow: 0 2px 4px rgba(11, 114, 231, 0.25);
+.btn-primary,
+.btn-electric-blue {
+  background-color: var(--cx-primary);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 102, 245, 0.25);
+  transition: all 0.15s ease;
+  border: 1px solid var(--cx-primary);
+  cursor: pointer;
 }
 
-.btn-primary:hover {
-  background-color: var(--rzp-blue-hover);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(11, 114, 231, 0.35);
+.btn-primary:hover,
+.btn-electric-blue:hover {
+  background-color: var(--cx-primary-hover);
+  border-color: var(--cx-primary-hover);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 102, 245, 0.35);
   transform: translateY(-1px);
 }
 
 .btn-secondary,
-.btn-outline {
+.btn-outline,
+.btn-uipath-outline {
   background-color: #ffffff;
-  color: var(--rzp-blue);
-  border: 1px solid var(--rzp-blue-border);
+  color: var(--cx-navy) !important;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  transition: all 0.15s ease;
+  cursor: pointer;
 }
 
 .btn-secondary:hover,
-.btn-outline:hover {
-  background-color: var(--rzp-blue-light);
-  border-color: var(--rzp-blue);
-  color: var(--rzp-blue);
+.btn-outline:hover,
+.btn-uipath-outline:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--cx-primary);
+  color: var(--cx-primary) !important;
+}
+
+.btn-glass-outline {
+  background-color: #ffffff;
+  color: var(--cx-navy) !important;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 0.92rem;
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-glass-outline:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--cx-primary);
+  color: var(--cx-primary) !important;
 }
 
 .btn-dark {
-  background-color: var(--rzp-navy);
+  background-color: var(--cx-navy);
   color: #ffffff;
 }
 
 .btn-dark:hover {
-  background-color: var(--rzp-navy-hover);
+  background-color: var(--cx-navy-hover);
   color: #ffffff;
 }
 
-/* Razorpay Badges & Pills */
+/* Badges & Pills */
 .badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  padding: 5px 12px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 3px 10px;
   border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  text-transform: none;
+  letter-spacing: 0;
   width: fit-content;
 }
 
 .badge-blue,
 .badge-purple {
-  background-color: var(--rzp-blue-light);
-  color: var(--rzp-blue);
-  border: 1px solid var(--rzp-blue-border);
+  background-color: var(--cx-primary-light);
+  color: var(--cx-primary);
+  border: 1px solid var(--cx-primary-border);
 }
 
 .badge-green {
-  background-color: var(--rzp-green-light);
-  color: var(--rzp-green);
-  border: 1px solid var(--rzp-green-border);
+  background-color: var(--cx-emerald-light);
+  color: var(--cx-emerald);
+  border: 1px solid var(--cx-emerald-border);
 }
 
 .badge-amber {
-  background-color: var(--rzp-orange-light);
-  color: var(--rzp-orange);
-  border: 1px solid #fed7aa;
+  background-color: var(--cx-amber-light);
+  color: var(--cx-amber);
+  border: 1px solid var(--cx-amber-border);
 }
 
 .badge-neutral {
-  background-color: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-default);
 }
 
 .badge-dark {
-  background-color: var(--rzp-navy);
+  background-color: var(--cx-navy);
   color: #ffffff;
 }
 
-/* Floating Selector Strip (Razorpay Signature) */
-.rzp-selector-bar {
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 8px 30px rgba(12, 35, 64, 0.08);
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.rzp-selector-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-full);
-  color: var(--rzp-navy);
-  font-size: 0.88rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.rzp-selector-pill:hover,
-.rzp-selector-pill.active {
-  background-color: var(--rzp-blue-light);
-  border-color: var(--rzp-blue);
-  color: var(--rzp-blue);
-}
-
+/* Quick Navigation Pills */
 .rzp-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   background-color: #ffffff;
-  color: #0c2340;
-  border: 1px solid #e2e8f0;
+  color: var(--cx-navy);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-full);
-  padding: 6px 14px;
-  font-size: 0.84rem;
-  font-weight: 600;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .rzp-pill:hover {
-  background-color: #eff6ff;
-  color: #0066f5;
-  border-color: #bfdbfe;
+  background-color: var(--cx-primary-light);
+  color: var(--cx-primary);
+  border-color: var(--cx-primary-border);
   transform: translateY(-1px);
 }
 
 .rzp-dark-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  gap: 6px;
+  background-color: #ffffff;
+  color: var(--cx-navy);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-full);
-  padding: 6px 14px;
-  font-size: 0.84rem;
-  font-weight: 600;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
 }
 
 .rzp-dark-pill:hover {
-  background-color: #ffffff;
-  color: #071e3d;
-  border-color: #ffffff;
+  background-color: var(--cx-primary-light);
+  color: var(--cx-primary);
+  border-color: var(--cx-primary-border);
 }
 
-/* Table styles */
+/* Styled Tables */
 .styled-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   overflow: hidden;
   background-color: #ffffff;
 }
 
 .styled-table th {
-  background-color: #f8fafc;
-  color: var(--rzp-navy);
+  background-color: var(--bg-secondary);
+  color: var(--cx-navy);
   font-weight: 700;
-  padding: 14px 18px;
+  padding: 12px 16px;
   text-align: left;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-default);
+  font-size: 0.85rem;
 }
 
 .styled-table td {
-  padding: 14px 18px;
+  padding: 12px 16px;
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-main);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .styled-table tr:last-child td {
@@ -343,7 +356,7 @@ a {
 }
 
 .styled-table tr:hover td {
-  background-color: #fcfdfe;
+  background-color: #fafcff;
 }
 
 /* Breadcrumbs */
@@ -351,9 +364,9 @@ a {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  font-size: 0.84rem;
+  color: var(--text-dim);
+  margin-bottom: 18px;
   flex-wrap: wrap;
 }
 
@@ -362,24 +375,24 @@ a {
 }
 
 .breadcrumb a:hover {
-  color: var(--rzp-blue);
+  color: var(--cx-primary);
 }
 
 .breadcrumb-separator {
-  color: var(--border-default);
+  color: var(--border-strong);
 }
 
 .breadcrumb-current {
-  color: var(--rzp-navy);
-  font-weight: 600;
+  color: var(--cx-navy);
+  fontWeight: 600;
 }
 
-/* Corporate Form Controls */
+/* Form Controls */
 .form-label {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
-  color: #0c2340;
+  color: var(--cx-navy);
   margin-bottom: 6px;
 }
 
@@ -388,14 +401,14 @@ a {
 .form-textarea {
   width: 100% !important;
   display: block;
-  padding: 12px 14px;
-  font-size: 0.95rem;
+  padding: 10px 14px;
+  font-size: 0.9rem;
   font-family: var(--font-sans);
-  color: #0c2340;
+  color: var(--cx-navy);
   background-color: #ffffff;
-  border: 1.5px solid #d0d7de;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
   box-sizing: border-box;
 }
 
@@ -414,23 +427,46 @@ a {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--rzp-blue) !important;
-  box-shadow: 0 0 0 3px rgba(11, 114, 231, 0.15) !important;
+  border-color: var(--cx-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 102, 245, 0.15) !important;
 }
 
 .form-select {
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23515978' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 16px;
-  padding-right: 40px;
+  background-position: right 12px center;
+  background-size: 14px;
+  padding-right: 36px;
   cursor: pointer;
 }
 
 .form-textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 90px;
+}
+
+/* Footer Links */
+.footer-link {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--cx-primary);
+  transform: translateX(2px);
+}
+
+/* Daylight Subpage Hero */
+.subpage-hero,
+.perspective-blue-hero {
+  position: relative;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-default);
+  padding: 56px 0 48px;
+  overflow: hidden;
 }
 
 /* Responsive adjustments */
@@ -440,117 +476,3 @@ a {
     padding-right: 16px;
   }
 }
-
-.footer-link {
-  color: #515978;
-  font-size: 0.88rem;
-  transition: all 0.15s ease;
-  display: inline-block;
-}
-
-.footer-link:hover {
-  color: #0b72e7;
-  transform: translateX(2px);
-}
-
-/* =========================================================================
-   UIPATH-INSPIRED HERO SYSTEM
-   Light, luminous canvas with abstract mosaic background & electric blue accents
-   ========================================================================= */
-.uipath-style-hero,
-.uipath-welcoming-hero {
-  position: relative;
-  background-color: #ffffff;
-  background: 
-    radial-gradient(ellipse 70% 50% at 80% 20%, rgba(0, 102, 245, 0.06) 0%, rgba(56, 189, 248, 0.03) 40%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(254, 215, 170, 0.08) 0%, transparent 60%),
-    linear-gradient(180deg, #f8faff 0%, #edf4fc 40%, #ffffff 100%);
-  color: #0c2340;
-  overflow: hidden;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-/* Bright Electric Blue Primary Button (Razorpay / UiPath) */
-.btn-electric-blue {
-  background-color: #0066f5;
-  color: #ffffff !important;
-  font-weight: 700;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 26px;
-  font-size: 0.98rem;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 102, 245, 0.35);
-  transition: all 0.2s ease;
-  border: 1px solid #0056d6;
-  cursor: pointer;
-}
-
-.btn-electric-blue:hover {
-  background-color: #0052cc;
-  box-shadow: 0 6px 20px rgba(0, 102, 245, 0.45);
-  transform: translateY(-1px);
-}
-
-/* UiPath Sharp Dark Outline Secondary Button */
-.btn-uipath-outline {
-  background-color: #ffffff;
-  color: #0c2340 !important;
-  font-weight: 600;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  font-size: 0.98rem;
-  text-decoration: none;
-  border: 1.5px solid #0c2340;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-uipath-outline:hover {
-  background-color: #f1f5f9;
-  border-color: #0066f5;
-  color: #0066f5 !important;
-}
-
-/* =========================================================================
-   PERSPECTIVE BLUE HERO SYSTEM (User Brand Image Asset)
-   Cinematic deep cobalt/midnight canvas with electric blue perspective pillars
-   ========================================================================= */
-.perspective-blue-hero {
-  position: relative;
-  background-color: #020b1e;
-  color: #ffffff;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-}
-
-.btn-glass-outline {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff !important;
-  font-weight: 600;
-  border-radius: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  font-size: 0.98rem;
-  text-decoration: none;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.btn-glass-outline:hover {
-  background-color: rgba(255, 255, 255, 0.18);
-  border-color: #38bdf8;
-  color: #38bdf8 !important;
-}
-
-

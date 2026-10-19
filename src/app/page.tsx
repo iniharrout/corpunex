@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import ConsultationForm from "@/components/ConsultationForm";
 import FAQAccordion from "@/components/FAQAccordion";
+import StatutoryFeeCalculator from "@/components/StatutoryFeeCalculator";
 
 export const metadata: Metadata = {
   title: "Corpunex — Business Registration, Taxation & Corporate Compliance in India",
@@ -309,7 +310,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. CORE SERVICES GRID (Colorful Razorpay Card Grid) */}
+      {/* 4. INTERACTIVE STATUTORY FEE CALCULATOR */}
+      <StatutoryFeeCalculator />
+
+      {/* 5. CORE SERVICES GRID (Daylight Card Grid) */}
       <section style={{ padding: "80px 0", backgroundColor: "#f8fafc", borderTop: "1px solid #e8edf5" }}>
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 48px" }}>
@@ -567,8 +571,143 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. FAQ SECTION */}
+      {/* 6. COMPARISON MATRIX: WHY DISCERNING FOUNDERS CHOOSE CORPUNEX */}
       <section style={{ padding: "80px 0", backgroundColor: "#f8fafc", borderTop: "1px solid #e8edf5" }}>
+        <div className="container">
+          <div style={{ textAlign: "center", maxWidth: "760px", margin: "0 auto 48px" }}>
+            <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
+              Commercial Standards & Accountability
+            </span>
+            <h2 style={{ fontSize: "2.2rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "12px" }}>
+              Why Discerning Founders Choose Corpunex
+            </h2>
+            <p style={{ color: "#515978", fontSize: "1rem", lineHeight: "1.6" }}>
+              Compare our structured professional corporate advisory against unorganized local brokers and generic low-cost aggregators.
+            </p>
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "16px",
+              border: "1px solid #e2e8f0",
+              boxShadow: "0 4px 20px -2px rgba(15, 23, 42, 0.05)",
+              overflowX: "auto",
+            }}
+          >
+            <table
+              style={{
+                width: "100%",
+                minWidth: "760px",
+                borderCollapse: "collapse",
+                textAlign: "left",
+                fontSize: "0.92rem",
+              }}
+            >
+              <thead>
+                <tr style={{ borderBottom: "1px solid #e2e8f0", backgroundColor: "#fafcff" }}>
+                  <th style={{ padding: "20px 24px", color: "#0c2340", fontWeight: 700, width: "28%" }}>
+                    Standard of Service
+                  </th>
+                  <th
+                    style={{
+                      padding: "20px 24px",
+                      color: "#0066f5",
+                      fontWeight: 800,
+                      width: "32%",
+                      backgroundColor: "#f0f6ff",
+                      borderLeft: "2px solid #0066f5",
+                      borderRight: "2px solid #0066f5",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <ShieldCheck size={20} style={{ color: "#0066f5" }} />
+                      <span>Corpunex Advisory</span>
+                    </div>
+                  </th>
+                  <th style={{ padding: "20px 24px", color: "#64748b", fontWeight: 600, width: "20%" }}>
+                    Offline Local Brokers
+                  </th>
+                  <th style={{ padding: "20px 24px", color: "#64748b", fontWeight: 600, width: "20%" }}>
+                    Generic Portals
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  {
+                    feature: "Statutory Fee Transparency",
+                    cx: "100% itemized MCA/GST challans provided directly. Zero hidden markup on govt fees.",
+                    offline: "Opaque lump sum pricing with surprise demands later for state stamp duty.",
+                    portals: "Misleading 'Free' claims hiding mandatory recurring monthly retainers.",
+                  },
+                  {
+                    feature: "Professional Expertise",
+                    cx: "Directly handled by qualified CAs, CSs & corporate advocates with verified credentials.",
+                    offline: "Unvetted freelance runners without legal drafting competence.",
+                    portals: "Call center telemarketers reading generic scripts without legal qualification.",
+                  },
+                  {
+                    feature: "MoA & AoA Customization",
+                    cx: "Tailored object clauses, cap table structuring, ESOP reservations, and founder protections.",
+                    offline: "Outdated xerox templates prone to MCA ROC rejection queries.",
+                    portals: "Rigid automated generic form generator unsuitable for VC due diligence.",
+                  },
+                  {
+                    feature: "Post-Incorporation Onboarding",
+                    cx: "Complete 30-day compliance checklist: ADT-1, INC-20A, Board Resolutions & bank setup.",
+                    offline: "Complete abandonment once the Certificate of Incorporation is handed over.",
+                    portals: "Aggressive automated marketing calls demanding expensive add-on subscriptions.",
+                  },
+                  {
+                    feature: "Data Privacy & KYC Security",
+                    cx: "Confidential document vault under strict non-disclosure; zero data monetization.",
+                    offline: "Physical PAN & Aadhaar copies left insecurely at commercial print shops.",
+                    portals: "Founder phone numbers frequently shared with unsolicited third-party lenders.",
+                  },
+                ].map((row, idx) => (
+                  <tr
+                    key={idx}
+                    style={{
+                      borderBottom: idx < 4 ? "1px solid #f1f5f9" : "none",
+                      backgroundColor: idx % 2 === 0 ? "#ffffff" : "#fbfdff",
+                    }}
+                  >
+                    <td style={{ padding: "18px 24px", color: "#0c2340", fontWeight: 600 }}>
+                      {row.feature}
+                    </td>
+                    <td
+                      style={{
+                        padding: "18px 24px",
+                        color: "#0f172a",
+                        fontWeight: 600,
+                        backgroundColor: "#f4f8ff",
+                        borderLeft: "2px solid #0066f5",
+                        borderRight: "2px solid #0066f5",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                        <CheckCircle2 size={16} style={{ color: "#059669", flexShrink: 0, marginTop: "3px" }} />
+                        <span>{row.cx}</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: "18px 24px", color: "#64748b", lineHeight: 1.5 }}>
+                      {row.offline}
+                    </td>
+                    <td style={{ padding: "18px 24px", color: "#64748b", lineHeight: 1.5 }}>
+                      {row.portals}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ SECTION */}
+      <section style={{ padding: "80px 0", backgroundColor: "#ffffff", borderTop: "1px solid #e8edf5" }}>
         <div className="container" style={{ maxWidth: "860px" }}>
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
             <span className="badge badge-blue" style={{ marginBottom: "12px" }}>

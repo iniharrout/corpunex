@@ -27,49 +27,69 @@ export default function ResourcesPage() {
   });
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingBottom: "80px" }}>
-      {/* Hero — Perspective Deep Blue Corridor Hero */}
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
+      {/* Daylight Subpage Hero */}
       <section
-        className="perspective-blue-hero"
         style={{
-          padding: "64px 0 60px",
+          position: "relative",
+          backgroundColor: "#ffffff",
+          padding: "54px 0 46px",
+          borderBottom: "1px solid #edf2f7",
+          overflow: "hidden",
         }}
       >
         <AbstractHeroBackground variant="subpage" />
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <Breadcrumb theme="dark" items={[{ label: "Resources & Articles" }]} />
+          <Breadcrumb items={[{ label: "Resources & Articles" }]} />
 
           <div style={{ maxWidth: "800px" }}>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "4px 14px",
+                padding: "4px 12px",
                 borderRadius: "9999px",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                backgroundColor: "rgba(0, 102, 245, 0.25)",
-                color: "#38bdf8",
-                border: "1px solid rgba(56, 189, 248, 0.4)",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#eff6ff",
+                color: "#0066f5",
+                border: "1px solid #dbeafe",
                 marginBottom: "14px",
-                boxShadow: "0 0 20px rgba(56, 189, 248, 0.15)",
               }}
             >
               Knowledge Hub & Legal Guides
             </span>
-            <h1 style={{ fontSize: "clamp(2.3rem, 4.5vw, 3.5rem)", color: "#ffffff", marginBottom: "16px", lineHeight: "1.15", fontWeight: 800, letterSpacing: "-0.03em" }}>
-              Educational Resources & <span style={{ color: "#38bdf8" }}>Compliance Guides</span>.
+            <h1
+              style={{
+                fontSize: "clamp(2.2rem, 4vw, 3.2rem)",
+                color: "#0c2340",
+                marginBottom: "14px",
+                lineHeight: "1.15",
+                fontWeight: 800,
+                letterSpacing: "-0.03em",
+              }}
+            >
+              Educational Resources &{" "}
+              <span style={{ color: "#0066f5" }}>Compliance Guides.</span>
             </h1>
-            <p style={{ fontSize: "1.15rem", color: "#cbd5e1", lineHeight: "1.7", marginBottom: "32px", fontWeight: 400 }}>
+            <p
+              style={{
+                fontSize: "1.05rem",
+                color: "#475569",
+                lineHeight: "1.65",
+                marginBottom: "26px",
+                fontWeight: 400,
+              }}
+            >
               Clear, practical analysis of Indian corporate laws, company registration checklists, Startup India frameworks, and tax regulations to help founders make informed decisions.
             </p>
 
             {/* Search */}
             <div style={{ position: "relative", maxWidth: "600px" }}>
               <Search
-                size={20}
-                style={{ position: "absolute", left: "18px", top: "50%", transform: "translateY(-50%)", color: "#38bdf8" }}
+                size={18}
+                style={{ position: "absolute", left: "16px", top: "50%", transform: "translateY(-50%)", color: "#0066f5" }}
               />
               <input
                 type="text"

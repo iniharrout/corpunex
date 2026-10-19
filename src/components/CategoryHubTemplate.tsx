@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Shield, Clock, HelpCircle, FileText } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck, Clock, HelpCircle, FileText, ChevronRight } from "lucide-react";
 import Breadcrumb from "./Breadcrumb";
 import ConsultationForm from "./ConsultationForm";
 import FAQAccordion from "./FAQAccordion";
@@ -28,65 +28,91 @@ export default function CategoryHubTemplate({
   };
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingBottom: "80px" }}>
-      {/* Hero — Perspective Blue Architecture with High Contrast Typography */}
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
+      {/* Daylight Subpage Hero */}
       <section
-        className="perspective-blue-hero"
         style={{
-          padding: "68px 0 64px",
+          position: "relative",
+          backgroundColor: "#ffffff",
+          padding: "54px 0 46px",
+          borderBottom: "1px solid #edf2f7",
+          overflow: "hidden",
         }}
       >
         <AbstractHeroBackground variant="subpage" />
 
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <Breadcrumb
-            theme="dark"
             items={[
               { label: "All Services", href: "/services" },
               { label: category.title },
             ]}
           />
 
-          <div style={{ maxWidth: "840px" }}>
+          <div style={{ maxWidth: "820px" }}>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "4px 14px",
+                padding: "4px 12px",
                 borderRadius: "9999px",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                backgroundColor: "rgba(0, 102, 245, 0.25)",
-                color: "#38bdf8",
-                border: "1px solid rgba(56, 189, 248, 0.4)",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#eff6ff",
+                color: "#0066f5",
+                border: "1px solid #dbeafe",
                 marginBottom: "14px",
-                boxShadow: "0 0 16px rgba(0, 102, 245, 0.2)",
               }}
             >
-              Service Category Hub
+              Statutory Service Category
             </span>
-            <h1 style={{ fontSize: "clamp(2.3rem, 4.6vw, 3.4rem)", color: "#ffffff", marginBottom: "16px", lineHeight: "1.14", letterSpacing: "-0.03em", fontWeight: 800, textShadow: "0 2px 25px rgba(0, 0, 0, 0.6)" }}>
+            <h1
+              style={{
+                fontSize: "clamp(2.2rem, 4vw, 3.2rem)",
+                color: "#0c2340",
+                marginBottom: "14px",
+                lineHeight: "1.15",
+                letterSpacing: "-0.03em",
+                fontWeight: 800,
+              }}
+            >
               {category.title}
             </h1>
-            <p style={{ fontSize: "1.2rem", color: "#38bdf8", fontWeight: 700, marginBottom: "16px", lineHeight: "1.5", textShadow: "0 0 25px rgba(56, 189, 248, 0.35)" }}>
+            <p
+              style={{
+                fontSize: "1.12rem",
+                color: "#0066f5",
+                fontWeight: 600,
+                marginBottom: "14px",
+                lineHeight: "1.5",
+              }}
+            >
               {category.shortDesc}
             </p>
-            <p style={{ fontSize: "1.15rem", color: "#cbd5e1", lineHeight: "1.7", marginBottom: "32px", textShadow: "0 1px 10px rgba(0, 0, 0, 0.4)" }}>
+            <p
+              style={{
+                fontSize: "1.04rem",
+                color: "#475569",
+                lineHeight: "1.65",
+                marginBottom: "26px",
+              }}
+            >
               {category.overview}
             </p>
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
               <button
                 onClick={() => handleEnquire(category.title)}
                 className="btn-electric-blue"
               >
                 <span>Request Category Consultation</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </button>
               <Link
                 href="#services-list"
-                className="btn-glass-outline"
+                className="btn-uipath-outline"
               >
                 <span>View All {category.services.length} Services</span>
+                <ChevronRight size={15} />
               </Link>
             </div>
           </div>
@@ -94,15 +120,15 @@ export default function CategoryHubTemplate({
       </section>
 
       {/* Services Grid */}
-      <section id="services-list" style={{ padding: "72px 0", backgroundColor: "#ffffff" }}>
+      <section id="services-list" style={{ padding: "64px 0", backgroundColor: "#ffffff" }}>
         <div className="container">
-          <div style={{ marginBottom: "40px" }}>
+          <div style={{ marginBottom: "36px" }}>
             <span className="badge badge-blue" style={{ marginBottom: "8px" }}>Catalog</span>
-            <h2 style={{ fontSize: "2rem", color: "#0c2340", marginTop: "4px", fontWeight: 800, letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontSize: "1.85rem", color: "#0c2340", marginTop: "4px", fontWeight: 800, letterSpacing: "-0.02em" }}>
               Services Included in {category.title}
             </h2>
-            <p style={{ color: "#515978", fontSize: "0.95rem" }}>
-              Click on detailed guides to view eligibility criteria, required documents, and process steps:
+            <p style={{ color: "#64748b", fontSize: "0.95rem" }}>
+              Review service specifications, statutory procedures, and required documentation:
             </p>
           </div>
 
@@ -111,55 +137,55 @@ export default function CategoryHubTemplate({
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
               gap: "24px",
-              marginBottom: "64px",
+              marginBottom: "56px",
             }}
           >
             {category.services.map((srv, idx) => (
               <div
                 key={idx}
-                className="rzp-card"
+                className="cx-card"
                 style={{
-                  padding: "32px",
+                  padding: "28px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
                 }}
               >
                 <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "14px" }}>
-                    <h3 style={{ fontSize: "1.22rem", color: "#0c2340", fontWeight: 800, margin: 0, lineHeight: "1.3" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
+                    <h3 style={{ fontSize: "1.15rem", color: "#0c2340", fontWeight: 700, margin: 0, lineHeight: "1.3" }}>
                       {srv.title}
                     </h3>
                     {srv.hasDetailPage && (
-                      <span className="badge badge-blue" style={{ fontSize: "0.72rem", padding: "3px 8px" }}>
+                      <span className="badge badge-blue" style={{ fontSize: "0.72rem", padding: "2px 7px" }}>
                         Detailed Guide
                       </span>
                     )}
                   </div>
 
-                  <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "24px" }}>
+                  <p style={{ color: "#475569", fontSize: "0.9rem", lineHeight: "1.6", marginBottom: "20px" }}>
                     {srv.shortDesc}
                   </p>
                 </div>
 
-                <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "14px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   {srv.hasDetailPage && srv.slug ? (
                     <Link
                       href={`/services/${category.slug}/${srv.slug}`}
                       style={{
-                        color: "#0b72e7",
-                        fontWeight: 700,
-                        fontSize: "0.9rem",
+                        color: "#0066f5",
+                        fontWeight: 600,
+                        fontSize: "0.88rem",
                         display: "inline-flex",
                         alignItems: "center",
-                        gap: "6px",
+                        gap: "5px",
                       }}
                     >
                       <span>Read Guide</span>
-                      <ArrowRight size={14} />
+                      <ArrowRight size={13} />
                     </Link>
                   ) : (
-                    <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>Consulting Available</span>
+                    <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Consulting Available</span>
                   )}
 
                   <button
@@ -179,10 +205,10 @@ export default function CategoryHubTemplate({
 
           {/* Category FAQs if available */}
           {categoryFaqs.length > 0 && (
-            <div style={{ marginBottom: "64px", maxWidth: "860px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "#0c2340", marginBottom: "20px" }}>
-                <HelpCircle size={24} style={{ color: "#0b72e7" }} />
-                <h2 style={{ fontSize: "1.45rem", color: "#0c2340", fontWeight: 800 }}>Category FAQs</h2>
+            <div style={{ marginBottom: "56px", maxWidth: "860px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#0c2340", marginBottom: "18px" }}>
+                <HelpCircle size={22} style={{ color: "#0066f5" }} />
+                <h2 style={{ fontSize: "1.4rem", color: "#0c2340", fontWeight: 800 }}>Category FAQs</h2>
               </div>
               <FAQAccordion items={categoryFaqs} />
             </div>
@@ -190,21 +216,20 @@ export default function CategoryHubTemplate({
 
           {/* Bottom Consultation Box */}
           <div
-            className="rzp-card"
+            className="cx-card"
             style={{
-              padding: "44px 38px",
-              backgroundColor: "#ffffff",
-              border: "1px solid #d0e2ff",
-              boxShadow: "0 12px 35px rgba(11, 114, 231, 0.12)",
+              padding: "36px 32px",
+              backgroundColor: "#f8faff",
+              border: "1px solid #dbeafe",
             }}
           >
-            <div style={{ maxWidth: "600px", marginBottom: "24px" }}>
-              <span className="badge badge-blue" style={{ marginBottom: "8px" }}>Direct Consultation</span>
-              <h2 style={{ fontSize: "1.7rem", color: "#0c2340", marginTop: "4px", fontWeight: 800, letterSpacing: "-0.02em" }}>
+            <div style={{ maxWidth: "600px", marginBottom: "22px" }}>
+              <span className="badge badge-blue" style={{ marginBottom: "8px" }}>Direct Advisory</span>
+              <h2 style={{ fontSize: "1.6rem", color: "#0c2340", marginTop: "4px", fontWeight: 800, letterSpacing: "-0.02em" }}>
                 Discuss Your {category.title} Requirements
               </h2>
-              <p style={{ color: "#515978", fontSize: "0.95rem", marginTop: "4px" }}>
-                Send us an enquiry with your business specifics. An advisor will review applicable rules and reply with an itemized proposal.
+              <p style={{ color: "#475569", fontSize: "0.92rem", marginTop: "4px" }}>
+                Connect with our corporate consulting desk. We will review your entity requirements and reply with a complete, itemized cost estimate.
               </p>
             </div>
 

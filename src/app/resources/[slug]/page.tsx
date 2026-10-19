@@ -43,19 +43,21 @@ export default async function IndividualArticlePage({ params }: ArticlePageProps
   }
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", paddingBottom: "80px" }}>
-      {/* Header / Hero — Perspective Deep Blue Corridor Hero */}
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
+      {/* Daylight Subpage Hero */}
       <section
-        className="perspective-blue-hero"
         style={{
-          padding: "64px 0 60px",
+          position: "relative",
+          backgroundColor: "#ffffff",
+          padding: "54px 0 46px",
+          borderBottom: "1px solid #edf2f7",
+          overflow: "hidden",
         }}
       >
         <AbstractHeroBackground variant="subpage" />
 
         <div className="container" style={{ maxWidth: "860px", position: "relative", zIndex: 1 }}>
           <Breadcrumb
-            theme="dark"
             items={[
               { label: "Resources", href: "/resources" },
               { label: article.category, href: "/resources" },
@@ -63,36 +65,44 @@ export default async function IndividualArticlePage({ params }: ArticlePageProps
             ]}
           />
 
-          <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "16px", flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "14px", flexWrap: "wrap" }}>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                padding: "4px 14px",
+                padding: "4px 12px",
                 borderRadius: "9999px",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                backgroundColor: "rgba(0, 102, 245, 0.25)",
-                color: "#38bdf8",
-                border: "1px solid rgba(56, 189, 248, 0.4)",
-                boxShadow: "0 0 20px rgba(56, 189, 248, 0.15)",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#eff6ff",
+                color: "#0066f5",
+                border: "1px solid #dbeafe",
               }}
             >
               {article.category}
             </span>
-            <span style={{ fontSize: "0.85rem", color: "#cbd5e1", display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 600 }}>
-              <Clock size={14} style={{ color: "#38bdf8" }} />
+            <span style={{ fontSize: "0.82rem", color: "#475569", display: "inline-flex", alignItems: "center", gap: "5px", fontWeight: 500 }}>
+              <Clock size={13} style={{ color: "#0066f5" }} />
               <span>{article.readTime}</span>
             </span>
-            <span style={{ color: "rgba(255, 255, 255, 0.4)" }}>•</span>
-            <span style={{ fontSize: "0.85rem", color: "#cbd5e1" }}>{article.publishDate}</span>
+            <span style={{ color: "#cbd5e1" }}>•</span>
+            <span style={{ fontSize: "0.82rem", color: "#64748b" }}>{article.publishDate}</span>
           </div>
 
-          <h1 style={{ fontSize: "clamp(2.1rem, 4vw, 3rem)", color: "#ffffff", marginBottom: "20px", lineHeight: "1.2", fontWeight: 800, letterSpacing: "-0.03em" }}>
+          <h1
+            style={{
+              fontSize: "clamp(2rem, 3.8vw, 2.8rem)",
+              color: "#0c2340",
+              marginBottom: "16px",
+              lineHeight: "1.2",
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
+            }}
+          >
             {article.title}
           </h1>
 
-          <p style={{ fontSize: "1.15rem", color: "#cbd5e1", lineHeight: "1.7", margin: 0, fontWeight: 400 }}>
+          <p style={{ fontSize: "1.06rem", color: "#475569", lineHeight: "1.65", margin: 0, fontWeight: 400 }}>
             {article.summary}
           </p>
         </div>
