@@ -1,0 +1,556 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  /* Typography */
+  --font-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Razorpay Official Color Palette */
+  --rzp-blue: #0b72e7;
+  --rzp-blue-hover: #095ec4;
+  --rzp-blue-light: #eef4ff;
+  --rzp-blue-border: #d0e2ff;
+  --rzp-blue-glow: rgba(11, 114, 231, 0.15);
+
+  --rzp-navy: #0c2340;
+  --rzp-navy-hover: #07172b;
+  --rzp-navy-light: #194389;
+
+  --rzp-green: #00b574;
+  --rzp-green-light: #e6f9f2;
+  --rzp-green-border: #b8f0dc;
+
+  --rzp-orange: #ff8a00;
+  --rzp-orange-light: #fff4e6;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-card: #ffffff;
+  --bg-hero: radial-gradient(circle at 85% 35%, rgba(11, 114, 231, 0.10) 0%, rgba(240, 246, 255, 0.7) 40%, #ffffff 80%);
+
+  --text-headline: #0c2340;
+  --text-main: #2b334a;
+  --text-muted: #515978;
+  --text-dim: #7f8ba4;
+
+  --border-subtle: #e8edf5;
+  --border-default: #dbe3ee;
+  --border-active: #0b72e7;
+
+  --primary: #0b72e7;
+  --primary-hover: #095ec4;
+  --primary-text: #ffffff;
+
+  --shadow-xs: 0 1px 2px rgba(12, 35, 64, 0.05);
+  --shadow-sm: 0 2px 6px rgba(12, 35, 64, 0.06);
+  --shadow-md: 0 6px 18px rgba(12, 35, 64, 0.08);
+  --shadow-lg: 0 14px 30px rgba(12, 35, 64, 0.10);
+  --shadow-card: 0 4px 20px -2px rgba(12, 35, 64, 0.07);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-2xl: 20px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: var(--text-main);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-headline);
+}
+
+p {
+  color: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Razorpay Card Styling */
+.rzp-card,
+.cent-card {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rzp-card:hover,
+.cent-card:hover {
+  border-color: var(--rzp-blue-border);
+  box-shadow: 0 12px 30px -4px rgba(11, 114, 231, 0.12), 0 4px 8px -2px rgba(12, 35, 64, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Razorpay Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--rzp-blue);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(11, 114, 231, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--rzp-blue-hover);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(11, 114, 231, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-secondary,
+.btn-outline {
+  background-color: #ffffff;
+  color: var(--rzp-blue);
+  border: 1px solid var(--rzp-blue-border);
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+  background-color: var(--rzp-blue-light);
+  border-color: var(--rzp-blue);
+  color: var(--rzp-blue);
+}
+
+.btn-dark {
+  background-color: var(--rzp-navy);
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  background-color: var(--rzp-navy-hover);
+  color: #ffffff;
+}
+
+/* Razorpay Badges & Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  width: fit-content;
+}
+
+.badge-blue,
+.badge-purple {
+  background-color: var(--rzp-blue-light);
+  color: var(--rzp-blue);
+  border: 1px solid var(--rzp-blue-border);
+}
+
+.badge-green {
+  background-color: var(--rzp-green-light);
+  color: var(--rzp-green);
+  border: 1px solid var(--rzp-green-border);
+}
+
+.badge-amber {
+  background-color: var(--rzp-orange-light);
+  color: var(--rzp-orange);
+  border: 1px solid #fed7aa;
+}
+
+.badge-neutral {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.badge-dark {
+  background-color: var(--rzp-navy);
+  color: #ffffff;
+}
+
+/* Floating Selector Strip (Razorpay Signature) */
+.rzp-selector-bar {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 8px 30px rgba(12, 35, 64, 0.08);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rzp-selector-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-full);
+  color: var(--rzp-navy);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.rzp-selector-pill:hover,
+.rzp-selector-pill.active {
+  background-color: var(--rzp-blue-light);
+  border-color: var(--rzp-blue);
+  color: var(--rzp-blue);
+}
+
+.rzp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #ffffff;
+  color: #0c2340;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.rzp-pill:hover {
+  background-color: #eff6ff;
+  color: #0066f5;
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.rzp-dark-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.rzp-dark-pill:hover {
+  background-color: #ffffff;
+  color: #071e3d;
+  border-color: #ffffff;
+}
+
+/* Table styles */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.styled-table th {
+  background-color: #f8fafc;
+  color: var(--rzp-navy);
+  font-weight: 700;
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.9rem;
+}
+
+.styled-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.styled-table tr:last-child td {
+  border-bottom: none;
+}
+
+.styled-table tr:hover td {
+  background-color: #fcfdfe;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--rzp-blue);
+}
+
+.breadcrumb-separator {
+  color: var(--border-default);
+}
+
+.breadcrumb-current {
+  color: var(--rzp-navy);
+  font-weight: 600;
+}
+
+/* Corporate Form Controls */
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0c2340;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100% !important;
+  display: block;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  color: #0c2340;
+  background-color: #ffffff;
+  border: 1.5px solid #d0d7de;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: #94a3b8;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--rzp-blue) !important;
+  box-shadow: 0 0 0 3px rgba(11, 114, 231, 0.15) !important;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23515978' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.footer-link {
+  color: #515978;
+  font-size: 0.88rem;
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #0b72e7;
+  transform: translateX(2px);
+}
+
+/* =========================================================================
+   UIPATH-INSPIRED HERO SYSTEM
+   Light, luminous canvas with abstract mosaic background & electric blue accents
+   ========================================================================= */
+.uipath-style-hero,
+.uipath-welcoming-hero {
+  position: relative;
+  background-color: #ffffff;
+  background: 
+    radial-gradient(ellipse 70% 50% at 80% 20%, rgba(0, 102, 245, 0.06) 0%, rgba(56, 189, 248, 0.03) 40%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(254, 215, 170, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #f8faff 0%, #edf4fc 40%, #ffffff 100%);
+  color: #0c2340;
+  overflow: hidden;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Bright Electric Blue Primary Button (Razorpay / UiPath) */
+.btn-electric-blue {
+  background-color: #0066f5;
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-size: 0.98rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 102, 245, 0.35);
+  transition: all 0.2s ease;
+  border: 1px solid #0056d6;
+  cursor: pointer;
+}
+
+.btn-electric-blue:hover {
+  background-color: #0052cc;
+  box-shadow: 0 6px 20px rgba(0, 102, 245, 0.45);
+  transform: translateY(-1px);
+}
+
+/* UiPath Sharp Dark Outline Secondary Button */
+.btn-uipath-outline {
+  background-color: #ffffff;
+  color: #0c2340 !important;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border: 1.5px solid #0c2340;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-uipath-outline:hover {
+  background-color: #f1f5f9;
+  border-color: #0066f5;
+  color: #0066f5 !important;
+}
+
+/* =========================================================================
+   PERSPECTIVE BLUE HERO SYSTEM (User Brand Image Asset)
+   Cinematic deep cobalt/midnight canvas with electric blue perspective pillars
+   ========================================================================= */
+.perspective-blue-hero {
+  position: relative;
+  background-color: #020b1e;
+  color: #ffffff;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.btn-glass-outline {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  font-size: 0.98rem;
+  text-decoration: none;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-glass-outline:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: #38bdf8;
+  color: #38bdf8 !important;
+}
+
+
