@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import type { ServicePageContent } from "@/content/services/types";
 import { site, timeline } from "@/config/site";
-import { ENTITY_LABEL, inr, PROFESSIONAL_FEE, type EntityType } from "@/lib/fees";
+import { ENTITY_LABEL, type EntityType } from "@/lib/fees";
 import ComparisonTable from "@/components/pricing/ComparisonTable";
 import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
@@ -12,10 +12,9 @@ import CallbackButton from "@/components/callback/CallbackButton";
 import { Art, artForPath } from "@/components/illustrations/artFor";
 import styles from "./ServicePage.module.css";
 
-/** Price summary for incorporations: our fee only. Government fees are quoted per case. */
+/** Summary rows for incorporations. No prices are published; every quote is individual. */
 function sampleFees(content: ServicePageContent) {
-  if (!content.entity) return null;
-  return { professional: PROFESSIONAL_FEE[content.entity] };
+  return content.entity ? {} : null;
 }
 
 /** The two other structures, for the comparison heading. */
@@ -32,10 +31,10 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
       {sample && (
         <dl className={styles.quoteFacts}>
           <div>
-            <dt>Our fee</dt>
+            <dt>Your quote</dt>
             <dd>
-              <span className={`tabular ${styles.quotePrice}`}>from {inr(sample.professional)}</span>
-              <span className={styles.quoteNote}>+ 18% GST</span>
+              Free and itemised
+              <span className={styles.quoteNote}>In writing, before we start</span>
             </dd>
           </div>
           <div>
@@ -73,9 +72,6 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
         </ButtonLink>
         <CallbackButton block topic={content.callbackTopic ?? "Register a company or LLP"} />
       </div>
-      <div className={styles.quoteLinks}>
-        <Link href="/pricing">See how our pricing works</Link>
-      </div>
     </aside>
   );
 }
@@ -90,14 +86,6 @@ export default function ServicePage({ content }: { content: ServicePageContent }
     url,
     areaServed: { "@type": "Country", name: "India" },
     provider: { "@type": "Organization", name: site.name, url: site.url },
-    ...(content.entity && {
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "INR",
-        price: PROFESSIONAL_FEE[content.entity],
-        description: "Professional fee, excluding GST and government fees",
-      },
-    }),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",

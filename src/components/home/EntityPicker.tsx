@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { incorporationTiers } from "@/content/pricing";
-import { inr } from "@/lib/fees";
+import { incorporationTiers } from "@/content/entities";
 import CallbackButton from "@/components/callback/CallbackButton";
 import { People } from "@/components/illustrations/Spots";
 import styles from "./EntityPicker.module.css";
@@ -47,10 +46,6 @@ export default function EntityPicker() {
                   <li key={p}>{p}</li>
                 ))}
               </ul>
-              <p className={styles.price}>
-                <span className={styles.from}>from</span> <span className="tabular">{inr(t.price)}</span>
-                <span className={styles.plus}> + GST</span>
-              </p>
               <Link href={t.href} className={styles.link}>
                 See what&apos;s included
                 <ArrowRight size={16} strokeWidth={2} aria-hidden />
@@ -58,7 +53,7 @@ export default function EntityPicker() {
             </li>
           ))}
         </ul>
-        <p className={styles.note}>Government fees and digital signatures are extra, charged at actual cost, and listed separately in your quote.</p>
+        <p className={styles.note}>Every quote is itemised and in writing, with government fees shown separately, before you pay anything.</p>
       </div>
     </section>
   );

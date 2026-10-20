@@ -1,12 +1,11 @@
 import { timeline } from "@/config/site";
-import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import type { ServicePageContent } from "./types";
 
 export const llp: ServicePageContent = {
   path: "/services/business-registration/llp-registration",
   name: "LLP registration",
   metaTitle: "LLP registration in India: fees, documents, timeline",
-  metaDescription: `Register a Limited Liability Partnership with the MCA in ${timeline.short}. Professional fee from ${inr(PROFESSIONAL_FEE.llp)} + GST; government fees and stamp duty shown separately.`,
+  metaDescription: `Register a Limited Liability Partnership with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Start", href: "/services/business-registration" },
@@ -46,7 +45,7 @@ export const llp: ServicePageContent = {
   ],
   excluded: [
     "Government fees and stamp duty on the LLP agreement (we charge exactly what the government charges)",
-    "Digital signatures for partners (about ₹1,000 per person)",
+    "Digital signatures for partners",
     "Attesting documents signed outside India",
     "GST registration, if you need it separately",
     "Yearly filings (Form 8 and Form 11)",

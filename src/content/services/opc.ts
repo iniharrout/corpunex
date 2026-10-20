@@ -1,12 +1,11 @@
 import { timeline } from "@/config/site";
-import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import type { ServicePageContent } from "./types";
 
 export const opc: ServicePageContent = {
   path: "/services/business-registration/one-person-company",
   name: "One Person Company registration",
   metaTitle: "One Person Company (OPC) registration in India: fees, documents, timeline",
-  metaDescription: `Register a One Person Company with the MCA in ${timeline.short}. Professional fee from ${inr(PROFESSIONAL_FEE.opc)} + GST; government fees and stamp duty shown separately.`,
+  metaDescription: `Register a One Person Company with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Start", href: "/services/business-registration" },
@@ -47,7 +46,7 @@ export const opc: ServicePageContent = {
   ],
   excluded: [
     "Government fees and stamp duty (we charge exactly what the government charges)",
-    "Your digital signature (about ₹1,000)",
+    "Your digital signature",
     "GST registration, if you need it separately",
     "Auditor's fee and yearly filings",
   ],

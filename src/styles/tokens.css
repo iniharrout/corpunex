@@ -2,9 +2,9 @@
  * Corpunex design tokens — the single source for colour, type, spacing,
  * radius, elevation and motion. Components read these variables only.
  *
- * Direction: clean and professional (in the spirit of razorpay.com):
- * white surfaces, deep navy text, one confident blue, soft shadows.
- * The hand-drawn spot illustrations keep their colourful fills.
+ * Direction: bright and professional (in the spirit of hubspot.com and
+ * razorpay.com): white surfaces, a vivid brand blue, navy text, soft
+ * shadows. The hand-drawn spot illustrations keep their colourful fills.
  */
 
 :root {
@@ -27,14 +27,14 @@
   --color-pink: #ffa8c5;
 
   /* Soft tints for bands, cards and illustration backdrops */
-  --color-sky: #eaf2ff;
+  --color-sky: #e8efff;
   --color-mint: #e6f6ee;
   --color-sun: #fff6dc;
   --color-peach: #ffefe8;
   --color-lilac-tint: #f1edff;
   --color-pink-tint: #ffeef3;
 
-  --color-sky-strong: #1a56f0;
+  --color-sky-strong: #0047d6;
   --color-mint-strong: #11734a;
   --color-sun-strong: #7a5200;
   --color-peach-strong: #a83a18;
@@ -45,13 +45,18 @@
   --color-line-input: #8a97aa;    /* control edges, 3.0:1 on white */
 
   /* Actions */
-  --color-cta: #1a56f0;
-  --color-accent: #1a56f0;        /* white on it 5.8:1 */
-  --color-accent-hover: #1244c4;
-  --color-accent-tint: #eaf2ff;
+  --color-cta: #0057ff;
+  --color-accent: #0057ff;        /* brand blue: white on it 5.5:1, on white 5.5:1 */
+  --color-accent-hover: #0046cc;
+  --color-accent-tint: #e8efff;
+
+  /* Bright brand band (hero, closing CTAs) */
+  --color-brand-band: #0057ff;
+  --color-on-brand: #ffffff;
+  --color-on-brand-muted: #e6efff; /* 4.8:1 on brand blue */
 
   /* Headline emphasis: coloured text, not a marker */
-  --color-highlight: #1a56f0;
+  --color-highlight: #0057ff;
 
   /* Navy bands */
   --color-ink-band: #0b1b33;
@@ -62,7 +67,7 @@
 
   --color-error: #b42318;
   --color-success: #11734a;
-  --color-focus: #1a56f0;
+  --color-focus: #0057ff;
 
   /* ── Typography ─────────────────────────────────────────── */
   --font-display: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
@@ -123,7 +128,7 @@
 
   /* ── Elevation: soft and layered ────────────────────────── */
   --shadow-card: 0 0 0 1px rgb(11 27 51 / 0.06), 0 1px 2px rgb(11 27 51 / 0.04), 0 8px 24px -10px rgb(11 27 51 / 0.12);
-  --shadow-card-hover: 0 0 0 1px rgb(26 86 240 / 0.18), 0 2px 4px rgb(11 27 51 / 0.05), 0 18px 40px -14px rgb(11 27 51 / 0.22);
+  --shadow-card-hover: 0 0 0 1px rgb(0 87 255 / 0.18), 0 2px 4px rgb(11 27 51 / 0.05), 0 18px 40px -14px rgb(11 27 51 / 0.22);
   --shadow-press: 0 0 0 1px rgb(11 27 51 / 0.08), 0 1px 2px rgb(11 27 51 / 0.06);
   --shadow-menu: 0 0 0 1px rgb(11 27 51 / 0.06), 0 24px 48px -16px rgb(11 27 51 / 0.25);
   --shadow-bar: 0 -4px 16px rgb(11 27 51 / 0.08);

@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Core static pages
   const staticPages = [
     "",
-    "/pricing",
     "/about",
     "/services",
     "/resources",

@@ -1,5 +1,4 @@
 import { timeline } from "@/config/site";
-import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import type { Faq } from "@/components/shared/FaqList";
 
 /** Homepage copy, written for someone starting their first company. */
@@ -112,7 +111,8 @@ export const homeFaqs: Faq[] = [
   },
   {
     question: "How much does it cost?",
-    answer: `Our fee for a Private Limited company starts at ${inr(PROFESSIONAL_FEE.pvt)} plus GST. On top of that are government fees and digital signatures, which depend on your state and number of directors. We list every one of them separately in your written quote before you pay anything.`,
+    answer:
+      "It depends on the type of company, your state and the number of directors. Request a call back or send us a message and we'll send you a free, itemised quote, with government fees and our fee shown separately, before you pay anything.",
   },
   {
     question: "Do I need an office to register a company?",

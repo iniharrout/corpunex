@@ -13,9 +13,10 @@
 .info {
   padding: var(--space-7) var(--space-5);
   background:
-    radial-gradient(ellipse 70% 60% at 0% 0%, rgb(26 86 240 / 0.5), transparent 70%),
-    var(--color-ink-band);
-  color: var(--color-on-ink);
+    radial-gradient(ellipse 70% 60% at 0% 0%, rgb(255 255 255 / 0.16), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgb(122 162 255 / 0.5), transparent 70%),
+    var(--color-brand-band);
+  color: var(--color-on-brand);
 }
 
 .eyebrow {
@@ -23,19 +24,19 @@
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-on-ink-accent);
+  color: var(--color-on-brand-muted);
 }
 
 .title {
   margin-top: var(--space-2);
   font-size: var(--text-h2);
   max-width: 14ch;
-  color: var(--color-on-ink);
+  color: var(--color-on-brand);
 }
 
 .lead {
   margin-top: var(--space-3);
-  color: var(--color-on-ink-muted);
+  color: var(--color-on-brand-muted);
 }
 
 .steps {
@@ -61,17 +62,17 @@
   box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.2);
   font-size: var(--text-small);
   font-weight: var(--weight-bold);
-  color: var(--color-on-ink);
+  color: var(--color-on-brand);
 }
 
 .stepTitle {
   font-weight: var(--weight-semibold);
-  color: var(--color-on-ink);
+  color: var(--color-on-brand);
 }
 
 .stepBody {
   font-size: var(--text-small);
-  color: var(--color-on-ink-muted);
+  color: var(--color-on-brand-muted);
 }
 
 .direct {
@@ -79,7 +80,7 @@
   flex-wrap: wrap;
   gap: var(--space-3) var(--space-6);
   padding-top: var(--space-5);
-  border-top: 1px solid var(--color-on-ink-line);
+  border-top: 1px solid rgb(255 255 255 / 0.25);
 }
 
 .direct a,
@@ -94,13 +95,15 @@
   font: inherit;
   font-size: var(--text-small);
   font-weight: var(--weight-semibold);
-  color: var(--color-on-ink);
+  color: var(--color-on-brand);
   text-decoration: none;
   cursor: pointer;
 }
 
 .callback {
-  color: var(--color-on-ink-accent);
+  color: var(--color-on-brand);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .info :focus-visible {

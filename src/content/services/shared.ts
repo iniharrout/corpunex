@@ -1,10 +1,9 @@
 /**
- * Price card row for services whose fee is not in `lib/fees.ts` yet.
- * It says "Get a quote", matching the pricing page, until a "from" price
- * is confirmed (see PLACEHOLDERS.md).
+ * Quote row for service price cards. Prices are not published on the
+ * site; every quote is individual.
  */
 export const quoteOnRequest = {
-  label: "Our fee",
-  value: "Get a quote",
+  label: "Your quote",
+  value: "Free and itemised",
   note: "Itemised and in writing, before we start",
 };

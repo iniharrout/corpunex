@@ -1,12 +1,11 @@
 import { timeline } from "@/config/site";
-import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import type { ServicePageContent } from "./types";
 
 export const privateLimited: ServicePageContent = {
   path: "/services/business-registration/private-limited-company",
   name: "Private Limited Company registration",
   metaTitle: "Private Limited Company registration in India: fees, documents, timeline",
-  metaDescription: `Register a Private Limited company with the MCA in ${timeline.short}. Professional fee from ${inr(PROFESSIONAL_FEE.pvt)} + GST; government fees and stamp duty shown separately.`,
+  metaDescription: `Register a Private Limited company with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Start", href: "/services/business-registration" },
@@ -47,7 +46,7 @@ export const privateLimited: ServicePageContent = {
   ],
   excluded: [
     "Government fees and stamp duty (we charge exactly what the government charges)",
-    "Digital signatures for directors (about ₹1,000 per person)",
+    "Digital signatures for directors",
     "Attesting documents signed outside India",
     "GST registration, if you need it separately",
     "Auditor's fee and yearly filings",

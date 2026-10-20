@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import ClientLogos from "@/components/home/ClientLogos";
-import Paths from "@/components/home/Paths";
 import HowItWorks from "@/components/home/HowItWorks";
 import EntityPicker from "@/components/home/EntityPicker";
 import Benefits from "@/components/home/Benefits";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
       <ClientLogos />
-      <Paths />
       <HowItWorks />
       <EntityPicker />
       <Benefits />

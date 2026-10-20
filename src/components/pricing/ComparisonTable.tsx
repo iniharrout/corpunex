@@ -1,5 +1,4 @@
-import { comparisonRows, incorporationTiers } from "@/content/pricing";
-import { inr } from "@/lib/fees";
+import { comparisonRows, incorporationTiers } from "@/content/entities";
 import styles from "./pricing.module.css";
 
 export default function ComparisonTable({ caption }: { caption: string }) {
@@ -28,14 +27,6 @@ export default function ComparisonTable({ caption }: { caption: string }) {
               ))}
             </tr>
           ))}
-          <tr className={styles.priceRow}>
-            <th scope="row">Our fee from</th>
-            {incorporationTiers.map((t) => (
-              <td key={t.entity} className="tabular">
-                {inr(t.price)} + GST
-              </td>
-            ))}
-          </tr>
         </tbody>
       </table>
     </div>

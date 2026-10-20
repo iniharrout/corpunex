@@ -2,17 +2,17 @@
 
 ## Direction
 
-Clean and professional, in the spirit of razorpay.com, while keeping the hand-drawn spot illustrations founders liked (rocket, calculator, medal, globe, chat, folder, certificate, people, phone, paper plane) and the hero scene.
+Bright and professional, in the spirit of hubspot.com and razorpay.com, while keeping the hand-drawn spot illustrations founders liked (rocket, calculator, medal, globe, chat, folder, certificate, people, phone, paper plane) and the hero scene.
 
-- **White surfaces, deep navy, one confident blue.** Navy (`#0b1b33`) for text and illustration line work, blue (`#1a56f0`) for actions and emphasis, and navy bands for the fact strip, the "Why Corpunex" grid and the closing call to action.
+- **White surfaces, navy text, a vivid brand blue.** Brand blue (`#0057ff`) for the hero, buttons, links and closing panels; navy (`#0b1b33`) for text and line work; dark navy only in the footer.
 - **Crisp type.** Inter throughout. Headings are bold with tight tracking; key headline words are set in blue rather than highlighted.
 - **Soft, layered cards.** A white card with a hairline edge and a soft shadow that deepens and lifts slightly on hover. Rounded 10–20px corners.
 - **Illustrations carry the colour.** Their yellow, coral, blue and green fills sit on soft tints, so the pages stay calm while the drawings stay friendly.
-- **Navigation.** A slim navy top bar (Guides, FAQ, Contact, email, Request a call back) above a white main bar (Services menu, Pricing, Guides, About, "Talk to an expert", "Get started"). The Services menu groups links under five labelled headings with icons, and has a footer strip with a call-back button.
-- **Hero.** A navy-to-blue gradient with a faint grid, a white "Get started" button, and a layered visual built from the illustrations: a registration progress card, a certificate card and a CA/CS card.
+- **Navigation.** A slim light-grey top bar (Guides, FAQ, Contact, email, Request a call back) above a white main bar (Services menu, Guides, About, Contact, "Talk to an expert", "Get started").
+- **Hero.** A bright blue, centred hero: "Company registration and compliance, done for you", a plain explanation, and an "I want to…" picker that jumps to the right service page. The four illustrated starting-point cards rise out of the bottom edge of the hero.
 - **Calm motion.** 150–220ms fades and lifts, sections that rise into view through CSS scroll-driven animation (`data-reveal`), and a gently bobbing rocket in the hero. All of it is off under `prefers-reduced-motion`.
 - **Help is always one tap away.** "Request a call back" opens a pop-up (name, mobile, topic). No phone number or WhatsApp link appears anywhere; email is the only direct contact.
-- **Honest content.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant. Nothing unconfirmed is shown.
+- **No public prices.** Prices are not published anywhere on the site (`/pricing` redirects to `/contact`). Every quote is free, itemised and sent individually. Timelines come from one constant. Nothing unconfirmed is shown.
 
 ## Tokens
 
@@ -23,7 +23,7 @@ All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css).
 | `--color-ink` | `#0b1b33` | Headlines, line art, navy bands | 17.2:1 on white |
 | `--color-ink-soft` | `#3a4a63` | Body copy | 9.0:1 |
 | `--color-ink-muted` | `#5b6b82` | Secondary copy | 5.4:1 on white, 4.8:1+ on tints |
-| `--color-accent` | `#1a56f0` | Buttons, links, headline emphasis | White on it 5.8:1 |
+| `--color-accent` / `--color-brand-band` | `#0057ff` | Hero, buttons, links, closing panels | White on it 5.5:1 |
 | `--color-on-ink-muted` / `-accent` | `#b8c4d6` / `#7fb0ff` | Text on navy | 9.8:1 / 7.8:1 |
 | `--color-sky` `-mint` `-sun` `-peach` `-lilac-tint` | soft tints | Bands, icon tiles, page headers | — |
 | `--color-yellow` `-coral` `-blue` `-green` | illustration fills | Spot illustrations only | — |
