@@ -1,68 +1,68 @@
 import type { ServicePageContent } from "./types";
-import { feeToConfirm, stepsIntroToConfirm, turnaroundToConfirm } from "./shared";
+import { quoteOnRequest } from "./shared";
 
 export const fssaiLicence: ServicePageContent = {
   path: "/services/licences-registrations/fssai-licence",
   name: "FSSAI registration and licence",
-  metaTitle: "FSSAI registration and licence in India: Basic, State and Central",
+  metaTitle: "FSSAI registration and food licence in India: Basic, State and Central",
   metaDescription:
-    "FSSAI Basic registration, State licence or Central licence for restaurants, cloud kitchens, manufacturers and food traders, filed on FoSCoS.",
+    "FSSAI Basic registration, State licence or Central licence for restaurants, cloud kitchens, home bakers, food makers and food sellers.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Licences", href: "/services/licences-registrations" },
     { label: "FSSAI", href: "/services/licences-registrations/fssai-licence" },
   ],
-  headline: "The right FSSAI licence for your food business.",
-  lead: "Every food business in India needs FSSAI registration or a licence before it starts trading. We work out whether you need Basic registration, a State licence or a Central licence, prepare the documents and file on FoSCoS.",
+  headline: "The right food licence for your food business.",
+  lead: "Anyone who makes, sells or delivers food in India needs FSSAI registration or a licence before they start. There are three levels, depending on your size and what you do. We work out which one you need, prepare the documents and apply for you.",
   quoteFacts: [
-    { label: "Government fee", value: "[VERIFY: fee by licence type, per year]", note: "Paid at cost, receipts provided" },
-    feeToConfirm,
-    turnaroundToConfirm("FSSAI registration or licence"),
+    { label: "Government fee", value: "Depends on the licence", note: "We charge exactly what the government charges" },
+    quoteOnRequest,
   ],
+  callbackTopic: "Something else",
 
   forWho: [
     "Restaurants, cafés, bakeries, cloud kitchens and caterers.",
-    "Food manufacturers, repackers and cold storage operators.",
-    "Sellers of food on delivery apps and online stores.",
-    "Importers and exporters of food.",
+    "Home bakers and cooks who sell what they make.",
+    "Food makers, packers and cold storage businesses.",
+    "Sellers on food delivery apps and online stores.",
+    "Anyone importing or exporting food.",
   ],
   notFor: [],
 
   included: [
-    "Advice on whether you need Basic registration, a State licence or a Central licence",
-    "Preparation of the application and supporting documents",
-    "Filing on FoSCoS",
-    "Follow-up on officer queries and inspection",
-    "Your FSSAI certificate and FoSCoS login",
+    "Working out whether you need Basic registration, a State licence or a Central licence",
+    "Preparing your application and documents",
+    "Applying on the FSSAI portal (FoSCoS)",
+    "Following up on questions and any inspection",
+    "Your FSSAI certificate and portal login",
   ],
   excluded: [
-    "The FSSAI government fee (paid at cost)",
-    "Water testing and other laboratory reports",
-    "Annual returns, unless quoted",
+    "The FSSAI government fee (we charge exactly what the government charges)",
+    "Water testing and other lab reports",
+    "Yearly FSSAI returns, unless quoted",
   ],
 
   documents: [
-    { document: "Photo ID and address proof", from: "Proprietor, partners or directors" },
-    { document: "Proof of premises", from: "The business", note: "Rent agreement, utility bill and owner's no-objection letter" },
-    { document: "List of food products", from: "The business" },
-    { document: "Layout plan of the unit", from: "The business", note: "Manufacturers only" },
-    { document: "Water test report", from: "Recognised laboratory", note: "Manufacturers and beverage units" },
+    { document: "Photo ID and address proof", from: "The owner, partners or directors" },
+    { document: "Proof of your premises", from: "The business", note: "Rent agreement, utility bill and the owner's no-objection letter" },
+    { document: "List of the food you'll make or sell", from: "The business" },
+    { document: "Layout plan of your kitchen or unit", from: "The business", note: "Food makers only" },
+    { document: "Water test report", from: "An approved lab", note: "Food makers and drinks businesses only" },
   ],
 
   milestones: [
-    { when: "Step 1", title: "Licence type confirmed", detail: "We assess your turnover, capacity and activity to pick the right licence." },
-    { when: "Step 2", title: "Application filed", detail: "We file Form A (registration) or Form B (licence) on FoSCoS." },
-    { when: "Step 3", title: "Scrutiny and inspection", detail: "We answer officer queries and help you prepare for any inspection." },
-    { when: "Step 4", title: "Certificate issued", detail: "FSSAI issues your 14-digit registration or licence number." },
+    { when: "Step 1", title: "Licence level picked", detail: "We look at your size and what you do, and pick the right licence." },
+    { when: "Step 2", title: "Application filed", detail: "We apply on the FSSAI portal." },
+    { when: "Step 3", title: "Checks and inspection", detail: "We answer the officer's questions and help you get ready for any visit." },
+    { when: "Step 4", title: "Licence issued", detail: "You get your 14-digit FSSAI number." },
   ],
-  stepsIntro: stepsIntroToConfirm("FSSAI registration and licences"),
-  stepsDelays: "Inspection scheduling and missing laboratory reports are the usual causes of delay.",
+  stepsDelays: "Waiting for an inspection and missing lab reports are the usual reasons for delay.",
 
   process: [
     {
-      title: "Call and quote",
-      you: "Tell us what you make or sell, where, and your expected turnover.",
-      us: "Confirm the licence type and send a written quote.",
+      title: "Talk to us",
+      you: "Tell us what you make or sell, where, and roughly how much you expect to sell.",
+      us: "Pick the right licence and send a written quote.",
     },
     {
       title: "Documents",
@@ -71,13 +71,13 @@ export const fssaiLicence: ServicePageContent = {
     },
     {
       title: "Filing and inspection",
-      you: "Keep the premises ready for any inspection.",
-      us: "File the application and answer queries.",
+      you: "Keep your kitchen or unit ready in case an officer visits.",
+      us: "File the application and answer questions.",
     },
     {
       title: "Handover",
-      you: "Display your FSSAI number on packaging and menus.",
-      us: "Send the certificate and your renewal date.",
+      you: "Show your FSSAI number on your packaging and menus.",
+      us: "Send your certificate and tell you when to renew.",
     },
   ],
 
@@ -85,26 +85,26 @@ export const fssaiLicence: ServicePageContent = {
     {
       question: "Which licence do I need?",
       answer:
-        "It depends on turnover, production capacity and activity. Small businesses need Basic registration, mid-sized ones a State licence, and large manufacturers and importers a Central licence. [VERIFY: current turnover limits for each type]",
+        "Small businesses need Basic registration. Mid-sized businesses need a State licence. Large food makers, businesses in several states and importers need a Central licence. We'll tell you which one fits you.",
     },
     {
       question: "Can I sell home-made food online without FSSAI?",
-      answer: "No. Selling food commercially, including from home or through apps, needs at least Basic registration.",
+      answer: "No. Selling food, including from home or through apps, needs at least Basic registration.",
     },
     {
-      question: "How long is a licence valid?",
-      answer: "You choose a validity of 1 to 5 years when you apply. It must be renewed before it expires.",
+      question: "How long does a licence last?",
+      answer: "You pick 1 to 5 years when you apply. You need to renew it before it runs out.",
     },
   ],
 
   related: [
     { label: "GST registration", href: "/services/gst-taxation/gst-registration", description: "Often needed by food businesses" },
     { label: "Trademark registration", href: "/services/trademark-ip/trademark-registration", description: "Protect your brand and packaging" },
-    { label: "Udyam (MSME) registration", href: "/services/startup-services/udyam-msme-registration", description: "Access MSME schemes" },
+    { label: "Udyam (MSME) registration", href: "/services/startup-services/udyam-msme-registration", description: "Get access to small business schemes" },
   ],
 
   cta: {
-    title: "Opening a food business?",
-    body: "Tell us what you make or sell and where. We will confirm the licence you need and send a quote.",
+    title: "Starting a food business?",
+    body: "Tell us what you make or sell and where. We'll tell you which licence you need and send a quote.",
   },
 };

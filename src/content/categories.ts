@@ -18,6 +18,9 @@ export interface Category {
   metaTitle: string;
   metaDescription: string;
   headline: string;
+  /** Phrase inside `headline` shown with the highlighter. */
+  highlight: string;
+  tone: "sky" | "mint" | "sun" | "peach";
   lead: string;
   services: CategoryService[];
   /** Key into `faqGroups` in `content/faqs.ts`. */
@@ -35,8 +38,10 @@ export const categories: Category[] = [
     metaTitle: "Business registration in India: Private Limited, LLP, OPC and proprietorship",
     metaDescription:
       "Register a Private Limited company, LLP, One Person Company or proprietorship in India, with government fees and our fee shown separately.",
-    headline: "Pick the right structure, then register it properly.",
-    lead: "The structure you choose decides who can invest, what you file each year and what you are personally liable for. We help you choose, then handle the name, drafting and MCA filings.",
+    headline: "Pick the right type of business, then register it properly.",
+    highlight: "register it properly.",
+    tone: "sky",
+    lead: "The type of business you choose decides who can invest, what you file each year and whether your personal savings are protected. We help you choose, then handle the name, the paperwork and the government filings.",
     faqGroup: "incorporation",
     services: [
       {
@@ -56,15 +61,15 @@ export const categories: Category[] = [
       },
       {
         label: "Sole proprietorship setup",
-        description: "Udyam, GST and Shops and Establishments registrations so a bank will open a current account.",
+        description: "The registrations a bank needs before it will open a current account in your business name.",
         href: svc("business-registration", "sole-proprietorship"),
       },
-      { label: "Partnership firm", description: "Partnership deed, stamping and registration with the Registrar of Firms." },
+      { label: "Partnership firm", description: "Your partnership agreement (deed), stamped and registered with the state." },
       { label: "Section 8 company", description: "A non-profit company for charity, education, science or social welfare." },
-      { label: "Public limited company", description: "For businesses that need more than 200 shareholders or plan to list." },
+      { label: "Public limited company", description: "For businesses that need more than 200 shareholders or plan to list on the stock market." },
       { label: "Producer company", description: "For farmer and primary-producer collectives." },
       { label: "Indian subsidiary", description: "For foreign companies setting up a wholly owned subsidiary or joint venture in India." },
-      { label: "Digital signatures", description: "Class 3 DSCs for directors and partners, from a licensed certifying authority." },
+      { label: "Digital signatures", description: "The online signature directors and partners use to sign government forms." },
     ],
   },
   {
@@ -75,8 +80,10 @@ export const categories: Category[] = [
     metaTitle: "Startup services: DPIIT recognition, Startup Odisha and Udyam",
     metaDescription:
       "DPIIT Startup India recognition, Startup Odisha registration, Udyam (MSME) registration and startup legal documents.",
-    headline: "Government recognition for your startup, applied for properly.",
-    lead: "DPIIT recognition opens the 80-IAC tax exemption and central schemes. State programmes such as Startup Odisha add their own support. We check eligibility first and write each application to the published criteria.",
+    headline: "Get your startup recognised and ready for support.",
+    highlight: "recognised",
+    tone: "sun",
+    lead: "Startup India recognition from DPIIT opens up tax benefits and government schemes. State programmes such as Startup Odisha add their own support. We check you qualify first, then write each application the way the government expects.",
     faqGroup: "startups",
     services: [
       {
@@ -86,15 +93,15 @@ export const categories: Category[] = [
       },
       {
         label: "Startup Odisha",
-        description: "Registration under the Odisha Startup Policy for state allowances, grants and incubators.",
+        description: "Registration with the state for its allowances, grants and incubator places.",
         href: svc("startup-services", "startup-odisha"),
       },
       {
         label: "Udyam (MSME) registration",
-        description: "MSME registration for priority lending and protection against late payment.",
+        description: "The government's small business register, for easier loans and protection when buyers pay late.",
         href: svc("startup-services", "udyam-msme-registration"),
       },
-      { label: "Founder documents", description: "Co-founder agreements, term sheet review and IP assignment deeds." },
+      { label: "Founder documents", description: "Co-founder agreements, investor term sheet reviews, and documents that put your product's ownership in the company's name." },
       { label: "Scheme applications", description: "Applications under central and state funding schemes." },
       { label: "Incubator applications", description: "Documents and deck review for incubator programmes." },
     ],
@@ -107,25 +114,27 @@ export const categories: Category[] = [
     metaTitle: "GST and tax services: GST registration, returns, TDS and income tax",
     metaDescription:
       "GST registration and returns, TDS returns and income tax returns for companies, LLPs and proprietors, reviewed by Chartered Accountants.",
-    headline: "GST and income tax, filed on time and reconciled.",
-    lead: "Most tax notices come from returns that do not match each other. We reconcile your GST returns, TDS and books before filing, and a Chartered Accountant reviews the result.",
+    headline: "GST and income tax, filed on time and without surprises.",
+    highlight: "without surprises.",
+    tone: "mint",
+    lead: "Most tax notices happen because one return doesn't match another. We check your GST returns, tax deducted (TDS) and books against each other before filing, and a Chartered Accountant reviews the result.",
     faqGroup: "tax",
     services: [
       {
         label: "GST registration",
-        description: "REG-01 filing, Aadhaar authentication and replies to officer queries.",
+        description: "Your GST number, with the application checked before it's filed.",
         href: svc("gst-taxation", "gst-registration"),
       },
       {
         label: "Income tax return",
-        description: "ITR-6, ITR-5, ITR-3 and ITR-4, checked against AIS and 26AS.",
+        description: "Your business's yearly tax return, checked by a Chartered Accountant.",
         href: svc("gst-taxation", "income-tax-filing"),
       },
-      { label: "GST returns", description: "GSTR-1 and GSTR-3B, with input tax credit matched against GSTR-2B." },
-      { label: "GST annual return", description: "GSTR-9 and, where it applies, the GSTR-9C reconciliation." },
-      { label: "GST amendment or cancellation", description: "Changes to address, partners or business details, or cancelling a registration." },
-      { label: "TDS returns", description: "Quarterly 24Q, 26Q and 27Q, with Form 16 and 16A." },
-      { label: "E-invoicing and e-way bills", description: "Set-up and help with generating compliant invoices and e-way bills." },
+      { label: "GST returns", description: "Your monthly or quarterly returns (GSTR-1 and GSTR-3B), with the GST you can claim back checked against your suppliers' filings." },
+      { label: "GST yearly return", description: "The GST summary for the whole year (GSTR-9)." },
+      { label: "GST changes or cancellation", description: "Updating your address, partners or business details, or closing your GST number." },
+      { label: "TDS returns", description: "Quarterly returns for the tax you deduct from salaries and payments, plus the certificates you give out." },
+      { label: "E-invoices and e-way bills", description: "Setting up the online invoices and transport documents larger businesses must use." },
     ],
   },
   {
@@ -137,23 +146,25 @@ export const categories: Category[] = [
     metaDescription:
       "FSSAI registration and licences, Import Export Code, Shops and Establishments, trade licences, professional tax, EPFO and ESIC registration.",
     headline: "The licences your business needs, and only those.",
-    lead: "What you need depends on what you sell, where, and how many people you employ. We list the licences that apply to you, then file them.",
+    highlight: "and only those.",
+    tone: "peach",
+    lead: "What you need depends on what you sell, where you are and how many people you employ. We list the licences that apply to you, then apply for them.",
     services: [
       {
         label: "FSSAI registration and licence",
-        description: "Basic registration, State licence or Central licence for food businesses.",
+        description: "The food licence every restaurant, kitchen and food seller needs.",
         href: svc("licences-registrations", "fssai-licence"),
       },
       {
         label: "Import Export Code",
-        description: "DGFT registration for importing and exporting goods.",
+        description: "The number customs and banks need when you import or export.",
         href: svc("licences-registrations", "import-export-code"),
       },
-      { label: "Shops and Establishments", description: "State registration for shops, offices and commercial premises." },
+      { label: "Shop and office registration", description: "The state registration for shops, offices and other workplaces (Shops and Establishments)." },
       { label: "Trade licence", description: "Municipal licence to run a particular trade in a city." },
-      { label: "Professional tax", description: "Employer registration and enrolment under state professional tax laws." },
-      { label: "EPFO and ESIC", description: "Provident fund and employee insurance registration once you hire." },
-      { label: "Industry licences", description: "Pollution control consent, drug licences and weights and measures." },
+      { label: "Professional tax", description: "A small state tax on salaries and professions, in the states that charge it." },
+      { label: "EPFO and ESIC", description: "Provident fund and employee health insurance registration, once you hire enough people." },
+      { label: "Industry licences", description: "Pollution control approval, drug licences, and approval for weighing and measuring equipment." },
     ],
   },
   {
@@ -164,21 +175,23 @@ export const categories: Category[] = [
     metaTitle: "Trademark and IP services: trademark, copyright, design and patent",
     metaDescription:
       "Trademark search, registration, objection replies, opposition and renewal, plus copyright, design and patent filings through qualified professionals.",
-    headline: "Protect the name and work your business depends on.",
-    lead: "We search before we file, so you know the risks before paying government fees. Objections, oppositions and patent drafting are handled by qualified trademark attorneys and patent agents.",
+    headline: "Protect your brand and the work behind it.",
+    highlight: "your brand",
+    tone: "sky",
+    lead: "We search before we file, so you know the risks before you pay any government fees. Objections, disputes and patent drafting are handled by qualified trademark attorneys and patent agents.",
     faqGroup: "trademarks",
     services: [
       {
         label: "Trademark registration",
-        description: "Search, class selection and TM-A filing, tracked to registration.",
+        description: "Search, filing and tracking until your brand is registered.",
         href: svc("trademark-ip", "trademark-registration"),
       },
-      { label: "Trademark search", description: "A search for identical and similar marks before you file." },
-      { label: "Objection reply", description: "A reply to an examination report raising grounds under section 9 or 11." },
-      { label: "Opposition", description: "Notice of opposition or counter-statement before the Registry." },
-      { label: "Renewal", description: "Form TM-R before the 10-year registration expires." },
-      { label: "Copyright", description: "Registration for software, written work, music and artwork." },
-      { label: "Patents", description: "Searches and provisional or complete applications through a registered patent agent." },
+      { label: "Trademark search", description: "A check for brands that are the same as or similar to yours, before you file." },
+      { label: "Objection reply", description: "A written reply when the Trade Marks Registry raises an objection to your application." },
+      { label: "Opposition", description: "Objecting to someone else's trademark, or defending yours when someone objects." },
+      { label: "Renewal", description: "Renewing your trademark before its 10 years run out." },
+      { label: "Copyright", description: "Registration for software, writing, music and artwork." },
+      { label: "Patents", description: "Patent searches and applications, handled by a registered patent agent." },
       { label: "Design registration", description: "Protection for the shape, pattern or look of a product." },
     ],
   },
@@ -190,20 +203,22 @@ export const categories: Category[] = [
     metaTitle: "Corporate compliance: annual ROC filings and MCA changes",
     metaDescription:
       "Annual ROC filings for companies and LLPs, director KYC, and MCA filings for director changes, office moves, name changes, share transfers and closure.",
-    headline: "Annual filings and company changes, handled before the deadline.",
-    lead: "The MCA charges a daily additional fee for every late form, and directors of companies that stop filing can be disqualified. We keep your calendar and file each form on time.",
+    headline: "Yearly filings and company changes, done before the deadline.",
+    highlight: "before the deadline.",
+    tone: "mint",
+    lead: "The government charges a late fee for every day a form is late, and directors of companies that stop filing can be barred. We keep your calendar and file each form on time.",
     faqGroup: "compliance",
     services: [
       {
         label: "Annual ROC compliance",
-        description: "AOC-4, MGT-7 or MGT-7A, DIR-3 KYC, and Form 8 and 11 for LLPs.",
+        description: "Your accounts, yearly return and director KYC, filed every year.",
         href: svc("corporate-compliance", "annual-roc-compliance"),
       },
-      { label: "Director appointment or resignation", description: "Board resolutions and DIR-12." },
-      { label: "Registered office change", description: "INC-22 within a city, or a regional director application to move states." },
-      { label: "Company name change", description: "Name reservation, shareholder approval and the MCA filings." },
-      { label: "Share transfer", description: "SH-4 transfer deed, stamp duty and register updates." },
-      { label: "Closing a company", description: "Strike-off of an inactive company on STK-2." },
+      { label: "Adding or removing a director", description: "The board resolution and the government filing (DIR-12)." },
+      { label: "Moving your registered office", description: "A simple filing within the same city, or a longer approval to move to another state." },
+      { label: "Changing your company name", description: "Reserving the new name, getting shareholders' approval and filing the change." },
+      { label: "Transferring shares", description: "The transfer form, stamp duty and updating your share register." },
+      { label: "Closing a company", description: "Closing down a company that has stopped trading (strike-off)." },
     ],
   },
   {
@@ -214,15 +229,17 @@ export const categories: Category[] = [
     metaTitle: "Accounting and bookkeeping services for Indian businesses",
     metaDescription:
       "Monthly bookkeeping, bank and GST reconciliation, payroll, MIS reports, financial statements and audit support for startups and small businesses.",
-    headline: "Books that are ready when the auditor, investor or tax officer asks.",
-    lead: "We keep your books each month, reconcile them with your bank and GST records, and prepare the schedules your auditor needs at year end.",
+    headline: "Books that are ready whenever someone asks for them.",
+    highlight: "ready",
+    tone: "sun",
+    lead: "Auditors, investors and tax officers all ask for your books. We keep them up to date every month, check them against your bank and GST records, and prepare what your auditor needs at year end.",
     services: [
-      { label: "Bookkeeping", description: "Monthly entries, ledgers and bank reconciliation in your accounting software." },
-      { label: "Financial statements", description: "Balance sheet, profit and loss account and notes under Indian accounting standards." },
-      { label: "GST reconciliation", description: "Matching your input tax credit with supplier filings in GSTR-2B." },
-      { label: "Payroll", description: "Salary workings, payslips, and PF, ESIC and professional tax deductions." },
-      { label: "MIS reports", description: "Monthly reports on cash, burn and profitability." },
-      { label: "Audit support", description: "Schedules and supporting papers for your independent auditor." },
+      { label: "Bookkeeping", description: "Recording every sale and expense each month and matching it to your bank statement." },
+      { label: "Year-end accounts", description: "Your balance sheet and profit and loss account, prepared to Indian accounting standards." },
+      { label: "GST matching", description: "Checking the GST you claim back against what your suppliers have filed." },
+      { label: "Payroll", description: "Salaries, payslips, and the provident fund, insurance and tax deductions that go with them." },
+      { label: "Monthly reports", description: "A simple monthly view of your cash, spending and profit." },
+      { label: "Audit support", description: "The papers and workings your auditor will ask for." },
     ],
   },
   {
@@ -234,16 +251,18 @@ export const categories: Category[] = [
     metaDescription:
       "Founders' agreements, shareholders' agreements, NDAs, employment, consultancy, vendor and service agreements, and website terms, drafted by advocates.",
     headline: "Agreements written for your business, not copied from a template.",
-    lead: "Disputes usually start where an agreement is vague. Our advocates draft each document to your deal and explain every clause before you sign.",
+    highlight: "for your business,",
+    tone: "peach",
+    lead: "Disagreements usually start where an agreement is vague. Our advocates write each document around your deal and explain every clause in plain words before you sign.",
     services: [
-      { label: "Founders' agreement", description: "Equity split, vesting, roles, IP assignment and what happens if a founder leaves." },
-      { label: "Shareholders' agreement", description: "Investor rights, pre-emption, tag-along and drag-along, and exit terms." },
-      { label: "Partnership deed", description: "Capital, profit shares, duties and retirement terms." },
-      { label: "NDA", description: "One-way or mutual confidentiality agreements." },
-      { label: "Employment agreement", description: "Offer letters, probation, IP assignment and notice terms." },
-      { label: "Consultancy agreement", description: "Scope, milestones, fees and IP ownership for contractors." },
-      { label: "Vendor and service agreements", description: "Service levels, payment terms, warranties, liability caps and termination." },
-      { label: "Website terms and privacy policy", description: "Terms of use and a privacy policy written for the DPDP Act." },
+      { label: "Founders' agreement", description: "Who owns what, how shares are earned over time, who does what, and what happens if a founder leaves." },
+      { label: "Shareholders' agreement", description: "What investors can and can't do, and what happens when shares are sold." },
+      { label: "Partnership deed", description: "Who puts in what, how profits are split, and what happens when a partner leaves." },
+      { label: "NDA", description: "An agreement to keep what you share confidential." },
+      { label: "Employment agreement", description: "Offer letters, probation, notice periods, and making sure work done for you belongs to you." },
+      { label: "Consultancy agreement", description: "What a freelancer or contractor will deliver, when, for how much, and who owns it." },
+      { label: "Customer and supplier agreements", description: "What's delivered, payment terms, what happens if things go wrong, and how to end the deal." },
+      { label: "Website terms and privacy policy", description: "Terms of use and a privacy policy that follow India's data protection law." },
     ],
   },
   {
@@ -254,14 +273,16 @@ export const categories: Category[] = [
     metaTitle: "NGO registration in India: Section 8 company, trust or society",
     metaDescription:
       "Register a non-profit in India as a Section 8 company, trust or society, and apply for 12A and 80G registration under the Income Tax Act.",
-    headline: "The right non-profit structure for the work you want to do.",
-    lead: "A Section 8 company, a trust and a society are governed by different laws and suit different kinds of work. We help you choose, draft the constitution and register it.",
+    headline: "The right non-profit setup for the good you want to do.",
+    highlight: "the good you want to do.",
+    tone: "mint",
+    lead: "A Section 8 company, a trust and a society follow different laws and suit different kinds of work. We help you choose, write the founding documents and register it.",
     services: [
       { label: "Section 8 company", description: "A non-profit company under the Companies Act, with limited liability." },
       { label: "Trust", description: "Trust deed and registration before the Sub-Registrar." },
       { label: "Society", description: "Registration under the Societies Registration Act or your state's law." },
-      { label: "Constitution and by-laws", description: "MoA, rules and governance documents." },
-      { label: "12A and 80G", description: "Income tax registrations for exemption and for donors' deductions." },
+      { label: "Founding documents", description: "Your rulebook and the rules for how the organisation is run." },
+      { label: "12A and 80G", description: "Tax registrations so your organisation pays no income tax and donors can claim a deduction." },
     ],
   },
 ];

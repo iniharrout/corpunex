@@ -1,15 +1,19 @@
 .page {
   padding-block: var(--space-7) var(--space-section);
+  background:
+    radial-gradient(ellipse 50% 40% at 0% 0%, var(--color-sky), transparent 70%),
+    var(--color-paper);
 }
 
 .grid {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-7);
 }
 
 .title {
   font-size: var(--text-h1);
   line-height: var(--leading-tight);
+  max-width: 14ch;
 }
 
 .lead {
@@ -18,30 +22,40 @@
   font-size: var(--text-lead);
 }
 
-.details {
-  margin-top: var(--space-7);
-  border-top: 1px solid var(--color-ink);
-}
-
-.details > div {
+.options {
   display: grid;
-  gap: var(--space-1);
-  padding-block: var(--space-4);
-  border-bottom: 1px solid var(--color-line);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
 }
 
-.details dt {
+.option {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-sun);
+}
+
+.option:nth-child(2) {
+  background: var(--color-mint);
+}
+
+.optionTitle {
+  font-size: var(--text-h4);
+}
+
+.email {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.small {
   font-size: var(--text-small);
   color: var(--color-ink-muted);
-}
-
-.details dd {
-  color: var(--color-ink);
-}
-
-.details a {
-  color: var(--color-ink);
-  text-decoration-color: var(--color-line-strong);
 }
 
 .note {
@@ -57,12 +71,12 @@
   }
 
   .grid {
-    grid-template-columns: 6fr 6fr;
-    gap: var(--space-9);
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-8);
     align-items: start;
   }
 
-  .details > div {
-    grid-template-columns: 12rem 1fr;
+  .options {
+    grid-template-columns: 1fr 1fr;
   }
 }

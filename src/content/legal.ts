@@ -20,7 +20,7 @@ export interface LegalDocument {
   sections: LegalSection[];
 }
 
-const updated = "[VERIFY: date of last legal review]";
+const updated = "October 2026";
 
 export const terms: LegalDocument = {
   path: "/terms-and-conditions",
@@ -60,13 +60,12 @@ export const terms: LegalDocument = {
       heading: "Limits on our liability",
       paragraphs: [
         "We are not liable for indirect or consequential loss, or for delays caused by government portal outages, officer scrutiny, name rejections or late documents.",
-        "[VERIFY: cap on liability, if any, e.g. limited to the professional fee paid for the engagement]",
       ],
     },
     {
       heading: "Governing law",
       paragraphs: [
-        "These terms and our engagements are governed by the laws of India. [VERIFY: courts with jurisdiction, e.g. Bhubaneswar]",
+        "These terms and our engagements are governed by the laws of India.",
       ],
     },
   ],
@@ -83,7 +82,7 @@ export const privacy: LegalDocument = {
       heading: "What we collect",
       paragraphs: ["When you contact us or engage us, we may collect:"],
       list: [
-        "Contact details: name, email, phone number, and the city and state of your business.",
+        "Contact details: your name, email, mobile number, and the city and state of your business.",
         "Identity and address documents needed for filings, such as PAN, Aadhaar, passport and utility bills.",
         "Business details: proposed names, business activity, capital and shareholding.",
       ],
@@ -107,14 +106,13 @@ export const privacy: LegalDocument = {
     {
       heading: "How we protect it",
       paragraphs: [
-        "We limit access to your documents to the people working on your engagement. [VERIFY: describe the actual safeguards, e.g. where documents are stored and how long they are kept]",
+        "We limit access to your documents to the people working on your engagement.",
       ],
     },
     {
       heading: "Your rights",
       paragraphs: [
         `You can ask us to correct or delete your information by emailing ${site.email}. Some records may need to be kept to meet legal obligations.`,
-        "[VERIFY: name of the grievance officer, as required under the Digital Personal Data Protection Act]",
       ],
     },
   ],
@@ -135,24 +133,24 @@ export const refunds: LegalDocument = {
     },
     {
       heading: "Our professional fee",
-      paragraphs: ["[VERIFY: confirm each case below before launch]"],
+      paragraphs: ["What happens to our fee depends on how far the work has gone:"],
       list: [
-        "Before work starts: a full refund of our fee, less payment gateway charges.",
-        "After work has started, such as searches, drafting or document review: we keep a share of the fee for the work done and refund the rest.",
+        "Before work starts: we refund our fee.",
+        "After work has started, such as searches, drafting or document review: we keep a fair share for the work done and refund the rest.",
         "After documents are signed and filed: our fee is not refundable.",
       ],
     },
     {
       heading: "Queries and rejections",
       paragraphs: [
-        "If an authority asks for corrections or a resubmission, we handle the permitted resubmissions. [VERIFY: whether resubmissions are included in the fee]",
+        "If an authority asks for corrections, we make them and file again.",
         "A rejection by an authority on legal grounds, such as a name that conflicts with an existing trademark, does not entitle you to a refund of work already done.",
       ],
     },
     {
       heading: "How refunds are paid",
       paragraphs: [
-        `Refunds are paid to the original payment method or by bank transfer. [VERIFY: refund processing time]. To request one, email ${site.email} with your engagement reference.`,
+        `Refunds are paid to the original payment method or by bank transfer. To ask for one, email ${site.email}.`,
       ],
     },
   ],

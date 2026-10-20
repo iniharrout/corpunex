@@ -1,105 +1,93 @@
 # Corpunex design system
 
-## Rationale
+## Direction
 
-Founders hand us their company's legal identity, so the site has to read as an accountable firm, not a growth-hacked SaaS landing page. The reference points are a private bank's restraint (Mercury, Wise) and a law firm's precision, carried in Stripe Atlas-style clarity about process and price.
+The site is for **first-time founders**. Most of them have never registered a company and don't know what "SPICe+", "MoA" or "ROC" mean. The site should feel like a helpful friend who knows the system: bright, warm and easy to read, not like a law firm.
 
-- **Editorial serif with a working grotesk.** Newsreader (optical sizes up to 72) carries headlines at large, tight settings, which is where trust is built. Inter handles body, tables and UI at 17px. Both are self-hosted through `next/font`, so there are no layout shifts and no third-party font requests.
-- **One ink, one paper, one accent.** Deep navy ink on warm off-white. Burnt sienna is the only accent, kept for primary buttons and key numbers like prices and totals. Nothing is decorated with colour, so when colour appears it means "act here" or "this is the number".
-- **Rules instead of cards.** Sections are built from hairline rules, ruled lists and tables, the way a printed annual report would be laid out. Cards appear only where an object is a single unit: a pricing tier, the fee receipt, the quote card.
-- **Varied section structure.** The homepage never repeats label + heading + subtitle + 3 cards. It moves through a split hero, a horizontal timeline, an invoice-style calculator, a sticky-heading ruled list, a featured-plus-pair story layout, a staggered portrait row, a full-bleed ink band, an editorial guide list, and a two-column FAQ and form.
-- **Honesty is designed in.** Government fees, third-party costs and our fee are always shown as separate lines. Timelines come from one constant (`timeline` in `src/config/site.ts`), so the site cannot contradict itself. Placeholders are rendered with a visible hatched highlight, so unverified claims cannot ship unnoticed.
-- **Mobile first.** Layouts are written for 390px and widen at 600, 768, 900 and 1080px. Every control is at least 44px tall. A sticky bottom bar on phones holds the primary CTA and WhatsApp.
-- **Motion.** The only motion is a 150–220ms fade and nudge on menus, accordions and arrows. There is no scroll animation or parallax, and every duration drops to 0 under `prefers-reduced-motion`.
+- **Bright and warm.** A white page with soft pastel sections (sky, mint, sun, peach), one confident blue for actions, and a yellow highlighter on the words that matter in a headline.
+- **Friendly type.** Bricolage Grotesque, bold, for headlines: rounded and characterful without being childish. Inter at 17px for everything else.
+- **Plain words.** Every page speaks to someone starting out. Use "your company's rulebook (MoA and AoA)", not "eMOA/eAOA". Use "we charge exactly what the government charges", not "pass-through at cost".
+- **Help is always one tap away.** "Request a call back" is in the header, the mobile bar, the Services menu and every closing section. It opens a short pop-up asking for name, mobile number and what the call is about. The site never shows a phone number; email is the only direct contact shown.
+- **Soft shapes.** Rounded cards (20–28px), pill buttons, gentle shadows, and a little lift on hover.
+- **Honest by default.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant (`timeline` in `src/config/site.ts`). Nothing unverified is shown: claims that need confirming were removed, not marked up (see PLACEHOLDERS.md).
+- **Simple navigation.** One "Services" mega menu, grouped in plain words (Start a business, Tax and accounts, Yearly compliance, Startups and funding, Brand and legal), plus Pricing, Guides and About.
+- **Mobile first.** Layouts are written for 390px; tap targets are at least 44px. A sticky bottom bar holds "Call me back" and "Get started", and on phones the call-back pop-up opens as a bottom sheet.
+- **Motion.** Fades and lifts take 150–220ms. Everything drops to 0 under `prefers-reduced-motion`.
 
-## Token sheet
+## Tokens
 
-All tokens are defined in one file, [`src/styles/tokens.css`](src/styles/tokens.css). Components never hard-code colours or font sizes.
+All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css). Components never hard-code colours or font sizes.
 
 ### Colour
 
 | Token | Value | Use | Contrast |
 |---|---|---|---|
-| `--color-ink` | `#0f1d2e` | Headlines, dark bands, selected states | 15.5:1 on paper |
-| `--color-ink-soft` | `#24344a` | Body copy | 11.5:1 on paper |
-| `--color-ink-muted` | `#56606e` | Secondary copy, labels | 5.8:1 on paper, 5.2:1 on paper-deep |
-| `--color-ink-faint` | `#7a828d` | Decorative marks, text 24px and up only | 3.5:1 |
-| `--color-paper` | `#f6f4ef` | Page background | — |
-| `--color-paper-deep` | `#ece8df` | Alternating bands | — |
-| `--color-surface` | `#ffffff` | Panels, inputs | — |
-| `--color-line` | `#ddd8cd` | Hairline dividers | — |
-| `--color-line-strong` | `#b9b2a4` | Emphasised dividers (not controls) | — |
-| `--color-line-input` | `#857f73` | Form control and secondary button edges | 3.6:1 (meets WCAG 1.4.11) |
-| `--color-accent` | `#b4461b` | Primary CTA, prices, totals | White text on it 5.5:1; as text on paper 5.0:1 |
-| `--color-accent-hover` | `#963813` | Primary CTA hover | — |
-| `--color-on-ink` / `--color-on-ink-muted` | `#f6f4ef` / `#b6bec9` | Text on ink bands | 15.5:1 / 9.1:1 |
-| `--color-success` / `--color-error` | `#1f6a43` / `#a3261b` | Form states, included ticks | 6.6:1 / 7.4:1 on white |
-| `--color-focus` | `#1f5fbf` | Focus ring (2px, 3px offset) | 5.5:1 on paper |
+| `--color-ink` | `#101828` | Headlines, strong text | 17.8:1 on white |
+| `--color-ink-soft` | `#344054` | Body copy | 10.5:1 |
+| `--color-ink-muted` | `#5d6676` | Secondary copy | 5.8:1 on white, at least 5.0:1 on every pastel |
+| `--color-accent` | `#2453d6` | Buttons, links, the featured plan | White text on it 6.4:1 |
+| `--color-highlight` | `#ffd84d` | Headline highlighter, photo backdrop | Ink on it 12.8:1 |
+| `--color-sky` / `-mint` / `-sun` / `-peach` | `#eaf1ff` `#e4f6ec` `#fff4d1` `#ffebe3` | Section bands, path cards, icon tiles | — |
+| `--color-*-strong` | `#2453d6` `#157347` `#8a5a00` `#b8401b` | Icons on their pastel | 4.8–5.6:1 |
+| `--color-paper-deep` | `#f4f7fb` | Neutral band | — |
+| `--color-line` / `-line-input` | `#e4e7ec` / `#8b93a1` | Dividers / form control edges | Control edges 3.1:1 (WCAG 1.4.11) |
+| `--color-ink-band` | `#0e1a33` | Footer | Muted text on it 10.5:1 |
+| `--color-success` / `--color-error` | `#157347` / `#b42318` | Ticks, form errors | 5.2:1 / 6.6:1 |
 
 ### Type
 
 | Token | Size (390px → 1440px) | Use |
 |---|---|---|
-| `--text-display` | 40 → 76px | Homepage hero |
-| `--text-h1` | 36 → 60px | Page titles |
-| `--text-h2` | 30 → 46px | Section titles |
-| `--text-h3` | 20 → 26px | Sub-sections, story titles |
-| `--text-h4` | 18px | Card titles, FAQ questions on mobile |
-| `--text-lead` | 17 → 20px | Hero and intro paragraphs |
-| `--text-body` | 17px | Body copy |
-| `--text-small` | 15px | Tables, lists, UI |
-| `--text-micro` | 13px | Uppercase labels, fine print |
+| `--text-display` | 40 → 72px | Homepage hero |
+| `--text-h1` | 34 → 56px | Page titles |
+| `--text-h2` | 28 → 42px | Section titles |
+| `--text-h3` | 20 → 24px | Card titles |
+| `--text-h4` | 18px | Small titles |
+| `--text-lead` | 17 → 20px | Intros |
+| `--text-body` | 17px | Body |
+| `--text-small` | 15px | UI, lists |
+| `--text-micro` | 13px | Labels |
 
-Headings use `--font-display` at weight 400, with `-0.022em` tracking and 1.06 to 1.18 leading. Body uses `--font-body` with 1.6 leading. Labels are 13px, semibold, uppercase, tracked `0.08em`.
+Headings are Bricolage Grotesque 700, tracked −0.03em, with 1.05–1.15 leading. Body text uses 1.6 leading.
 
-### Spacing, layout, radius, motion
+### Spacing, radius, elevation
 
-- **Spacing:** 4px base, from `--space-1` (4px) to `--space-10` (128px). Section padding is `--space-section`, 64px to 128px.
-- **Layout:** `--layout-max` 1280px; gutter 16px, 32px or 40px; a 12-column grid with a 24px gap, 32px from 1200px. Text measure is 62ch.
-- **Radius:** `--radius-sm` 3px, `--radius-md` 6px (buttons, inputs), `--radius-lg` 10px (panels, photos).
-- **Elevation:** `--shadow-menu` for the mega menu and `--shadow-bar` for the mobile bar. Nothing else casts a shadow.
-- **Motion:** `--duration-fast` 150ms and `--duration-base` 220ms on `--ease-out`. Both drop to 0 under reduced motion.
+- **Spacing:** 4px base, `--space-1` (4px) to `--space-10` (128px). Section padding runs from 56px to 112px.
+- **Radius:** `--radius-sm` 8px, `--radius-md` 12px, `--radius-lg` 20px, `--radius-xl` 28px, `--radius-pill` for buttons.
+- **Elevation:** `--shadow-card`, `--shadow-card-hover`, `--shadow-menu`, `--shadow-bar`.
 
-## Component list
+## Components
 
 | Component | Path | Notes |
 |---|---|---|
-| `SiteHeader` | `components/site/SiteHeader.tsx` | Mega menu by founder journey (Start, Run, Raise, Protect), opening on hover or click with Escape and outside-click to close. Full-screen drawer with accordions on mobile. Login appears only once `site.loginUrl` is set. |
-| `SiteFooter` | `components/site/SiteFooter.tsx` | Service and company columns, contact details, entity details (legal name, CIN, GSTIN, registered office), disclaimer. |
-| `MobileActionBar` | `components/site/MobileActionBar.tsx` | Sticky bottom CTA and WhatsApp below 900px. |
-| `ButtonLink`, `Button`, `TextLink` | `components/ui/Button.tsx` | Variants: `primary` (accent), `secondary`, `ink`, `onInk`; sizes `default` and `large`. |
-| `Ph`, `Fact`, `Label` | `components/ui/Placeholder.tsx` | `Ph` marks inline copy that needs real content. `Fact` renders a content string and highlights any `[VERIFY…]` or `[REAL…]` inside it. |
-| `PhotoFrame` | `components/ui/PhotoFrame.tsx` | Takes real photos only. Without `src` it shows a marked frame at the final aspect ratio. |
-| `JsonLd` | `components/ui/JsonLd.tsx` | Escaped schema.org output. |
-| `FeeEstimator` | `components/pricing/FeeEstimator.tsx` | Interactive estimate in an invoice-style layout. Logic lives in `lib/fees.ts`. Accepts `entity` to lock the structure. |
-| `PricingTiers`, `ComparisonTable`, `PriceList` | `components/pricing/` | Incorporation tiers with included and excluded items, an entity comparison table, and ongoing service prices. |
-| `FaqList`, `faqSchema` | `components/shared/FaqList.tsx` | Native `<details>` accordion. The schema leaves out answers that still contain placeholders. |
-| `ContactForm`, `ContactPanel` | `components/shared/` | Name, phone, email, one topic dropdown and an optional message, plus WhatsApp, booking and phone links. |
-| `CtaBand` | `components/shared/CtaBand.tsx` | Closing ink band with one primary action. |
-| Home sections | `components/home/` | `Hero`, `ClientLogos` (hidden while empty), `Journey`, `PricingSection`, `Differentiators`, `CaseStudies`, `Team`, `ForeignFounders`, `Guides`, `FaqContact`. |
-| `PageHeader`, `Breadcrumbs` | `components/shared/PageHeader.tsx` | Breadcrumb, h1, lead and optional extras for inner pages. Outputs BreadcrumbList schema. |
-| `JumpNav` | `components/shared/JumpNav.tsx` | Row of pill links to sections further down the page, on long index pages (services, FAQ, guides). |
-| `LegalPage`, `EntityDetails` | `components/shared/LegalPage.tsx` | Numbered legal text with a sticky "Who we are" block. `EntityDetails` also appears on /about. |
-| `CategoryHub` | `components/service/CategoryHub.tsx` | Category hub: services that have their own page as large ruled rows, then other services in a compact list, the FAQ group for that category, and a CTA band. |
-| `ServicePage` | `components/service/ServicePage.tsx` | Template for any service. Sections: outcome headline, who it is for, included and excluded, documents, milestones, process, after incorporation, fee estimator, comparison, FAQs, related services, and a sticky quote card. Fed by a `ServicePageContent` object (`content/services/types.ts`). |
+| `CallbackProvider`, `CallbackButton` | `components/callback/` | One site-wide native `<dialog>` (name, mobile, topic). Any `CallbackButton` opens it and can pre-select a topic. It's a bottom sheet on phones, closes with Escape or a backdrop click, and validates input. |
+| `SiteHeader` | `components/site/` | Logo, a Services mega menu with a "Not sure what you need?" call-back tile, Pricing, Guides, About, Request a call back, and Get started. Mobile drawer with accordions. |
+| `SiteFooter` | `components/site/` | Email, hours, a call-back button, link columns and the disclaimer. No phone number. |
+| `MobileActionBar` | `components/site/` | Sticky "Call me back" and "Get started" below 900px. |
+| `ButtonLink`, `Button`, `TextLink` | `components/ui/Button.tsx` | Pill buttons with variants `primary`, `secondary`, `ghost`, `ink` and `onInk`. |
+| `ToneIcon` | `components/ui/ToneIcon.tsx` | A line icon in a pastel tile. |
+| `PhotoFrame` | `components/ui/PhotoFrame.tsx` | Rounded photo slot. Uses stand-in photos from `public/images` for now. |
+| `FeeEstimator` | `components/pricing/` | Interactive cost estimate. Logic lives in `lib/fees.ts`. |
+| `PricingTiers`, `ComparisonTable`, `PriceList` | `components/pricing/` | Plans, a Pvt Ltd / LLP / OPC comparison, and ongoing services ("Get a quote" where no price is confirmed yet). |
+| `FaqList`, `ContactForm`, `ContactPanel`, `CtaBand` | `components/shared/` | FAQ accordion with schema, a short enquiry form, and the blue closing call to action. |
+| Home sections | `components/home/` | `Hero`, `Paths` ("Where are you right now?"), `HowItWorks`, `EntityPicker`, `PricingSection`, `Benefits`, `TalkToUs`, `ForeignFounders`, `Guides`, `FaqContact`. `ClientLogos` stays hidden until logos are added. |
+| `ServicePage` | `components/service/` | Template for any service, fed by a `ServicePageContent` file in `content/services/`. Set `entity` only for incorporations (Pvt Ltd, LLP, OPC): it turns on the fee estimator, the comparison table and the shared `timeline`. Other services pass `quoteFacts`, `stepsIntro`/`stepsDelays`, `callbackTopic` and `cta`, and number their steps instead of giving days. |
+| `CategoryHub` | `components/service/` | Category hub page: pastel cards for services with their own page, a white card listing the rest, the category's FAQs and the closing CTA. Fed by `content/categories.ts`. |
+| `PageHeader`, `Breadcrumbs` | `components/shared/` | Rounded pastel title panel for inner pages, with breadcrumb, an h1 that can highlight one phrase, a lead and optional actions. Outputs BreadcrumbList schema. |
+| `JumpNav` | `components/shared/` | White pill links that jump to sections further down long index pages. |
+| `LegalPage` | `components/shared/` | Numbered plain-language legal sections with a contact card beside them. Content lives in `content/legal.ts`. |
 
-### Content and data
+### Content files
 
-- `config/site.ts`: company facts, contact channels, the single `timeline`, and the disclaimer.
-- `lib/fees.ts`: fee model shared by every price on the site.
-- `content/navigation.ts`, `content/home.ts`, `content/pricing.ts`.
-- `content/services/<slug>.ts`: one `ServicePageContent` per service page, all listed in `content/services/index.ts` (which the sitemap reads).
-- `content/categories.ts`: the nine categories for the hubs and the /services directory.
+- `content/services/<slug>.ts`: one per service page, all listed in `content/services/index.ts`, which the sitemap reads.
+- `content/categories.ts`: the nine categories for the hubs, /services and /about.
 - `content/faqs.ts`: FAQ groups for /faq and the hubs.
-- `content/articles.ts`: the guides under /resources.
+- `content/articles.ts`: the guides under /resources. Reading time is worked out from word count.
 - `content/legal.ts`: the four legal pages.
-
-To add a service, write `content/services/<slug>.ts` that satisfies `ServicePageContent`, add it to `content/services/index.ts`, and render `<ServicePage content={…} />` from its route. Set `entity` only for incorporations: it turns on the fee estimator, the comparison table and the shared `timeline`. Other services pass `quoteFacts`, `stepsIntro` and `cta` instead, and label milestones "Step 1", "Step 2" and so on rather than giving days.
 
 ## SEO and tech
 
-- Organization schema sitewide. FAQPage schema on home, pricing and service pages. Service and BreadcrumbList schema on service pages.
-- Every route sets `alternates.canonical`.
-- `robots` metadata and `robots.txt` switch to noindex and disallow whenever `VERCEL_ENV` is not `production`. Preview deployments stay out of search.
-- `/pricing` is added to the sitemap.
-- The custom Turbopack `*.css` rule was removed from `next.config.ts`. It turned CSS Modules into global CSS, and Tailwind was not imported anywhere.
+- Organization schema on every page. FAQPage schema on home, pricing and service pages. Service and BreadcrumbList schema on service pages.
+- Every page sets a canonical URL.
+- Preview deployments (`VERCEL_ENV` other than production) are noindex and disallowed in `robots.txt`.
+- Fonts are self-hosted via `next/font`.

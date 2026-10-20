@@ -1,19 +1,10 @@
-import { GST_RATE_ON_PROFESSIONAL_FEE } from "@/lib/fees";
-
 /**
- * Quote-card rows shared by services that are not incorporations.
- * Our fee for these services is not in `lib/fees.ts` yet, so it stays a
- * placeholder until it is confirmed (see PLACEHOLDERS.md).
+ * Price card row for services whose fee is not in `lib/fees.ts` yet.
+ * It says "Get a quote", matching the pricing page, until a "from" price
+ * is confirmed (see PLACEHOLDERS.md).
  */
-export const feeToConfirm = {
+export const quoteOnRequest = {
   label: "Our fee",
-  value: "[VERIFY: from price]",
-  note: `+ ${GST_RATE_ON_PROFESSIONAL_FEE * 100}% GST`,
+  value: "Get a quote",
+  note: "Itemised and in writing, before we start",
 };
-
-export function turnaroundToConfirm(service: string) {
-  return { label: "Timeline", value: `[VERIFY: typical turnaround for ${service}]` };
-}
-
-export const stepsIntroToConfirm = (service: string) =>
-  `[VERIFY: typical turnaround for ${service}, from complete documents]`;

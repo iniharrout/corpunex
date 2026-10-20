@@ -36,6 +36,8 @@ export interface ServicePageContent {
   afterwardsIntro?: string;
   faqs: Faq[];
   related: { label: string; href: string; description: string }[];
+  /** Pre-selects the topic in the call-back pop-up. Must be one of ENQUIRY_TOPICS. */
+  callbackTopic?: string;
   /** Closing band. Defaults to the incorporation wording. */
   cta?: { title: string; body: string };
 }

@@ -1,0 +1,33 @@
+.tile {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.sky {
+  background: var(--color-sky);
+  color: var(--color-sky-strong);
+}
+
+.mint {
+  background: var(--color-mint);
+  color: var(--color-mint-strong);
+}
+
+.sun {
+  background: var(--color-sun);
+  color: var(--color-sun-strong);
+}
+
+.peach {
+  background: var(--color-peach);
+  color: var(--color-peach-strong);
+}
+
+/* On a pastel card, the tile turns white so it still stands out */
+:global(.on-tone) .tile {
+  background: var(--color-surface);
+}

@@ -61,7 +61,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-bold);
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-display);
   color: var(--color-ink);
@@ -83,7 +83,7 @@ table {
 }
 
 ::selection {
-  background: var(--color-accent-tint);
+  background: var(--color-highlight);
   color: var(--color-ink);
 }
 
@@ -110,13 +110,32 @@ table {
 }
 
 .band-deep {
-  --frame-bg: var(--color-paper);
   background: var(--color-paper-deep);
 }
 
+.band-sky {
+  background: var(--color-sky);
+}
+
+.band-mint {
+  background: var(--color-mint);
+}
+
+.band-sun {
+  background: var(--color-sun);
+}
+
 .band-ink {
-  background: var(--color-ink);
+  background: var(--color-ink-band);
   color: var(--color-on-ink);
+}
+
+/* Yellow highlighter behind a word or two in a headline */
+.highlight {
+  background: linear-gradient(transparent 58%, var(--color-highlight) 58% 92%, transparent 92%);
+  padding-inline: 0.06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .band-ink h2,

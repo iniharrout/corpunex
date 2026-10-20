@@ -9,7 +9,7 @@ import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink, TextLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { Fact } from "@/components/ui/Placeholder";
+import CallbackButton from "@/components/callback/CallbackButton";
 import styles from "./ServicePage.module.css";
 
 /** A worked example for the fee summary: the cheapest common case in our home state. */
@@ -22,7 +22,7 @@ function sampleFees(content: ServicePageContent) {
 
 /** The two other structures, for the comparison heading. */
 function alternatives(entity: EntityType) {
-  const names: Record<EntityType, string> = { pvt: "a Private Limited company", llp: "an LLP", opc: "an OPC" };
+  const names: Record<EntityType, string> = { pvt: "a Private Limited company", llp: "an LLP", opc: "a One Person Company" };
   return (Object.keys(names) as EntityType[]).filter((e) => e !== entity).map((e) => names[e]).join(" or ");
 }
 
@@ -64,27 +64,21 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
             <div key={f.label}>
               <dt>{f.label}</dt>
               <dd>
-                <span>
-                  <Fact value={f.value} />
-                </span>
-                {f.note && (
-                  <span className={styles.quoteNote}>
-                    <Fact value={f.note} />
-                  </span>
-                )}
+                <span>{f.value}</span>
+                {f.note && <span className={styles.quoteNote}>{f.note}</span>}
               </dd>
             </div>
           ))}
         </dl>
       )}
-      <ButtonLink href="/contact" block size="large">
-        Talk to an advisor
-      </ButtonLink>
+      <div className={styles.quoteActions}>
+        <ButtonLink href="/contact" block size="large">
+          Get started
+        </ButtonLink>
+        <CallbackButton block topic={content.callbackTopic ?? "Register a company or LLP"} />
+      </div>
       <div className={styles.quoteLinks}>
-        {sample ? <a href="#fees">Estimate your total</a> : <Link href="/pricing">See pricing</Link>}
-        <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
-          WhatsApp
-        </a>
+        {sample ? <a href="#fees">Work out your total cost</a> : <Link href="/pricing">See how our pricing works</Link>}
       </div>
     </aside>
   );
@@ -163,7 +157,7 @@ export default function ServicePage({ content }: { content: ServicePageContent }
               <div className={styles.notFor}>
                 <h3 className={styles.h3}>When something else fits better</h3>
                 {content.notFor.map((n) => (
-                  <p key={n.href}>
+                  <p key={n.text}>
                     {n.text} <Link href={n.href}>{n.linkLabel}</Link>.
                   </p>
                 ))}
@@ -225,12 +219,10 @@ export default function ServicePage({ content }: { content: ServicePageContent }
 
           <section className={styles.block} aria-labelledby="timeline-title">
             <h2 id="timeline-title" className={styles.h2}>
-              {content.entity ? "Timeline" : "Steps"}
+              {content.entity ? "Timeline" : "Step by step"}
             </h2>
             {(content.entity || content.stepsIntro) && (
-              <p className={styles.blockIntro}>
-                <Fact value={content.entity ? timeline.sentence : content.stepsIntro!} />
-              </p>
+              <p className={styles.blockIntro}>{content.entity ? timeline.sentence : content.stepsIntro}</p>
             )}
             <ol className={styles.milestones}>
               {content.milestones.map((m) => (

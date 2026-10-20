@@ -65,12 +65,12 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "What does DPIIT recognition give me?",
         answer:
-          "It lets you apply for the 80-IAC income tax exemption, and gives you lower patent and trademark fees, relaxed conditions in some government tenders, and access to central schemes. [VERIFY: current list of benefits]",
+          "It lets you apply for the 80-IAC income tax exemption,, and gives you lower patent and trademark fees and access to central government schemes.",
       },
       {
         question: "Who can register with Startup Odisha?",
         answer:
-          "DPIIT-recognised startups that are based in Odisha. [VERIFY: current eligibility rules and amounts under the Odisha Startup Policy]",
+          "Startups based in Odisha that already have Startup India (DPIIT) recognition. Tell us your setup and we'll check the current rules.",
       },
       {
         question: "Is there a government fee for Udyam registration?",
@@ -85,7 +85,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "When is GST registration compulsory?",
         answer:
-          "When turnover crosses ₹40 lakh for goods or ₹20 lakh for services in most states (₹20 lakh and ₹10 lakh in special category states), and regardless of turnover for sellers of goods across states and sellers through e-commerce operators. [VERIFY: thresholds and exceptions are current]",
+          "In most states, once your yearly sales cross ₹40 lakh for goods or ₹20 lakh for services. You also have to register, whatever your sales, if you sell goods to other states or sell through an online marketplace.",
       },
       {
         question: "Can I register for GST below the threshold?",
@@ -126,7 +126,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "What is DIR-3 KYC?",
         answer:
-          "A KYC filing for every person who holds a DIN. If it is missed, the DIN is deactivated until it is filed with a late fee. [VERIFY: current frequency and late fee]",
+          "A filing that confirms the identity and contact details of everyone with a director ID (DIN). If it's missed, the DIN is switched off until it's filed with a late fee.",
       },
     ],
   },
@@ -141,7 +141,7 @@ export const faqGroups: FaqGroup[] = [
       },
       {
         question: "How do I start?",
-        answer: `Send the form on our contact page, email ${site.email} or call ${site.phoneDisplay}. An advisor will reply with questions and a written, itemised quote.`,
+        answer: `Fill in the form on our contact page, request a call back, or email ${site.email}. An advisor will get back to you with a few questions and a written, itemised quote.`,
       },
     ],
   },

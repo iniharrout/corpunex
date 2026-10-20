@@ -1,77 +1,121 @@
-.split {
-  display: grid;
-  gap: var(--space-6);
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 .h2 {
   font-size: var(--text-h2);
-  max-width: 14ch;
+  max-width: 18ch;
+}
+
+/* Services with their own page: pastel cards */
+.cards {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sky {
+  background: var(--color-sky);
+}
+
+.mint {
+  background: var(--color-mint);
+}
+
+.sun {
+  background: var(--color-sun);
+}
+
+.peach {
+  background: var(--color-peach);
+}
+
+.cardTitle {
+  font-size: var(--text-h3);
+}
+
+.cardBody {
+  color: var(--color-ink-soft);
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+}
+
+.cardCta svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.card:hover .cardCta svg {
+  transform: translateX(3px);
+}
+
+/* Services on request: a white card with ticks */
+.moreSection {
+  padding-bottom: var(--space-section);
+}
+
+.panel {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
 }
 
 .note {
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
   max-width: 40ch;
   color: var(--color-ink-muted);
 }
 
-/* Services with their own page: large ruled rows */
-.featured {
-  list-style: none;
-  border-top: 1px solid var(--color-ink);
-}
-
-.featuredLink {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: var(--space-1) var(--space-4);
-  padding-block: var(--space-5);
-  border-bottom: 1px solid var(--color-line);
-  text-decoration: none;
-}
-
-.featuredLabel {
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  line-height: var(--leading-heading);
-  color: var(--color-ink);
-}
-
-.featuredDesc {
-  grid-column: 1;
-  color: var(--color-ink-muted);
-}
-
-.arrow {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  color: var(--color-ink);
-  transition: transform var(--duration-fast) var(--ease-out);
-}
-
-.featuredLink:hover .featuredLabel {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.featuredLink:hover .arrow {
-  transform: translateX(3px);
-}
-
-/* Services on request: compact two-column list */
-.compact {
+.list {
   list-style: none;
   display: grid;
-  border-top: 1px solid var(--color-line-strong);
+  gap: var(--space-5) var(--space-6);
 }
 
-.compact li {
-  padding-block: var(--space-4);
-  border-bottom: 1px solid var(--color-line);
+.list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3);
 }
 
-.compactLabel {
+.tick {
+  margin-top: 0.2em;
+  color: var(--color-success);
+}
+
+.listLabel {
   font-family: var(--font-body);
   font-size: var(--text-body);
   font-weight: var(--weight-semibold);
@@ -79,20 +123,37 @@
   color: var(--color-ink);
 }
 
-.compact p {
+.list p {
   margin-top: var(--space-1);
   font-size: var(--text-small);
   color: var(--color-ink-muted);
 }
 
-@media (min-width: 768px) {
-  .compact {
+.split {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .list {
     grid-template-columns: 1fr 1fr;
-    column-gap: var(--space-6);
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1080px) {
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .panel {
+    grid-template-columns: 4fr 8fr;
+    padding: var(--space-8);
+  }
+
   .split {
     grid-template-columns: 4fr 8fr;
     gap: var(--layout-column-gap);

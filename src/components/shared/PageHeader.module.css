@@ -1,6 +1,26 @@
 .header {
-  padding-block: var(--space-6) var(--space-7);
-  border-bottom: 1px solid var(--color-line);
+  padding-top: var(--space-4);
+}
+
+.panel {
+  padding: var(--space-6) var(--space-5) var(--space-7);
+  border-radius: var(--radius-xl);
+}
+
+.sky {
+  background: var(--color-sky);
+}
+
+.mint {
+  background: var(--color-mint);
+}
+
+.sun {
+  background: var(--color-sun);
+}
+
+.peach {
+  background: var(--color-peach);
 }
 
 .breadcrumb {
@@ -8,7 +28,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
   font-size: var(--text-small);
   color: var(--color-ink-muted);
 }
@@ -16,7 +36,7 @@
 .breadcrumb li + li::before {
   content: "/";
   margin-right: var(--space-2);
-  color: var(--color-line-strong);
+  color: var(--color-ink-faint);
 }
 
 .breadcrumb a {
@@ -27,6 +47,10 @@
   color: var(--color-ink);
 }
 
+.breadcrumb [aria-current] {
+  overflow-wrap: anywhere;
+}
+
 .title {
   font-size: var(--text-h1);
   line-height: var(--leading-tight);
@@ -35,17 +59,18 @@
 }
 
 .lead {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
   max-width: 58ch;
   font-size: var(--text-lead);
+  color: var(--color-ink-soft);
 }
 
 .extra {
   margin-top: var(--space-6);
 }
 
-@media (min-width: 1000px) {
-  .header {
-    padding-block: var(--space-8);
+@media (min-width: 900px) {
+  .panel {
+    padding: var(--space-8) var(--space-8) var(--space-8);
   }
 }

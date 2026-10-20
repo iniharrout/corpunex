@@ -10,14 +10,17 @@
   align-items: center;
   min-height: var(--tap-min);
   padding-inline: var(--space-4);
-  border: 1px solid var(--color-line-input);
+  border: 1.5px solid var(--color-line-input);
   border-radius: var(--radius-pill);
+  background: var(--color-surface);
   font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
   color: var(--color-ink);
   text-decoration: none;
   transition: border-color var(--duration-fast) var(--ease-out);
 }
 
 .list a:hover {
-  border-color: var(--color-ink);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }

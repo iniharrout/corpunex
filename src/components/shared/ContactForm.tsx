@@ -2,14 +2,13 @@
 
 import { useId, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { Ph } from "@/components/ui/Placeholder";
 import styles from "./ContactForm.module.css";
 
 export const ENQUIRY_TOPICS = [
   "Register a company or LLP",
   "GST, accounting or tax returns",
   "Annual ROC compliance",
-  "Startup India, grants or fundraising",
+  "Startup India or fundraising",
   "Trademark or legal documents",
   "Foreign founder entering India",
   "Something else",
@@ -64,10 +63,7 @@ export default function ContactForm({ defaultTopic = "" }: { defaultTopic?: stri
     return (
       <div className={styles.sent} role="status">
         <p className={styles.sentTitle}>Thanks, {fields.name.split(" ")[0]}. We have your message.</p>
-        <p>
-          An advisor will reply within <Ph>response time, e.g. one working day</Ph>. If it is urgent, message us on
-          WhatsApp.
-        </p>
+        <p>Someone from our team will get back to you by phone or email during working hours.</p>
       </div>
     );
   }

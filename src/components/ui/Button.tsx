@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import styles from "./ui.module.css";
 
-type Variant = "primary" | "secondary" | "ink" | "onInk";
+type Variant = "primary" | "secondary" | "ghost" | "ink" | "onInk";
 
 interface StyleProps {
   variant?: Variant;
@@ -32,7 +32,7 @@ export function ButtonLink({
   ...anchorProps
 }: StyleProps & { href: string; children: ReactNode } & Omit<ComponentProps<"a">, "href" | "className">) {
   const className = classes({ variant, size, block });
-  const external = /^(https?:|tel:|mailto:)/.test(href);
+  const external = /^(https?:|mailto:)/.test(href);
   const Tag = external ? "a" : Link;
   return (
     <Tag href={href} className={className} {...anchorProps}>

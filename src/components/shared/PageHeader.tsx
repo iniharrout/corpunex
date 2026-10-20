@@ -9,6 +9,8 @@ export interface Crumb {
   href: string;
 }
 
+export type Tone = "sky" | "mint" | "sun" | "peach";
+
 /** BreadcrumbList schema for a trail of crumbs. */
 export function breadcrumbSchema(crumbs: Crumb[]) {
   return {
@@ -37,20 +39,40 @@ export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
   );
 }
 
+/** Wraps `phrase` inside `title` in the yellow highlighter. */
+function withHighlight(title: string, phrase?: string): ReactNode {
+  if (!phrase) return title;
+  const at = title.indexOf(phrase);
+  if (at < 0) return title;
+  return (
+    <>
+      {title.slice(0, at)}
+      <span className="highlight">{phrase}</span>
+      {title.slice(at + phrase.length)}
+    </>
+  );
+}
+
 /**
- * Title block for inner pages: breadcrumb, h1 and lead, with optional
- * content (meta line, actions) underneath. Emits BreadcrumbList schema.
+ * Title block for inner pages: a pastel panel with breadcrumb, h1 and
+ * lead, plus optional extras (actions, jump links). Emits BreadcrumbList
+ * schema.
  */
 export default function PageHeader({
   crumbs,
   title,
+  highlight,
   lead,
+  tone = "sky",
   children,
   id = "page-title",
 }: {
   crumbs: Crumb[];
-  title: ReactNode;
+  title: string;
+  /** A phrase inside `title` to mark with the highlighter. */
+  highlight?: string;
   lead?: ReactNode;
+  tone?: Tone;
   children?: ReactNode;
   id?: string;
 }) {
@@ -58,12 +80,14 @@ export default function PageHeader({
     <header className={styles.header}>
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <div className="wrap">
-        <Breadcrumbs crumbs={crumbs} />
-        <h1 id={id} className={styles.title}>
-          {title}
-        </h1>
-        {lead && <p className={styles.lead}>{lead}</p>}
-        {children && <div className={styles.extra}>{children}</div>}
+        <div className={`${styles.panel} ${styles[tone]}`}>
+          <Breadcrumbs crumbs={crumbs} />
+          <h1 id={id} className={styles.title}>
+            {withHighlight(title, highlight)}
+          </h1>
+          {lead && <p className={styles.lead}>{lead}</p>}
+          {children && <div className={styles.extra}>{children}</div>}
+        </div>
       </div>
     </header>
   );

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { Mail } from "lucide-react";
 import ContactPanel from "@/components/shared/ContactPanel";
-import { Fact } from "@/components/ui/Placeholder";
+import CallbackButton from "@/components/callback/CallbackButton";
 import { site, timeline } from "@/config/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Talk to an advisor",
+  title: "Get started",
   description:
-    "Ask about company registration, GST, accounting, compliance or entering India as a foreign founder. Reply by phone, email or WhatsApp.",
+    "Tell us about your business and we'll suggest the right setup, with a clear quote. Or request a call back.",
   alternates: { canonical: "/contact" },
 };
 
@@ -17,45 +18,36 @@ export default function ContactPage() {
       <div className={`wrap ${styles.grid}`}>
         <div>
           <h1 id="contact-title" className={styles.title}>
-            Talk to an advisor
+            Let&apos;s get your business <span className="highlight">started.</span>
           </h1>
           <p className={styles.lead}>
-            Tell us what you are setting up or what is due. An advisor will reply with what is needed, how long it
-            takes and what it costs.
+            Tell us what you&apos;re planning. We&apos;ll reply with what you need, how long it takes and what it
+            costs. No jargon, no obligation.
           </p>
 
-          <dl className={styles.details}>
-            <div>
-              <dt>Email</dt>
-              <dd>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
-              </dd>
+          <div className={styles.options}>
+            <div className={styles.option}>
+              <h2 className={styles.optionTitle}>Rather talk it through?</h2>
+              <p>Leave your number and we&apos;ll call you back during working hours.</p>
+              <CallbackButton variant="primary" />
             </div>
-            <div>
-              <dt>Phone and WhatsApp</dt>
-              <dd>
-                <a href={site.phoneHref}>{site.phoneDisplay}</a>
-              </dd>
+            <div className={styles.option}>
+              <h2 className={styles.optionTitle}>Email us</h2>
+              <p>
+                <a href={`mailto:${site.email}`} className={styles.email}>
+                  <Mail size={18} strokeWidth={2} aria-hidden />
+                  {site.email}
+                </a>
+              </p>
+              <p className={styles.small}>
+                {site.hours} · {site.offices}
+              </p>
             </div>
-            <div>
-              <dt>Hours</dt>
-              <dd>{site.hours}</dd>
-            </div>
-            <div>
-              <dt>Offices</dt>
-              <dd>{site.offices}</dd>
-            </div>
-            <div>
-              <dt>Registered office</dt>
-              <dd>
-                <Fact value={site.registeredAddress} />
-              </dd>
-            </div>
-          </dl>
+          </div>
 
           <p className={styles.note}>
-            Registering a company? Have your proposed names, the directors&apos; PAN cards and the registered office
-            address ready. Incorporation typically takes {timeline.short} from complete documents.
+            Registering a company? Keep your proposed company names, each director&apos;s PAN card and an address
+            proof for the office handy. Registration usually takes {timeline.short} once we have everything.
           </p>
         </div>
         <ContactPanel title="Send us a message" />

@@ -12,8 +12,8 @@ export const opc: ServicePageContent = {
     { label: "Start", href: "/services/business-registration" },
     { label: "One Person Company", href: "/services/business-registration/one-person-company" },
   ],
-  headline: `A company with one owner, registered with the MCA in ${timeline.short}.`,
-  lead: "An OPC gives a solo founder limited liability and a separate legal entity, with no co-founder needed. We check the name, draft the MoA and AoA, record your nominee and file SPICe+. A Chartered Accountant or Company Secretary certifies every filing.",
+  headline: `Register your One Person Company in ${timeline.short}.`,
+  lead: "A One Person Company (OPC) lets you run a proper company on your own, with your personal assets kept separate from the business. No co-founder needed. We check your name, write your company rulebook (MoA and AoA), add your nominee and file everything. Every filing is checked by a Chartered Accountant or Company Secretary.",
   entity: "opc",
 
   forWho: [
@@ -36,20 +36,20 @@ export const opc: ServicePageContent = {
   ],
 
   included: [
-    "Name search against MCA and trademark records, with up to two proposed names",
-    "Name reservation through SPICe+ Part A",
-    "DIN for the director",
-    "MoA and AoA drafted to your business objects",
-    "Nominee consent on Form INC-3",
-    "SPICe+ Part B filing, certified by a CA or CS",
-    "AGILE-PRO-S: PAN, TAN, EPFO and ESIC registration, and a bank account application",
-    "A dated compliance calendar for your first year",
+    "Checking that up to two names you like are available",
+    "Reserving your company name with the government",
+    "Director ID (DIN) for you",
+    "MoA and AoA, your company's rulebook, written for your business",
+    "Your nominee's consent form (INC-3)",
+    "The main registration form (SPICe+), certified by a CA or CS",
+    "PAN, TAN, EPFO and ESIC registrations, plus a bank account application, filed together",
+    "A calendar of every deadline in your first year",
   ],
   excluded: [
-    "Government fees and state stamp duty (paid at cost, receipts provided)",
-    "Class 3 digital signature for the director (about ₹1,000)",
+    "Government fees and stamp duty (we charge exactly what the government charges)",
+    "Your digital signature (about ₹1,000)",
     "GST registration, if you need it separately",
-    "Auditor appointment and annual ROC filings",
+    "Auditor's fee and yearly filings",
   ],
 
   documents: [
@@ -76,32 +76,32 @@ export const opc: ServicePageContent = {
 
   milestones: [
     { when: "Day 1", title: "Documents checked", detail: "We review your and your nominee's documents and flag anything that needs redoing." },
-    { when: "Days 1–3", title: "Digital signature issued", detail: "You complete a short video verification with the certifying authority." },
-    { when: "Days 2–5", title: "Name approved", detail: "We file SPICe+ Part A. The MCA approves the name or asks for another." },
-    { when: "Days 4–8", title: "Incorporation filed", detail: "You sign the MoA, AoA and SPICe+ Part B, and we file them with the nominee's consent." },
-    { when: "Days 7–14", title: "Certificate issued", detail: "The MCA issues the certificate of incorporation with your CIN, PAN and TAN." },
+    { when: "Days 1–3", title: "Digital signature issued", detail: "You do a short video check so you can sign forms online." },
+    { when: "Days 2–5", title: "Name approved", detail: "We apply for your name. The government approves it or asks for another one." },
+    { when: "Days 4–8", title: "Incorporation filed", detail: "You sign the documents online and we file them with your nominee's consent." },
+    { when: "Days 7–14", title: "Certificate issued", detail: "You get your certificate of incorporation, company PAN and TAN. You're official!" },
   ],
 
   process: [
     {
-      title: "Call and quote",
+      title: "Talk to us",
       you: "Tell us your proposed names, your nominee, state and capital.",
       us: "Confirm an OPC suits you and send a written, itemised quote.",
     },
     {
       title: "Documents",
       you: "Upload your documents and your nominee's.",
-      us: "Check them against MCA requirements and arrange your digital signature.",
+      us: "Check them and arrange your digital signature.",
     },
     {
       title: "Name and drafting",
-      you: "Approve your business objects.",
-      us: "File for the name, draft the MoA and AoA, and prepare INC-3.",
+      you: "Confirm what your business will do.",
+      us: "Apply for your name, write your company rulebook (MoA and AoA) and prepare the nominee form.",
     },
     {
       title: "Signing and filing",
       you: "Sign the forms with your digital signature.",
-      us: "Certify and file SPICe+ Part B, and answer any MCA queries.",
+      us: "Certify and file everything, and answer any questions from the government.",
     },
     {
       title: "Handover",
@@ -110,11 +110,12 @@ export const opc: ServicePageContent = {
     },
   ],
 
+  callbackTopic: "Register a company or LLP",
   afterwards: [
-    { deadline: "Within 30 days", task: "Appoint the first auditor", form: "ADT-1 (filed within 15 days of appointment)" },
-    { deadline: "Within 180 days", task: "Deposit share capital and declare commencement of business", form: "INC-20A" },
-    { deadline: "Within 180 days of year end", task: "File financial statements", form: "AOC-4" },
-    { deadline: "Every year", task: "File the annual return and complete director KYC", form: "MGT-7A, DIR-3 KYC" },
+    { deadline: "Within 30 days", task: "Appoint your first auditor", form: "ADT-1" },
+    { deadline: "Within 180 days", task: "Put the share capital in the bank and tell the government you have started business", form: "INC-20A" },
+    { deadline: "Within 180 days of year end", task: "File your accounts", form: "AOC-4" },
+    { deadline: "Every year", task: "File the yearly return and your director KYC", form: "MGT-7A, DIR-3 KYC" },
   ],
 
   faqs: [
@@ -125,17 +126,17 @@ export const opc: ServicePageContent = {
     {
       question: "Who can form an OPC?",
       answer:
-        "Only a natural person who is an Indian citizen. A person can form only one OPC. [VERIFY: current residency condition for the OPC member]",
+        "Only an individual who is an Indian citizen, not a company. Each person can form only one OPC.",
     },
     {
       question: "What does the nominee do?",
       answer:
-        "The nominee becomes the member if you die or can no longer act. They sign a consent on Form INC-3. You can change the nominee later by filing with the MCA.",
+        "Your nominee is the person who takes over the company if you die or can no longer run it. They sign a consent form (INC-3). You can change your nominee later.",
     },
     {
       question: "Do I have to hold an AGM?",
       answer:
-        "No. An OPC does not need to hold an annual general meeting. It still files financial statements and an annual return every year.",
+        "No. An OPC does not need an annual general meeting (AGM). It still files its accounts and a yearly return.",
     },
     {
       question: "Can I convert to a Private Limited company later?",

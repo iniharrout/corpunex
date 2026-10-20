@@ -5,7 +5,6 @@ import { articles, readingMinutes } from "@/content/articles";
 import { site } from "@/config/site";
 import PageHeader from "@/components/shared/PageHeader";
 import CtaBand from "@/components/shared/CtaBand";
-import { Fact } from "@/components/ui/Placeholder";
 import { JsonLd } from "@/components/ui/JsonLd";
 import styles from "./page.module.css";
 
@@ -57,6 +56,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         ]}
         title={article.title}
         lead={article.summary}
+        tone="sun"
       >
         <p className={styles.meta}>
           {article.category} · {article.published} · {readingMinutes(article)} min read
@@ -67,12 +67,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <article className={styles.body}>
           <section className={styles.takeaways} aria-labelledby="takeaways-title">
             <h2 id="takeaways-title" className={styles.takeawaysTitle}>
-              In short
+              The short version
             </h2>
             <ul>
               {article.takeaways.map((t) => (
                 <li key={t}>
-                  <Fact value={t} />
+                  {t}
                 </li>
               ))}
             </ul>
@@ -83,14 +83,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <h2 className={styles.h2}>{s.heading}</h2>
               {s.paragraphs.map((p) => (
                 <p key={p}>
-                  <Fact value={p} />
+                  {p}
                 </p>
               ))}
               {s.bullets && (
                 <ul className={styles.bullets}>
                   {s.bullets.map((b) => (
                     <li key={b}>
-                      <Fact value={b} />
+                      {b}
                     </li>
                   ))}
                 </ul>
@@ -99,14 +99,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           ))}
 
           <p className={styles.notice}>
-            This guide is general information, not legal or tax advice. Laws and fees change often. Check with an
-            advisor before you file anything.
+            This guide is general information, not legal or tax advice. Rules and fees change often, so check with
+            an advisor before you file anything.
           </p>
         </article>
 
         <aside className={styles.aside} aria-labelledby="related-title">
           <h2 id="related-title" className={styles.asideTitle}>
-            Related services
+            How we can help
           </h2>
           <ul className={styles.related}>
             {article.related.map((r) => (

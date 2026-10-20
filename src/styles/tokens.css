@@ -2,68 +2,86 @@
  * Corpunex design tokens — the single source for colour, type, spacing,
  * radius, elevation and motion. Components read these variables only;
  * no component should hard-code a hex value or a pixel font size.
+ *
+ * Direction: bright, friendly and plain-spoken, for first-time founders.
  */
 
 :root {
   /* ── Colour ─────────────────────────────────────────────── */
-  /* Ink: headlines, primary text, dark sections */
-  --color-ink: #0f1d2e;
-  --color-ink-soft: #24344a;      /* body copy on paper (11.5:1) */
-  --color-ink-muted: #56606e;     /* secondary copy on paper (5.8:1) */
-  --color-ink-faint: #7a828d;     /* decorative marks and 24px+ text only (3.5:1) */
+  /* Text */
+  --color-ink: #101828;           /* headlines, strong text (17.8:1 on white) */
+  --color-ink-soft: #344054;      /* body copy (10.4:1) */
+  --color-ink-muted: #5d6676;     /* secondary copy (5.8:1 on white, 5.0:1+ on pastels) */
+  --color-ink-faint: #98a2b3;     /* decorative marks only */
 
-  /* Paper: page and surfaces */
-  --color-paper: #f6f4ef;         /* default page background */
-  --color-surface: #ffffff;       /* raised panels, inputs */
-  --color-paper-deep: #ece8df;    /* alternating bands */
+  /* Surfaces */
+  --color-paper: #ffffff;         /* page background */
+  --color-surface: #ffffff;       /* cards, inputs */
+  --color-paper-deep: #f4f7fb;    /* neutral alternating band */
+
+  /* Pastel bands and tiles: friendly colour without loud blocks */
+  --color-sky: #eaf1ff;
+  --color-mint: #e4f6ec;
+  --color-sun: #fff4d1;
+  --color-peach: #ffebe3;
+
+  /* Strong partners for icons on the pastels */
+  --color-sky-strong: #2453d6;
+  --color-mint-strong: #157347;
+  --color-sun-strong: #8a5a00;
+  --color-peach-strong: #b8401b;
 
   /* Lines */
-  --color-line: #ddd8cd;
-  --color-line-strong: #b9b2a4;   /* dividers only, not control edges */
-  --color-line-input: #857f73;    /* form controls: 3.6:1 on paper, meets 1.4.11 */
+  --color-line: #e4e7ec;
+  --color-line-strong: #d0d5dd;   /* dividers only */
+  --color-line-input: #8b93a1;    /* control edges: 3.1:1 on white, meets 1.4.11 */
 
-  /* Accent: CTAs and key numbers only. Never for decoration. */
-  --color-accent: #b4461b;        /* white on accent 5.5:1; accent on paper 5.0:1 */
-  --color-accent-hover: #963813;
-  --color-accent-tint: #f6e7de;
+  /* Brand blue: buttons, links, key numbers */
+  --color-accent: #2453d6;        /* white text on it 6.4:1 */
+  --color-accent-hover: #1b40ab;
+  --color-accent-tint: #eaf1ff;
 
-  /* On-dark (ink sections) */
-  --color-on-ink: #f6f4ef;
-  --color-on-ink-muted: #b6bec9;  /* 9.1:1 on ink */
-  --color-on-ink-line: #2c3c52;
+  /* Highlighter for a word or two in a headline */
+  --color-highlight: #ffd84d;
 
-  /* Status (forms only) */
-  --color-error: #a3261b;
-  --color-success: #1f6a43;
+  /* Dark band */
+  --color-ink-band: #0e1a33;
+  --color-on-ink: #ffffff;
+  --color-on-ink-muted: #c3cad6;  /* 10.5:1 on the dark band */
+  --color-on-ink-line: #2a3756;
 
-  /* Focus ring */
-  --color-focus: #1f5fbf;
+  /* Status */
+  --color-error: #b42318;
+  --color-success: #157347;
+
+  --color-focus: #2453d6;
 
   /* ── Typography ─────────────────────────────────────────── */
-  --font-display: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-display: var(--font-bricolage), "Avenir Next", "Segoe UI", sans-serif;
   --font-body: var(--font-inter), -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Fluid scale, 390px → 1440px */
-  --text-display: clamp(2.5rem, 1.6rem + 3.9vw, 4.75rem);
-  --text-h1: clamp(2.25rem, 1.65rem + 2.6vw, 3.75rem);
-  --text-h2: clamp(1.875rem, 1.45rem + 1.8vw, 2.875rem);
-  --text-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem);
+  --text-display: clamp(2.5rem, 1.75rem + 3.4vw, 4.5rem);
+  --text-h1: clamp(2.125rem, 1.6rem + 2.3vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+  --text-h3: clamp(1.25rem, 1.14rem + 0.45vw, 1.5rem);
   --text-h4: 1.125rem;
   --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
   --text-body: 1.0625rem;         /* 17px */
   --text-small: 0.9375rem;        /* 15px */
-  --text-micro: 0.8125rem;        /* 13px — meta and labels only */
+  --text-micro: 0.8125rem;        /* 13px — labels only */
 
-  --leading-tight: 1.06;
-  --leading-heading: 1.18;
+  --leading-tight: 1.05;
+  --leading-heading: 1.15;
   --leading-body: 1.6;
 
-  --tracking-display: -0.022em;
-  --tracking-label: 0.08em;
+  --tracking-display: -0.03em;
+  --tracking-label: 0.06em;
 
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
+  --weight-bold: 700;
 
   /* ── Spacing (4px base) ─────────────────────────────────── */
   --space-1: 0.25rem;
@@ -76,10 +94,10 @@
   --space-8: 4rem;
   --space-9: 6rem;
   --space-10: 8rem;
-  --space-section: clamp(4rem, 2.8rem + 5vw, 8rem);
+  --space-section: clamp(3.5rem, 2.6rem + 4vw, 7rem);
 
   /* ── Layout ─────────────────────────────────────────────── */
-  --layout-max: 1280px;
+  --layout-max: 1240px;
   --layout-gutter: 1rem;          /* 16px on phones */
   --layout-columns: 12;
   --layout-column-gap: 1.5rem;
@@ -87,15 +105,18 @@
   --header-height: 4.25rem;
   --tap-min: 2.75rem;             /* 44px */
 
-  /* ── Radius ─────────────────────────────────────────────── */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  /* ── Radius: soft and friendly ──────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-pill: 999px;
 
-  /* ── Elevation (used sparingly: menus, sticky bars) ─────── */
-  --shadow-menu: 0 18px 40px -16px rgb(15 29 46 / 0.22), 0 2px 6px rgb(15 29 46 / 0.06);
-  --shadow-bar: 0 -6px 18px rgb(15 29 46 / 0.08);
+  /* ── Elevation ──────────────────────────────────────────── */
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px -12px rgb(16 24 40 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(16 24 40 / 0.05), 0 16px 32px -14px rgb(16 24 40 / 0.2);
+  --shadow-menu: 0 24px 48px -20px rgb(16 24 40 / 0.25), 0 2px 6px rgb(16 24 40 / 0.06);
+  --shadow-bar: 0 -6px 18px rgb(16 24 40 / 0.08);
 
   /* ── Motion ─────────────────────────────────────────────── */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);

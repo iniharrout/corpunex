@@ -1,11 +1,12 @@
 .meta {
   font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
   color: var(--color-ink-muted);
 }
 
 .layout {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-7);
   padding-block: var(--space-7) var(--space-section);
 }
 
@@ -16,18 +17,14 @@
 }
 
 .takeaways {
-  padding-block: var(--space-5);
-  border-block: 1px solid var(--color-ink);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-mint);
 }
 
 .takeawaysTitle {
   margin-bottom: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
+  font-size: var(--text-h4);
 }
 
 .takeaways ul {
@@ -54,57 +51,60 @@
 
 .bullets li::marker,
 .takeaways li::marker {
-  color: var(--color-ink-muted);
+  color: var(--color-accent);
 }
 
 .notice {
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--color-line);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-paper-deep);
   font-size: var(--text-small);
   color: var(--color-ink-muted);
 }
 
+.aside {
+  align-self: start;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
 .asideTitle {
   margin-bottom: var(--space-3);
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
+  font-size: var(--text-h4);
 }
 
 .related {
   list-style: none;
-  border-top: 1px solid var(--color-ink);
 }
 
-.related li {
-  border-bottom: 1px solid var(--color-line);
+.related li + li {
+  border-top: 1px solid var(--color-line);
 }
 
 .related a {
   display: flex;
   align-items: center;
   min-height: var(--tap-min);
-  padding-block: var(--space-3);
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  color: var(--color-ink);
-  text-decoration-color: var(--color-line-strong);
+  padding-block: var(--space-2);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+  text-decoration: none;
 }
 
 .related a:hover {
-  text-decoration-color: currentColor;
+  text-decoration: underline;
 }
 
 .back {
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-min);
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
   font-size: var(--text-small);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
   color: var(--color-ink);
 }
 
@@ -117,6 +117,5 @@
   .aside {
     position: sticky;
     top: calc(var(--header-height) + var(--space-5));
-    align-self: start;
   }
 }

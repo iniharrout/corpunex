@@ -1,128 +1,123 @@
 import type { ServicePageContent } from "./types";
-import { feeToConfirm, stepsIntroToConfirm } from "./shared";
+import { quoteOnRequest } from "./shared";
 
 export const trademarkRegistration: ServicePageContent = {
   path: "/services/trademark-ip/trademark-registration",
   name: "Trademark registration",
   metaTitle: "Trademark registration in India: search, classes, filing and objections",
   metaDescription:
-    "Register your brand name, logo or tagline with the Trade Marks Registry. Search, class selection, TM-A filing and tracking through examination and publication.",
+    "Protect your brand name, logo or tagline. We search for clashing brands first, pick the right classes with you, file your application and track it to registration.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Trademark and IP", href: "/services/trademark-ip" },
     { label: "Trademark registration", href: "/services/trademark-ip/trademark-registration" },
   ],
-  headline: "Your brand name, filed in the right classes after a proper search.",
-  lead: "Most trademark objections come from a conflicting mark that a search would have found, or a class that does not match what you sell. We search first, choose your classes with you, file TM-A and track the application through examination and publication.",
+  headline: "Protect your brand name before someone else takes it.",
+  lead: "A registered trademark means nobody else in India can use your brand name or logo for the same kind of business. Most applications run into trouble because a similar brand already exists or the wrong category was picked. So we search first, choose your categories with you, and then file.",
   quoteFacts: [
-    {
-      label: "Government fee",
-      value: "[VERIFY: Registry fee per class]",
-      note: "Lower for individuals, startups and small enterprises",
-    },
-    { ...feeToConfirm, note: `${feeToConfirm.note}, per class` },
-    { label: "Timeline", value: "™ from filing", note: "[VERIFY: typical time to registration]" },
+    { label: "Government fee", value: "Per category", note: "Lower for individuals, startups and small businesses" },
+    { ...quoteOnRequest, note: "Per category, itemised and in writing" },
+    { label: "Use ™", value: "From the day we file" },
   ],
+  callbackTopic: "Trademark or legal documents",
 
   forWho: [
-    "You are launching a brand name, logo or tagline.",
-    "You sell direct to consumers and want to protect your packaging and store name.",
-    "You run a software product or app and want to protect its name.",
-    "You sell on marketplaces and need a trademark for brand registry programmes.",
+    "You're launching a brand name, logo or tagline.",
+    "You sell direct to customers and want to protect your packaging and shop name.",
+    "You have an app or software product and want to protect its name.",
+    "You sell on online marketplaces and need a trademark for their brand programmes.",
   ],
   notFor: [],
 
   included: [
-    "Search of the Registry for identical and similar marks",
-    "A written opinion on how likely the mark is to be accepted",
-    "Selection of classes and the description of goods or services",
-    "Power of attorney (TM-48)",
-    "Filing of TM-A in one class",
-    "Tracking through examination and publication",
+    "A search for brands that are the same as or similar to yours",
+    "A written opinion on how likely your trademark is to be accepted",
+    "Choosing the right categories (classes) and describing what you sell",
+    "The authorisation form that lets us file for you (TM-48)",
+    "Filing your application in one category",
+    "Tracking it through review and publication",
   ],
   excluded: [
-    "Trade Marks Registry fees (paid at cost)",
-    "Replies to examination reports, unless quoted",
-    "Opposition proceedings and hearings",
+    "Government fees (we charge exactly what the government charges)",
+    "Replying to objections, unless quoted",
+    "Disputes with other brand owners (oppositions and hearings)",
     "Filing outside India",
   ],
 
   documents: [
-    { document: "The mark", from: "Applicant", note: "Word, or logo as a high-resolution image" },
-    { document: "PAN, and Aadhaar or certificate of incorporation", from: "Applicant" },
-    { document: "Udyam or DPIIT certificate", from: "Applicant", note: "To claim the lower fee" },
-    { document: "Signed power of attorney (TM-48)", from: "Applicant", note: "We prepare it" },
-    { document: "Affidavit and proof of use", from: "Applicant", note: "Only if you claim use before the filing date" },
+    { document: "Your brand", from: "You", note: "The name, or a clear image of your logo" },
+    { document: "PAN, and Aadhaar or your certificate of incorporation", from: "You" },
+    { document: "Udyam or Startup India certificate", from: "You", note: "To pay the lower government fee" },
+    { document: "Signed authorisation form (TM-48)", from: "You", note: "We prepare it" },
+    { document: "Proof you've already been using the brand", from: "You", note: "Only if you want to claim an earlier start date" },
   ],
 
   milestones: [
-    { when: "Step 1", title: "Search and opinion", detail: "We search for conflicting marks and tell you how likely the mark is to be accepted." },
-    { when: "Step 2", title: "Classes agreed", detail: "We match your goods or services to the right classes and wording." },
-    { when: "Step 3", title: "Application filed", detail: "We file TM-A. You get an application number and can use ™ straight away." },
-    { when: "Step 4", title: "Examination", detail: "The Registry examines the mark and accepts it or issues an examination report." },
-    { when: "Step 5", title: "Publication and registration", detail: "The mark is published in the Trade Marks Journal for 4 months of opposition, then registered." },
+    { when: "Step 1", title: "Search", detail: "We look for similar brands and tell you how likely yours is to be accepted." },
+    { when: "Step 2", title: "Categories agreed", detail: "We match what you sell to the right categories and wording." },
+    { when: "Step 3", title: "Application filed", detail: "We file and send you the application number. You can start using ™ straight away." },
+    { when: "Step 4", title: "Review", detail: "The Trade Marks Registry checks your application and accepts it or raises an objection." },
+    { when: "Step 5", title: "Published, then registered", detail: "Your trademark is published for 4 months so others can object. If nobody does, it's registered." },
   ],
-  stepsIntro: stepsIntroToConfirm("trademark registration"),
-  stepsDelays: "Examination objections and oppositions are the usual causes of delay.",
+  stepsDelays: "Objections from the Registry or from another brand owner are the usual reasons for delay.",
 
   process: [
     {
       title: "Search",
-      you: "Send us the mark and what you sell under it.",
-      us: "Search the Registry and send a written opinion and quote.",
+      you: "Send us your brand and what you sell under it.",
+      us: "Search for similar brands and send an opinion and a written quote.",
     },
     {
       title: "Filing",
-      you: "Approve the classes and sign the power of attorney.",
-      us: "File the application and send the receipt.",
+      you: "Approve the categories and sign the authorisation form.",
+      us: "File your application and send the receipt.",
     },
     {
       title: "Tracking",
-      you: "Tell us if you see a similar mark in the market.",
-      us: "Track the application and tell you about every Registry action.",
+      you: "Tell us if you spot a similar brand out there.",
+      us: "Track your application and update you on every step.",
     },
     {
       title: "Registration",
-      you: "Start using ® once the mark is registered.",
-      us: "Send the registration certificate and your renewal date.",
+      you: "Start using ® once it's registered.",
+      us: "Send your registration certificate and your renewal date.",
     },
   ],
 
-  afterwards: [{ deadline: "Every 10 years", task: "Renew the registration", form: "TM-R" }],
+  afterwards: [{ deadline: "Every 10 years", task: "Renew your trademark", form: "TM-R" }],
   afterwardsTitle: "After registration",
-  afterwardsIntro: "A registered trademark lasts 10 years and can be renewed indefinitely.",
+  afterwardsIntro: "A registered trademark lasts 10 years, and you can keep renewing it.",
 
   faqs: [
     {
       question: "When can I use ™ and ®?",
       answer:
-        "You can use ™ once the application is filed. You can use ® only after the mark is registered. Using ® before then is an offence under the Trade Marks Act.",
+        "You can use ™ as soon as your application is filed. You can only use ® once your trademark is registered. Using ® before then is against the law.",
     },
     {
-      question: "What if the examination report raises an objection?",
+      question: "What if the Registry raises an objection?",
       answer:
-        "Objections are common. You must reply within the time set in the report, usually a month. We review the objection and a trademark attorney drafts the reply.",
+        "Objections are common and don't mean you've lost. You get a set time to reply. We review the objection, and a trademark attorney writes the reply.",
     },
     {
-      question: "How many classes do I need?",
+      question: "How many categories do I need?",
       answer:
-        "One for each type of goods or service you sell under the mark. Many businesses need one or two. We suggest classes after the search.",
+        "One for each kind of product or service you sell under the brand. Most small businesses need one or two. We'll suggest the right ones after the search.",
     },
     {
-      question: "Who can claim the lower government fee?",
-      answer:
-        "Individuals, DPIIT-recognised startups and enterprises with Udyam registration. You need to send the certificate with the application.",
+      question: "Who pays the lower government fee?",
+      answer: "Individuals, recognised startups and small businesses with Udyam registration. You just send us the certificate.",
     },
   ],
 
   related: [
-    { label: "Private Limited Company", href: "/services/business-registration/private-limited-company", description: "Register the company behind the brand" },
-    { label: "Startup India (DPIIT)", href: "/services/startup-services/startup-india-recognition", description: "Qualifies you for the lower trademark fee" },
+    { label: "Private Limited Company", href: "/services/business-registration/private-limited-company", description: "Register the company behind your brand" },
+    { label: "Startup India (DPIIT)", href: "/services/startup-services/startup-india-recognition", description: "Lets you pay the lower trademark fee" },
     { label: "Copyright, design and patents", href: "/services/trademark-ip", description: "Other ways to protect your work" },
   ],
 
   cta: {
-    title: "Protecting a brand?",
-    body: "Send us the name or logo and what you sell. We will search the Registry and send an opinion and quote.",
+    title: "Want to protect your brand?",
+    body: "Send us your brand name or logo and what you sell. We'll search for clashes and send you an opinion and a quote.",
   },
 };

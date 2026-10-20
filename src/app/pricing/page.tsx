@@ -7,7 +7,6 @@ import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { TextLink } from "@/components/ui/Button";
-import { Ph } from "@/components/ui/Placeholder";
 import { neverIncluded, pricingFaqs } from "@/content/pricing";
 import styles from "./page.module.css";
 
@@ -26,23 +25,23 @@ export default function PricingPage() {
       <section className={styles.hero} aria-labelledby="pricing-title">
         <div className="wrap">
           <h1 id="pricing-title" className={styles.title}>
-            Our fee, and every other cost, before you commit.
+            Simple pricing. <span className="highlight">No surprises.</span>
           </h1>
           <p className={styles.lead}>
-            Every quote has three parts. Only one of them is ours, and we show it on its own line.
+            Every quote has three parts. Only one of them is our fee, and we always show it separately.
           </p>
           <dl className={styles.parts}>
             <div>
               <dt>Government fees</dt>
-              <dd>Name reservation, filing fees and state stamp duty. Paid at cost; you get the official receipt.</dd>
+              <dd>Paid to the government for your name, filing and stamp duty. We charge exactly what they charge.</dd>
             </div>
             <div>
               <dt>Third-party costs</dt>
-              <dd>Digital signatures from a licensed certifying authority, and notarisation where needed.</dd>
+              <dd>Digital signatures for each director, which you need to sign the forms online.</dd>
             </div>
             <div>
               <dt>Corpunex fee</dt>
-              <dd>Our professional fee for drafting, filing and certification, plus 18% GST.</dd>
+              <dd>For preparing, checking and filing everything for you. Plus 18% GST.</dd>
             </div>
           </dl>
         </div>
@@ -121,8 +120,7 @@ export default function PricingPage() {
       </section>
 
       <CtaBand title="Want a written quote for your company?">
-        Tell us your structure, state and number of directors. We will send an itemised quote within{" "}
-        <Ph>quote turnaround</Ph>.
+        Tell us your structure, state and number of directors. We&apos;ll send you an itemised quote.
       </CtaBand>
     </>
   );

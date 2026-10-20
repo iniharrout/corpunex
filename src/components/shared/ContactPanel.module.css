@@ -1,8 +1,9 @@
 .panel {
   padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-xl);
   background: var(--color-surface);
+  box-shadow: var(--shadow-card);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
 }
 
 .title {
@@ -10,8 +11,7 @@
 }
 
 .intro {
-  margin-block: var(--space-2) var(--space-5);
-  font-size: var(--text-small);
+  margin-block: var(--space-1) var(--space-5);
   color: var(--color-ink-muted);
 }
 
@@ -22,39 +22,25 @@
 }
 
 .or {
-  font-size: var(--text-small);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
   color: var(--color-ink);
 }
 
-.alternatives ul {
-  list-style: none;
+.row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-1) var(--space-5);
-  margin-top: var(--space-2);
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-3);
 }
 
-.alternatives a {
+.email {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   min-height: var(--tap-min);
-  font-size: var(--text-small);
-  font-weight: var(--weight-medium);
-  color: var(--color-ink);
-  text-decoration: underline;
-  text-decoration-color: var(--color-line-strong);
-  text-underline-offset: 0.25em;
-}
-
-.alternatives a:hover {
-  text-decoration-color: currentColor;
-}
-
-.hours {
-  font-size: var(--text-micro);
-  color: var(--color-ink-muted);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
 }
 
 @media (min-width: 900px) {

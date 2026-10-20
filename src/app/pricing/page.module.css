@@ -1,6 +1,8 @@
 .hero {
   padding-block: var(--space-8) var(--space-7);
-  border-bottom: 1px solid var(--color-line);
+  background:
+    radial-gradient(ellipse 50% 50% at 100% 0%, var(--color-sky), transparent 70%),
+    var(--color-paper);
 }
 
 .title {
@@ -24,8 +26,17 @@
 
 .parts > div {
   counter-increment: part;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--color-ink);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-sky);
+}
+
+.parts > div:nth-child(2) {
+  background: var(--color-sun);
+}
+
+.parts > div:nth-child(3) {
+  background: var(--color-mint);
 }
 
 .parts dt {
@@ -36,11 +47,7 @@
 
 .parts dt::before {
   content: counter(part) ". ";
-  color: var(--color-ink-faint);
-}
-
-.parts > div:last-child dt {
-  color: var(--color-accent);
+  color: var(--color-ink-muted);
 }
 
 .parts dd {
@@ -84,13 +91,20 @@
 
 .excluded {
   list-style: none;
-  border-top: 1px solid var(--color-ink);
+  display: grid;
+  gap: var(--space-3);
 }
 
 .excluded li {
-  padding-block: var(--space-4);
-  border-bottom: 1px solid var(--color-line-strong);
+  display: grid;
+  grid-template-columns: 1.5rem 1fr;
   color: var(--color-ink-soft);
+}
+
+.excluded li::before {
+  content: "–";
+  font-weight: var(--weight-bold);
+  color: var(--color-ink-muted);
 }
 
 .policy {

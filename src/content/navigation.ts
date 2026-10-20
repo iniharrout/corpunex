@@ -6,92 +6,81 @@ export interface NavLink {
 
 export interface NavGroup {
   label: string;
-  /** One line on where the founder is in their journey. */
-  intro: string;
   links: NavLink[];
-  /** A single featured link shown beside the list. */
-  feature?: NavLink;
 }
 
 const svc = (category: string, slug?: string) =>
   slug ? `/services/${category}/${slug}` : `/services/${category}`;
 
-/** Services without a dedicated page yet route to the contact form. */
+/** Services without a dedicated page yet route to the contact page. */
 const enquire = "/contact";
 
-export const journeyNav: NavGroup[] = [
+/** The Services mega menu, grouped in plain words. */
+export const serviceGroups: NavGroup[] = [
   {
-    label: "Start",
-    intro: "Choose a structure and get incorporated.",
+    label: "Start a business",
     links: [
       {
         label: "Private Limited Company",
         href: svc("business-registration", "private-limited-company"),
-        description: "For founders who plan to raise equity",
+        description: "Best if you plan to raise money",
       },
       {
         label: "LLP",
         href: svc("business-registration", "llp-registration"),
-        description: "For partnerships and service firms",
+        description: "For partners running a firm",
       },
       {
         label: "One Person Company",
         href: svc("business-registration", "one-person-company"),
-        description: "For solo founders who want limited liability",
+        description: "For solo founders",
+      },
+      {
+        label: "Sole proprietorship",
+        href: svc("business-registration", "sole-proprietorship"),
+        description: "The simplest way to start",
       },
       {
         label: "Indian subsidiary",
         href: svc("business-registration"),
-        description: "For foreign companies entering India",
+        description: "For companies based outside India",
       },
     ],
-    feature: {
-      label: "Pvt Ltd vs LLP vs OPC",
-      href: "/resources/pvt-ltd-vs-llp",
-      description: "A side-by-side comparison of liability, tax and compliance.",
-    },
   },
   {
-    label: "Run",
-    intro: "Stay compliant once you are trading.",
+    label: "Tax and accounts",
     links: [
       { label: "GST registration", href: svc("gst-taxation", "gst-registration") },
       { label: "GST returns", href: svc("gst-taxation") },
       { label: "Accounting and bookkeeping", href: svc("accounting-bookkeeping") },
       { label: "Income tax returns", href: svc("gst-taxation", "income-tax-filing") },
-      { label: "Annual ROC compliance", href: svc("corporate-compliance", "annual-roc-compliance") },
-      { label: "Licences: FSSAI, IEC, Udyam", href: svc("licences-registrations") },
+      { label: "Virtual CFO", href: enquire },
     ],
-    feature: {
-      label: "Virtual CFO",
-      href: enquire,
-      description: "Monthly accounts, MIS and board reporting for funded companies.",
-    },
   },
   {
-    label: "Raise",
-    intro: "Get recognised and ready for investors.",
+    label: "Yearly compliance",
     links: [
-      {
-        label: "Startup India (DPIIT)",
-        href: svc("startup-services", "startup-india-recognition"),
-        description: "Recognition and the 80-IAC application",
-      },
-      {
-        label: "Startup Odisha",
-        href: svc("startup-services", "startup-odisha"),
-        description: "State recognition, allowance and grants",
-      },
-      { label: "Investor readiness", href: enquire, description: "Cap table, data room, due diligence" },
-      { label: "Startup research", href: enquire, description: "Market and sector research for your deck" },
+      { label: "Annual ROC filings", href: svc("corporate-compliance", "annual-roc-compliance") },
+      { label: "FSSAI food licence", href: svc("licences-registrations", "fssai-licence") },
+      { label: "Import Export Code", href: svc("licences-registrations", "import-export-code") },
+      { label: "Udyam (MSME) registration", href: svc("startup-services", "udyam-msme-registration") },
+      { label: "All licences", href: svc("licences-registrations") },
     ],
   },
   {
-    label: "Protect",
-    intro: "Secure your brand and your agreements.",
+    label: "Startups and funding",
+    links: [
+      { label: "Startup India (DPIIT)", href: svc("startup-services", "startup-india-recognition") },
+      { label: "Startup Odisha", href: svc("startup-services", "startup-odisha") },
+      { label: "Getting ready for investors", href: enquire },
+      { label: "Market research for your pitch", href: enquire },
+    ],
+  },
+  {
+    label: "Brand and legal",
     links: [
       { label: "Trademark registration", href: svc("trademark-ip", "trademark-registration") },
-      { label: "Copyright, design and patents", href: svc("trademark-ip") },
+      { label: "Copyright and design", href: svc("trademark-ip") },
       { label: "Founder and shareholder agreements", href: svc("legal-documentation") },
     ],
   },
@@ -99,26 +88,28 @@ export const journeyNav: NavGroup[] = [
 
 export const primaryNav: NavLink[] = [
   { label: "Pricing", href: "/pricing" },
-  { label: "Resources", href: "/resources" },
+  { label: "Guides", href: "/resources" },
   { label: "About", href: "/about" },
 ];
 
 export const footerNav: { heading: string; links: NavLink[] }[] = [
+  { heading: "Start a business", links: serviceGroups[0].links.slice(0, 4) },
+  { heading: "Tax and accounts", links: serviceGroups[1].links.slice(0, 4) },
   {
-    heading: "Start",
-    links: journeyNav[0].links.concat(journeyNav[0].feature ? [journeyNav[0].feature] : []),
-  },
-  { heading: "Run", links: journeyNav[1].links },
-  {
-    heading: "Raise and protect",
-    links: [...journeyNav[2].links.slice(0, 2), ...journeyNav[3].links.slice(0, 2)],
+    heading: "Grow",
+    links: [
+      serviceGroups[2].links[0],
+      serviceGroups[3].links[0],
+      serviceGroups[4].links[0],
+      serviceGroups[2].links[4],
+    ],
   },
   {
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Resources", href: "/resources" },
+      { label: "Guides", href: "/resources" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],
@@ -126,10 +117,10 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
   {
     heading: "Legal",
     links: [
-      { label: "Terms and conditions", href: "/terms-and-conditions" },
-      { label: "Privacy policy", href: "/privacy-policy" },
-      { label: "Refund policy", href: "/refund-policy" },
-      { label: "Service disclaimer", href: "/service-disclaimer" },
+      { label: "Terms", href: "/terms-and-conditions" },
+      { label: "Privacy", href: "/privacy-policy" },
+      { label: "Refunds", href: "/refund-policy" },
+      { label: "Disclaimer", href: "/service-disclaimer" },
     ],
   },
 ];

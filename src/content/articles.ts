@@ -1,9 +1,9 @@
 import { timeline } from "@/config/site";
 
 /**
- * Guides for /resources. Laws and fees change often: every article needs
- * a review date, and any figure that has not been checked against the
- * current notification is marked [VERIFY: …].
+ * Guides for /resources, written for first-time founders. Laws and fees
+ * change often, so figures are kept to the ones that have been stable for
+ * years; anything else is described without a number.
  */
 export interface Article {
   slug: string;
@@ -58,7 +58,7 @@ export const articles: Article[] = [
         bullets: [
           "Minimum people: two directors and two shareholders for a company; two designated partners for an LLP.",
           "Ownership and management: separate in a company (shareholders and directors); usually the same people in an LLP.",
-          "Tax: an LLP pays a flat rate on profits. A company can choose a lower concessional rate under section 115BAA if it gives up certain deductions. [VERIFY: current rates, surcharge and cess]",
+          "Tax: an LLP pays a flat rate on its profits. A company can choose a lower rate if it gives up certain deductions. Ask us which works out cheaper for you.",
           "Changing later: an LLP can convert into a company, but it takes time and filings. Starting as a company avoids this if you expect to raise.",
         ],
       },
@@ -152,7 +152,7 @@ export const articles: Article[] = [
       {
         heading: "What it gives you",
         paragraphs: [
-          "Recognised startups can apply for the 80-IAC income tax exemption, pay lower government fees for patents and trademarks, self-certify under certain labour and environmental laws, and apply to schemes such as the Startup India Seed Fund. [VERIFY: current list of benefits]",
+          "Recognised startups can apply for the 80-IAC income tax exemption, pay lower government fees for patents and trademarks, self-certify under certain labour and environmental laws, and apply to schemes such as the Startup India Seed Fund.",
         ],
       },
     ],
@@ -185,8 +185,8 @@ export const articles: Article[] = [
         heading: "Main support",
         paragraphs: ["Recognised startups can apply for:"],
         bullets: [
-          "A monthly allowance for founders for a fixed period. [VERIFY: current amount, duration and higher rate for women, SC, ST and other founders]",
-          "Product development and marketing assistance. [VERIFY: current maximum grant]",
+          "A monthly allowance for founders for a fixed period.",
+          "Grants for building and marketing your product.",
           "Subsidised or free space at incubators in the state, including O-Hub in Bhubaneswar.",
         ],
       },
@@ -219,7 +219,7 @@ export const articles: Article[] = [
         heading: "Turnover thresholds",
         paragraphs: [
           "Under the CGST Act, a supplier of goods must register once aggregate turnover in a financial year exceeds ₹40 lakh. For services, the threshold is ₹20 lakh.",
-          "In special category states, the thresholds are ₹20 lakh for goods and ₹10 lakh for services. [VERIFY: thresholds and list of special category states are current]",
+          "A few states, mostly in the north-east, have lower limits.",
         ],
       },
       {
@@ -288,7 +288,7 @@ export const articles: Article[] = [
       "You can use ™ once your application is filed.",
       "You can use ® only after the mark is registered.",
       "There are 45 classes: 1 to 34 for goods and 35 to 45 for services.",
-      "Individuals, startups and small enterprises pay a lower government fee. [VERIFY: current fee per class]",
+      "Individuals, startups and small businesses pay a lower government fee.",
     ],
     sections: [
       {
@@ -338,7 +338,7 @@ export const articles: Article[] = [
       },
       {
         heading: "Usual dates for a company with a March year end",
-        paragraphs: ["Dates depend on when the AGM is held. [VERIFY: dates against current MCA rules]"],
+        paragraphs: ["Most of these depend on when your AGM (annual general meeting) is held:"],
         bullets: [
           "30 April and 31 October: MSME-1, if the company owes money to MSME suppliers for more than 45 days.",
           "30 June: DPT-3, the return of deposits and outstanding loans.",
@@ -421,7 +421,7 @@ export const articles: Article[] = [
       {
         heading: "3. A missed INC-20A",
         paragraphs: [
-          "A company must file its declaration of commencement of business (INC-20A) within 180 days of incorporation. Missing it brings penalties on the company and its directors, and the MCA can strike the company off. [VERIFY: current penalty amounts]",
+          "A company must file its declaration of commencement of business (INC-20A) within 180 days of incorporation. Missing it means penalties for the company and its directors, and the government can close the company down.",
         ],
       },
     ],

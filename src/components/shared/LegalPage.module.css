@@ -5,7 +5,7 @@
 
 .layout {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-7);
   padding-block: var(--space-7) var(--space-section);
 }
 
@@ -21,11 +21,25 @@
 }
 
 .h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
   font-size: var(--text-h3);
 }
 
-.h2 span {
-  color: var(--color-ink-muted);
+.num {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-sky);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  color: var(--color-sky-strong);
+  transform: translateY(-0.1em);
 }
 
 .body ul {
@@ -35,47 +49,49 @@
 }
 
 .body li::marker {
-  color: var(--color-ink-muted);
+  color: var(--color-accent);
+}
+
+.aside {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper-deep);
 }
 
 .asideTitle {
-  margin-bottom: var(--space-4);
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
+  font-size: var(--text-h4);
 }
 
-.entity {
-  border-top: 1px solid var(--color-ink);
-}
-
-.entity > div {
-  display: grid;
-  gap: var(--space-1);
-  padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-line);
+.aside > p {
   font-size: var(--text-small);
-}
-
-.entity dt {
   color: var(--color-ink-muted);
 }
 
-.entity dd {
-  color: var(--color-ink);
+.email {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
   overflow-wrap: anywhere;
 }
 
-.contact {
-  margin-top: var(--space-4);
+.facts > div {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-line);
   font-size: var(--text-small);
+}
+
+.facts dt {
   color: var(--color-ink-muted);
 }
 
-.contact a {
+.facts dd {
   color: var(--color-ink);
 }
 
@@ -88,6 +104,5 @@
   .aside {
     position: sticky;
     top: calc(var(--header-height) + var(--space-5));
-    align-self: start;
   }
 }

@@ -29,8 +29,10 @@ export default function ResourcesPage() {
           { label: "Home", href: "/" },
           { label: "Guides", href: "/resources" },
         ]}
-        title="Guides to registering and running a business in India."
-        lead="Short explainers written by our team. They are general information, not advice on your situation."
+        title="Free guides for first-time founders."
+        highlight="first-time founders."
+        tone="sun"
+        lead="Short, plain explainers on registering and running a business in India. They're general information, not advice on your situation."
       >
         <JumpNav label="Topics" items={Object.keys(groups).map((c) => ({ id: slugify(c), label: c }))} />
       </PageHeader>

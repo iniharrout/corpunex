@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { Plus } from "lucide-react";
-import { Fact } from "@/components/ui/Placeholder";
 import styles from "./FaqList.module.css";
 
 export interface Faq {
@@ -20,11 +19,7 @@ export function FaqList({ faqs }: { faqs: Faq[] }) {
             <span>{faq.question}</span>
             <Plus size={20} strokeWidth={1.5} aria-hidden className={styles.icon} />
           </summary>
-          <div className={styles.answer}>{faq.body ?? (
-              <p>
-                <Fact value={faq.answer} />
-              </p>
-            )}</div>
+          <div className={styles.answer}>{faq.body ?? <p>{faq.answer}</p>}</div>
         </details>
       ))}
     </div>

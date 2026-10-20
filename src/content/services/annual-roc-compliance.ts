@@ -1,75 +1,75 @@
 import type { ServicePageContent } from "./types";
-import { feeToConfirm } from "./shared";
+import { quoteOnRequest } from "./shared";
 
 export const annualRocCompliance: ServicePageContent = {
   path: "/services/corporate-compliance/annual-roc-compliance",
   name: "Annual ROC compliance",
-  metaTitle: "Annual ROC compliance for companies and LLPs: AOC-4, MGT-7, Form 8, Form 11",
+  metaTitle: "Annual ROC compliance for companies and LLPs in India",
   metaDescription:
-    "Annual MCA filings for Private Limited companies, OPCs and LLPs: AOC-4, MGT-7 or MGT-7A, DIR-3 KYC, Form 8 and Form 11, with board and AGM paperwork.",
+    "The yearly government filings every company and LLP must make, done on time: accounts, the yearly return, director KYC, and the meeting paperwork behind them.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Compliance", href: "/services/corporate-compliance" },
     { label: "Annual ROC compliance", href: "/services/corporate-compliance/annual-roc-compliance" },
   ],
-  headline: "Your annual MCA filings, done before the late fees start.",
-  lead: "Every company and LLP files financial statements and an annual return with the Registrar each year, even with no revenue. We prepare the board and AGM paperwork, file the forms and complete each director's KYC.",
+  headline: "Your yearly company filings, done before the late fees start.",
+  lead: "Every company and LLP has to send its accounts and a yearly return to the Registrar of Companies (ROC) each year, even with no sales. Miss them and late fees add up every day. We prepare the meeting paperwork, file the forms and complete each director's KYC.",
   quoteFacts: [
-    { label: "Government fee", value: "Depends on your capital", note: "Paid at cost, receipts provided" },
-    feeToConfirm,
-    { label: "Timeline", value: "Across the year", note: "Filings fall between May and November" },
+    { label: "Government fee", value: "Depends on your company's capital", note: "We charge exactly what the government charges" },
+    quoteOnRequest,
   ],
+  callbackTopic: "Annual ROC compliance",
 
   forWho: [
-    "Every Private Limited company, OPC and LLP, whether trading, dormant or pre-revenue.",
-    "Directors who want to keep their DIN active.",
-    "Companies that have missed past filings and need to catch up.",
+    "Every Private Limited company, One Person Company and LLP, whether it's trading, quiet or brand new.",
+    "Directors who want to keep their director ID (DIN) active.",
+    "Companies that have missed past filings and want to catch up.",
   ],
   notFor: [],
 
   included: [
-    "A check of your past MCA filings and statutory registers",
-    "Board resolutions, directors' report and AGM notice and minutes",
-    "AOC-4: financial statements",
-    "MGT-7 or MGT-7A: annual return",
-    "DIR-3 KYC for each director",
-    "For LLPs: Form 8 and Form 11",
-    "Filing receipts for every form",
+    "A check of your past filings and company records",
+    "Board meeting and AGM (annual general meeting) paperwork, including the directors' report",
+    "Filing your accounts (AOC-4)",
+    "Filing your yearly return (MGT-7 or MGT-7A)",
+    "KYC for each director (DIR-3 KYC)",
+    "For LLPs: the yearly return (Form 11) and statement of accounts (Form 8)",
+    "Receipts for every form we file",
   ],
   excluded: [
-    "Government filing fees and any additional fees for late filing (paid at cost)",
-    "The statutory audit, which must be done by an independent auditor",
-    "Event-based filings such as director changes or share allotments",
+    "Government filing fees and any late fees (we charge exactly what the government charges)",
+    "The audit itself, which has to be done by an independent auditor",
+    "One-off changes, such as new directors or new shares",
   ],
 
   documents: [
-    { document: "Audited financial statements", from: "Company", note: "Balance sheet, profit and loss account, notes" },
-    { document: "Auditor's report", from: "Statutory auditor" },
-    { document: "Shareholding and director details", from: "Company" },
-    { document: "Class 3 digital signatures", from: "Directors", note: "At least one, for signing the forms" },
+    { document: "Audited accounts", from: "Company", note: "Balance sheet, profit and loss account and notes" },
+    { document: "Auditor's report", from: "Your auditor" },
+    { document: "Who owns the shares, and who the directors are", from: "Company" },
+    { document: "Digital signature", from: "A director", note: "To sign the forms online" },
   ],
 
   milestones: [
-    { when: "Step 1", title: "Health check", detail: "We review your MCA records and registers and list anything overdue." },
-    { when: "Step 2", title: "Board and AGM papers", detail: "We draft the board resolutions, directors' report, AGM notice and minutes." },
-    { when: "Step 3", title: "Financial statements filed", detail: "We file AOC-4 within 30 days of the AGM." },
-    { when: "Step 4", title: "Annual return filed", detail: "We file MGT-7 or MGT-7A within 60 days of the AGM." },
-    { when: "Step 5", title: "Director KYC", detail: "We complete DIR-3 KYC for each director before the deadline." },
+    { when: "Step 1", title: "Health check", detail: "We look through your company records and list anything overdue." },
+    { when: "Step 2", title: "Meeting paperwork", detail: "We write the board resolutions, directors' report, AGM notice and minutes." },
+    { when: "Step 3", title: "Accounts filed", detail: "We file your accounts within 30 days of the AGM." },
+    { when: "Step 4", title: "Yearly return filed", detail: "We file the yearly return within 60 days of the AGM." },
+    { when: "Step 5", title: "Director KYC", detail: "We complete KYC for each director before the deadline." },
   ],
   stepsIntro:
-    "Company filings follow the AGM, which must be held by 30 September. LLP filings are due by 30 May (Form 11) and 30 October (Form 8).",
-  stepsDelays: "A late audit is the usual cause of delay, because AOC-4 cannot be filed without it.",
+    "A company's filings follow its AGM, which has to be held by 30 September. LLPs file their yearly return by 30 May and their accounts by 30 October.",
+  stepsDelays: "A late audit is the usual reason for delay, because the accounts can't be filed without it.",
 
   process: [
     {
-      title: "Call and quote",
-      you: "Tell us your structure and when you last filed.",
-      us: "Check your MCA record and send a written quote.",
+      title: "Talk to us",
+      you: "Tell us your company's name and when it last filed.",
+      us: "Check its record and send a written quote.",
     },
     {
-      title: "Papers",
-      you: "Share the audited accounts and your shareholding.",
-      us: "Draft the board and AGM documents.",
+      title: "Paperwork",
+      you: "Share the audited accounts and who owns the shares.",
+      us: "Prepare the board and AGM documents.",
     },
     {
       title: "Signing",
@@ -78,41 +78,41 @@ export const annualRocCompliance: ServicePageContent = {
     },
     {
       title: "Handover",
-      you: "Keep the minutes in your statutory records.",
-      us: "Send every filing receipt and next year's dates.",
+      you: "Keep the minutes with your company records.",
+      us: "Send every receipt and next year's dates.",
     },
   ],
 
   faqs: [
     {
-      question: "Can we skip the filings if the company had no sales?",
+      question: "Do we still file if the company had no sales?",
       answer:
-        "No. A dormant or pre-revenue company must still prepare accounts, hold its AGM and file AOC-4 and MGT-7 or MGT-7A.",
+        "Yes. A quiet or brand-new company still has to prepare accounts, hold its AGM and file its accounts and yearly return.",
     },
     {
-      question: "What does late filing cost?",
+      question: "What does filing late cost?",
       answer:
-        "The MCA charges an additional fee of ₹100 a day for each late form, with no upper limit. Directors of a company that has not filed for three years in a row can be disqualified.",
+        "The government charges ₹100 a day for each late form, with no upper limit. If a company doesn't file for three years in a row, its directors can be barred from being directors.",
     },
     {
-      question: "What is DIR-3 KYC?",
+      question: "What is director KYC?",
       answer:
-        "A KYC filing for every person who holds a DIN. If it is missed, the DIN is deactivated until it is filed with a late fee. [VERIFY: current frequency and late fee]",
+        "A filing that confirms the identity and contact details of everyone with a director ID (DIN). If it's missed, the DIN is switched off until it's filed with a late fee.",
     },
     {
-      question: "Can you catch up years we have missed?",
-      answer: "Yes. We list what is overdue, work out the additional fees and file the forms in order.",
+      question: "Can you catch up years we've missed?",
+      answer: "Yes. We list what's overdue, work out the late fees and file the forms in the right order.",
     },
   ],
 
   related: [
-    { label: "Income tax return", href: "/services/gst-taxation/income-tax-filing", description: "ITR-6 or ITR-5 every year" },
-    { label: "Accounting and bookkeeping", href: "/services/accounting-bookkeeping", description: "Books ready for the audit" },
+    { label: "Income tax return", href: "/services/gst-taxation/income-tax-filing", description: "Your company's yearly tax return" },
+    { label: "Accounting and bookkeeping", href: "/services/accounting-bookkeeping", description: "Books ready for your audit" },
     { label: "Private Limited Company", href: "/services/business-registration/private-limited-company", description: "Starting a new company" },
   ],
 
   cta: {
-    title: "Annual filings due?",
-    body: "Send us your company or LLP name. We will check your MCA record and send a quote.",
+    title: "Yearly filings coming up?",
+    body: "Send us your company or LLP name. We'll check its record and send a quote.",
   },
 };

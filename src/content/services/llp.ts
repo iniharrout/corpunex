@@ -12,8 +12,8 @@ export const llp: ServicePageContent = {
     { label: "Start", href: "/services/business-registration" },
     { label: "LLP", href: "/services/business-registration/llp-registration" },
   ],
-  headline: `An LLP, registered with the MCA in ${timeline.short}.`,
-  lead: "We reserve the name, file FiLLiP, and draft and file your LLP agreement. You get limited liability with fewer annual filings than a company. A Chartered Accountant or Company Secretary certifies every filing.",
+  headline: `Register your LLP in ${timeline.short}.`,
+  lead: "An LLP (Limited Liability Partnership) protects your personal assets like a company does, with fewer yearly filings. We check your name, file the registration, and write your LLP agreement, the document that sets out how you and your partners share profits and decisions. Every filing is checked by a Chartered Accountant or Company Secretary.",
   entity: "llp",
 
   forWho: [
@@ -36,20 +36,20 @@ export const llp: ServicePageContent = {
   ],
 
   included: [
-    "Name search against MCA and trademark records",
-    "Name reservation through RUN-LLP",
-    "DIN for up to 2 designated partners",
-    "FiLLiP incorporation filing, certified by a CA or CS",
-    "LLP agreement drafted to your terms and filed on Form 3",
-    "Certificate of incorporation with LLPIN, plus PAN and TAN",
-    "A dated compliance calendar for your first year",
+    "Checking that the name you want is available",
+    "Reserving your LLP name with the government (RUN-LLP)",
+    "Partner ID (DIN) for up to 2 designated partners",
+    "The main registration form (FiLLiP), certified by a CA or CS",
+    "Your LLP agreement, written to your terms and filed with the government (Form 3)",
+    "Certificate of incorporation with your LLP number (LLPIN), plus PAN and TAN",
+    "A calendar of every deadline in your first year",
   ],
   excluded: [
-    "Government fees and stamp duty on the LLP agreement (paid at cost, receipts provided)",
-    "Class 3 digital signatures for partners (about ₹1,000 each)",
-    "Notarisation or apostille of documents signed outside India",
+    "Government fees and stamp duty on the LLP agreement (we charge exactly what the government charges)",
+    "Digital signatures for partners (about ₹1,000 per person)",
+    "Attesting documents signed outside India",
     "GST registration, if you need it separately",
-    "Annual Form 8 and Form 11 filings",
+    "Yearly filings (Form 8 and Form 11)",
   ],
 
   documents: [
@@ -75,32 +75,32 @@ export const llp: ServicePageContent = {
 
   milestones: [
     { when: "Day 1", title: "Documents checked", detail: "We review every document and flag anything that needs redoing before it reaches the MCA." },
-    { when: "Days 1–3", title: "Digital signatures issued", detail: "Each partner completes a short video verification with the certifying authority." },
-    { when: "Days 2–5", title: "Name approved", detail: "We file RUN-LLP. The MCA approves the name or asks for another." },
-    { when: "Days 4–8", title: "Incorporation filed", detail: "Partners sign FiLLiP with their digital signatures and we file it." },
-    { when: "Days 7–14", title: "Certificate issued", detail: "The MCA issues the certificate of incorporation with your LLPIN, PAN and TAN." },
+    { when: "Days 1–3", title: "Digital signatures issued", detail: "Each partner does a short video check so they can sign forms online." },
+    { when: "Days 2–5", title: "Name approved", detail: "We apply for your name. The government approves it or asks for another one." },
+    { when: "Days 4–8", title: "Incorporation filed", detail: "Partners sign the registration form online and we file it." },
+    { when: "Days 7–14", title: "Certificate issued", detail: "You get your certificate of incorporation, LLP PAN and TAN. You're official!" },
   ],
 
   process: [
     {
-      title: "Call and quote",
+      title: "Talk to us",
       you: "Tell us your proposed names, partners, state and contribution.",
       us: "Confirm an LLP suits you and send a written, itemised quote.",
     },
     {
       title: "Documents",
       you: "Upload the documents listed above.",
-      us: "Check them against MCA requirements and arrange digital signatures.",
+      us: "Check them and arrange digital signatures for each partner.",
     },
     {
       title: "Name and filing",
       you: "Approve the business activity and each partner's contribution.",
-      us: "File for the name, then certify and file FiLLiP.",
+      us: "Apply for your name, then certify and file the registration.",
     },
     {
       title: "LLP agreement",
       you: "Agree profit shares, duties and exit terms with your partners.",
-      us: "Draft the agreement, arrange stamping and file Form 3.",
+      us: "Write the agreement, arrange the stamp paper and file it.",
     },
     {
       title: "Handover",
@@ -109,8 +109,9 @@ export const llp: ServicePageContent = {
     },
   ],
 
+  callbackTopic: "Register a company or LLP",
   afterwards: [
-    { deadline: "Within 30 days", task: "File the signed and stamped LLP agreement", form: "Form 3" },
+    { deadline: "Within 30 days", task: "File the signed LLP agreement", form: "Form 3" },
     { deadline: "By 30 May each year", task: "File the annual return", form: "Form 11" },
     { deadline: "By 30 October each year", task: "File the statement of account and solvency", form: "Form 8" },
     { deadline: "Every year", task: "File the income tax return", form: "ITR-5" },
@@ -124,7 +125,7 @@ export const llp: ServicePageContent = {
     {
       question: "How many partners do I need?",
       answer:
-        "At least two designated partners. At least one must be resident in India. [VERIFY: current residency test for designated partners]",
+        "At least two designated partners, who are the partners responsible for the LLP's filings. At least one of them must live in India.",
     },
     {
       question: "Can an LLP raise money from investors?",
@@ -139,7 +140,7 @@ export const llp: ServicePageContent = {
     {
       question: "What if the LLP agreement is filed late?",
       answer:
-        "The MCA charges an additional fee of ₹100 for each day of delay, with no upper limit. We draft the agreement during incorporation so it is ready to file as soon as the LLPIN is issued.",
+        "The government charges a late fee of ₹100 for every day it is late, with no upper limit. We write the agreement while the LLP is being registered, so it is ready to file straight away.",
     },
     {
       question: "Can I use my home as the registered office?",

@@ -2,202 +2,131 @@ import { timeline } from "@/config/site";
 import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import type { Faq } from "@/components/shared/FaqList";
 
-/**
- * Homepage copy. Strings starting with "[" are placeholders and render
- * highlighted until replaced (see PLACEHOLDERS.md).
- */
+/** Homepage copy, written for someone starting their first company. */
 
 /** Add real client or partner logos here. The row is hidden while empty. */
 export const clientLogos: { name: string; src: string; width: number; height: number }[] = [];
 
-export const journey = [
+export type Tone = "sky" | "mint" | "sun" | "peach";
+
+export const paths: {
+  title: string;
+  body: string;
+  href: string;
+  cta: string;
+  tone: Tone;
+  icon: "rocket" | "receipt" | "badge" | "globe";
+}[] = [
   {
-    step: "Incorporate",
-    summary: "Choose the right structure and get your certificate of incorporation, PAN and TAN.",
-    links: [
-      { label: "Private Limited", href: "/services/business-registration/private-limited-company" },
-      { label: "LLP", href: "/services/business-registration/llp-registration" },
-      { label: "One Person Company", href: "/services/business-registration/one-person-company" },
-      { label: "Indian subsidiary", href: "/services/business-registration" },
-    ],
+    title: "I'm starting a new business",
+    body: "We'll help you pick the right type of company and register it, start to finish.",
+    href: "/services/business-registration/private-limited-company",
+    cta: "Register a company",
+    tone: "sky",
+    icon: "rocket",
   },
   {
-    step: "Comply",
-    summary: "GST, bookkeeping, TDS, income tax and the annual ROC filings that keep directors clear of penalties.",
-    links: [
-      { label: "GST registration and returns", href: "/services/gst-taxation/gst-registration" },
-      { label: "Accounting", href: "/services/accounting-bookkeeping" },
-      { label: "Income tax returns", href: "/services/gst-taxation/income-tax-filing" },
-      { label: "Annual ROC compliance", href: "/services/corporate-compliance/annual-roc-compliance" },
-    ],
+    title: "I already have a company",
+    body: "GST returns, accounts and yearly filings, handled on time so you don't pay penalties.",
+    href: "/services/corporate-compliance/annual-roc-compliance",
+    cta: "Stay compliant",
+    tone: "mint",
+    icon: "receipt",
   },
   {
-    step: "Raise",
-    summary: "Startup India recognition, the 80-IAC application, and the documents investors ask for in due diligence.",
-    links: [
-      { label: "Startup India (DPIIT)", href: "/services/startup-services/startup-india-recognition" },
-      { label: "Startup Odisha", href: "/services/startup-services/startup-odisha" },
-      { label: "Investor readiness", href: "/contact" },
-      { label: "Virtual CFO", href: "/contact" },
-    ],
+    title: "I want Startup India recognition",
+    body: "Get recognised by DPIIT and get ready for the paperwork investors will ask for.",
+    href: "/services/startup-services/startup-india-recognition",
+    cta: "Get recognised",
+    tone: "sun",
+    icon: "badge",
   },
   {
-    step: "Expand",
-    summary: "Trademarks, licences and new registrations as you hire, sell across states or start exporting.",
-    links: [
-      { label: "Trademark", href: "/services/trademark-ip/trademark-registration" },
-      { label: "FSSAI licence", href: "/services/licences-registrations/fssai-licence" },
-      { label: "Import Export Code", href: "/services/licences-registrations/import-export-code" },
-      { label: "Udyam (MSME)", href: "/services/startup-services/udyam-msme-registration" },
-    ],
+    title: "I'm a founder outside India",
+    body: "Set up an Indian company or subsidiary, including the extra steps for foreign founders.",
+    href: "/contact",
+    cta: "Talk to us",
+    tone: "peach",
+    icon: "globe",
   },
 ];
 
-export const differentiators = [
+export const steps = [
   {
-    figure: "3",
-    figureCaption: "lines on every quote",
-    title: "Every rupee itemised before you start",
-    body: "Your quote separates government fees, third-party costs like digital signatures, and our professional fee. Government fees are paid at cost and you get the official receipts.",
+    title: "Tell us about your business",
+    body: "Fill a short form or request a call. We'll suggest the right setup and send you a clear quote.",
   },
   {
-    figure: "[VERIFY: n]",
-    figureCaption: "qualified professionals",
-    title: "Filings signed by people you can look up",
-    body: "Your documents are prepared and certified by Chartered Accountants, Company Secretaries and advocates on our team. Their names and membership numbers are listed below.",
+    title: "Share your documents",
+    body: "Upload PAN, Aadhaar and an address proof. We check everything and tell you if anything's missing.",
   },
   {
-    figure: "[VERIFY: n hrs]",
-    figureCaption: "typical first reply",
-    title: "One advisor who knows your file",
-    body: "You get a named advisor for the whole engagement, on email, phone or WhatsApp. You will not be passed between a sales team and an operations team.",
-  },
-  {
-    figure: "Day 1",
-    figureCaption: "compliance calendar",
-    title: "A dated plan for your first year",
-    body: "Every company we incorporate gets a calendar of its first-year filings: auditor appointment within 30 days, the INC-20A declaration within 180 days, then the annual AOC-4 and MGT-7.",
+    title: "We file, you get your company",
+    body: `Our CAs and CSs prepare and file everything. You get your certificate, PAN and TAN, usually in ${timeline.short}.`,
   },
 ];
 
-export interface CaseStudy {
-  company: string;
-  founder: string;
-  sector: string;
-  problem: string;
-  work: string;
-  result: string;
-  photoBrief: string;
-}
-
-export const caseStudies: CaseStudy[] = [
+export const benefits = [
   {
-    company: "[REAL CLIENT: company name]",
-    founder: "[REAL CLIENT: founder name, role]",
-    sector: "[REAL CLIENT: sector, city]",
-    problem: "[REAL CASE STUDY: the situation the founder was in, in one or two sentences]",
-    work: "[REAL CASE STUDY: what Corpunex did, with the filings and dates involved]",
-    result: "[REAL CASE STUDY: the measurable outcome, e.g. incorporated in n days, DPIIT recognised, round closed]",
-    photoBrief: "Founder of the featured client at their workplace. Landscape, natural light.",
+    title: "Prices you can see upfront",
+    body: "Government fees and our fee are shown on separate lines before you pay anything. No surprises later.",
+    icon: "receipt" as const,
+    tone: "sky" as Tone,
   },
   {
-    company: "[REAL CLIENT: company name]",
-    founder: "[REAL CLIENT: founder name, role]",
-    sector: "[REAL CLIENT: sector, city]",
-    problem: "[REAL CASE STUDY: problem]",
-    work: "[REAL CASE STUDY: what we did]",
-    result: "[REAL CASE STUDY: result]",
-    photoBrief: "Second client founder portrait.",
+    title: "Done by qualified professionals",
+    body: "Your filings are prepared and certified by Chartered Accountants, Company Secretaries and advocates.",
+    icon: "shield" as const,
+    tone: "mint" as Tone,
   },
   {
-    company: "[REAL CLIENT: company name, ideally a foreign founder]",
-    founder: "[REAL CLIENT: founder name, role]",
-    sector: "[REAL CLIENT: home country, sector]",
-    problem: "[REAL CASE STUDY: problem]",
-    work: "[REAL CASE STUDY: what we did]",
-    result: "[REAL CASE STUDY: result]",
-    photoBrief: "Third client founder portrait.",
-  },
-];
-
-export interface Advisor {
-  name: string;
-  role: string;
-  credential: string;
-  bio: string;
-  linkedin: string;
-  photoBrief: string;
-}
-
-export const advisors: Advisor[] = [
-  {
-    name: "[REAL NAME]",
-    role: "Founder and Managing Director",
-    credential: "[VERIFY: qualification]",
-    bio: "[REAL BIO: two sentences on experience and the kind of founders they work with]",
-    linkedin: "[VERIFY: LinkedIn URL]",
-    photoBrief: "Head-and-shoulders portrait, plain wall, same light as the rest of the team.",
+    title: "Explained in plain language",
+    body: "No jargon. We tell you what each step means, what we need from you, and why.",
+    icon: "chat" as const,
+    tone: "sun" as Tone,
   },
   {
-    name: "[REAL NAME]",
-    role: "Chartered Accountant",
-    credential: "ICAI M.No. [VERIFY]",
-    bio: "[REAL BIO: tax, GST and accounting experience]",
-    linkedin: "[VERIFY: LinkedIn URL]",
-    photoBrief: "Portrait of the lead Chartered Accountant.",
-  },
-  {
-    name: "[REAL NAME]",
-    role: "Company Secretary",
-    credential: "ICSI M.No. [VERIFY]",
-    bio: "[REAL BIO: incorporation and ROC compliance experience]",
-    linkedin: "[VERIFY: LinkedIn URL]",
-    photoBrief: "Portrait of the lead Company Secretary.",
-  },
-  {
-    name: "[REAL NAME]",
-    role: "Advocate",
-    credential: "Enrolment No. [VERIFY: state bar council and number]",
-    bio: "[REAL BIO: agreements, trademarks and FEMA experience]",
-    linkedin: "[VERIFY: LinkedIn URL]",
-    photoBrief: "Portrait of the lead advocate.",
+    title: "Reminders for every deadline",
+    body: "Every company we register gets a calendar of its first-year filings, so nothing is missed.",
+    icon: "calendar" as const,
+    tone: "peach" as Tone,
   },
 ];
 
 export const foreignFounderPoints = [
-  "At least one director must have stayed in India for 182 days or more in the previous financial year.",
-  "Most sectors allow 100% foreign ownership under the automatic route. Some need government approval first.",
-  "Passports and address proofs signed abroad must be notarised and apostilled, or consularised.",
-  "Share allotments to foreign shareholders are reported to the RBI on Form FC-GPR within 30 days.",
+  "You can own 100% of an Indian company in most sectors.",
+  "At least one director needs to have lived in India for 182 days or more in the last financial year.",
+  "Documents signed abroad need to be notarised and apostilled.",
+  "Money you invest is reported to the RBI. We take care of the form.",
 ];
 
 export const homeFaqs: Faq[] = [
   {
-    question: "How long does it take to register a private limited company?",
+    question: "Which type of company should I choose?",
+    answer:
+      "If you plan to raise money from investors, choose a Private Limited company. If you're running a firm with partners and want fewer filings, an LLP works well. If you're on your own, a One Person Company gives you limited liability without needing a co-founder. Not sure? Request a call back and we'll help you decide.",
+  },
+  {
+    question: "How long does it take to register a company?",
     answer: `${timeline.sentence} ${timeline.delays}`,
   },
   {
-    question: "What does it cost in total?",
-    answer: `Our professional fee for a Private Limited company starts at ${inr(PROFESSIONAL_FEE.pvt)} plus GST. Government fees (name reservation and state stamp duty) and digital signatures are extra and depend on your state, capital and number of directors. The estimator on this page shows each line.`,
+    question: "How much does it cost?",
+    answer: `Our fee for a Private Limited company starts at ${inr(PROFESSIONAL_FEE.pvt)} plus GST. On top of that are government fees and digital signatures, which depend on your state and number of directors. Use the calculator on this page to see the full amount.`,
   },
   {
-    question: "Do I need a commercial office to register?",
+    question: "Do I need an office to register a company?",
     answer:
-      "No. A residential address works as the registered office if you have a recent utility bill for it and a no-objection letter from the owner.",
+      "No. You can use your home address. You'll need a recent electricity or water bill for it and a short letter of permission from the owner.",
   },
   {
-    question: "Can a foreign national or NRI be a director or shareholder?",
+    question: "What documents do I need?",
     answer:
-      "Yes. Foreign nationals and NRIs can hold shares and be directors. The company still needs at least one director who stayed in India for 182 days or more in the previous financial year, and foreign investment must follow FEMA rules for your sector.",
+      "For each director: PAN card, Aadhaar or passport, a recent bank statement or utility bill, and a photo. For the office: a recent utility bill and the owner's permission letter.",
   },
   {
-    question: "Can you guarantee my company name or DPIIT recognition?",
+    question: "What happens after my company is registered?",
     answer:
-      "No one can. Names are approved by the MCA and recognition is granted by DPIIT. We check names against MCA and trademark records before filing and prepare applications to the published criteria, which reduces rejections but cannot remove them.",
-  },
-  {
-    question: "What do I have to do after incorporation?",
-    answer:
-      "Open a bank account and deposit the subscribed capital, appoint an auditor within 30 days, and file the INC-20A declaration within 180 days. After that come annual filings (AOC-4, MGT-7, income tax return) and GST returns if you are registered. We give you a dated calendar of all of these.",
+      "You open a bank account, appoint an auditor within 30 days and file a short declaration within 180 days. After that there are yearly filings. We send you a calendar with every date, and we can handle them for you.",
   },
 ];

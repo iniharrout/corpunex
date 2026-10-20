@@ -1,0 +1,97 @@
+.head {
+  max-width: 40rem;
+  margin-bottom: var(--space-6);
+}
+
+.title {
+  font-size: var(--text-h2);
+}
+
+.intro {
+  margin-top: var(--space-3);
+  font-size: var(--text-lead);
+  color: var(--color-ink-muted);
+}
+
+.grid {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sky {
+  background: var(--color-sky);
+}
+
+.mint {
+  background: var(--color-mint);
+}
+
+.sun {
+  background: var(--color-sun);
+}
+
+.peach {
+  background: var(--color-peach);
+}
+
+.cardTitle {
+  margin-top: var(--space-2);
+  font-size: var(--text-h3);
+}
+
+.cardBody {
+  color: var(--color-ink-soft);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.card:hover .cta svg {
+  transform: translateX(3px);
+}
+
+.cta svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .card {
+    padding: var(--space-6) var(--space-5);
+  }
+}
