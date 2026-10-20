@@ -12,6 +12,13 @@ import { fssaiLicence } from "./fssai-licence";
 import { importExportCode } from "./import-export-code";
 import { trademarkRegistration } from "./trademark-registration";
 import { annualRocCompliance } from "./annual-roc-compliance";
+import { indianSubsidiary } from "./indian-subsidiary";
+import { section8Company } from "./section-8-company";
+import { partnershipFirm } from "./partnership-firm";
+import { gstReturnFiling } from "./gst-return-filing";
+import { closeACompany } from "./close-a-company";
+import { trademarkObjection } from "./trademark-objection";
+import { changeOfDirectors } from "./change-of-directors";
 
 /** Every service with its own page, for the sitemap. */
 export const servicePages: ServicePageContent[] = [
@@ -28,4 +35,11 @@ export const servicePages: ServicePageContent[] = [
   importExportCode,
   trademarkRegistration,
   annualRocCompliance,
+  indianSubsidiary,
+  section8Company,
+  partnershipFirm,
+  gstReturnFiling,
+  closeACompany,
+  trademarkObjection,
+  changeOfDirectors,
 ];

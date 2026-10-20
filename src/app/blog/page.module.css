@@ -96,7 +96,38 @@
   padding-top: var(--space-2);
 }
 
+/* Free tools */
+.tools {
+  padding-bottom: var(--space-section);
+}
+
+.toolList {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.tool {
+  display: grid;
+  gap: var(--space-1);
+  height: 100%;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-mint);
+  text-decoration: none;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.tool:hover {
+  transform: translateY(-2px);
+}
+
 @media (min-width: 700px) {
+  .toolList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

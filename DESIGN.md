@@ -58,7 +58,16 @@ All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css).
 - `content/categories.ts`: the nine categories for the hubs, /services and /about.
 - `content/faqs.ts`: FAQ groups for /faq and the hubs.
 - `content/articles.ts`: the articles under /blog (the old /resources URLs redirect there). Reading time is worked out from word count.
-- `content/careers.ts`: open roles, the hiring steps and team values for /careers and /careers/[slug].
+- `content/careers.ts`: open roles, teams, reasons to join, candidate FAQs, hiring steps and values for /careers and /careers/[slug]. Role pages output JobPosting schema.
+- `content/calendar.ts`: the due dates on /compliance-calendar.
+- `content/glossary.ts`: the terms on /glossary (with DefinedTermSet schema).
+- `components/tools/`: the GST calculator (/tools/gst-calculator) and company type finder (/tools/company-type-finder).
+- `app/opengraph-image.tsx`: the default share image for every page.
+
+### SEO conventions
+
+- Page titles are under 50 characters, so they fit in search results with " | Corpunex" added. They start with the phrase people search for, such as "GST Registration Online in India".
+- Every page has one H1 that contains its main keyword, a description of 70–160 characters, a canonical URL and BreadcrumbList schema.
 - `content/legal.ts`: the four legal pages.
 
 ## SEO and tech

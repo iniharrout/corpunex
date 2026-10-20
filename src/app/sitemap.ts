@@ -7,7 +7,7 @@ import { roles } from "@/content/careers";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.corpunex.com";
 
-  const buildDate = new Date("2026-10-19");
+  const buildDate = new Date("2026-10-21");
 
   // Core static pages
   const staticPages = [
@@ -16,6 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/blog",
     "/careers",
+    "/compliance-calendar",
+    "/glossary",
+    "/tools/gst-calculator",
+    "/tools/company-type-finder",
     "/faq",
     "/contact",
     "/privacy-policy",

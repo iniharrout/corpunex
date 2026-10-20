@@ -19,11 +19,11 @@ const isProduction = (process.env.VERCEL_ENV ?? "production") === "production";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Corpunex — Start your company in India, the easy way",
+    default: "Company Registration Online in India | Corpunex",
     template: "%s | Corpunex",
   },
   description:
-    "Start your company in India the easy way. We handle registration, GST, accounts and yearly filings, with clear prices and real people to help.",
+    "Company registration, GST, accounting and yearly compliance for founders in India. Private Limited, LLP and OPC registration with a free itemised quote, handled by CAs and CSs.",
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -56,6 +56,14 @@ const organization = {
   sameAs: Object.values(site.social).filter(Boolean),
 };
 
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: site.url,
+  inLanguage: "en-IN",
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
@@ -64,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <JsonLd data={organization} />
+        <JsonLd data={website} />
         <CallbackProvider>
           <TopBar />
           <SiteHeader />

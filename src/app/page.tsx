@@ -14,7 +14,9 @@ import { faqSchema } from "@/components/shared/FaqList";
 import { homeFaqs } from "@/content/home";
 
 export const metadata: Metadata = {
-  title: { absolute: "Corpunex — Start your company in India, the easy way" },
+  title: { absolute: "Company Registration Online in India | Corpunex" },
+  description:
+    "Register your Private Limited company, LLP or OPC online, get GST and stay compliant every year. Filings prepared by CAs and CSs, with a free itemised quote.",
   alternates: { canonical: "/" },
 };
 

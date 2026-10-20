@@ -11,29 +11,57 @@ import CallbackButton from "@/components/callback/CallbackButton";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "About Corpunex",
+  title: "About Corpunex: Why We Help First-Time Founders",
   description:
-    "Corpunex helps first-time founders in India register their business, stay on top of tax and yearly filings, and protect their brand, with every cost explained up front.",
+    "Most business dreams don't fail in the market. They stall in the paperwork. Corpunex helps first-time founders in India register and stay compliant.",
   alternates: { canonical: "/about" },
 };
 
+/** The ways founders commonly go wrong. General patterns, not client stories. */
+const mistakes = [
+  {
+    title: "Choosing a structure by price",
+    body: "The cheapest option today can mean converting the whole company later, just as an investor is ready to sign.",
+  },
+  {
+    title: "A name that's already taken",
+    body: "The name gets rejected, the logo is already printed, and the launch slips by weeks.",
+  },
+  {
+    title: "A quote that grows",
+    body: "A low headline price, then stamp duty, signatures and certification added one by one.",
+  },
+  {
+    title: "Missing the first-year deadlines",
+    body: "Nobody mentions the auditor appointment or the 180-day declaration, until the late fees arrive.",
+  },
+  {
+    title: "Mixing personal and business money",
+    body: "It feels harmless early on. At tax time, and in an investor's due diligence, it isn't.",
+  },
+  {
+    title: "Thinking registration is the finish line",
+    body: "The certificate is the start. Every company has filings to make every year, even with no sales.",
+  },
+];
+
 const principles: { title: string; body: string; icon: IconName; tone: "sky" | "mint" | "sun" }[] = [
   {
-    title: "Every cost on its own line",
-    body: "Your quote shows government fees, digital signatures and our fee separately. For government fees, we charge exactly what the government charges.",
-    icon: "receipt",
+    title: "We explain before we file",
+    body: "You'll know what each form does, why you need it and what happens next, in plain words.",
+    icon: "chat",
     tone: "sky",
   },
   {
-    title: "Honest about what we control",
-    body: "Names, registrations and recognitions are decided by the government. We prepare everything to their rules, and we tell you plainly when something is out of our hands.",
-    icon: "shield",
+    title: "Every cost, up front",
+    body: "Your quote shows government fees, digital signatures and our fee on separate lines before anything starts. Government fees are charged at exactly what the government charges.",
+    icon: "receipt",
     tone: "mint",
   },
   {
-    title: "Qualified people check the work",
-    body: "Filings are prepared and certified by Chartered Accountants, Company Secretaries and advocates. Where the law needs someone independent, like an auditor, we tell you who it is.",
-    icon: "badge",
+    title: "We stay after the certificate",
+    body: "Your first-year calendar, your GST returns, your yearly filings. We remind you before each one is due.",
+    icon: "calendar",
     tone: "sun",
   },
 ];
@@ -42,46 +70,98 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        art="people"
         crumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },
         ]}
-        title="We make the paperwork of starting up easy to understand."
-        highlight="easy to understand."
-        lead="Corpunex helps Indian and foreign founders register their business, keep up with tax and yearly filings, and protect what they build."
+        title="Most business dreams don't fail in the market. They stall in the paperwork."
+        highlight="They stall in the paperwork."
+        lead="This is why Corpunex exists."
         tone="peach"
       />
 
       <section className="section" aria-labelledby="story-title">
         <div className={`wrap ${styles.story}`}>
           <div className={styles.storyText}>
-            <h2 id="story-title" className={styles.h2}>
-              Why we do this
+            <h2 id="story-title" className={styles.kicker}>
+              The story we keep hearing
             </h2>
+            <p className={styles.opening}>It almost always starts the same way: with an idea someone can&apos;t stop thinking about.</p>
             <p>
-              Starting a business in India means dealing with several government offices, each with its own forms,
-              portals and deadlines. For a first-time founder, it&apos;s hard to know what&apos;s needed, what it costs
-              and what happens if something is missed.
+              A founder finds a co-founder, picks a name, maybe even designs a logo. They&apos;re ready to build. Then
+              the questions start. Private Limited or LLP? What&apos;s a DIN? Why was the name rejected? Which documents,
+              signed how, sent where?
             </p>
             <p>
-              We handle that work for you. We explain each step in plain words, tell you what you need to do and when,
-              and give you a written, itemised quote before we start.
+              Friends give different answers. Websites show one price and add three more later. Somewhere along the way,
+              a form is filed with the wrong detail, and nobody notices.
+            </p>
+            <p>
+              Months later, a notice arrives. A late fee for a filing they&apos;d never heard of. A bank that won&apos;t
+              open the account. An investor&apos;s lawyer asking why the shares were never properly issued. The energy
+              that should have gone into the product goes into fixing paperwork instead. Some founders push through.
+              Some quietly give up.
+            </p>
+            <p className={styles.pull}>
+              None of this happens because founders are careless. It happens because nobody explained the system to them.
             </p>
           </div>
           <PhotoFrame
             src="/images/founders-meeting.jpg"
             alt="Founders talking through their company paperwork with an advisor"
-            ratio="3 / 2"
-            sizes="(min-width: 1000px) 50vw, 100vw"
+            ratio="4 / 5"
+            sizes="(min-width: 1000px) 40vw, 100vw"
+            className={styles.photo}
           />
+        </div>
+      </section>
+
+      <section className="section band-deep" aria-labelledby="mistakes-title">
+        <div className="wrap">
+          <div className={styles.head}>
+            <h2 id="mistakes-title" className={styles.h2}>
+              Where it usually goes wrong
+            </h2>
+            <p className={styles.muted}>
+              These are the mistakes we see first-time founders make most often. Every one of them is avoidable.
+            </p>
+          </div>
+          <ol className={styles.mistakes}>
+            {mistakes.map((m, i) => (
+              <li key={m.title} className={styles.mistake}>
+                <span className={styles.mistakeNum} aria-hidden>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className={styles.h3}>{m.title}</h3>
+                <p>{m.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="why-title">
+        <div className="wrap">
+          <div className={styles.mission}>
+            <h2 id="why-title" className={styles.kicker}>
+              Why we built Corpunex
+            </h2>
+            <p className={styles.missionText}>
+              We wanted to be the advisor every first-time founder deserves: one who explains before filing, prices
+              everything up front, and is still there long after the certificate arrives.
+            </p>
+            <p className={styles.missionSub}>
+              Our team of Chartered Accountants, Company Secretaries and advocates handles the registrations, tax and
+              filings, so founders can spend their energy on the thing they set out to build.
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="section band-sky" aria-labelledby="principles-title">
         <div className="wrap">
           <h2 id="principles-title" className={styles.h2}>
-            How we work
+            What we do differently
           </h2>
           <ul className={styles.principles}>
             {principles.map((p) => (
@@ -152,9 +232,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CtaBand title="Ready to get started?">
-        Tell us what you&apos;re setting up or what&apos;s due. We&apos;ll tell you what&apos;s needed and what it
-        costs.
+      <CtaBand title="Have an idea you can't stop thinking about?">
+        Let&apos;s get the paperwork right from day one, so nothing stands between you and building it.
       </CtaBand>
     </>
   );

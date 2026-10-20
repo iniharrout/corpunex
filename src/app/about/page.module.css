@@ -26,6 +26,104 @@
   max-width: 54ch;
 }
 
+.kicker {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* The story */
+.opening {
+  font-family: var(--font-statement);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-regular);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+.storyText p {
+  font-size: var(--text-lead);
+  color: var(--color-ink-soft);
+}
+
+.storyText .opening {
+  font-size: var(--text-h2);
+  color: var(--color-ink);
+}
+
+.pull {
+  padding-left: var(--space-5);
+  border-left: 3px solid var(--color-accent);
+  font-weight: var(--weight-semibold);
+}
+
+.storyText .pull {
+  color: var(--color-ink);
+}
+
+.photo {
+  max-width: 28rem;
+  width: 100%;
+  justify-self: center;
+}
+
+/* Mistakes */
+.mistakes {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+}
+
+.mistake {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.mistake p {
+  color: var(--color-ink-muted);
+}
+
+.mistakeNum {
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  color: var(--color-peach-strong);
+}
+
+/* Mission */
+.mission {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 52rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.missionText {
+  font-family: var(--font-statement);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+
+.missionSub {
+  max-width: 56ch;
+  margin-inline: auto;
+  font-size: var(--text-lead);
+  color: var(--color-ink-muted);
+}
+
 /* Principles */
 .principles {
   list-style: none;
@@ -164,6 +262,10 @@
 }
 
 @media (min-width: 700px) {
+  .mistakes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .services {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -171,11 +273,13 @@
 
 @media (min-width: 1000px) {
   .story {
-    grid-template-columns: 5fr 6fr;
+    grid-template-columns: 7fr 5fr;
+    align-items: start;
     gap: var(--layout-column-gap);
   }
 
-  .principles {
+  .principles,
+  .mistakes {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 

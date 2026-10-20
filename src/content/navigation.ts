@@ -49,7 +49,7 @@ export const serviceGroups: NavGroup[] = [
       },
       {
         label: "Indian subsidiary",
-        href: svc("business-registration"),
+        href: svc("business-registration", "indian-subsidiary"),
         description: "For companies based outside India",
       },
     ],
@@ -61,7 +61,7 @@ export const serviceGroups: NavGroup[] = [
     tone: "mint",
     links: [
       { label: "GST registration", href: svc("gst-taxation", "gst-registration") },
-      { label: "GST returns", href: svc("gst-taxation") },
+      { label: "GST return filing", href: svc("gst-taxation", "gst-return-filing") },
       { label: "Accounting and bookkeeping", href: svc("accounting-bookkeeping") },
       { label: "Income tax returns", href: svc("gst-taxation", "income-tax-filing") },
       { label: "Virtual CFO", href: enquire },
@@ -74,6 +74,7 @@ export const serviceGroups: NavGroup[] = [
     tone: "sun",
     links: [
       { label: "Annual ROC filings", href: svc("corporate-compliance", "annual-roc-compliance") },
+      { label: "Add or remove a director", href: svc("corporate-compliance", "change-of-directors") },
       { label: "FSSAI food licence", href: svc("licences-registrations", "fssai-licence") },
       { label: "Import Export Code", href: svc("licences-registrations", "import-export-code") },
       { label: "Udyam (MSME) registration", href: svc("startup-services", "udyam-msme-registration") },
@@ -99,6 +100,7 @@ export const serviceGroups: NavGroup[] = [
     tone: "sky",
     links: [
       { label: "Trademark registration", href: svc("trademark-ip", "trademark-registration") },
+      { label: "Trademark objection reply", href: svc("trademark-ip", "trademark-objection-reply") },
       { label: "Copyright and design", href: svc("trademark-ip") },
       { label: "Founder and shareholder agreements", href: svc("legal-documentation") },
     ],
@@ -112,25 +114,35 @@ export const primaryNav: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
+/** Free tools and reference pages. */
+export const resourceLinks: NavLink[] = [
+  { label: "Blog", href: "/blog" },
+  { label: "Compliance calendar", href: "/compliance-calendar" },
+  { label: "GST calculator", href: "/tools/gst-calculator" },
+  { label: "Company type finder", href: "/tools/company-type-finder" },
+  { label: "Glossary", href: "/glossary" },
+  { label: "FAQ", href: "/faq" },
+];
+
 export const footerNav: { heading: string; links: NavLink[] }[] = [
-  { heading: "Start a business", links: serviceGroups[0].links.slice(0, 4) },
+  { heading: "Start a business", links: serviceGroups[0].links },
   { heading: "Tax and accounts", links: serviceGroups[1].links.slice(0, 4) },
   {
     heading: "Grow",
     links: [
-      serviceGroups[2].links[0],
-      serviceGroups[3].links[0],
-      serviceGroups[4].links[0],
-      serviceGroups[2].links[4],
+      { label: "Annual ROC filings", href: svc("corporate-compliance", "annual-roc-compliance") },
+      { label: "Startup India (DPIIT)", href: svc("startup-services", "startup-india-recognition") },
+      { label: "Trademark registration", href: svc("trademark-ip", "trademark-registration") },
+      { label: "All licences", href: svc("licences-registrations") },
+      { label: "All services", href: "/services" },
     ],
   },
+  { heading: "Resources", links: resourceLinks },
   {
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Blog", href: "/blog" },
-      { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],
   },

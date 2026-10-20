@@ -4,7 +4,7 @@ import type { ServicePageContent } from "./types";
 export const opc: ServicePageContent = {
   path: "/services/business-registration/one-person-company",
   name: "One Person Company registration",
-  metaTitle: "One Person Company (OPC) registration in India: fees, documents, timeline",
+  metaTitle: "One Person Company (OPC) Registration Online",
   metaDescription: `Register a One Person Company with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },

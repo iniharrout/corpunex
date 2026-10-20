@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const soleProprietorship: ServicePageContent = {
   path: "/services/business-registration/sole-proprietorship",
   name: "Sole proprietorship setup",
-  metaTitle: "Sole proprietorship registration in India: Udyam, GST and bank account",
+  metaTitle: "Sole Proprietorship Registration in India",
   metaDescription:
     "Set up a sole proprietorship in India with the registrations your bank needs to open a current account: Udyam, and GST or a shop licence where they apply.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const soleProprietorship: ServicePageContent = {
     { label: "Start", href: "/services/business-registration" },
     { label: "Sole proprietorship", href: "/services/business-registration/sole-proprietorship" },
   ],
-  headline: "Start trading on your own, with the papers your bank asks for.",
+  headline: "Sole proprietorship registration, with the papers your bank asks for.",
   lead: "A sole proprietorship is the simplest way to run a business: it's just you, trading under a business name. There's no single certificate for it. Instead, banks and clients look for registrations like Udyam, GST or a shop licence. We work out which ones you need and file them for you.",
   quoteFacts: [quoteOnRequest],
   callbackTopic: "Register a company or LLP",

@@ -7,6 +7,90 @@
   font-size: var(--text-h3);
 }
 
+.h4 {
+  font-size: var(--text-h4);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Why work here */
+.why {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+
+.reasons {
+  list-style: none;
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.reasons li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-4);
+}
+
+.reasons p {
+  margin-top: var(--space-1);
+  color: var(--color-ink-muted);
+}
+
+.reasonNum {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-mint);
+  font-weight: var(--weight-bold);
+  color: var(--color-mint-strong);
+}
+
+/* Teams */
+.teams {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.teamCard {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.teamCard p {
+  color: var(--color-ink-muted);
+}
+
+.openCount {
+  justify-self: start;
+  margin-top: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent-tint);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+}
+
+.faqGrid {
+  display: grid;
+  gap: var(--space-5);
+}
+
 .muted {
   color: var(--color-ink-muted);
 }
@@ -175,12 +259,32 @@
 }
 
 @media (min-width: 700px) {
+  .teams {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .values {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .why {
+    grid-template-columns: 6fr 6fr;
+    gap: var(--space-9);
+  }
+
+  .teams {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .faqGrid {
+    grid-template-columns: 4fr 8fr;
+    gap: var(--layout-column-gap);
   }
 }
 

@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const annualRocCompliance: ServicePageContent = {
   path: "/services/corporate-compliance/annual-roc-compliance",
   name: "Annual ROC compliance",
-  metaTitle: "Annual ROC compliance for companies and LLPs in India",
+  metaTitle: "Annual ROC Compliance for Companies and LLPs",
   metaDescription:
     "The yearly government filings every company and LLP must make, done on time: accounts, the yearly return, director KYC, and the meeting paperwork behind them.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const annualRocCompliance: ServicePageContent = {
     { label: "Compliance", href: "/services/corporate-compliance" },
     { label: "Annual ROC compliance", href: "/services/corporate-compliance/annual-roc-compliance" },
   ],
-  headline: "Your yearly company filings, done before the late fees start.",
+  headline: "Annual ROC compliance, filed before the late fees start.",
   lead: "Every company and LLP has to send its accounts and a yearly return to the Registrar of Companies (ROC) each year, even with no sales. Miss them and late fees add up every day. We prepare the meeting paperwork, file the forms and complete each director's KYC.",
   quoteFacts: [
     { label: "Government fee", value: "Depends on your company's capital", note: "We charge exactly what the government charges" },

@@ -1,38 +1,41 @@
-/* A navy section, so the cross-border offer stands apart from the rest of the page */
-.section {
-  background:
-    radial-gradient(ellipse 60% 70% at 100% 0%, rgb(0 87 255 / 0.28), transparent 70%),
-    var(--color-ink-band);
-  color: var(--color-on-ink-muted);
+/* One large, light card: the offer up top, the four-step path beneath */
+.card {
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
 }
 
-.grid {
+.top {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-5);
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 0%, var(--color-peach), transparent 70%),
+    radial-gradient(ellipse 60% 80% at 0% 100%, var(--color-sky), transparent 70%),
+    var(--color-surface);
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
   font-size: var(--text-micro);
   font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-on-ink-accent);
+  color: var(--color-accent);
 }
 
 .title {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   font-size: var(--text-h2);
-  max-width: 16ch;
-  color: var(--color-on-ink);
+  max-width: 18ch;
 }
 
 .lead {
   margin-top: var(--space-4);
-  max-width: 48ch;
+  max-width: 50ch;
   font-size: var(--text-lead);
+  color: var(--color-ink-soft);
 }
 
 .actions {
@@ -42,72 +45,128 @@
   margin-top: var(--space-6);
 }
 
-/* The ghost button sits on navy here */
-.actions a {
-  color: var(--color-on-ink);
+/* Globe with the three audiences */
+.visual {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
 }
 
-.actions a:hover {
-  background: rgb(255 255 255 / 0.08);
+.globe {
+  width: min(100%, 13rem);
+  height: auto;
 }
 
-.section :focus-visible {
-  outline-color: var(--color-on-ink);
+.audiences {
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 24rem;
 }
 
-/* Steps: a connected path */
+.audiences li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.audienceIcon {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+}
+
+/* The path */
+.path {
+  padding: var(--space-6) var(--space-5);
+  border-top: 1px solid var(--color-line);
+}
+
+.pathTitle {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-h4);
+}
+
 .steps {
   list-style: none;
   display: grid;
-  gap: var(--space-3);
-  counter-reset: none;
+  gap: var(--space-5);
 }
 
 .step {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-4);
-  padding: var(--space-5);
-  border: 1px solid var(--color-on-ink-line);
-  border-radius: var(--radius-lg);
-  background: rgb(255 255 255 / 0.04);
+  gap: var(--space-2);
+  align-content: start;
 }
 
 .num {
-  font-size: var(--text-h3);
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  font-size: var(--text-small);
   font-weight: var(--weight-bold);
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-  color: var(--color-on-ink-accent);
+  color: var(--color-on-brand);
 }
 
 .stepTitle {
-  font-size: var(--text-h4);
-  color: var(--color-on-ink);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0;
 }
 
 .stepBody {
-  margin-top: var(--space-2);
   font-size: var(--text-small);
-  line-height: 1.6;
+  color: var(--color-ink-muted);
 }
 
 @media (min-width: 700px) {
   .steps {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .step {
-    grid-template-columns: 1fr;
-    align-content: start;
-  }
 }
 
-@media (min-width: 1080px) {
-  .grid {
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-9);
+@media (min-width: 1000px) {
+  .top {
+    grid-template-columns: 7fr 5fr;
     align-items: center;
+    padding: var(--space-8);
+  }
+
+  .path {
+    padding: var(--space-7) var(--space-8);
+  }
+
+  .steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* A line joining the step numbers */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 1.125rem;
+    left: 3rem;
+    right: calc(-1 * var(--space-6) + var(--space-3));
+    height: 2px;
+    background: var(--color-line-strong);
   }
 }

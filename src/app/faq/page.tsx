@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Questions",
+  title: "FAQs: Company Registration, GST and Compliance",
   description:
     "Answers on company and LLP registration, Startup India, GST and income tax, trademarks, annual compliance, and how our fees work.",
   alternates: { canonical: "/faq" },

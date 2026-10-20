@@ -15,6 +15,12 @@ export default function TopBar() {
             <Link href="/blog">Blog</Link>
           </li>
           <li>
+            <Link href="/compliance-calendar">Compliance calendar</Link>
+          </li>
+          <li>
+            <Link href="/tools/gst-calculator">GST calculator</Link>
+          </li>
+          <li>
             <Link href="/faq">FAQ</Link>
           </li>
           <li>

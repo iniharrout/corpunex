@@ -1,0 +1,59 @@
+.toolSection {
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.explain {
+  padding-bottom: var(--space-section);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.prose {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--measure);
+}
+
+.prose h2 {
+  margin-top: var(--space-4);
+  font-size: var(--text-h3);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose ul {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.prose li::marker {
+  color: var(--color-accent);
+}
+
+.formula {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-paper-deep);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--text-small);
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.faqTitle {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-h3);
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: 6fr 6fr;
+    gap: var(--layout-column-gap);
+  }
+}

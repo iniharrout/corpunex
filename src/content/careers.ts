@@ -11,6 +11,8 @@ export interface Role {
   team: "Company law" | "Tax and accounts" | "Client advisory" | "Brand and content";
   location: string;
   type: "Full-time" | "Internship";
+  /** ISO date the role was first published, for JobPosting schema. */
+  posted: string;
   summary: string;
   about: string[];
   responsibilities: string[];
@@ -25,6 +27,7 @@ export const roles: Role[] = [
     team: "Company law",
     location: "Bhubaneswar",
     type: "Full-time",
+    posted: "2026-10-21",
     summary: "Prepare and file company and LLP registrations and yearly MCA filings for founders across India.",
     about: [
       "You'll handle a founder's company from the day it's registered: checking names, writing the company rulebook (MoA and AoA), filing SPICe+ and FiLLiP forms, and keeping the yearly filings on time.",
@@ -50,6 +53,7 @@ export const roles: Role[] = [
     team: "Tax and accounts",
     location: "Bhubaneswar",
     type: "Full-time",
+    posted: "2026-10-21",
     summary: "Keep books, file GST and TDS returns, and prepare income tax returns for startups and small businesses.",
     about: [
       "You'll look after the monthly books and tax filings for a group of startups and small businesses, working with the Chartered Accountants who review and sign off the work.",
@@ -74,6 +78,7 @@ export const roles: Role[] = [
     team: "Client advisory",
     location: "New Delhi",
     type: "Full-time",
+    posted: "2026-10-21",
     summary: "Be the first person founders speak to: understand what they need and help them choose the right setup.",
     about: [
       "When a founder requests a call back, you're the person who calls. You'll find out what they're building, explain their options, and prepare a clear, itemised quote with the team.",
@@ -97,6 +102,7 @@ export const roles: Role[] = [
     team: "Brand and content",
     location: "Remote, India",
     type: "Internship",
+    posted: "2026-10-21",
     summary: "Write plain-language articles and guides that help first-time founders understand Indian company law and tax.",
     about: [
       "You'll turn complicated rules into short, clear articles for our blog, working with our CAs and CSs to check every fact.",
@@ -124,6 +130,56 @@ export const hiringSteps = [
   { title: "A short call", body: "We'll talk about your experience and answer your questions about us." },
   { title: "A practical task", body: "A small piece of real-world work, close to what you'd do in the role." },
   { title: "Meet the team", body: "A conversation with the people you'd work with every day." },
+];
+
+/** The teams, in the order they appear on /careers. */
+export const teams: { name: Role["team"]; body: string }[] = [
+  {
+    name: "Company law",
+    body: "Company Secretaries who register companies and LLPs and keep their yearly filings on time.",
+  },
+  {
+    name: "Tax and accounts",
+    body: "Accountants and Chartered Accountants who keep books and file GST, TDS and income tax returns.",
+  },
+  {
+    name: "Client advisory",
+    body: "The first people founders speak to. They listen, explain the options and put together each quote.",
+  },
+  {
+    name: "Brand and content",
+    body: "Writers who turn complicated rules into articles and guides a first-time founder can follow.",
+  },
+];
+
+export const reasons = [
+  {
+    title: "Work that matters to someone",
+    body: "Every registration is someone's first company. You'll see the difference clear, careful work makes to a founder.",
+  },
+  {
+    title: "Learn across disciplines",
+    body: "Company Secretaries, Chartered Accountants and advocates work side by side, so you'll learn far beyond your own role.",
+  },
+  {
+    title: "Bhubaneswar, New Delhi or remote",
+    body: "We have offices in Bhubaneswar and New Delhi, and some roles can be done from anywhere in India. Each role says where it's based.",
+  },
+];
+
+export const candidateFaqs = [
+  {
+    question: "How do I apply?",
+    answer: "Email your CV with a few lines on why the role interests you. Use the Apply button on the role's page, which fills in the subject for you.",
+  },
+  {
+    question: "Can I apply if there's no role that fits?",
+    answer: "Yes. Send your CV and tell us what you'd like to work on.",
+  },
+  {
+    question: "What is the practical task?",
+    answer: "A short piece of work close to what you'd do in the role, such as reviewing a set of documents or writing a short explainer. It's there to show us how you work, not to catch you out.",
+  },
 ];
 
 export const values = [

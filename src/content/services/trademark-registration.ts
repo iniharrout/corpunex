@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const trademarkRegistration: ServicePageContent = {
   path: "/services/trademark-ip/trademark-registration",
   name: "Trademark registration",
-  metaTitle: "Trademark registration in India: search, classes, filing and objections",
+  metaTitle: "Trademark Registration Online in India",
   metaDescription:
     "Protect your brand name, logo or tagline. We search for clashing brands first, pick the right classes with you, file your application and track it to registration.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const trademarkRegistration: ServicePageContent = {
     { label: "Trademark and IP", href: "/services/trademark-ip" },
     { label: "Trademark registration", href: "/services/trademark-ip/trademark-registration" },
   ],
-  headline: "Protect your brand name before someone else takes it.",
+  headline: "Trademark registration: protect your brand before someone else takes it.",
   lead: "A registered trademark means nobody else in India can use your brand name or logo for the same kind of business. Most applications run into trouble because a similar brand already exists or the wrong category was picked. So we search first, choose your categories with you, and then file.",
   quoteFacts: [
     { label: "Government fee", value: "Per category", note: "Lower for individuals, startups and small businesses" },

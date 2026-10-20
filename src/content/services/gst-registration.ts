@@ -4,15 +4,15 @@ import { quoteOnRequest } from "./shared";
 export const gstRegistration: ServicePageContent = {
   path: "/services/gst-taxation/gst-registration",
   name: "GST registration",
-  metaTitle: "GST registration in India: who needs it, documents and process",
+  metaTitle: "GST Registration Online in India",
   metaDescription:
-    "Get your GST number with an application we check before it's filed. We handle the forms, Aadhaar verification and any questions from the GST officer. There's no government fee.",
+    "Get your GST number online with an application we check before filing. We handle the forms, Aadhaar check and officer questions. No government fee.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "GST and tax", href: "/services/gst-taxation" },
     { label: "GST registration", href: "/services/gst-taxation/gst-registration" },
   ],
-  headline: "Get your GST number without the back-and-forth.",
+  headline: "GST registration online, without the back-and-forth.",
   lead: "Most GST applications get stuck because the address proof doesn't match or the wrong tax office is picked. We check both before filing, help you with the Aadhaar check, and answer the GST officer's questions until your certificate arrives.",
   quoteFacts: [{ label: "Government fee", value: "None", note: "The GST portal is free" }, quoteOnRequest],
   callbackTopic: "GST, accounting or tax returns",

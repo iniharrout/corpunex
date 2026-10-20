@@ -4,15 +4,15 @@ import { quoteOnRequest } from "./shared";
 export const startupIndia: ServicePageContent = {
   path: "/services/startup-services/startup-india-recognition",
   name: "Startup India (DPIIT) recognition",
-  metaTitle: "Startup India (DPIIT) recognition: who qualifies, documents and how to apply",
+  metaTitle: "Startup India Registration (DPIIT Recognition)",
   metaDescription:
-    "Get your startup recognised by DPIIT under Startup India. We check you qualify, write your application and answer any questions. It's the first step to the 80-IAC tax exemption.",
+    "Get your startup recognised by DPIIT under Startup India. We check you qualify, write your application and answer DPIIT's questions. No government fee.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Startup services", href: "/services/startup-services" },
     { label: "Startup India (DPIIT)", href: "/services/startup-services/startup-india-recognition" },
   ],
-  headline: "Get your startup officially recognised by the government.",
+  headline: "Startup India registration: get your startup recognised by DPIIT.",
   lead: "Startup India recognition comes from DPIIT, a government department. It opens the door to tax benefits, lower fees for trademarks and patents, and government schemes. We check that you qualify, explain your idea in the way DPIIT expects, apply for you and answer their questions.",
   quoteFacts: [{ label: "Government fee", value: "None", note: "DPIIT doesn't charge for recognition" }, quoteOnRequest],
   callbackTopic: "Startup India or fundraising",

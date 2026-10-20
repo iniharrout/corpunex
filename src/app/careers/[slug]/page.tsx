@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { Briefcase, Check, MapPin, Users } from "lucide-react";
 import { applyHref, hiringSteps, roles } from "@/content/careers";
 import PageHeader from "@/components/shared/PageHeader";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { site } from "@/config/site";
 import { ButtonLink } from "@/components/ui/Button";
 import styles from "./page.module.css";
 
@@ -20,7 +22,7 @@ export async function generateMetadata({ params }: RolePageProps): Promise<Metad
   const role = roles.find((r) => r.slug === slug);
   if (!role) return {};
   return {
-    title: `${role.title}: careers`,
+    title: `${role.title} job in ${role.location}`,
     description: role.summary,
     alternates: { canonical: `/careers/${role.slug}` },
   };
@@ -46,8 +48,36 @@ export default async function RolePage({ params }: RolePageProps) {
 
   const others = roles.filter((r) => r.slug !== role.slug).slice(0, 3);
 
+  const remote = role.location.startsWith("Remote");
+  const jobPosting = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: role.title,
+    description: [role.summary, ...role.about, "What you'll do:", ...role.responsibilities, "What we're looking for:", ...role.requirements]
+      .map((line) => `<p>${line}</p>`)
+      .join(""),
+    datePosted: role.posted,
+    employmentType: role.type === "Internship" ? "INTERN" : "FULL_TIME",
+    hiringOrganization: { "@type": "Organization", name: site.name, sameAs: site.url, logo: `${site.url}/corpunex-logo-dark.png` },
+    ...(remote
+      ? { jobLocationType: "TELECOMMUTE", applicantLocationRequirements: { "@type": "Country", name: "India" } }
+      : {
+          jobLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: role.location,
+              addressRegion: role.location === "Bhubaneswar" ? "Odisha" : "Delhi",
+              addressCountry: "IN",
+            },
+          },
+        }),
+    directApply: false,
+  };
+
   return (
     <>
+      <JsonLd data={jobPosting} />
       <PageHeader
         crumbs={[
           { label: "Home", href: "/" },

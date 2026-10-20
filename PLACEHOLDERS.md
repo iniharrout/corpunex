@@ -41,3 +41,11 @@ These were removed rather than marked up. Add them back once someone has checked
 - [ ] **Confirm the four open roles** (Company Secretary associate, Accounts and tax executive, Client advisor, Content writer intern), with their locations and requirements. They're drafts written from the work Corpunex does. Delete any role you aren't hiring for; the page counts what's left.
 - [ ] **Confirm where applications should go.** "Apply" opens an email to `contact@corpunex.com`. If you want a separate careers address, add it to `src/config/site.ts` and use it in `applyHref`.
 
+## New pages to review (added October 2026)
+
+- [ ] **New service pages:** Indian subsidiary, Section 8 company, partnership firm, GST return filing, close a company, trademark objection reply, and add or remove a director. Each is written from the standard rules. Have a CA or CS read them before launch, and add "from" prices to `src/lib/fees.ts` when they're confirmed.
+- [ ] **Compliance calendar** (`src/content/calendar.ts`): standard due dates for a March year end. Check them each year, because the government often extends dates. Director KYC is listed as "in the years it's due"; confirm how often it's currently required.
+- [ ] **GST calculator:** the presets are 5%, 18% and 40%, the main rates since September 2025, with a box for any other rate. Update them if the rates change.
+- [ ] **Careers:** the "Why work at Corpunex" and team descriptions are drafts. Confirm them with the team, and replace the stand-in photo with a real team photo.
+- [ ] **Share image:** `src/app/opengraph-image.tsx` creates the image shown when the site is shared. Swap in a designed image if you have one.
+

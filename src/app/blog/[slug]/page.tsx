@@ -23,10 +23,17 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   if (!article) return {};
   const path = `/blog/${article.slug}`;
   return {
-    title: article.title,
+    // The part before a colon is short enough for search results.
+    title: article.title.split(":")[0],
     description: article.summary,
     alternates: { canonical: path },
-    openGraph: { title: article.title, description: article.summary, type: "article", url: path },
+    openGraph: {
+      title: article.title,
+      description: article.summary,
+      type: "article",
+      url: path,
+      images: ["/opengraph-image"],
+    },
   };
 }
 
@@ -51,7 +58,15 @@ async function Article({ params }: ArticlePageProps) {
     headline: article.title,
     description: article.summary,
     url: `${site.url}${path}`,
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    datePublished: new Date(`1 ${article.published} UTC`).toISOString().slice(0, 10),
+    author: { "@type": "Organization", name: site.name, url: site.url },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: { "@type": "ImageObject", url: `${site.url}/corpunex-logo-dark.png` },
+    },
+    mainEntityOfPage: `${site.url}${path}`,
   };
 
   return (

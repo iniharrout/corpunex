@@ -1,0 +1,119 @@
+.body {
+  display: grid;
+  gap: var(--space-5);
+  padding-block: var(--space-7) var(--space-section);
+}
+
+.note {
+  max-width: 64ch;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-paper-deep);
+  font-size: var(--text-small);
+  color: var(--color-ink-soft);
+}
+
+.month {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  scroll-margin-top: calc(var(--header-height) + var(--space-4));
+}
+
+.monthTitle {
+  font-size: var(--text-h3);
+}
+
+.rows {
+  list-style: none;
+}
+
+.row {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.date {
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.filing {
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.filing a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.filing a:hover {
+  text-decoration: underline;
+}
+
+.what {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.who {
+  justify-self: start;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.sky {
+  background: var(--color-sky);
+}
+
+.mint {
+  background: var(--color-mint);
+}
+
+.sun {
+  background: var(--color-sun);
+}
+
+.peach {
+  background: var(--color-peach);
+}
+
+.lilac {
+  background: var(--color-lilac-tint);
+}
+
+@media (min-width: 800px) {
+  .month {
+    grid-template-columns: 10rem 1fr;
+    gap: var(--layout-column-gap);
+    padding: var(--space-6);
+  }
+
+  .row {
+    grid-template-columns: 11rem 1fr auto;
+    align-items: start;
+    gap: var(--space-5);
+  }
+
+  .row:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .who {
+    justify-self: end;
+    white-space: nowrap;
+  }
+}

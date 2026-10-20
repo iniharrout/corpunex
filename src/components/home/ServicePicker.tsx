@@ -10,9 +10,14 @@ const options = [
   { label: "Register an LLP", href: "/services/business-registration/llp-registration" },
   { label: "Register a One Person Company", href: "/services/business-registration/one-person-company" },
   { label: "Get a GST registration", href: "/services/gst-taxation/gst-registration" },
+  { label: "File my GST returns", href: "/services/gst-taxation/gst-return-filing" },
   { label: "File my company's yearly returns", href: "/services/corporate-compliance/annual-roc-compliance" },
   { label: "Get Startup India recognition", href: "/services/startup-services/startup-india-recognition" },
   { label: "Register a trademark", href: "/services/trademark-ip/trademark-registration" },
+  { label: "Set up an Indian subsidiary", href: "/services/business-registration/indian-subsidiary" },
+  { label: "Register a partnership firm", href: "/services/business-registration/partnership-firm-registration" },
+  { label: "Register an NGO (Section 8)", href: "/services/ngo-entity-registration/section-8-company" },
+  { label: "Close a company", href: "/services/corporate-compliance/close-a-company" },
   { label: "Something else", href: "/contact" },
 ];
 

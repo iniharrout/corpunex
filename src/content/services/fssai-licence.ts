@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const fssaiLicence: ServicePageContent = {
   path: "/services/licences-registrations/fssai-licence",
   name: "FSSAI registration and licence",
-  metaTitle: "FSSAI registration and food licence in India: Basic, State and Central",
+  metaTitle: "FSSAI Registration and Food Licence Online",
   metaDescription:
     "FSSAI Basic registration, State licence or Central licence for restaurants, cloud kitchens, home bakers, food makers and food sellers.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const fssaiLicence: ServicePageContent = {
     { label: "Licences", href: "/services/licences-registrations" },
     { label: "FSSAI", href: "/services/licences-registrations/fssai-licence" },
   ],
-  headline: "The right food licence for your food business.",
+  headline: "FSSAI registration and the right food licence for your business.",
   lead: "Anyone who makes, sells or delivers food in India needs FSSAI registration or a licence before they start. There are three levels, depending on your size and what you do. We work out which one you need, prepare the documents and apply for you.",
   quoteFacts: [
     { label: "Government fee", value: "Depends on the licence", note: "We charge exactly what the government charges" },

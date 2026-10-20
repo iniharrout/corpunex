@@ -4,7 +4,7 @@ import type { ServicePageContent } from "./types";
 export const privateLimited: ServicePageContent = {
   path: "/services/business-registration/private-limited-company",
   name: "Private Limited Company registration",
-  metaTitle: "Private Limited Company registration in India: fees, documents, timeline",
+  metaTitle: "Private Limited Company Registration Online",
   metaDescription: `Register a Private Limited company with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },

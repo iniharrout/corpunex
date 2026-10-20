@@ -8,7 +8,7 @@ import CtaBand from "@/components/shared/CtaBand";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "All services",
+  title: "All Services: Registration, GST, Trademark",
   description:
     "Everything Corpunex does: registering a company or LLP, Startup India, GST and tax, licences, trademarks, yearly compliance, accounting and legal documents.",
   alternates: { canonical: "/services" },

@@ -43,8 +43,8 @@ export const paths: {
   {
     title: "I'm a founder outside India",
     body: "Set up an Indian company or subsidiary, including the extra steps for foreign founders.",
-    href: "/contact",
-    cta: "Talk to us",
+    href: "/services/business-registration/indian-subsidiary",
+    cta: "Set up in India",
     tone: "peach",
     icon: "globe",
   },

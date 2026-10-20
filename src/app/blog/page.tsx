@@ -7,11 +7,18 @@ import CtaBand from "@/components/shared/CtaBand";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog: Guides to Registration, GST and Compliance",
   description:
     "Plain-language articles for founders on company registration, Startup India, GST, trademarks and yearly compliance in India.",
   alternates: { canonical: "/blog" },
 };
+
+const tools = [
+  { label: "Compliance calendar", href: "/compliance-calendar", body: "Every yearly due date for companies and LLPs." },
+  { label: "GST calculator", href: "/tools/gst-calculator", body: "Add or remove GST, with the CGST, SGST or IGST split." },
+  { label: "Company type finder", href: "/tools/company-type-finder", body: "Three questions to find the right structure." },
+  { label: "Glossary", href: "/glossary", body: "MoA, DIN, SPICe+ and more, in plain English." },
+];
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -77,7 +84,25 @@ export default function ResourcesPage() {
         })}
       </div>
 
-      <CtaBand title="Have a question a guide does not answer?">
+      <section className={styles.tools} aria-labelledby="tools-title">
+        <div className="wrap">
+          <h2 id="tools-title" className={styles.groupTitle}>
+            Free tools for founders
+          </h2>
+          <ul className={styles.toolList}>
+            {tools.map((t) => (
+              <li key={t.href}>
+                <Link href={t.href} className={styles.tool}>
+                  <span className={styles.itemTitle}>{t.label}</span>
+                  <span className={styles.summary}>{t.body}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <CtaBand title="Have a question an article doesn't answer?">
         Ask us. An advisor will reply with what applies to your business.
       </CtaBand>
     </>

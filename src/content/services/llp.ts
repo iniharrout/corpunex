@@ -4,7 +4,7 @@ import type { ServicePageContent } from "./types";
 export const llp: ServicePageContent = {
   path: "/services/business-registration/llp-registration",
   name: "LLP registration",
-  metaTitle: "LLP registration in India: fees, documents, timeline",
+  metaTitle: "LLP Registration Online in India",
   metaDescription: `Register a Limited Liability Partnership with the MCA in ${timeline.short}. Documents, steps and what's included, with a free itemised quote.`,
   breadcrumb: [
     { label: "Home", href: "/" },

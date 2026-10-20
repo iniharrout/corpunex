@@ -4,15 +4,15 @@ import { quoteOnRequest } from "./shared";
 export const importExportCode: ServicePageContent = {
   path: "/services/licences-registrations/import-export-code",
   name: "Import Export Code (IEC)",
-  metaTitle: "Import Export Code (IEC) registration in India",
+  metaTitle: "Import Export Code (IEC) Registration Online",
   metaDescription:
-    "Get the Import Export Code you need to clear goods through customs and receive payments from abroad. We apply to the DGFT for you and remind you about the yearly update.",
+    "Get the Import Export Code you need for customs and payments from abroad. We apply to the DGFT for you and remind you about the yearly update.",
   breadcrumb: [
     { label: "Home", href: "/" },
     { label: "Licences", href: "/services/licences-registrations" },
     { label: "Import Export Code", href: "/services/licences-registrations/import-export-code" },
   ],
-  headline: "Get your Import Export Code and start trading abroad.",
+  headline: "Import Export Code (IEC) registration, so you can trade abroad.",
   lead: "An Import Export Code (IEC) is a 10-digit number from the DGFT, the government office for foreign trade. Customs need it to clear your goods, and banks often ask for it on payments from abroad. We check your details match, apply for you and send you the certificate.",
   quoteFacts: [
     { label: "Government fee", value: "A small DGFT fee", note: "We charge exactly what the government charges" },

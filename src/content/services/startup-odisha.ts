@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const startupOdisha: ServicePageContent = {
   path: "/services/startup-services/startup-odisha",
   name: "Startup Odisha registration",
-  metaTitle: "Startup Odisha registration and support: who qualifies and how to apply",
+  metaTitle: "Startup Odisha Registration: How to Apply",
   metaDescription:
     "Register with Startup Odisha and get ready to apply for the state's allowances, grants and incubator places. For DPIIT-recognised startups based in Odisha.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const startupOdisha: ServicePageContent = {
     { label: "Startup services", href: "/services/startup-services" },
     { label: "Startup Odisha", href: "/services/startup-services/startup-odisha" },
   ],
-  headline: "Get support from Startup Odisha, with help from a team in Bhubaneswar.",
+  headline: "Startup Odisha registration, with help from a team in Bhubaneswar.",
   lead: "Odisha's startup programme offers allowances, grants and space in incubators to recognised startups in the state. We check that you qualify, register you on the Startup Odisha portal and help you get ready for the review.",
   quoteFacts: [quoteOnRequest],
   callbackTopic: "Startup India or fundraising",

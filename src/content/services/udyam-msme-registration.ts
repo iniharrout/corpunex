@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const udyam: ServicePageContent = {
   path: "/services/startup-services/udyam-msme-registration",
   name: "Udyam (MSME) registration",
-  metaTitle: "Udyam (MSME) registration in India: who can apply, documents and process",
+  metaTitle: "Udyam (MSME) Registration Online",
   metaDescription:
     "Register your business on the Udyam portal and get an MSME certificate for easier loans and protection when buyers pay late. There's no government fee.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const udyam: ServicePageContent = {
     { label: "Startup services", href: "/services/startup-services" },
     { label: "Udyam (MSME)", href: "/services/startup-services/udyam-msme-registration" },
   ],
-  headline: "Get your Udyam certificate, right the first time.",
+  headline: "Udyam (MSME) registration, right the first time.",
   lead: "Udyam registration puts your business on the government's list of small and medium businesses (MSMEs). It can make loans easier to get and protects you when buyers pay late. We pick the right business categories, file it, and send you the certificate.",
   quoteFacts: [{ label: "Government fee", value: "None", note: "The Udyam portal is free" }, quoteOnRequest],
   callbackTopic: "Startup India or fundraising",

@@ -6,7 +6,7 @@ import { site, timeline } from "@/config/site";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Get started",
+  title: "Contact Us: Talk to a Company Registration Expert",
   description:
     "Tell us about your business and we'll suggest the right setup, with a clear quote. Or request a call back.",
   alternates: { canonical: "/contact" },

@@ -4,7 +4,7 @@ import { quoteOnRequest } from "./shared";
 export const incomeTaxFiling: ServicePageContent = {
   path: "/services/gst-taxation/income-tax-filing",
   name: "Income tax return filing",
-  metaTitle: "Income tax return filing for companies, LLPs and proprietors in India",
+  metaTitle: "Income Tax Return Filing for Businesses",
   metaDescription:
     "Yearly income tax returns for companies, LLPs and proprietors, prepared from your books, checked against your tax records and reviewed by a Chartered Accountant.",
   breadcrumb: [
@@ -12,7 +12,7 @@ export const incomeTaxFiling: ServicePageContent = {
     { label: "GST and tax", href: "/services/gst-taxation" },
     { label: "Income tax return", href: "/services/gst-taxation/income-tax-filing" },
   ],
-  headline: "Your business's tax return, checked by a Chartered Accountant.",
+  headline: "Income tax return filing for your business, checked by a CA.",
   lead: "Every company and LLP has to file an income tax return each year, even with no sales. We prepare it from your books, check it against what the tax department already knows about you, work out the tax, and file it on time.",
   quoteFacts: [{ label: "Government fee", value: "None to file", note: "Any tax due depends on your profit" }, quoteOnRequest],
   callbackTopic: "GST, accounting or tax returns",
