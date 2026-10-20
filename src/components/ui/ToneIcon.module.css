@@ -4,29 +4,27 @@
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-press);
   flex-shrink: 0;
-  transform: rotate(-4deg);
 }
 
 .sky {
-  background: var(--color-blue);
-  color: var(--color-ink);
+  background: var(--color-sky);
+  color: var(--color-sky-strong);
 }
 
 .mint {
-  background: var(--color-green);
-  color: var(--color-ink);
+  background: var(--color-mint);
+  color: var(--color-mint-strong);
 }
 
 .sun {
-  background: var(--color-yellow);
-  color: var(--color-ink);
+  background: var(--color-sun);
+  color: var(--color-sun-strong);
 }
 
 .peach {
-  background: var(--color-coral);
-  color: var(--color-ink);
+  background: var(--color-peach);
+  color: var(--color-peach-strong);
 }
 
 /* On a pastel card, the tile turns white so it still stands out */

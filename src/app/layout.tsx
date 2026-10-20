@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Caveat, Inter, Nunito } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/site/SiteHeader";
 import SiteFooter from "@/components/site/SiteFooter";
@@ -9,8 +9,6 @@ import { site } from "@/config/site";
 import CallbackProvider from "@/components/callback/CallbackProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito", display: "swap" });
-const caveat = Caveat({ subsets: ["latin"], variable: "--font-caveat", display: "swap" });
 
 /** Vercel sets VERCEL_ENV; anything other than production stays out of search. */
 const isProduction = (process.env.VERCEL_ENV ?? "production") === "production";
@@ -36,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fffaf0",
+  themeColor: "#ffffff",
 };
 
 const organization = {
@@ -57,7 +55,7 @@ const organization = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${inter.variable} ${nunito.variable} ${caveat.variable}`}>
+    <html lang="en-IN" className={`${inter.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

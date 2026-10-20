@@ -8,7 +8,7 @@ export default function ForeignFounders() {
   return (
     <section className="section" aria-labelledby="foreign-title">
       <div className="wrap">
-        <div className={`sticker ${styles.card}`}>
+        <div className={styles.card}>
           <div className={styles.copy}>
             <h2 id="foreign-title" className={styles.title}>
               Starting in India from abroad?
@@ -25,7 +25,7 @@ export default function ForeignFounders() {
                 </li>
               ))}
             </ul>
-            <CallbackButton topic="Foreign founder entering India" variant="ink">
+            <CallbackButton topic="Foreign founder entering India" variant="primary">
               Talk to us about it
             </CallbackButton>
           </div>

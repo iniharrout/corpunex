@@ -2,25 +2,23 @@
  * Corpunex design tokens — the single source for colour, type, spacing,
  * radius, elevation and motion. Components read these variables only.
  *
- * Direction: playful and illustrated. Warm cream paper, ink-black type
- * and line art, bold colour blocks, sticker-style cards with a hard
- * offset shadow, and bouncy motion.
+ * Direction: clean and professional (in the spirit of razorpay.com):
+ * white surfaces, deep navy text, one confident blue, soft shadows.
+ * The hand-drawn spot illustrations keep their colourful fills.
  */
 
 :root {
   /* ── Colour ─────────────────────────────────────────────── */
-  /* Ink: type, outlines, illustration line work */
-  --color-ink: #1d1b18;           /* 16.5:1 on paper */
-  --color-ink-soft: #3d3a35;      /* body copy, 10.9:1 */
-  --color-ink-muted: #66615a;     /* secondary copy, 5.9:1 on paper, 4.9:1+ on every tint */
-  --color-ink-faint: #a39d93;     /* decorative only */
+  --color-ink: #0b1b33;           /* headlines and illustration line work, 17.2:1 on white */
+  --color-ink-soft: #3a4a63;      /* body copy, 9.0:1 */
+  --color-ink-muted: #5b6b82;     /* secondary copy, 5.4:1 on white, 4.8:1+ on tints */
+  --color-ink-faint: #9aa7b8;     /* decorative only */
 
-  /* Paper */
-  --color-paper: #fffaf0;         /* warm cream page */
-  --color-surface: #ffffff;       /* cards, inputs */
-  --color-paper-deep: #f6efe1;    /* deeper cream band */
+  --color-paper: #ffffff;
+  --color-surface: #ffffff;
+  --color-paper-deep: #f4f7fb;
 
-  /* Bold blocks: illustration fills, stickers, highlights */
+  /* Illustration fills (kept from the illustrated set) */
   --color-yellow: #ffd23f;
   --color-coral: #ff8a65;
   --color-blue: #7aa2ff;
@@ -28,73 +26,70 @@
   --color-lilac: #b8a4ff;
   --color-pink: #ffa8c5;
 
-  /* Soft tints: section bands and cards (names kept for compatibility) */
-  --color-sky: #dfe8ff;           /* blue tint */
-  --color-mint: #d4f3e3;          /* green tint */
-  --color-sun: #fff1b8;           /* yellow tint */
-  --color-peach: #ffe0d4;         /* coral tint */
-  --color-lilac-tint: #ebe4ff;
-  --color-pink-tint: #ffe1ea;
+  /* Soft tints for bands, cards and illustration backdrops */
+  --color-sky: #eaf2ff;
+  --color-mint: #e6f6ee;
+  --color-sun: #fff6dc;
+  --color-peach: #ffefe8;
+  --color-lilac-tint: #f1edff;
+  --color-pink-tint: #ffeef3;
 
-  /* Strong partners for text and icons on the tints (all 4.6:1+) */
-  --color-sky-strong: #2f5be0;
-  --color-mint-strong: #13774a;
+  --color-sky-strong: #1a56f0;
+  --color-mint-strong: #11734a;
   --color-sun-strong: #7a5200;
   --color-peach-strong: #a83a18;
   --color-lilac-strong: #5b3fc4;
 
-  /* Lines */
-  --color-line: #e8e0d0;
-  --color-line-strong: #d4cab6;
-  --color-line-input: #1d1b18;    /* inputs are outlined in ink, like the cards */
+  --color-line: #e3e8ef;
+  --color-line-strong: #cfd7e3;
+  --color-line-input: #8a97aa;    /* control edges, 3.0:1 on white */
 
   /* Actions */
-  --color-cta: #1d1b18;           /* primary buttons: white on ink, 17.2:1 */
-  --color-accent: #2f5be0;        /* links and key numbers, 5.5:1 on paper */
-  --color-accent-hover: #2147b8;
-  --color-accent-tint: #dfe8ff;
+  --color-cta: #1a56f0;
+  --color-accent: #1a56f0;        /* white on it 5.8:1 */
+  --color-accent-hover: #1244c4;
+  --color-accent-tint: #eaf2ff;
 
-  /* Highlighter behind headline words */
-  --color-highlight: #ffd23f;
+  /* Headline emphasis: coloured text, not a marker */
+  --color-highlight: #1a56f0;
 
-  /* Dark band (footer) */
-  --color-ink-band: #1d1b18;
-  --color-on-ink: #fffaf0;
-  --color-on-ink-muted: #cfc8bb;
-  --color-on-ink-line: #3d3a35;
+  /* Navy bands */
+  --color-ink-band: #0b1b33;
+  --color-on-ink: #ffffff;
+  --color-on-ink-muted: #b8c4d6;  /* 9.8:1 on navy */
+  --color-on-ink-line: #22344f;
+  --color-on-ink-accent: #7fb0ff; /* 7.8:1 on navy */
 
   --color-error: #b42318;
-  --color-success: #13774a;
-  --color-focus: #2f5be0;
+  --color-success: #11734a;
+  --color-focus: #1a56f0;
 
   /* ── Typography ─────────────────────────────────────────── */
-  --font-display: var(--font-nunito), "Arial Rounded MT Bold", "Segoe UI", sans-serif;
+  --font-display: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
   --font-body: var(--font-inter), -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-hand: var(--font-caveat), "Comic Sans MS", cursive;
 
-  --text-display: clamp(2.75rem, 1.8rem + 4.2vw, 5.25rem);
-  --text-h1: clamp(2.25rem, 1.6rem + 2.8vw, 4rem);
-  --text-h2: clamp(1.875rem, 1.45rem + 1.8vw, 3rem);
-  --text-h3: clamp(1.3rem, 1.17rem + 0.5vw, 1.625rem);
-  --text-h4: 1.1875rem;
-  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.3rem);
+  --text-display: clamp(2.5rem, 1.7rem + 3.4vw, 4.25rem);
+  --text-h1: clamp(2.125rem, 1.6rem + 2.2vw, 3.375rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+  --text-h3: clamp(1.2rem, 1.1rem + 0.4vw, 1.4375rem);
+  --text-h4: 1.125rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
   --text-body: 1.0625rem;
   --text-small: 0.9375rem;
   --text-micro: 0.8125rem;
-  --text-hand: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
 
-  --leading-tight: 1.02;
-  --leading-heading: 1.12;
+  --leading-tight: 1.08;
+  --leading-heading: 1.18;
   --leading-body: 1.6;
 
-  --tracking-display: -0.025em;
-  --tracking-label: 0.06em;
+  --tracking-display: -0.035em;
+  --tracking-label: 0.08em;
 
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
-  --weight-bold: 800;             /* Nunito headings run heavy */
-  --weight-black: 900;
+  --weight-bold: 700;
+  --weight-black: 800;
 
   /* ── Spacing (4px base) ─────────────────────────────────── */
   --space-1: 0.25rem;
@@ -107,7 +102,7 @@
   --space-8: 4rem;
   --space-9: 6rem;
   --space-10: 8rem;
-  --space-section: clamp(4rem, 2.8rem + 5vw, 8rem);
+  --space-section: clamp(4rem, 2.8rem + 5vw, 7.5rem);
 
   /* ── Layout ─────────────────────────────────────────────── */
   --layout-max: 1240px;
@@ -119,29 +114,26 @@
   --tap-min: 2.75rem;
 
   /* ── Shape ──────────────────────────────────────────────── */
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-xl: 30px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
   --radius-pill: 999px;
-  --border-sticker: 2px solid var(--color-ink);
+  --border-sticker: 1px solid var(--color-line);
 
-  /* ── Elevation: hard offset "sticker" shadows ───────────────
-   * Each one draws a 2px ink outline (the spread ring) plus an offset
-   * shadow, so any element using it reads as a sticker with no border.
-   */
-  --shadow-card: 0 0 0 2px var(--color-ink), 4px 4px 0 2px var(--color-ink);
-  --shadow-card-hover: 0 0 0 2px var(--color-ink), 7px 7px 0 2px var(--color-ink);
-  --shadow-press: 0 0 0 2px var(--color-ink), 1px 1px 0 2px var(--color-ink);
-  --shadow-menu: 0 0 0 2px var(--color-ink), 6px 6px 0 2px var(--color-ink);
-  --shadow-bar: 0 -2px 0 var(--color-ink);
+  /* ── Elevation: soft and layered ────────────────────────── */
+  --shadow-card: 0 0 0 1px rgb(11 27 51 / 0.06), 0 1px 2px rgb(11 27 51 / 0.04), 0 8px 24px -10px rgb(11 27 51 / 0.12);
+  --shadow-card-hover: 0 0 0 1px rgb(26 86 240 / 0.18), 0 2px 4px rgb(11 27 51 / 0.05), 0 18px 40px -14px rgb(11 27 51 / 0.22);
+  --shadow-press: 0 0 0 1px rgb(11 27 51 / 0.08), 0 1px 2px rgb(11 27 51 / 0.06);
+  --shadow-menu: 0 0 0 1px rgb(11 27 51 / 0.06), 0 24px 48px -16px rgb(11 27 51 / 0.25);
+  --shadow-bar: 0 -4px 16px rgb(11 27 51 / 0.08);
 
-  /* ── Motion: springy ────────────────────────────────────── */
+  /* ── Motion: quick and calm ─────────────────────────────── */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 160ms;
-  --duration-base: 260ms;
-  --duration-slow: 600ms;
+  --ease-spring: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 500ms;
 }
 
 @media (min-width: 768px) {

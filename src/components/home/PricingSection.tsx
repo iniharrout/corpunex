@@ -4,7 +4,7 @@ import styles from "./PricingSection.module.css";
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="section band-sun" aria-labelledby="pricing-title">
+    <section id="pricing" className="section band-sky" aria-labelledby="pricing-title">
       <div className="wrap">
         <div className={styles.head}>
           <h2 id="pricing-title" className={styles.title}>

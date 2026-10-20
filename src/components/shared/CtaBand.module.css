@@ -9,35 +9,49 @@
   align-items: end;
   padding: var(--space-8) var(--space-5) var(--space-7);
   border-radius: var(--radius-xl);
-  background: var(--color-yellow);
-  overflow: visible;
+  background:
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgb(26 86 240 / 0.45), transparent 70%),
+    var(--color-ink-band);
+  color: var(--color-on-ink);
+  overflow: hidden;
 }
 
 .plane {
   position: absolute;
-  top: calc(var(--space-6) * -1);
-  right: var(--space-5);
-  width: 9rem;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 8rem;
   height: auto;
-  animation: float 4s ease-in-out infinite;
-}
-
-.sparkle {
-  position: absolute;
-  left: 46%;
-  bottom: var(--space-5);
+  opacity: 0.9;
+  --color-ink: #ffffff;
 }
 
 .title {
   font-size: var(--text-h2);
   max-width: 18ch;
+  color: var(--color-on-ink);
 }
 
 .body {
   margin-top: var(--space-3);
   max-width: 50ch;
   font-size: var(--text-lead);
-  color: var(--color-ink);
+  color: var(--color-on-ink-muted);
+}
+
+/* Ghost button on navy */
+.actions button {
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4);
+}
+
+.actions button:hover {
+  background: rgb(255 255 255 / 0.1);
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
+.card :focus-visible {
+  outline-color: #fff;
 }
 
 .actions {
@@ -53,8 +67,8 @@
   }
 
   .plane {
-    width: 13rem;
-    top: calc(var(--space-8) * -1);
+    width: 12rem;
+    top: var(--space-5);
   }
 
   .actions {

@@ -3,8 +3,8 @@
   top: 0;
   z-index: 50;
   /* Solid, not blurred: a backdrop-filter would trap the fixed mobile drawer. */
-  background: var(--color-paper);
-  border-bottom: 2px solid var(--color-ink);
+  background: rgb(255 255 255 / 0.96);
+  border-bottom: 1px solid var(--color-line);
 }
 
 .bar {
@@ -68,7 +68,7 @@
 .navTrigger[aria-expanded="true"],
 .navTrigger[aria-current="page"] {
   color: var(--color-ink);
-  background: var(--color-sun);
+  background: var(--color-paper-deep);
 }
 
 .chevron {
@@ -156,8 +156,7 @@
   gap: var(--space-3);
   padding: var(--space-5);
   border-radius: var(--radius-lg);
-  background: var(--color-sun);
-  box-shadow: var(--shadow-press);
+  background: var(--color-sky);
 }
 
 .panelHelpTitle {

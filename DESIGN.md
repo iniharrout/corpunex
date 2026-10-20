@@ -2,16 +2,15 @@
 
 ## Direction
 
-Playful and illustrated, in the spirit of Notion: the site should feel like a friendly sketchbook, not a law firm. It's for **first-time founders**, so every page explains things in plain words and makes the process look doable.
+Clean and professional, in the spirit of razorpay.com, while keeping the hand-drawn spot illustrations founders liked (rocket, calculator, medal, globe, chat, folder, certificate, people, phone, paper plane) and the hero scene.
 
-- **Warm cream paper, ink-black lines.** Type, outlines and illustration line work are all the same ink (`#1d1b18`) on cream (`#fffaf0`).
-- **Bold colour blocks.** Yellow, coral, blue, green, lilac and pink appear as illustration fills, stickers and highlights. Their soft tints (sky, mint, sun, peach, lilac) form section bands and cards.
-- **Sticker cards.** Cards, buttons, FAQ items and the menu share one shape: a 2px ink outline plus a hard offset shadow. Both are drawn by the `--shadow-card` token, so any element using it becomes a sticker. On hover they lift with a springy ease, and on press they sink.
-- **Chunky rounded type.** Nunito Black for headlines, Inter for body text, and Caveat for handwritten margin notes ("pick one!", "that's you, launching!").
-- **Hand-drawn illustrations.** The hero scene, a spot illustration for each idea (rocket, calculator, medal, globe, chat, folder, certificate, paper plane, phone, people) and small doodles (sparkles, stars, squiggles, arrows) are all inline SVG in `src/components/illustrations/`. They're decorative and `aria-hidden`; the text beside them carries the meaning.
-- **Bouncy, gentle motion.** Hover lifts, a floating rocket, twinkling sparkles, and sections that rise into view through CSS scroll-driven animation (`data-reveal`, no JavaScript). Everything stops under `prefers-reduced-motion`.
-- **Help is always one tap away.** "Request a call back" opens a pop-up asking for name, mobile number and topic. No phone number or WhatsApp link appears anywhere; email is the only direct contact.
-- **Honest content.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant. Nothing unconfirmed is shown (see PLACEHOLDERS.md).
+- **White surfaces, deep navy, one confident blue.** Navy (`#0b1b33`) for text and illustration line work, blue (`#1a56f0`) for actions and emphasis, and navy bands for the fact strip, the "Why Corpunex" grid and the closing call to action.
+- **Crisp type.** Inter throughout. Headings are bold with tight tracking; key headline words are set in blue rather than highlighted.
+- **Soft, layered cards.** A white card with a hairline edge and a soft shadow that deepens and lifts slightly on hover. Rounded 10–20px corners.
+- **Illustrations carry the colour.** Their yellow, coral, blue and green fills sit on soft tints, so the pages stay calm while the drawings stay friendly.
+- **Calm motion.** 150–220ms fades and lifts, sections that rise into view through CSS scroll-driven animation (`data-reveal`), and a gently bobbing rocket in the hero. All of it is off under `prefers-reduced-motion`.
+- **Help is always one tap away.** "Request a call back" opens a pop-up (name, mobile, topic). No phone number or WhatsApp link appears anywhere; email is the only direct contact.
+- **Honest content.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant. Nothing unconfirmed is shown.
 
 ## Tokens
 
@@ -19,17 +18,15 @@ All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css).
 
 | Token | Value | Use | Contrast |
 |---|---|---|---|
-| `--color-ink` | `#1d1b18` | Headlines, outlines, line art | 16.5:1 on paper |
-| `--color-ink-soft` | `#3d3a35` | Body copy | 10.9:1 |
-| `--color-ink-muted` | `#66615a` | Secondary copy | 5.9:1 on paper, 4.9:1+ on every tint |
-| `--color-paper` / `--color-surface` | `#fffaf0` / `#ffffff` | Page / cards | — |
-| `--color-yellow` `-coral` `-blue` `-green` `-lilac` `-pink` | `#ffd23f` `#ff8a65` `#7aa2ff` `#5fd39a` `#b8a4ff` `#ffa8c5` | Fills, stickers, highlights | Ink on each is 7:1 or more |
-| `--color-sky` `-mint` `-sun` `-peach` `-lilac-tint` | `#dfe8ff` `#d4f3e3` `#fff1b8` `#ffe0d4` `#ebe4ff` | Bands and cards | — |
-| `--color-accent` | `#2f5be0` | Primary buttons, links | White on it 5.7:1 |
-| `--shadow-card` / `-hover` / `-press` | 2px ink ring + 4px / 7px / 1px offset | Sticker look | — |
-| `--ease-spring` | `cubic-bezier(.34,1.56,.64,1)` | Bouncy hovers | — |
-
-Type runs from `--text-display` (44→84px) down to `--text-micro` (13px), with `--text-hand` for Caveat notes. Radii are 10, 14, 22 and 30px, plus pills.
+| `--color-ink` | `#0b1b33` | Headlines, line art, navy bands | 17.2:1 on white |
+| `--color-ink-soft` | `#3a4a63` | Body copy | 9.0:1 |
+| `--color-ink-muted` | `#5b6b82` | Secondary copy | 5.4:1 on white, 4.8:1+ on tints |
+| `--color-accent` | `#1a56f0` | Buttons, links, headline emphasis | White on it 5.8:1 |
+| `--color-on-ink-muted` / `-accent` | `#b8c4d6` / `#7fb0ff` | Text on navy | 9.8:1 / 7.8:1 |
+| `--color-sky` `-mint` `-sun` `-peach` `-lilac-tint` | soft tints | Bands, icon tiles, page headers | — |
+| `--color-yellow` `-coral` `-blue` `-green` | illustration fills | Spot illustrations only | — |
+| `--shadow-card` / `-hover` | hairline + soft blur | Cards | — |
+| Radius | 8 / 10 / 16 / 20px | Buttons use 10px | — |
 
 ## Components
 

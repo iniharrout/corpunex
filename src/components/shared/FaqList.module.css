@@ -1,21 +1,20 @@
 .list {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .item {
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  box-shadow: var(--shadow-press);
-  transition: box-shadow var(--duration-fast) var(--ease-spring), background-color var(--duration-fast);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  transition: box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .item:hover {
-  box-shadow: var(--shadow-card);
+  box-shadow: inset 0 0 0 1px var(--color-line-strong);
 }
 
 .item[open] {
-  background: var(--color-sun);
   box-shadow: var(--shadow-card);
 }
 
@@ -28,10 +27,8 @@
   padding: var(--space-3) var(--space-5);
   list-style: none;
   cursor: pointer;
-  font-family: var(--font-display);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-bold);
-  line-height: 1.3;
+  font-weight: var(--weight-semibold);
+  line-height: 1.4;
   color: var(--color-ink);
 }
 
@@ -41,7 +38,7 @@
 
 .icon {
   flex-shrink: 0;
-  color: var(--color-ink);
+  color: var(--color-accent);
   transition: transform var(--duration-base) var(--ease-out);
 }
 

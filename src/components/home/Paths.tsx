@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { paths } from "@/content/home";
 import { Calculator, Globe, Medal, Rocket } from "@/components/illustrations/Spots";
-import { CurvyArrow } from "@/components/illustrations/Doodles";
 import styles from "./Paths.module.css";
 
 const art = { rocket: Rocket, receipt: Calculator, badge: Medal, globe: Globe };
@@ -12,26 +11,24 @@ export default function Paths() {
     <section className="section" aria-labelledby="paths-title">
       <div className="wrap">
         <div className={styles.head}>
+          <p className={styles.eyebrow}>Get started</p>
           <h2 id="paths-title" className={styles.title}>
-            So, where are you right now?
+            Where are you in your journey?
           </h2>
-          <p className={`hand ${styles.note}`} aria-hidden>
-            pick one!
-          </p>
-          <CurvyArrow className={styles.arrow} size={64} />
+          <p className={styles.intro}>Choose the option that fits. We&apos;ll show you exactly what comes next.</p>
         </div>
         <ul className={styles.grid}>
-          {paths.map((p, i) => {
+          {paths.map((p) => {
             const Art = art[p.icon];
             return (
-              <li key={p.title} style={{ ["--tilt" as string]: `${[-1.5, 1, -1, 1.5][i]}deg` }}>
-                <Link href={p.href} className={`sticker ${styles.card} ${styles[p.tone]}`}>
+              <li key={p.title}>
+                <Link href={p.href} className={`sticker ${styles.card}`} data-reveal>
                   <Art className={styles.art} />
                   <h3 className={styles.cardTitle}>{p.title}</h3>
                   <p className={styles.cardBody}>{p.body}</p>
                   <span className={styles.cta}>
                     {p.cta}
-                    <ArrowRight size={18} strokeWidth={2.5} aria-hidden />
+                    <ArrowRight size={16} strokeWidth={2.25} aria-hidden />
                   </span>
                 </Link>
               </li>

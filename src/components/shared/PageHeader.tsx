@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { site } from "@/config/site";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Art, type ArtName } from "@/components/illustrations/artFor";
-import { Sparkle, Squiggle, Star } from "@/components/illustrations/Doodles";
 import styles from "./PageHeader.module.css";
 
 export interface Crumb {
@@ -95,9 +94,6 @@ export default function PageHeader({
             {children && <div className={styles.extra}>{children}</div>}
           </div>
           {art && <Art name={art} className={styles.art} />}
-          <Sparkle className={styles.sparkle} size={34} />
-          <Star className={styles.star} size={26} />
-          <Squiggle className={styles.squiggle} size={110} />
         </div>
       </div>
     </header>

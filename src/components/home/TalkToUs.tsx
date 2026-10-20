@@ -1,7 +1,6 @@
 import Image from "next/image";
 import CallbackButton from "@/components/callback/CallbackButton";
 import { PhoneRing } from "@/components/illustrations/Spots";
-import { Sparkle } from "@/components/illustrations/Doodles";
 import { site } from "@/config/site";
 import styles from "./TalkToUs.module.css";
 
@@ -10,7 +9,6 @@ export default function TalkToUs() {
     <section className="section" aria-labelledby="talk-title">
       <div className={`wrap ${styles.grid}`}>
         <figure className={styles.polaroid} data-reveal>
-          <span className={styles.tape} aria-hidden />
           <div className={styles.photo}>
             <Image
               src="/images/compliance-advisor.jpg"
@@ -19,7 +17,6 @@ export default function TalkToUs() {
               sizes="(min-width: 900px) 40vw, 90vw"
             />
           </div>
-          <figcaption className="hand">real people, real answers</figcaption>
         </figure>
         <div className={styles.copy}>
           <PhoneRing className={styles.phone} />
@@ -36,7 +33,6 @@ export default function TalkToUs() {
               or email {site.email}
             </a>
           </div>
-          <Sparkle className={styles.sparkle} size={36} />
         </div>
       </div>
     </section>
