@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, readingMinutes } from "@/content/articles";
@@ -29,7 +30,16 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   };
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
+/** Reading `params` suspends, so the article renders inside a boundary and navigation stays instant. */
+export default function ArticlePage({ params }: ArticlePageProps) {
+  return (
+    <Suspense fallback={<div className={styles.loading} aria-busy="true" />}>
+      <Article params={params} />
+    </Suspense>
+  );
+}
+
+async function Article({ params }: ArticlePageProps) {
   const { slug } = await params;
   const article = articles.find((a) => a.slug === slug);
   if (!article) notFound();

@@ -5,7 +5,15 @@
 
 /* ── Hero ──────────────────────────────────────────────── */
 .hero {
+  position: relative;
   padding-block: var(--space-6) var(--space-7);
+}
+
+.heroArt {
+  width: 6.5rem;
+  height: auto;
+  margin-bottom: var(--space-4);
+  transform: rotate(-4deg);
 }
 
 .breadcrumb {

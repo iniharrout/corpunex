@@ -6,24 +6,30 @@
   gap: var(--space-2);
   min-height: var(--tap-min);
   padding: 0 var(--space-5);
-  border: 1.5px solid transparent;
+  border: 0;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
+  font-weight: 700;
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+  box-shadow: var(--shadow-card);
   transition:
-    background-color var(--duration-fast) var(--ease-out),
-    border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out),
-    transform var(--duration-fast) var(--ease-out);
+    transform var(--duration-fast) var(--ease-spring),
+    box-shadow var(--duration-fast) var(--ease-spring),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .button:active {
-  transform: translateY(1px);
+  transform: translate(3px, 3px);
+  box-shadow: var(--shadow-press);
 }
 
 .button:disabled {
@@ -36,46 +42,37 @@
   color: #fff;
 }
 
-.primary:hover {
-  background: var(--color-accent-hover);
-}
-
 .secondary {
   background: var(--color-surface);
   color: var(--color-ink);
-  border-color: var(--color-line-input);
 }
 
 .secondary:hover {
-  border-color: var(--color-ink);
+  background: var(--color-sun);
 }
 
+/* Ghost: flat until hovered, for low-emphasis actions in the header */
 .ghost {
   background: transparent;
   color: var(--color-ink);
+  box-shadow: none;
   padding-inline: var(--space-3);
 }
 
 .ghost:hover {
-  background: var(--color-paper-deep);
+  background: var(--color-sun);
+  box-shadow: var(--shadow-press);
+  transform: none;
 }
 
 .ink {
-  background: var(--color-ink);
+  background: var(--color-cta);
   color: #fff;
 }
 
-.ink:hover {
-  background: #000;
-}
-
 .onInk {
-  background: #fff;
+  background: var(--color-yellow);
   color: var(--color-ink);
-}
-
-.onInk:hover {
-  background: var(--color-sky);
 }
 
 .large {

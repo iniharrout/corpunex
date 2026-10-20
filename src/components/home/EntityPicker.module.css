@@ -21,36 +21,43 @@
 .grid {
   list-style: none;
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-7);
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: var(--space-6) var(--space-5);
-  border: 1.5px solid var(--color-line);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
 }
 
 .card[data-featured] {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 4px var(--color-accent-tint);
+  background: var(--color-sun);
+}
+
+.people {
+  height: 5.5rem;
+  width: auto;
+  align-self: flex-start;
+  margin-top: var(--space-3);
 }
 
 .tag {
-  align-self: flex-start;
+  position: absolute;
+  top: calc(var(--space-4) * -1);
+  right: var(--space-5);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--color-paper-deep);
-  font-size: var(--text-micro);
-  font-weight: var(--weight-semibold);
-  color: var(--color-ink-soft);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-press);
+  font-size: var(--text-small);
+  font-weight: 700;
+  color: var(--color-ink);
+  transform: rotate(3deg);
 }
 
 .card[data-featured] .tag {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-pink);
 }
 
 .name {
@@ -73,7 +80,7 @@
 
 .points li::before {
   content: "✓";
-  font-weight: var(--weight-bold);
+  font-weight: 900;
   color: var(--color-success);
 }
 
@@ -83,7 +90,7 @@
   border-top: 1px solid var(--color-line);
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-black);
   color: var(--color-ink);
 }
 
@@ -119,6 +126,6 @@
 @media (min-width: 900px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
 }

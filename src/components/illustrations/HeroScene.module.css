@@ -1,0 +1,59 @@
+/* Gentle, looping motion. Disabled under prefers-reduced-motion by the
+   global rule in globals.css. */
+.floatSlow {
+  animation: float 5s ease-in-out infinite;
+}
+
+.rocket {
+  animation: rocket-bob 3.2s ease-in-out infinite;
+}
+
+@keyframes rocket-bob {
+  50% {
+    transform: translate(6px, -10px);
+  }
+}
+
+.typing {
+  animation: type 0.9s steps(2) infinite;
+  transform-origin: 270px 300px;
+}
+
+@keyframes type {
+  50% {
+    transform: translateY(1.5px);
+  }
+}
+
+.pop {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+  animation: pop-in 0.7s var(--ease-spring) 0.4s both;
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+.twinkle path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: twinkle 2.6s ease-in-out infinite;
+}
+
+.twinkle path:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.twinkle path:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes twinkle {
+  50% {
+    transform: scale(0.7) rotate(20deg);
+  }
+}

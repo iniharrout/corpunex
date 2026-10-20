@@ -1,46 +1,77 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  border-block: var(--border-sticker);
+}
+
+.sparkle {
+  position: absolute;
+  top: var(--space-7);
+  left: 8%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.star {
+  position: absolute;
+  bottom: var(--space-7);
+  right: 6%;
+  animation: float 5s ease-in-out 1s infinite;
+}
+
 .title {
   font-size: var(--text-h2);
   text-align: center;
 }
 
 .intro {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   text-align: center;
   font-size: var(--text-lead);
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
+}
+
+.intro :global(.hand) {
+  display: inline-block;
+  transform: rotate(-3deg);
+  color: var(--color-sky-strong);
 }
 
 .steps {
   list-style: none;
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-6);
   margin-top: var(--space-7);
-  counter-reset: step;
 }
 
 .step {
   position: relative;
   padding: var(--space-6) var(--space-5) var(--space-5);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-card);
 }
 
 .number {
+  position: absolute;
+  top: calc(var(--space-4) * -1);
+  left: var(--space-5);
   display: grid;
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-yellow);
+  box-shadow: var(--shadow-press);
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: var(--weight-bold);
-  color: #fff;
+  font-size: 1.375rem;
+  font-weight: var(--weight-black);
+  color: var(--color-ink);
+}
+
+.art {
+  width: 8.5rem;
+  height: auto;
+  margin: var(--space-2) auto var(--space-4);
 }
 
 .stepTitle {
-  margin-top: var(--space-4);
   font-size: var(--text-h3);
 }
 
@@ -52,17 +83,10 @@
 @media (min-width: 900px) {
   .steps {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-5);
+    gap: var(--space-6);
   }
 
-  /* Dashed connector between the step numbers */
-  .step:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: calc(var(--space-6) + 1.375rem);
-    left: calc(var(--space-5) + 3.5rem);
-    right: calc(var(--space-5) * -1 - var(--space-5) + var(--space-3));
-    border-top: 2px dashed var(--color-line-input);
-    z-index: 1;
+  .step:nth-child(2) {
+    margin-top: var(--space-6);
   }
 }

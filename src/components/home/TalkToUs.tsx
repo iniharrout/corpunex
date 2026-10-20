@@ -1,26 +1,34 @@
-import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import Image from "next/image";
 import CallbackButton from "@/components/callback/CallbackButton";
+import { PhoneRing } from "@/components/illustrations/Spots";
+import { Sparkle } from "@/components/illustrations/Doodles";
 import { site } from "@/config/site";
 import styles from "./TalkToUs.module.css";
 
 export default function TalkToUs() {
   return (
-    <section className={`section ${styles.section}`} aria-labelledby="talk-title">
-      <div className={`wrap ${styles.card}`}>
-        <PhotoFrame
-          src="/images/compliance-advisor.jpg"
-          alt="A Corpunex advisor walking a founder through their company documents on a laptop"
-          ratio="16 / 10"
-          className={styles.photo}
-          sizes="(min-width: 900px) 50vw, 100vw"
-        />
+    <section className="section" aria-labelledby="talk-title">
+      <div className={`wrap ${styles.grid}`}>
+        <figure className={styles.polaroid} data-reveal>
+          <span className={styles.tape} aria-hidden />
+          <div className={styles.photo}>
+            <Image
+              src="/images/compliance-advisor.jpg"
+              alt="An advisor walking a founder through their company documents on a laptop"
+              fill
+              sizes="(min-width: 900px) 40vw, 90vw"
+            />
+          </div>
+          <figcaption className="hand">real people, real answers</figcaption>
+        </figure>
         <div className={styles.copy}>
+          <PhoneRing className={styles.phone} />
           <h2 id="talk-title" className={styles.title}>
-            Got questions? Talk to a real person.
+            Got questions? Talk to a <span className="highlight">real person.</span>
           </h2>
           <p className={styles.body}>
             Starting a company for the first time raises a lot of questions. Ask us anything, even if you&apos;re not
-            sure you&apos;re ready yet. We&apos;ll explain your options in plain language.
+            sure you&apos;re ready. We&apos;ll explain your options in plain language, no pressure.
           </p>
           <div className={styles.actions}>
             <CallbackButton variant="primary" size="large" />
@@ -28,6 +36,7 @@ export default function TalkToUs() {
               or email {site.email}
             </a>
           </div>
+          <Sparkle className={styles.sparkle} size={36} />
         </div>
       </div>
     </section>

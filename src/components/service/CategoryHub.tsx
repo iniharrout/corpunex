@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import type { Category } from "@/content/categories";
 import { faqGroup } from "@/content/faqs";
 import PageHeader from "@/components/shared/PageHeader";
+import { artForPath } from "@/components/illustrations/artFor";
 import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink } from "@/components/ui/Button";
@@ -35,6 +36,7 @@ export default function CategoryHub({ category }: { category: Category }) {
       {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
 
       <PageHeader
+        art={artForPath(category.path)}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },

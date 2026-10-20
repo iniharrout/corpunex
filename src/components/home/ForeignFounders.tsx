@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { foreignFounderPoints } from "@/content/home";
-import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import { Globe } from "@/components/illustrations/Spots";
 import CallbackButton from "@/components/callback/CallbackButton";
 import styles from "./ForeignFounders.module.css";
 
@@ -8,7 +8,7 @@ export default function ForeignFounders() {
   return (
     <section className="section" aria-labelledby="foreign-title">
       <div className="wrap">
-        <div className={styles.card}>
+        <div className={`sticker ${styles.card}`}>
           <div className={styles.copy}>
             <h2 id="foreign-title" className={styles.title}>
               Starting in India from abroad?
@@ -29,13 +29,7 @@ export default function ForeignFounders() {
               Talk to us about it
             </CallbackButton>
           </div>
-          <PhotoFrame
-            src="/images/hero-founder.jpg"
-            alt="A smiling founder in a blazer, arms folded"
-            ratio="1 / 1"
-            className={styles.photo}
-            sizes="(min-width: 900px) 30vw, 100vw"
-          />
+          <Globe className={styles.art} />
         </div>
       </div>
     </section>

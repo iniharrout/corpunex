@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { site } from "@/config/site";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { Art, type ArtName } from "@/components/illustrations/artFor";
+import { Sparkle, Squiggle, Star } from "@/components/illustrations/Doodles";
 import styles from "./PageHeader.module.css";
 
 export interface Crumb {
@@ -65,6 +67,7 @@ export default function PageHeader({
   lead,
   tone = "sky",
   children,
+  art,
   id = "page-title",
 }: {
   crumbs: Crumb[];
@@ -74,19 +77,27 @@ export default function PageHeader({
   lead?: ReactNode;
   tone?: Tone;
   children?: ReactNode;
+  /** Spot illustration shown beside the title on wider screens. */
+  art?: ArtName;
   id?: string;
 }) {
   return (
     <header className={styles.header}>
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <div className="wrap">
-        <div className={`${styles.panel} ${styles[tone]}`}>
-          <Breadcrumbs crumbs={crumbs} />
-          <h1 id={id} className={styles.title}>
-            {withHighlight(title, highlight)}
-          </h1>
-          {lead && <p className={styles.lead}>{lead}</p>}
-          {children && <div className={styles.extra}>{children}</div>}
+        <div className={`${styles.panel} ${styles[tone]}`} data-has-art={art ? true : undefined}>
+          <div className={styles.text}>
+            <Breadcrumbs crumbs={crumbs} />
+            <h1 id={id} className={styles.title}>
+              {withHighlight(title, highlight)}
+            </h1>
+            {lead && <p className={styles.lead}>{lead}</p>}
+            {children && <div className={styles.extra}>{children}</div>}
+          </div>
+          {art && <Art name={art} className={styles.art} />}
+          <Sparkle className={styles.sparkle} size={34} />
+          <Star className={styles.star} size={26} />
+          <Squiggle className={styles.squiggle} size={110} />
         </div>
       </div>
     </header>

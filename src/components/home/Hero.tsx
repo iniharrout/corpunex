@@ -1,7 +1,8 @@
 import { Check } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
-import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import CallbackButton from "@/components/callback/CallbackButton";
+import HeroScene from "@/components/illustrations/HeroScene";
+import { CurvyArrow, Sparkle, Squiggle } from "@/components/illustrations/Doodles";
 import { timeline } from "@/config/site";
 import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import styles from "./Hero.module.css";
@@ -9,7 +10,7 @@ import styles from "./Hero.module.css";
 const points = [
   `Private Limited from ${inr(PROFESSIONAL_FEE.pvt)} + GST`,
   `Ready in ${timeline.short}`,
-  "Handled by CAs and CSs",
+  "Checked by CAs and CSs",
 ];
 
 export default function Hero() {
@@ -17,13 +18,16 @@ export default function Hero() {
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.copy}>
-          <p className={styles.kicker}>For first-time founders in India</p>
+          <p className={styles.kicker}>
+            <Sparkle size={18} />
+            For first-time founders in India
+          </p>
           <h1 id="hero-title" className={styles.title}>
-            Start your company <span className="highlight">without the paperwork stress.</span>
+            Your company, <span className="highlight">minus</span> the paperwork headache.
           </h1>
           <p className={styles.lead}>
-            Tell us your idea. We&apos;ll register your company, set up GST and keep your yearly filings on time. Clear
-            prices, simple steps, and real people to help you.
+            Tell us your idea. We register your company, set up GST and keep your yearly filings on time, with
+            clear prices and real humans who explain every step.
           </p>
           <div className={styles.actions}>
             <ButtonLink href="/contact" size="large" arrow>
@@ -34,7 +38,9 @@ export default function Hero() {
           <ul className={styles.points}>
             {points.map((p) => (
               <li key={p}>
-                <Check size={18} strokeWidth={2.25} aria-hidden />
+                <span className={styles.tick} aria-hidden>
+                  <Check size={14} strokeWidth={3} />
+                </span>
                 {p}
               </li>
             ))}
@@ -42,15 +48,19 @@ export default function Hero() {
         </div>
 
         <div className={styles.visual}>
-          <PhotoFrame
-            src="/images/founders-meeting.jpg"
-            alt="Two young founders smiling while planning their business on a laptop"
-            ratio="5 / 4"
-            priority
-            sizes="(min-width: 900px) 45vw, 100vw"
-          />
+          <HeroScene className={styles.scene} />
+          <p className={`hand ${styles.note}`} aria-hidden>
+            that&apos;s you, launching!
+          </p>
+          <CurvyArrow className={styles.arrow} size={70} />
+          <span className={styles.sticker} aria-hidden>
+            No jargon,
+            <br />
+            promise!
+          </span>
         </div>
       </div>
+      <Squiggle className={styles.squiggle} size={140} color="var(--color-coral)" />
     </section>
   );
 }

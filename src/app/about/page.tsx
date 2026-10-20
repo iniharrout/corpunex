@@ -42,6 +42,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
+        art="people"
         crumbs={[
           { label: "Home", href: "/" },
           { label: "About", href: "/about" },

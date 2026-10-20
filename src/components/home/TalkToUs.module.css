@@ -1,20 +1,63 @@
-.section {
-  padding-block: var(--space-6);
-}
-
-.card {
+.grid {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-8);
   align-items: center;
 }
 
+.polaroid {
+  position: relative;
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  border-radius: 6px;
+  transform: rotate(-3deg);
+}
+
+.photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px var(--color-ink);
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.polaroid figcaption {
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 7rem;
+  height: 1.75rem;
+  background: rgb(255 210 63 / 0.85);
+  box-shadow: 0 0 0 2px var(--color-ink);
+  transform: translateX(-50%) rotate(4deg);
+  z-index: 1;
+}
+
 .copy {
-  padding: 0 var(--space-1);
+  position: relative;
+}
+
+.phone {
+  width: 4.5rem;
+  height: auto;
+  margin-bottom: var(--space-4);
+  animation: wiggle 1.2s ease-in-out 1s 2;
 }
 
 .title {
   font-size: var(--text-h2);
-  max-width: 16ch;
+  max-width: 15ch;
 }
 
 .body {
@@ -28,18 +71,23 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3) var(--space-5);
+  gap: var(--space-4) var(--space-5);
   margin-top: var(--space-6);
 }
 
 .email {
-  font-weight: var(--weight-semibold);
+  font-weight: 700;
   color: var(--color-accent);
 }
 
+.sparkle {
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+
 @media (min-width: 900px) {
-  .card {
-    grid-template-columns: 6fr 5fr;
-    gap: var(--space-8);
+  .grid {
+    grid-template-columns: 5fr 6fr;
   }
 }

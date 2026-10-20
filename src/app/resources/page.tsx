@@ -25,6 +25,7 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHeader
+        art="folder"
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Guides", href: "/resources" },

@@ -18,6 +18,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader
+        art="rocket"
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },

@@ -3,7 +3,10 @@ import { ArrowRight } from "lucide-react";
 import { incorporationTiers } from "@/content/pricing";
 import { inr } from "@/lib/fees";
 import CallbackButton from "@/components/callback/CallbackButton";
+import { People } from "@/components/illustrations/Spots";
 import styles from "./EntityPicker.module.css";
+
+const crew: Record<string, 1 | 2 | 3> = { pvt: 3, llp: 2, opc: 1 };
 
 const plain: Record<string, { tag: string; points: string[] }> = {
   pvt: {
@@ -35,8 +38,9 @@ export default function EntityPicker() {
         </div>
         <ul className={styles.grid}>
           {incorporationTiers.map((t) => (
-            <li key={t.entity} className={styles.card} data-featured={t.entity === "pvt" || undefined}>
+            <li key={t.entity} className={`sticker ${styles.card}`} data-featured={t.entity === "pvt" || undefined}>
               <span className={styles.tag}>{plain[t.entity].tag}</span>
+              <People count={crew[t.entity]} className={styles.people} />
               <h3 className={styles.name}>{t.name}</h3>
               <ul className={styles.points}>
                 {plain[t.entity].points.map((p) => (

@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useId, useRef, useSt
 import { X } from "lucide-react";
 import { ENQUIRY_TOPICS } from "@/components/shared/ContactForm";
 import { Button } from "@/components/ui/Button";
+import { PhoneRing } from "@/components/illustrations/Spots";
 import styles from "./Callback.module.css";
 
 interface CallbackContextValue {
@@ -124,6 +125,7 @@ export default function CallbackProvider({ children }: { children: ReactNode }) 
             </div>
           ) : (
             <form onSubmit={onSubmit} noValidate className={styles.form}>
+              <PhoneRing className={styles.phone} />
               <h2 id={`${id}-title`} className={styles.title}>
                 Request a call back
               </h2>

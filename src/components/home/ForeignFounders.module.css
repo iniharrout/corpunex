@@ -3,7 +3,7 @@
   gap: var(--space-6);
   padding: var(--space-6) var(--space-5);
   border-radius: var(--radius-xl);
-  background: var(--color-peach);
+  background: var(--color-lilac-tint);
 }
 
 .title {
@@ -33,11 +33,15 @@
 
 .list svg {
   margin-top: 0.2em;
-  color: var(--color-peach-strong);
+  color: var(--color-lilac-strong);
 }
 
-.photo {
-  max-width: 26rem;
+.art {
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin-inline: auto;
+  animation: float 6s ease-in-out infinite;
 }
 
 @media (min-width: 900px) {

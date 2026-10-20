@@ -20,6 +20,7 @@ export default function FaqPage() {
       <JsonLd data={faqSchema(faqGroups.flatMap((g) => g.faqs))} />
 
       <PageHeader
+        art="chat"
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Questions", href: "/faq" },

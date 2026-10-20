@@ -10,6 +10,7 @@ import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink, TextLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
 import CallbackButton from "@/components/callback/CallbackButton";
+import { Art, artForPath } from "@/components/illustrations/artFor";
 import styles from "./ServicePage.module.css";
 
 /** A worked example for the fee summary: the cheapest common case in our home state. */
@@ -136,6 +137,7 @@ export default function ServicePage({ content }: { content: ServicePageContent }
                 ))}
               </ol>
             </nav>
+            <Art name={artForPath(content.path)} className={styles.heroArt} />
             <h1 className={styles.title}>{content.headline}</h1>
             <p className={styles.lead}>{content.lead}</p>
           </header>

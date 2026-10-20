@@ -2,59 +2,34 @@
 
 ## Direction
 
-The site is for **first-time founders**. Most of them have never registered a company and don't know what "SPICe+", "MoA" or "ROC" mean. The site should feel like a helpful friend who knows the system: bright, warm and easy to read, not like a law firm.
+Playful and illustrated, in the spirit of Notion: the site should feel like a friendly sketchbook, not a law firm. It's for **first-time founders**, so every page explains things in plain words and makes the process look doable.
 
-- **Bright and warm.** A white page with soft pastel sections (sky, mint, sun, peach), one confident blue for actions, and a yellow highlighter on the words that matter in a headline.
-- **Friendly type.** Bricolage Grotesque, bold, for headlines: rounded and characterful without being childish. Inter at 17px for everything else.
-- **Plain words.** Every page speaks to someone starting out. Use "your company's rulebook (MoA and AoA)", not "eMOA/eAOA". Use "we charge exactly what the government charges", not "pass-through at cost".
-- **Help is always one tap away.** "Request a call back" is in the header, the mobile bar, the Services menu and every closing section. It opens a short pop-up asking for name, mobile number and what the call is about. The site never shows a phone number; email is the only direct contact shown.
-- **Soft shapes.** Rounded cards (20–28px), pill buttons, gentle shadows, and a little lift on hover.
-- **Honest by default.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant (`timeline` in `src/config/site.ts`). Nothing unverified is shown: claims that need confirming were removed, not marked up (see PLACEHOLDERS.md).
-- **Simple navigation.** One "Services" mega menu, grouped in plain words (Start a business, Tax and accounts, Yearly compliance, Startups and funding, Brand and legal), plus Pricing, Guides and About.
-- **Mobile first.** Layouts are written for 390px; tap targets are at least 44px. A sticky bottom bar holds "Call me back" and "Get started", and on phones the call-back pop-up opens as a bottom sheet.
-- **Motion.** Fades and lifts take 150–220ms. Everything drops to 0 under `prefers-reduced-motion`.
+- **Warm cream paper, ink-black lines.** Type, outlines and illustration line work are all the same ink (`#1d1b18`) on cream (`#fffaf0`).
+- **Bold colour blocks.** Yellow, coral, blue, green, lilac and pink appear as illustration fills, stickers and highlights. Their soft tints (sky, mint, sun, peach, lilac) form section bands and cards.
+- **Sticker cards.** Cards, buttons, FAQ items and the menu share one shape: a 2px ink outline plus a hard offset shadow. Both are drawn by the `--shadow-card` token, so any element using it becomes a sticker. On hover they lift with a springy ease, and on press they sink.
+- **Chunky rounded type.** Nunito Black for headlines, Inter for body text, and Caveat for handwritten margin notes ("pick one!", "that's you, launching!").
+- **Hand-drawn illustrations.** The hero scene, a spot illustration for each idea (rocket, calculator, medal, globe, chat, folder, certificate, paper plane, phone, people) and small doodles (sparkles, stars, squiggles, arrows) are all inline SVG in `src/components/illustrations/`. They're decorative and `aria-hidden`; the text beside them carries the meaning.
+- **Bouncy, gentle motion.** Hover lifts, a floating rocket, twinkling sparkles, and sections that rise into view through CSS scroll-driven animation (`data-reveal`, no JavaScript). Everything stops under `prefers-reduced-motion`.
+- **Help is always one tap away.** "Request a call back" opens a pop-up asking for name, mobile number and topic. No phone number or WhatsApp link appears anywhere; email is the only direct contact.
+- **Honest content.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant. Nothing unconfirmed is shown (see PLACEHOLDERS.md).
 
 ## Tokens
 
-All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css). Components never hard-code colours or font sizes.
-
-### Colour
+All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css).
 
 | Token | Value | Use | Contrast |
 |---|---|---|---|
-| `--color-ink` | `#101828` | Headlines, strong text | 17.8:1 on white |
-| `--color-ink-soft` | `#344054` | Body copy | 10.5:1 |
-| `--color-ink-muted` | `#5d6676` | Secondary copy | 5.8:1 on white, at least 5.0:1 on every pastel |
-| `--color-accent` | `#2453d6` | Buttons, links, the featured plan | White text on it 6.4:1 |
-| `--color-highlight` | `#ffd84d` | Headline highlighter, photo backdrop | Ink on it 12.8:1 |
-| `--color-sky` / `-mint` / `-sun` / `-peach` | `#eaf1ff` `#e4f6ec` `#fff4d1` `#ffebe3` | Section bands, path cards, icon tiles | — |
-| `--color-*-strong` | `#2453d6` `#157347` `#8a5a00` `#b8401b` | Icons on their pastel | 4.8–5.6:1 |
-| `--color-paper-deep` | `#f4f7fb` | Neutral band | — |
-| `--color-line` / `-line-input` | `#e4e7ec` / `#8b93a1` | Dividers / form control edges | Control edges 3.1:1 (WCAG 1.4.11) |
-| `--color-ink-band` | `#0e1a33` | Footer | Muted text on it 10.5:1 |
-| `--color-success` / `--color-error` | `#157347` / `#b42318` | Ticks, form errors | 5.2:1 / 6.6:1 |
+| `--color-ink` | `#1d1b18` | Headlines, outlines, line art | 16.5:1 on paper |
+| `--color-ink-soft` | `#3d3a35` | Body copy | 10.9:1 |
+| `--color-ink-muted` | `#66615a` | Secondary copy | 5.9:1 on paper, 4.9:1+ on every tint |
+| `--color-paper` / `--color-surface` | `#fffaf0` / `#ffffff` | Page / cards | — |
+| `--color-yellow` `-coral` `-blue` `-green` `-lilac` `-pink` | `#ffd23f` `#ff8a65` `#7aa2ff` `#5fd39a` `#b8a4ff` `#ffa8c5` | Fills, stickers, highlights | Ink on each is 7:1 or more |
+| `--color-sky` `-mint` `-sun` `-peach` `-lilac-tint` | `#dfe8ff` `#d4f3e3` `#fff1b8` `#ffe0d4` `#ebe4ff` | Bands and cards | — |
+| `--color-accent` | `#2f5be0` | Primary buttons, links | White on it 5.7:1 |
+| `--shadow-card` / `-hover` / `-press` | 2px ink ring + 4px / 7px / 1px offset | Sticker look | — |
+| `--ease-spring` | `cubic-bezier(.34,1.56,.64,1)` | Bouncy hovers | — |
 
-### Type
-
-| Token | Size (390px → 1440px) | Use |
-|---|---|---|
-| `--text-display` | 40 → 72px | Homepage hero |
-| `--text-h1` | 34 → 56px | Page titles |
-| `--text-h2` | 28 → 42px | Section titles |
-| `--text-h3` | 20 → 24px | Card titles |
-| `--text-h4` | 18px | Small titles |
-| `--text-lead` | 17 → 20px | Intros |
-| `--text-body` | 17px | Body |
-| `--text-small` | 15px | UI, lists |
-| `--text-micro` | 13px | Labels |
-
-Headings are Bricolage Grotesque 700, tracked −0.03em, with 1.05–1.15 leading. Body text uses 1.6 leading.
-
-### Spacing, radius, elevation
-
-- **Spacing:** 4px base, `--space-1` (4px) to `--space-10` (128px). Section padding runs from 56px to 112px.
-- **Radius:** `--radius-sm` 8px, `--radius-md` 12px, `--radius-lg` 20px, `--radius-xl` 28px, `--radius-pill` for buttons.
-- **Elevation:** `--shadow-card`, `--shadow-card-hover`, `--shadow-menu`, `--shadow-bar`.
+Type runs from `--text-display` (44→84px) down to `--text-micro` (13px), with `--text-hand` for Caveat notes. Radii are 10, 14, 22 and 30px, plus pills.
 
 ## Components
 
@@ -66,7 +41,8 @@ Headings are Bricolage Grotesque 700, tracked −0.03em, with 1.05–1.15 leadin
 | `MobileActionBar` | `components/site/` | Sticky "Call me back" and "Get started" below 900px. |
 | `ButtonLink`, `Button`, `TextLink` | `components/ui/Button.tsx` | Pill buttons with variants `primary`, `secondary`, `ghost`, `ink` and `onInk`. |
 | `ToneIcon` | `components/ui/ToneIcon.tsx` | A line icon in a pastel tile. |
-| `PhotoFrame` | `components/ui/PhotoFrame.tsx` | Rounded photo slot. Uses stand-in photos from `public/images` for now. |
+| Illustrations | `components/illustrations/` | `HeroScene`, `Spots` (spot illustrations plus `Person`/`People`), `Doodles`, and `artFor` (picks a spot illustration per URL; used by `PageHeader` and `ServicePage`). |
+| `PhotoFrame` | `components/ui/PhotoFrame.tsx` | Rounded photo slot, used on About. |
 | `FeeEstimator` | `components/pricing/` | Interactive cost estimate. Logic lives in `lib/fees.ts`. |
 | `PricingTiers`, `ComparisonTable`, `PriceList` | `components/pricing/` | Plans, a Pvt Ltd / LLP / OPC comparison, and ongoing services ("Get a quote" where no price is confirmed yet). |
 | `FaqList`, `ContactForm`, `ContactPanel`, `CtaBand` | `components/shared/` | FAQ accordion with schema, a short enquiry form, and the blue closing call to action. |

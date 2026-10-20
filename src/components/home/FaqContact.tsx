@@ -9,7 +9,7 @@ export default function FaqContact() {
       <div className={`wrap ${styles.grid}`}>
         <div>
           <h2 id="faq-title" className={styles.title}>
-            Questions first-time founders ask
+            Questions first&#8209;time founders ask
           </h2>
           <FaqList faqs={homeFaqs} />
         </div>
