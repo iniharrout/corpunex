@@ -63,10 +63,19 @@
 }
 
 .title {
+  font-family: var(--font-statement);
   font-size: var(--text-display);
-  line-height: var(--leading-tight);
-  max-width: 18ch;
+  font-weight: var(--weight-medium);
+  font-optical-sizing: auto;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  max-width: 17ch;
   color: var(--color-on-brand);
+}
+
+.title em {
+  font-style: italic;
+  font-weight: var(--weight-regular);
 }
 
 .lead {

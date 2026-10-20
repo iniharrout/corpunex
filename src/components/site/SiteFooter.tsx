@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { footerNav } from "@/content/navigation";
 import { disclaimer, site } from "@/config/site";
 import CallbackButton from "@/components/callback/CallbackButton";
@@ -13,22 +14,34 @@ const socials = [
 
 export default function SiteFooter() {
   return (
-    <footer className={`band-ink ${styles.footer}`}>
+    <footer className={styles.footer}>
       <div className="wrap">
-        <div className={styles.top}>
+        <div className={styles.lead}>
+          <p className={styles.statement}>
+            Company registration, tax and compliance for founders in India, <em>handled with care.</em>
+          </p>
+          <div className={styles.reach}>
+            <a href={`mailto:${site.email}`} className={styles.email}>
+              {site.email}
+              <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden />
+            </a>
+            <CallbackButton variant="secondary" />
+          </div>
+        </div>
+
+        <div className={styles.main}>
           <div className={styles.brand}>
-            <Image src="/corpunex-logo-white.png" alt="Corpunex" width={136} height={16} />
-            <p className={styles.tagline}>
-              We help founders start their company in India and keep it running smoothly, from registration to tax and
-              yearly filings.
-            </p>
-            <div className={styles.contact}>
-              <a href={`mailto:${site.email}`} className={styles.email}>
-                {site.email}
-              </a>
-              <span>{site.hours}</span>
-            </div>
-            <CallbackButton variant="onInk" />
+            <Image src="/corpunex-logo-dark.png" alt="Corpunex" width={136} height={16} />
+            <dl className={styles.facts}>
+              <div>
+                <dt>Offices</dt>
+                <dd>{site.offices}</dd>
+              </div>
+              <div>
+                <dt>Hours</dt>
+                <dd>{site.hours}</dd>
+              </div>
+            </dl>
           </div>
 
           <nav className={styles.columns} aria-label="Footer">
@@ -50,7 +63,7 @@ export default function SiteFooter() {
         <div className={styles.bottom}>
           <p className={styles.disclaimer}>{disclaimer}</p>
           <div className={styles.meta}>
-            <p>© 2026 Corpunex · {site.offices}</p>
+            <p>© 2026 Corpunex. All rights reserved.</p>
             {socials.length > 0 && (
               <ul className={styles.socials}>
                 {socials.map((s) => (

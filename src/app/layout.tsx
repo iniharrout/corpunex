@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/site/SiteHeader";
 import TopBar from "@/components/site/TopBar";
@@ -10,6 +10,8 @@ import { site } from "@/config/site";
 import CallbackProvider from "@/components/callback/CallbackProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+/** Serif for statement headlines only: the homepage hero and the footer. */
+const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap", axes: ["opsz"] });
 
 /** Vercel sets VERCEL_ENV; anything other than production stays out of search. */
 const isProduction = (process.env.VERCEL_ENV ?? "production") === "production";
@@ -56,7 +58,7 @@ const organization = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${inter.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${fraunces.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content

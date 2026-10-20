@@ -18,7 +18,7 @@ export default function Hero() {
             Filings prepared and certified by CAs and CSs
           </p>
           <h1 id="hero-title" className={styles.title}>
-            Company registration and compliance, done for you.
+            Your business, set up right <em>and kept compliant.</em>
           </h1>
           <p className={styles.lead}>
             We register your company, set up GST and take care of your yearly filings, so you can focus on building

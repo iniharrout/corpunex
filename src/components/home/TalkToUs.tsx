@@ -21,11 +21,11 @@ export default function TalkToUs() {
         <div className={styles.copy}>
           <PhoneRing className={styles.phone} />
           <h2 id="talk-title" className={styles.title}>
-            Got questions? Talk to a <span className="highlight">real person.</span>
+            Not sure where to start? <span className="highlight">Speak to an advisor.</span>
           </h2>
           <p className={styles.body}>
-            Starting a company for the first time raises a lot of questions. Ask us anything, even if you&apos;re not
-            sure you&apos;re ready. We&apos;ll explain your options in plain language, no pressure.
+            A short call is often the quickest way to work out what you need. An advisor will listen, explain your
+            options in plain language and tell you what it involves. There&apos;s no obligation.
           </p>
           <div className={styles.actions}>
             <CallbackButton variant="primary" size="large" />

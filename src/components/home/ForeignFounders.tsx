@@ -23,7 +23,7 @@ export default function ForeignFounders() {
         <div className={styles.copy}>
           <p className={styles.eyebrow}>For NRIs and foreign founders</p>
           <h2 id="foreign-title" className={styles.title}>
-            Set up your Indian company from anywhere
+            Expanding into India? We&apos;ll handle the setup.
           </h2>
           <p className={styles.lead}>
             Foreign nationals and NRIs follow the same registration process, with a few extra steps under the Companies
