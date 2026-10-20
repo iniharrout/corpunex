@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import type { ServicePageContent } from "@/content/services/types";
 import { site, timeline } from "@/config/site";
-import { estimateFees, inr, PROFESSIONAL_FEE, STATES } from "@/lib/fees";
+import { ENTITY_LABEL, estimateFees, inr, PROFESSIONAL_FEE, STATES, type EntityType } from "@/lib/fees";
 import FeeEstimator from "@/components/pricing/FeeEstimator";
 import ComparisonTable from "@/components/pricing/ComparisonTable";
 import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink, TextLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { Fact } from "@/components/ui/Placeholder";
 import styles from "./ServicePage.module.css";
 
 /** A worked example for the fee summary: the cheapest common case in our home state. */
@@ -17,6 +18,12 @@ function sampleFees(content: ServicePageContent) {
   const state = "odisha";
   const fees = estimateFees({ entity: content.entity, state, capital: 100000, directors: content.entity === "opc" ? 1 : 2 });
   return { fees, stateName: STATES[state].name, professional: PROFESSIONAL_FEE[content.entity] };
+}
+
+/** The two other structures, for the comparison heading. */
+function alternatives(entity: EntityType) {
+  const names: Record<EntityType, string> = { pvt: "a Private Limited company", llp: "an LLP", opc: "an OPC" };
+  return (Object.keys(names) as EntityType[]).filter((e) => e !== entity).map((e) => names[e]).join(" or ");
 }
 
 function QuoteCard({ content }: { content: ServicePageContent }) {
@@ -51,11 +58,30 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
           </div>
         </dl>
       )}
+      {!sample && content.quoteFacts && (
+        <dl className={styles.quoteFacts}>
+          {content.quoteFacts.map((f) => (
+            <div key={f.label}>
+              <dt>{f.label}</dt>
+              <dd>
+                <span>
+                  <Fact value={f.value} />
+                </span>
+                {f.note && (
+                  <span className={styles.quoteNote}>
+                    <Fact value={f.note} />
+                  </span>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
       <ButtonLink href="/contact" block size="large">
         Talk to an advisor
       </ButtonLink>
       <div className={styles.quoteLinks}>
-        <a href="#fees">Estimate your total</a>
+        {sample ? <a href="#fees">Estimate your total</a> : <Link href="/pricing">See pricing</Link>}
         <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
           WhatsApp
         </a>
@@ -133,14 +159,16 @@ export default function ServicePage({ content }: { content: ServicePageContent }
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className={styles.notFor}>
-              <h3 className={styles.h3}>When something else fits better</h3>
-              {content.notFor.map((n) => (
-                <p key={n.href}>
-                  {n.text} <Link href={n.href}>{n.linkLabel}</Link>.
-                </p>
-              ))}
-            </div>
+            {content.notFor.length > 0 && (
+              <div className={styles.notFor}>
+                <h3 className={styles.h3}>When something else fits better</h3>
+                {content.notFor.map((n) => (
+                  <p key={n.href}>
+                    {n.text} <Link href={n.href}>{n.linkLabel}</Link>.
+                  </p>
+                ))}
+              </div>
+            )}
           </section>
 
           <section className={styles.block} aria-labelledby="included-title">
@@ -197,9 +225,13 @@ export default function ServicePage({ content }: { content: ServicePageContent }
 
           <section className={styles.block} aria-labelledby="timeline-title">
             <h2 id="timeline-title" className={styles.h2}>
-              Timeline
+              {content.entity ? "Timeline" : "Steps"}
             </h2>
-            <p className={styles.blockIntro}>{timeline.sentence}</p>
+            {(content.entity || content.stepsIntro) && (
+              <p className={styles.blockIntro}>
+                <Fact value={content.entity ? timeline.sentence : content.stepsIntro!} />
+              </p>
+            )}
             <ol className={styles.milestones}>
               {content.milestones.map((m) => (
                 <li key={m.title}>
@@ -211,9 +243,11 @@ export default function ServicePage({ content }: { content: ServicePageContent }
                 </li>
               ))}
             </ol>
-            <p className={styles.delay}>
-              <strong>What can slow it down.</strong> {timeline.delays}
-            </p>
+            {(content.entity || content.stepsDelays) && (
+              <p className={styles.delay}>
+                <strong>What can slow it down.</strong> {content.entity ? timeline.delays : content.stepsDelays}
+              </p>
+            )}
           </section>
 
           <section className={styles.block} aria-labelledby="process-title">
@@ -244,10 +278,11 @@ export default function ServicePage({ content }: { content: ServicePageContent }
           {content.afterwards && (
             <section className={styles.block} aria-labelledby="after-title">
               <h2 id="after-title" className={styles.h2}>
-                After incorporation
+                {content.afterwardsTitle ?? "After incorporation"}
               </h2>
               <p className={styles.blockIntro}>
-                These deadlines start on the date of incorporation. Your compliance calendar lists the exact dates.
+                {content.afterwardsIntro ??
+                  "These deadlines start on the date of incorporation. Your compliance calendar lists the exact dates."}
               </p>
               <table className={styles.after}>
                 <thead>
@@ -298,11 +333,11 @@ export default function ServicePage({ content }: { content: ServicePageContent }
           <div className="wrap">
             <div className={styles.wideHead}>
               <h2 id="compare-title" className={styles.h2}>
-                How it compares with an LLP or OPC
+                How it compares with {alternatives(content.entity)}
               </h2>
               <TextLink href="/resources/pvt-ltd-vs-llp">Read the full comparison</TextLink>
             </div>
-            <ComparisonTable caption="Private Limited compared with LLP and One Person Company" />
+            <ComparisonTable caption={`${ENTITY_LABEL[content.entity]} compared with the other structures`} />
           </div>
         </section>
       )}
@@ -334,8 +369,10 @@ export default function ServicePage({ content }: { content: ServicePageContent }
         </div>
       </section>
 
-      <CtaBand title={`Ready to register your ${content.entity === "pvt" ? "company" : "business"}?`}>
-        Send us your proposed names, directors and state. We will reply with an itemised quote.
+      <CtaBand
+        title={content.cta?.title ?? `Ready to register your ${content.entity === "llp" ? "LLP" : "company"}?`}
+      >
+        {content.cta?.body ?? "Send us your proposed names, directors and state. We will reply with an itemised quote."}
       </CtaBand>
     </>
   );

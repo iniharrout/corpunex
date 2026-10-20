@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { trademarkRegistration } from "@/content/services/trademark-registration";
 
 export const metadata: Metadata = {
-  title: "Trademark Registration in India — Brand Name, Logo Protection & TM Filing",
-  description:
-    "Protect your brand name and logo across India: comprehensive trademark search, class identification (1 to 45), TM-A filing, immediate ™ symbol rights, and ® certificate issuance.",
+  title: trademarkRegistration.metaTitle,
+  description: trademarkRegistration.metaDescription,
+  alternates: { canonical: trademarkRegistration.path },
 };
 
 export default function TrademarkRegistrationPage() {
-  const service = SERVICE_DETAILS["trademark-registration"];
-  return <ServiceDetailTemplate service={service} />;
+  return <ServicePage content={trademarkRegistration} />;
 }

@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { startupOdisha } from "@/content/services/startup-odisha";
 
 export const metadata: Metadata = {
-  title: "Startup Odisha Programme Assistance — Sustenance Allowance & Grants",
-  description:
-    "Regional consulting for startups in Odisha: Registration under Odisha Startup Policy, monthly sustenance allowance (₹20,000/mo), product development grants (up to ₹16 Lakhs), and O-Hub incubation.",
+  title: startupOdisha.metaTitle,
+  description: startupOdisha.metaDescription,
+  alternates: { canonical: startupOdisha.path },
 };
 
 export default function StartupOdishaPage() {
-  const service = SERVICE_DETAILS["startup-odisha"];
-  return <ServiceDetailTemplate service={service} />;
+  return <ServicePage content={startupOdisha} />;
 }

@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
-import { SERVICE_CATEGORIES, SERVICE_DETAILS } from "@/data/servicesData";
-import { ARTICLES_DATA } from "@/data/resourcesData";
+import { categories } from "@/content/categories";
+import { servicePages } from "@/content/services";
+import { articles } from "@/content/articles";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.corpunex.com";
@@ -28,23 +29,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Category hub pages
-  const categoryPages = SERVICE_CATEGORIES.map((cat) => ({
-    url: `${baseUrl}/services/${cat.slug}`,
+  const categoryPages = categories.map((cat) => ({
+    url: `${baseUrl}${cat.path}`,
     lastModified: buildDate,
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
 
   // Dedicated service detail pages
-  const serviceDetailPages = Object.values(SERVICE_DETAILS).map((srv) => ({
-    url: `${baseUrl}/services/${srv.categorySlug}/${srv.slug}`,
+  const serviceDetailPages = servicePages.map((srv) => ({
+    url: `${baseUrl}${srv.path}`,
     lastModified: buildDate,
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }));
 
   // Educational article pages
-  const articlePages = ARTICLES_DATA.map((article) => ({
+  const articlePages = articles.map((article) => ({
     url: `${baseUrl}/resources/${article.slug}`,
     lastModified: buildDate,
     changeFrequency: "monthly" as const,

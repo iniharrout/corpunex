@@ -53,7 +53,8 @@ For each person we need: full name, role, credential with membership number (ICA
 - [ ] Hero: an advisor going through incorporation papers with a founder, at the office, 4:5 portrait
 - [ ] 3 client founder photos (see case studies)
 - [ ] 4+ team portraits (see team)
-- [ ] Delete the stock images in `public/images/` once the legacy pages stop using them. None of them are used on the rebuilt pages.
+- [x] Stock images in `public/images/` deleted once the legacy pages were rebuilt.
+- [ ] About page: a landscape photo of the team at the office (`src/app/about/page.tsx`)
 
 ## 7. Client logos
 
@@ -64,3 +65,47 @@ For each person we need: full name, role, credential with membership number (ICA
 - Dedicated pages for Foreign Founders, Investor readiness, Virtual CFO and Startup research
 - A compare page for entity types (the nav links to the existing Pvt Ltd vs LLP guide)
 - A form backend. `ContactForm` validates the input but does not send it anywhere yet (see the TODO in the file).
+
+## 9. Service pages (`src/content/services/*.ts`)
+
+Each service other than Private Limited, LLP and OPC shows three placeholders in its price card and steps section. They come from `src/content/services/shared.ts`:
+
+- [ ] "From" professional fee for each service. Once confirmed, add it to `src/lib/fees.ts` and use it in the content file instead of `feeToConfirm`.
+- [ ] Typical turnaround for each service, from complete documents. Today `timeline` in `src/config/site.ts` only covers incorporation. Add one entry per service there, then use it in the content file.
+
+Statutory facts to check against the current rules:
+
+- [ ] LLP: residency test for designated partners (`llp.ts`)
+- [ ] OPC: residency condition for the member (`opc.ts`)
+- [ ] Udyam: current micro, small and medium limits (`udyam-msme-registration.ts`)
+- [ ] GST: turnover thresholds and compulsory-registration exceptions (`gst-registration.ts`, `faqs.ts`, `articles.ts`)
+- [ ] Income tax: due dates for audit and non-audit cases (`income-tax-filing.ts`)
+- [ ] DIR-3 KYC: how often it is due and the late fee (`annual-roc-compliance.ts`, `faqs.ts`)
+- [ ] FSSAI: government fee and turnover limit for each licence type (`fssai-licence.ts`)
+- [ ] IEC: DGFT application fee (`import-export-code.ts`)
+- [ ] Trademark: Registry fee per class, and typical time to registration (`trademark-registration.ts`, `articles.ts`)
+- [ ] 80-IAC: incorporation cut-off date (`startup-india-recognition.ts`)
+- [ ] Startup Odisha: registration fee, rule for startups registered outside Odisha, and current allowance and grant amounts (`startup-odisha.ts`, `faqs.ts`, `articles.ts`)
+- [ ] DPIIT: current list of benefits (`faqs.ts`, `articles.ts`)
+
+## 10. About page (`src/app/about/page.tsx`)
+
+- [ ] Founding year, the founder's background, and why Corpunex was started (two or three sentences)
+- [ ] Leadership uses `advisors` in `src/content/home.ts`. See section 5 for what each person needs.
+
+## 11. Legal pages (`src/content/legal.ts`)
+
+The four legal pages are plain-language rewrites of the old text. An advocate must review them before launch.
+
+- [ ] Date of the last legal review (shown as "Last updated" on each page)
+- [ ] Terms: liability cap, if any, and the courts with jurisdiction
+- [ ] Privacy: the safeguards actually in place (where documents are stored, how long they are kept), and the grievance officer required by the DPDP Act
+- [ ] Refunds: each refund case, whether resubmissions are included, and how long refunds take to process
+
+## 12. Guides (`src/content/articles.ts`)
+
+The nine guides were rewritten from the old articles, and figures that could be out of date are marked. Before launch:
+
+- [ ] Tax rates for LLPs and companies (Pvt Ltd vs LLP guide)
+- [ ] The annual compliance dates (ROC guide) and the INC-20A penalties (registration mistakes guide)
+- [ ] Have a CA or CS read each guide and confirm the publication date

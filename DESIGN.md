@@ -77,20 +77,29 @@ Headings use `--font-display` at weight 400, with `-0.022em` tracking and 1.06 t
 | `ContactForm`, `ContactPanel` | `components/shared/` | Name, phone, email, one topic dropdown and an optional message, plus WhatsApp, booking and phone links. |
 | `CtaBand` | `components/shared/CtaBand.tsx` | Closing ink band with one primary action. |
 | Home sections | `components/home/` | `Hero`, `ClientLogos` (hidden while empty), `Journey`, `PricingSection`, `Differentiators`, `CaseStudies`, `Team`, `ForeignFounders`, `Guides`, `FaqContact`. |
+| `PageHeader`, `Breadcrumbs` | `components/shared/PageHeader.tsx` | Breadcrumb, h1, lead and optional extras for inner pages. Outputs BreadcrumbList schema. |
+| `JumpNav` | `components/shared/JumpNav.tsx` | Row of pill links to sections further down the page, on long index pages (services, FAQ, guides). |
+| `LegalPage`, `EntityDetails` | `components/shared/LegalPage.tsx` | Numbered legal text with a sticky "Who we are" block. `EntityDetails` also appears on /about. |
+| `CategoryHub` | `components/service/CategoryHub.tsx` | Category hub: services that have their own page as large ruled rows, then other services in a compact list, the FAQ group for that category, and a CTA band. |
 | `ServicePage` | `components/service/ServicePage.tsx` | Template for any service. Sections: outcome headline, who it is for, included and excluded, documents, milestones, process, after incorporation, fee estimator, comparison, FAQs, related services, and a sticky quote card. Fed by a `ServicePageContent` object (`content/services/types.ts`). |
 
 ### Content and data
 
 - `config/site.ts`: company facts, contact channels, the single `timeline`, and the disclaimer.
 - `lib/fees.ts`: fee model shared by every price on the site.
-- `content/navigation.ts`, `content/home.ts`, `content/pricing.ts`, `content/services/private-limited.ts`.
+- `content/navigation.ts`, `content/home.ts`, `content/pricing.ts`.
+- `content/services/<slug>.ts`: one `ServicePageContent` per service page, all listed in `content/services/index.ts` (which the sitemap reads).
+- `content/categories.ts`: the nine categories for the hubs and the /services directory.
+- `content/faqs.ts`: FAQ groups for /faq and the hubs.
+- `content/articles.ts`: the guides under /resources.
+- `content/legal.ts`: the four legal pages.
 
-To migrate another service, add `content/services/<slug>.ts` that satisfies `ServicePageContent` and render `<ServicePage content={…} />` from its route.
+To add a service, write `content/services/<slug>.ts` that satisfies `ServicePageContent`, add it to `content/services/index.ts`, and render `<ServicePage content={…} />` from its route. Set `entity` only for incorporations: it turns on the fee estimator, the comparison table and the shared `timeline`. Other services pass `quoteFacts`, `stepsIntro` and `cta` instead, and label milestones "Step 1", "Step 2" and so on rather than giving days.
 
 ## SEO and tech
 
 - Organization schema sitewide. FAQPage schema on home, pricing and service pages. Service and BreadcrumbList schema on service pages.
-- Canonical URLs are set per page on the rebuilt routes.
+- Every route sets `alternates.canonical`.
 - `robots` metadata and `robots.txt` switch to noindex and disallow whenever `VERCEL_ENV` is not `production`. Preview deployments stay out of search.
 - `/pricing` is added to the sitemap.
 - The custom Turbopack `*.css` rule was removed from `next.config.ts`. It turned CSS Modules into global CSS, and Tailwind was not imported anywhere.

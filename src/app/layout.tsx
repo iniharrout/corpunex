@@ -69,7 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <JsonLd data={organization} />
         <SiteHeader />
-        <main id="main" style={{ flex: 1 }}>
+        <main id="main" className="site-main">
           {children}
         </main>
         <SiteFooter />

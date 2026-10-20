@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { startupIndia } from "@/content/services/startup-india-recognition";
 
 export const metadata: Metadata = {
-  title: "Startup India DPIIT Recognition Assistance — Tax Holidays & Benefits",
-  description:
-    "End-to-end guidance for obtaining DPIIT Startup India recognition: Section 80-IAC tax holiday eligibility, angel tax exemption, patent fee rebates, and pitch narrative structuring.",
+  title: startupIndia.metaTitle,
+  description: startupIndia.metaDescription,
+  alternates: { canonical: startupIndia.path },
 };
 
 export default function StartupIndiaRecognitionPage() {
-  const service = SERVICE_DETAILS["startup-india-recognition"];
-  return <ServiceDetailTemplate service={service} />;
+  return <ServicePage content={startupIndia} />;
 }

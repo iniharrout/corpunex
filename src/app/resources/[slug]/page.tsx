@@ -1,259 +1,129 @@
-import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Clock, Calendar, ArrowLeft, ArrowRight, CheckCircle2, ShieldAlert, Sparkles, BookOpen } from "lucide-react";
-import Breadcrumb from "@/components/Breadcrumb";
-import { ARTICLES_DATA } from "@/data/resourcesData";
-import ConsultationForm from "@/components/ConsultationForm";
-import AbstractHeroBackground from "@/components/AbstractHeroBackground";
+import { articles, readingMinutes } from "@/content/articles";
+import { site } from "@/config/site";
+import PageHeader from "@/components/shared/PageHeader";
+import CtaBand from "@/components/shared/CtaBand";
+import { Fact } from "@/components/ui/Placeholder";
+import { JsonLd } from "@/components/ui/JsonLd";
+import styles from "./page.module.css";
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return ARTICLES_DATA.map((article) => ({
-    slug: article.slug,
-  }));
+export function generateStaticParams() {
+  return articles.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = ARTICLES_DATA.find((a) => a.slug === slug);
-  if (!article) return { title: "Article Not Found" };
-
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) return {};
+  const path = `/resources/${article.slug}`;
   return {
-    title: `${article.title} — Corpunex Knowledge Base`,
+    title: article.title,
     description: article.summary,
-    openGraph: {
-      title: article.title,
-      description: article.summary,
-      type: "article",
-    },
+    alternates: { canonical: path },
+    openGraph: { title: article.title, description: article.summary, type: "article", url: path },
   };
 }
 
-export default async function IndividualArticlePage({ params }: ArticlePageProps) {
+export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
-  const article = ARTICLES_DATA.find((a) => a.slug === slug);
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) notFound();
 
-  if (!article) {
-    notFound();
-  }
+  const path = `/resources/${article.slug}`;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.summary,
+    url: `${site.url}${path}`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+  };
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
-      {/* Daylight Subpage Hero */}
-      <section
-        style={{
-          position: "relative",
-          backgroundColor: "#ffffff",
-          padding: "54px 0 46px",
-          borderBottom: "1px solid #edf2f7",
-          overflow: "hidden",
-        }}
+    <>
+      <JsonLd data={schema} />
+
+      <PageHeader
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Guides", href: "/resources" },
+          { label: article.title, href: path },
+        ]}
+        title={article.title}
+        lead={article.summary}
       >
-        <AbstractHeroBackground variant="subpage" />
+        <p className={styles.meta}>
+          {article.category} · {article.published} · {readingMinutes(article)} min read
+        </p>
+      </PageHeader>
 
-        <div className="container" style={{ maxWidth: "860px", position: "relative", zIndex: 1 }}>
-          <Breadcrumb
-            items={[
-              { label: "Resources", href: "/resources" },
-              { label: article.category, href: "/resources" },
-              { label: article.title },
-            ]}
-          />
-
-          <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "14px", flexWrap: "wrap" }}>
-            <span
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "4px 12px",
-                borderRadius: "9999px",
-                fontSize: "0.78rem",
-                fontWeight: 600,
-                backgroundColor: "#eff6ff",
-                color: "#0066f5",
-                border: "1px solid #dbeafe",
-              }}
-            >
-              {article.category}
-            </span>
-            <span style={{ fontSize: "0.82rem", color: "#475569", display: "inline-flex", alignItems: "center", gap: "5px", fontWeight: 500 }}>
-              <Clock size={13} style={{ color: "#0066f5" }} />
-              <span>{article.readTime}</span>
-            </span>
-            <span style={{ color: "#cbd5e1" }}>•</span>
-            <span style={{ fontSize: "0.82rem", color: "#64748b" }}>{article.publishDate}</span>
-          </div>
-
-          <h1
-            style={{
-              fontSize: "clamp(2rem, 3.8vw, 2.8rem)",
-              color: "#0c2340",
-              marginBottom: "16px",
-              lineHeight: "1.2",
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-            }}
-          >
-            {article.title}
-          </h1>
-
-          <p style={{ fontSize: "1.06rem", color: "#475569", lineHeight: "1.65", margin: 0, fontWeight: 400 }}>
-            {article.summary}
-          </p>
-        </div>
-      </section>
-
-      {/* Main Article Body */}
-      <section style={{ padding: "64px 0" }}>
-        <div className="container" style={{ maxWidth: "860px" }}>
-          
-          {/* Key Takeaways Box */}
-          <div
-            className="rzp-card"
-            style={{
-              padding: "32px 36px",
-              backgroundColor: "#f4f8fe",
-              border: "1px solid #d0e2ff",
-              marginBottom: "48px",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "#0b72e7", marginBottom: "16px" }}>
-              <Sparkles size={20} />
-              <h2 style={{ fontSize: "1.25rem", color: "#0c2340", margin: 0, fontWeight: 800 }}>Executive Summary & Key Takeaways</h2>
-            </div>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
-              {article.keyTakeaways.map((point, idx) => (
-                <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "12px", color: "#2b334a", fontSize: "0.96rem", lineHeight: "1.6" }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "3px" }} />
-                  <span>{point}</span>
+      <div className={`wrap ${styles.layout}`}>
+        <article className={styles.body}>
+          <section className={styles.takeaways} aria-labelledby="takeaways-title">
+            <h2 id="takeaways-title" className={styles.takeawaysTitle}>
+              In short
+            </h2>
+            <ul>
+              {article.takeaways.map((t) => (
+                <li key={t}>
+                  <Fact value={t} />
                 </li>
               ))}
             </ul>
-          </div>
+          </section>
 
-          {/* Article Sections */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "40px", marginBottom: "56px" }}>
-            {article.contentSections.map((section, idx) => (
-              <div key={idx}>
-                <h2 style={{ fontSize: "1.5rem", color: "#0c2340", marginBottom: "14px", lineHeight: "1.3", fontWeight: 800, letterSpacing: "-0.02em" }}>
-                  {section.heading}
-                </h2>
-                {section.paragraphs.map((p, pIdx) => (
-                  <p key={pIdx} style={{ color: "#515978", fontSize: "1.02rem", lineHeight: "1.8", marginBottom: "16px" }}>
-                    {p}
-                  </p>
-                ))}
-                {section.bulletPoints && section.bulletPoints.length > 0 && (
-                  <ul style={{ listStyle: "none", padding: 0, margin: "16px 0 20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {section.bulletPoints.map((bp, bIdx) => (
-                      <li key={bIdx} style={{ display: "flex", alignItems: "flex-start", gap: "10px", color: "#2b334a", fontSize: "0.98rem", lineHeight: "1.6" }}>
-                        <span style={{ color: "#0b72e7", fontWeight: 800 }}>•</span>
-                        <span>{bp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+          {article.sections.map((s) => (
+            <section key={s.heading} className={styles.section}>
+              <h2 className={styles.h2}>{s.heading}</h2>
+              {s.paragraphs.map((p) => (
+                <p key={p}>
+                  <Fact value={p} />
+                </p>
+              ))}
+              {s.bullets && (
+                <ul className={styles.bullets}>
+                  {s.bullets.map((b) => (
+                    <li key={b}>
+                      <Fact value={b} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+
+          <p className={styles.notice}>
+            This guide is general information, not legal or tax advice. Laws and fees change often. Check with an
+            advisor before you file anything.
+          </p>
+        </article>
+
+        <aside className={styles.aside} aria-labelledby="related-title">
+          <h2 id="related-title" className={styles.asideTitle}>
+            Related services
+          </h2>
+          <ul className={styles.related}>
+            {article.related.map((r) => (
+              <li key={r.href}>
+                <Link href={r.href}>{r.label}</Link>
+              </li>
             ))}
-          </div>
+          </ul>
+          <Link href="/resources" className={styles.back}>
+            All guides
+          </Link>
+        </aside>
+      </div>
 
-          {/* Statutory Advice Disclaimer */}
-          <div
-            style={{
-              padding: "20px 24px",
-              backgroundColor: "#fffbeb",
-              border: "1px solid #fed7aa",
-              borderRadius: "8px",
-              marginBottom: "48px",
-              display: "flex",
-              alignItems: "flex-start",
-              gap: "14px",
-            }}
-          >
-            <ShieldAlert size={22} style={{ color: "#d97706", flexShrink: 0, marginTop: "2px" }} />
-            <div style={{ fontSize: "0.88rem", color: "#92400e", lineHeight: "1.65" }}>
-              <strong>Educational Content Notice:</strong> The information provided in this article is intended solely for general informational and educational purposes. It does not constitute individualized statutory tax, legal, or financial advice. Indian regulatory rules, notifications, and fees evolve frequently; always consult verified professionals before executing corporate filings.
-            </div>
-          </div>
-
-          {/* Related Services */}
-          {article.relatedServices && article.relatedServices.length > 0 && (
-            <div style={{ marginBottom: "56px" }}>
-              <h3 style={{ fontSize: "1.3rem", color: "#0c2340", marginBottom: "16px", fontWeight: 800 }}>Relevant Consulting Services</h3>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px" }}>
-                {article.relatedServices.map((srv, idx) => (
-                  <Link
-                    key={idx}
-                    href={srv.slug ? `/services/${srv.categorySlug}/${srv.slug}` : "/services"}
-                    className="rzp-card"
-                    style={{
-                      padding: "18px 22px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      textDecoration: "none",
-                    }}
-                  >
-                    <span style={{ fontSize: "0.96rem", fontWeight: 700, color: "#0c2340" }}>{srv.title}</span>
-                    <ArrowRight size={16} style={{ color: "#0b72e7" }} />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Consultation Box */}
-          <div
-            className="rzp-card"
-            style={{
-              padding: "44px 38px",
-              backgroundColor: "#ffffff",
-              border: "1px solid #d0e2ff",
-              boxShadow: "0 12px 35px rgba(11, 114, 231, 0.12)",
-            }}
-          >
-            <div style={{ marginBottom: "20px" }}>
-              <span className="badge badge-blue" style={{ marginBottom: "8px" }}>Discuss Your Questions</span>
-              <h3 style={{ fontSize: "1.6rem", color: "#0c2340", marginTop: "4px", fontWeight: 800, letterSpacing: "-0.02em" }}>
-                Have Questions About This Topic?
-              </h3>
-              <p style={{ color: "#515978", fontSize: "0.95rem", marginTop: "4px" }}>
-                Submit an enquiry below to discuss applicability to your specific business model.
-              </p>
-            </div>
-
-            <ConsultationForm
-              defaultService={article.title}
-              sourcePage={article.title}
-              compact={false}
-            />
-          </div>
-
-          <div style={{ marginTop: "36px", textAlign: "center" }}>
-            <Link
-              href="/resources"
-              style={{
-                color: "#0b72e7",
-                fontSize: "0.95rem",
-                fontWeight: 700,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                textDecoration: "none",
-              }}
-            >
-              <ArrowLeft size={16} />
-              <span>Back to Knowledge Hub</span>
-            </Link>
-          </div>
-
-        </div>
-      </section>
-    </div>
+      <CtaBand title="Want this applied to your business?">
+        Tell us what you are setting up. An advisor will reply with what applies to you and what it costs.
+      </CtaBand>
+    </>
   );
 }

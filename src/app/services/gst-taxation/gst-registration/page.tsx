@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { gstRegistration } from "@/content/services/gst-registration";
 
 export const metadata: Metadata = {
-  title: "GST Registration Assistance in India — 15-Digit GSTIN & Compliance",
-  description:
-    "Consulting guidance for Goods & Services Tax (GST) registration: turnover thresholds, mandatory inter-state rules, required documents, Aadhaar authentication, and GSTR compliance.",
+  title: gstRegistration.metaTitle,
+  description: gstRegistration.metaDescription,
+  alternates: { canonical: gstRegistration.path },
 };
 
-export default function GSTRegistrationPage() {
-  const service = SERVICE_DETAILS["gst-registration"];
-  return <ServiceDetailTemplate service={service} />;
+export default function GstRegistrationPage() {
+  return <ServicePage content={gstRegistration} />;
 }

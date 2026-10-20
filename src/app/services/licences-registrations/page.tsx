@@ -1,16 +1,15 @@
-import React from "react";
-import { Metadata } from "next";
-import CategoryHubTemplate from "@/components/CategoryHubTemplate";
-import { SERVICE_CATEGORIES } from "@/data/servicesData";
+import type { Metadata } from "next";
+import CategoryHub from "@/components/service/CategoryHub";
+import { category } from "@/content/categories";
+
+const content = category("licences-registrations");
 
 export const metadata: Metadata = {
-  title: "Business Licences and Registrations — FSSAI, IEC, Shops & Est., PT",
-  description:
-    "Consulting assistance for mandatory operating licences: FSSAI food safety licence, Import Export Code (IEC), municipal Shops and Establishments, Trade Licences, and EPFO/ESIC.",
+  title: content.metaTitle,
+  description: content.metaDescription,
+  alternates: { canonical: content.path },
 };
 
 export default function LicencesRegistrationsPage() {
-  const category = SERVICE_CATEGORIES.find((c) => c.slug === "licences-registrations")!;
-
-  return <CategoryHubTemplate category={category} />;
+  return <CategoryHub category={content} />;
 }

@@ -1,16 +1,15 @@
-import React from "react";
-import { Metadata } from "next";
-import CategoryHubTemplate from "@/components/CategoryHubTemplate";
-import { SERVICE_CATEGORIES } from "@/data/servicesData";
+import type { Metadata } from "next";
+import CategoryHub from "@/components/service/CategoryHub";
+import { category } from "@/content/categories";
+
+const content = category("accounting-bookkeeping");
 
 export const metadata: Metadata = {
-  title: "Accounting & Bookkeeping Services — Financial Statements, Payroll & MIS",
-  description:
-    "Professional cloud accounting, journal entries, GST 2B reconciliation, payroll management, financial reporting, and statutory audit coordination in India.",
+  title: content.metaTitle,
+  description: content.metaDescription,
+  alternates: { canonical: content.path },
 };
 
 export default function AccountingBookkeepingPage() {
-  const category = SERVICE_CATEGORIES.find((c) => c.slug === "accounting-bookkeeping")!;
-
-  return <CategoryHubTemplate category={category} />;
+  return <CategoryHub category={content} />;
 }

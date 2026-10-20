@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ARTICLES_DATA } from "@/data/resourcesData";
+import { articles, readingMinutes } from "@/content/articles";
 import { TextLink } from "@/components/ui/Button";
 import styles from "./Guides.module.css";
 
 export default function Guides() {
-  const latest = ARTICLES_DATA.slice(0, 3);
+  const latest = articles.slice(0, 3);
   return (
     <section className="section band-deep" aria-labelledby="guides-title">
       <div className="wrap">
@@ -19,7 +19,7 @@ export default function Guides() {
             <li key={a.slug}>
               <Link href={`/resources/${a.slug}`} className={styles.item}>
                 <span className={styles.meta}>
-                  {a.category} · {a.readTime}
+                  {a.category} · {readingMinutes(a)} min read
                 </span>
                 <span className={styles.itemTitle}>{a.title}</span>
                 <span className={styles.summary}>{a.summary}</span>

@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { importExportCode } from "@/content/services/import-export-code";
 
 export const metadata: Metadata = {
-  title: "Import Export Code (IEC) Registration — DGFT 10-Character Licence",
-  description:
-    "Facilitation for obtaining DGFT Import Export Code (IEC): required documents, bank validation, customs clearance readiness, and annual e-IEC revalidation guidance.",
+  title: importExportCode.metaTitle,
+  description: importExportCode.metaDescription,
+  alternates: { canonical: importExportCode.path },
 };
 
 export default function ImportExportCodePage() {
-  const service = SERVICE_DETAILS["import-export-code"];
-  return <ServiceDetailTemplate service={service} />;
+  return <ServicePage content={importExportCode} />;
 }

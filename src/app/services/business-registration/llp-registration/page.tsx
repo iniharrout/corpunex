@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { llp } from "@/content/services/llp";
 
 export const metadata: Metadata = {
-  title: "LLP Registration in India — Limited Liability Partnership Process & Fees",
-  description:
-    "End-to-end consulting for registering a Limited Liability Partnership (LLP) in India: FiLLiP filing, LLP Agreement Form 3 drafting, partner eligibility, and stamp duty notes.",
+  title: llp.metaTitle,
+  description: llp.metaDescription,
+  alternates: { canonical: llp.path },
 };
 
 export default function LLPRegistrationPage() {
-  const service = SERVICE_DETAILS["llp-registration"];
-  return <ServiceDetailTemplate service={service} />;
+  return <ServicePage content={llp} />;
 }

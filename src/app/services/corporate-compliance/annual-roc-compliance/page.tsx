@@ -1,15 +1,13 @@
-import React from "react";
-import { Metadata } from "next";
-import ServiceDetailTemplate from "@/components/ServiceDetailTemplate";
-import { SERVICE_DETAILS } from "@/data/servicesData";
+import type { Metadata } from "next";
+import ServicePage from "@/components/service/ServicePage";
+import { annualRocCompliance } from "@/content/services/annual-roc-compliance";
 
 export const metadata: Metadata = {
-  title: "Annual ROC Compliance for Private Limited Companies & LLPs",
-  description:
-    "Statutory Ministry of Corporate Affairs compliance: Form AOC-4, MGT-7, DIR-3 KYC, board resolutions, and AGM documentation to avoid director disqualification and penalties.",
+  title: annualRocCompliance.metaTitle,
+  description: annualRocCompliance.metaDescription,
+  alternates: { canonical: annualRocCompliance.path },
 };
 
-export default function AnnualROCCompliancePage() {
-  const service = SERVICE_DETAILS["annual-roc-compliance"];
-  return <ServiceDetailTemplate service={service} />;
+export default function AnnualRocCompliancePage() {
+  return <ServicePage content={annualRocCompliance} />;
 }

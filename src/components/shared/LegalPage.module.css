@@ -1,0 +1,93 @@
+.updated {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-8);
+  padding-block: var(--space-7) var(--space-section);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-7);
+  max-width: var(--measure);
+}
+
+.body section {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.h2 {
+  font-size: var(--text-h3);
+}
+
+.h2 span {
+  color: var(--color-ink-muted);
+}
+
+.body ul {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.body li::marker {
+  color: var(--color-ink-muted);
+}
+
+.asideTitle {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.entity {
+  border-top: 1px solid var(--color-ink);
+}
+
+.entity > div {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+  font-size: var(--text-small);
+}
+
+.entity dt {
+  color: var(--color-ink-muted);
+}
+
+.entity dd {
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.contact {
+  margin-top: var(--space-4);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.contact a {
+  color: var(--color-ink);
+}
+
+@media (min-width: 1000px) {
+  .layout {
+    grid-template-columns: 8fr 4fr;
+    gap: var(--layout-column-gap);
+  }
+
+  .aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-5));
+    align-self: start;
+  }
+}
