@@ -9,10 +9,13 @@ export default function Guides() {
     <section className="section band-deep" aria-labelledby="guides-title">
       <div className="wrap">
         <div className={styles.head}>
-          <h2 id="guides-title" className={styles.title}>
-            Guides
-          </h2>
-          <TextLink href="/resources">All guides</TextLink>
+          <div>
+            <h2 id="guides-title" className={styles.title}>
+              Free guides for founders
+            </h2>
+            <p className={styles.intro}>Simple explainers on the things nobody tells you about starting up.</p>
+          </div>
+          <TextLink href="/resources">See all guides</TextLink>
         </div>
         <ul className={styles.list}>
           {latest.map((a) => (

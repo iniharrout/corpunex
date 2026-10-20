@@ -5,7 +5,7 @@
 
 .title {
   font-size: var(--text-h2);
-  max-width: 14ch;
+  max-width: 20ch;
   margin-bottom: var(--space-6);
 }
 

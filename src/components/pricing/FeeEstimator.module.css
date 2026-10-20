@@ -26,9 +26,10 @@
 .segmented {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-1);
   border: 1px solid var(--color-line-input);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  border-radius: var(--radius-pill);
   background: var(--color-surface);
 }
 
@@ -38,17 +39,16 @@
   cursor: pointer;
 }
 
-.segment + .segment span {
-  border-left: 1px solid var(--color-line);
-}
-
 .segment span {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--tap-min);
+  min-height: 2.5rem;
   padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
   font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
   text-align: center;
   color: var(--color-ink-soft);
   transition:
@@ -61,13 +61,13 @@
 }
 
 .segment input:checked + span {
-  background: var(--color-ink);
-  color: var(--color-on-ink);
+  background: var(--color-accent);
+  color: #fff;
 }
 
 .segment input:focus-visible + span {
   outline: 2px solid var(--color-focus);
-  outline-offset: -4px;
+  outline-offset: 1px;
 }
 
 .select {
@@ -75,9 +75,9 @@
   min-height: var(--tap-min);
   padding: 0 var(--space-7) 0 var(--space-4);
   border: 1px solid var(--color-line-input);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   background: var(--color-surface)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%230f1d2e' stroke-width='1.5'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23101828' stroke-width='1.5'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E")
     no-repeat right var(--space-4) center;
   appearance: none;
   cursor: pointer;
@@ -92,8 +92,8 @@
 .receipt {
   padding: var(--space-5);
   background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
 }
 
 .receiptHead {
@@ -101,7 +101,7 @@
   justify-content: space-between;
   gap: var(--space-3);
   padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--color-ink);
+  border-bottom: 2px solid var(--color-ink);
   font-size: var(--text-micro);
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-label);
@@ -161,7 +161,7 @@
 .totalAmount {
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-bold);
   line-height: 1;
   color: var(--color-accent);
 }

@@ -7,7 +7,7 @@ interface PhotoFrameProps {
   /** Describes what the photo shows. Doubles as the brief for the placeholder. */
   alt: string;
   /** Short instruction for the photographer or team, shown in the empty frame. */
-  brief: string;
+  brief?: string;
   ratio?: string;
   priority?: boolean;
   sizes?: string;

@@ -12,18 +12,18 @@ export interface Tier {
 }
 
 const commonIncluded = [
-  "Name search against MCA and trademark records",
-  "Name reservation filing",
-  "Drafting of constitutional documents",
-  "Incorporation filing, certified by a CA or CS",
+  "Checking your company name is available",
+  "Reserving the name with the government",
+  "Preparing all registration documents",
+  "Filing, checked and certified by a CA or CS",
   "PAN and TAN for the entity",
-  "First-year compliance calendar",
+  "A calendar of your first-year deadlines",
 ];
 
 const commonExcluded = [
   "Government fees and stamp duty",
-  "Digital signatures (about ₹1,000 each)",
-  "Notarisation or apostille of foreign documents",
+  "Digital signatures (about ₹1,000 per person)",
+  "Attesting documents signed outside India",
 ];
 
 export const incorporationTiers: Tier[] = [
@@ -35,12 +35,12 @@ export const incorporationTiers: Tier[] = [
     href: "/services/business-registration/private-limited-company",
     included: [
       ...commonIncluded.slice(0, 2),
-      "DIN for up to 3 directors",
-      "MoA and AoA drafted by our advocates",
-      "SPICe+ filing with AGILE-PRO-S: PAN, TAN, EPFO, ESIC and bank account application",
+      "Director ID (DIN) for up to 3 directors",
+      "Company rulebook (MoA and AoA) written by our advocates",
+      "PAN, TAN, PF, ESIC and a bank account application, filed together",
       ...commonIncluded.slice(5),
     ],
-    excluded: [...commonExcluded, "Auditor's fee and annual ROC filings"],
+    excluded: [...commonExcluded, "Auditor's fee and yearly filings"],
   },
   {
     entity: "llp",
@@ -50,12 +50,12 @@ export const incorporationTiers: Tier[] = [
     href: "/services/business-registration/llp-registration",
     included: [
       ...commonIncluded.slice(0, 2),
-      "DIN for up to 2 designated partners",
-      "FiLLiP incorporation filing",
-      "LLP agreement drafted and filed on Form 3",
+      "Partner IDs (DIN) for up to 2 partners",
+      "The LLP registration form",
+      "Your LLP agreement, written and filed",
       ...commonIncluded.slice(4),
     ],
-    excluded: [...commonExcluded, "Annual Form 8 and Form 11 filings"],
+    excluded: [...commonExcluded, "Yearly LLP filings (Form 8 and Form 11)"],
   },
   {
     entity: "opc",
@@ -65,12 +65,12 @@ export const incorporationTiers: Tier[] = [
     href: "/services/business-registration/one-person-company",
     included: [
       ...commonIncluded.slice(0, 2),
-      "DIN for the director",
-      "MoA and AoA, with nominee consent (INC-3)",
-      "SPICe+ filing with AGILE-PRO-S",
+      "Director ID (DIN)",
+      "Company rulebook (MoA and AoA) and your nominee's consent",
+      "PAN, TAN and a bank account application, filed together",
       ...commonIncluded.slice(4),
     ],
-    excluded: [...commonExcluded, "Auditor's fee and annual ROC filings"],
+    excluded: [...commonExcluded, "Auditor's fee and yearly filings"],
   },
 ];
 
@@ -80,7 +80,6 @@ export const comparisonRows: { label: string; values: Record<EntityType, string>
   { label: "Resident in India requirement", values: { pvt: "At least 1 director", llp: "At least 1 designated partner", opc: "Director resident in India; member an Indian citizen" } },
   { label: "Can raise equity from investors", values: { pvt: "Yes", llp: "No (partners contribute capital)", opc: "No, convert to Pvt Ltd first" } },
   { label: "ESOPs", values: { pvt: "Yes", llp: "No", opc: "No" } },
-  { label: "Eligible for Startup India (DPIIT)", values: { pvt: "Yes", llp: "Yes", opc: "[VERIFY: OPC eligibility]" } },
   { label: "Statutory audit", values: { pvt: "Always", llp: "Above ₹40 lakh turnover or ₹25 lakh contribution", opc: "Always" } },
   { label: "Main annual ROC filings", values: { pvt: "AOC-4, MGT-7A or MGT-7", llp: "Form 8, Form 11", opc: "AOC-4, MGT-7A" } },
 ];
@@ -134,14 +133,6 @@ export const pricingFaqs: Faq[] = [
   {
     question: "Is GST charged on your fees?",
     answer: "Yes. GST at 18% is added to our professional fee and shown on the invoice. Government fees do not attract GST from us.",
-  },
-  {
-    question: "When do I pay?",
-    answer: "[VERIFY: payment terms, e.g. professional fee in full before filing; government fees when the challan is generated]",
-  },
-  {
-    question: "What if the MCA rejects my company name?",
-    answer: "[VERIFY: whether resubmission is included in the fee, and how many attempts]",
   },
   {
     question: "Can I get a refund?",

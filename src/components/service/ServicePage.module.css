@@ -56,9 +56,14 @@
 .quote {
   padding: var(--space-5);
   background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-top: 4px solid var(--color-ink);
-  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 0 0 4px var(--color-accent-tint), var(--shadow-card);
+}
+
+.quoteActions {
+  display: grid;
+  gap: var(--space-2);
 }
 
 .quoteName {
@@ -94,7 +99,7 @@
 .quotePrice {
   font-family: var(--font-display);
   font-size: var(--text-h3);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-bold);
   line-height: 1.1;
   color: var(--color-accent);
 }
@@ -150,19 +155,26 @@
 
 .ruled {
   list-style: none;
-  border-top: 1px solid var(--color-ink);
+  display: grid;
+  gap: var(--space-3);
 }
 
 .ruled li {
-  padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-line);
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+}
+
+.ruled li::before {
+  content: "✓";
+  font-weight: var(--weight-bold);
+  color: var(--color-success);
 }
 
 .notFor {
   margin-top: var(--space-6);
   padding: var(--space-5);
-  background: var(--color-paper-deep);
-  border-radius: var(--radius-md);
+  background: var(--color-sun);
+  border-radius: var(--radius-lg);
 }
 
 .notFor p {
@@ -213,7 +225,7 @@
 .docs,
 .after {
   width: 100%;
-  border-top: 1px solid var(--color-ink);
+  border-top: 2px solid var(--color-ink);
   font-size: var(--text-small);
 }
 
@@ -257,8 +269,8 @@
 /* Milestones */
 .milestones {
   list-style: none;
-  border-left: 1px solid var(--color-line-strong);
-  margin-left: 0.3rem;
+  border-left: 2px solid var(--color-sky);
+  margin-left: 0.45rem;
 }
 
 .milestones li {
@@ -271,17 +283,17 @@
 .milestones li::before {
   content: "";
   position: absolute;
-  left: calc(-0.3rem - 0.5px);
-  top: 0.45em;
-  width: 0.6rem;
-  height: 0.6rem;
+  left: calc(-0.45rem - 1px);
+  top: 0.3em;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 50%;
   background: var(--color-paper);
-  border: 1px solid var(--color-ink);
+  border: 3px solid var(--color-accent);
 }
 
 .milestones li:last-child::before {
-  background: var(--color-ink);
+  background: var(--color-accent);
 }
 
 .milestones p {
@@ -299,8 +311,8 @@
 .delay {
   max-width: var(--measure);
   padding: var(--space-4) var(--space-5);
-  border-left: 2px solid var(--color-ink);
-  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  background: var(--color-sky);
   font-size: var(--text-small);
   color: var(--color-ink-soft);
 }
@@ -312,12 +324,14 @@
 /* Process */
 .process {
   list-style: none;
-  border-top: 1px solid var(--color-ink);
+  display: grid;
+  gap: var(--space-3);
 }
 
 .process > li {
-  padding-block: var(--space-5);
-  border-bottom: 1px solid var(--color-line);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper-deep);
 }
 
 .processTitle {
@@ -407,20 +421,24 @@
 .relatedList {
   list-style: none;
   display: grid;
-  border-top: 1px solid var(--color-ink);
+  gap: var(--space-3);
 }
 
 .relatedList a {
   display: grid;
   gap: var(--space-1);
-  padding-block: var(--space-4);
-  border-bottom: 1px solid var(--color-line);
+  height: 100%;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
   text-decoration: none;
 }
 
 .relatedLabel {
   font-family: var(--font-display);
   font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
   color: var(--color-ink);
 }
 
@@ -504,12 +522,6 @@
 
   .relatedList {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--layout-column-gap);
-    border-top: 0;
-  }
-
-  .relatedList a {
-    border-top: 1px solid var(--color-ink);
-    border-bottom: 0;
+    gap: var(--space-4);
   }
 }

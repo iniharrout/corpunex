@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ongoingServices } from "@/content/pricing";
-import { Ph } from "@/components/ui/Placeholder";
 import { inr } from "@/lib/fees";
 import styles from "./pricing.module.css";
 
@@ -26,9 +25,13 @@ export default function PriceList() {
                   </th>
                   <td className={styles.scope}>{item.scope}</td>
                   <td className={styles.cost}>
-                    <span className="tabular">
-                      from {item.price === null ? <Ph>price</Ph> : inr(item.price)}
-                    </span>
+                    {item.price === null ? (
+                      <Link href="/contact" className={styles.ask}>
+                        Get a quote
+                      </Link>
+                    ) : (
+                      <span className="tabular">from {inr(item.price)}</span>
+                    )}
                     <span className={styles.unit}>{item.unit}</span>
                   </td>
                 </tr>

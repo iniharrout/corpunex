@@ -12,8 +12,8 @@ export const privateLimited: ServicePageContent = {
     { label: "Start", href: "/services/business-registration" },
     { label: "Private Limited Company", href: "/services/business-registration/private-limited-company" },
   ],
-  headline: `A Private Limited company, registered with the MCA in ${timeline.short}.`,
-  lead: "We check your name, draft the MoA and AoA, file SPICe+ and get your certificate of incorporation, PAN and TAN. A Chartered Accountant or Company Secretary certifies every filing.",
+  headline: `Register your Private Limited company in ${timeline.short}.`,
+  lead: "We check your company name, prepare all the documents, file them with the government and get you your certificate, PAN and TAN. Every filing is checked by a Chartered Accountant or Company Secretary.",
   entity: "pvt",
 
   forWho: [
@@ -36,21 +36,21 @@ export const privateLimited: ServicePageContent = {
   ],
 
   included: [
-    "Name search against MCA and trademark records, with up to two proposed names",
-    "Name reservation through SPICe+ Part A",
-    "DIN for up to 3 directors",
-    "MoA and AoA drafted to your business objects",
-    "SPICe+ Part B filing, certified by a CA or CS",
-    "AGILE-PRO-S: PAN, TAN, EPFO and ESIC registration, and a bank account application",
+    "Checking that up to two names you like are available",
+    "Reserving your company name with the government",
+    "Director ID (DIN) for up to 3 directors",
+    "MoA and AoA, your company's rulebook, written for your business",
+    "The main registration form (SPICe+), certified by a CA or CS",
+    "PAN, TAN, EPFO and ESIC registrations, plus a bank account application, filed together",
     "Certificate of incorporation, PAN and TAN, sent to you as soon as the MCA issues them",
-    "A dated compliance calendar for your first year",
+    "A calendar of every deadline in your first year",
   ],
   excluded: [
-    "Government fees and state stamp duty (paid at cost, receipts provided)",
-    "Class 3 digital signatures for directors (about ₹1,000 each)",
-    "Notarisation or apostille of documents signed outside India",
+    "Government fees and stamp duty (we charge exactly what the government charges)",
+    "Digital signatures for directors (about ₹1,000 per person)",
+    "Attesting documents signed outside India",
     "GST registration, if you need it separately",
-    "Auditor appointment and annual ROC filings",
+    "Auditor's fee and yearly filings",
   ],
 
   documents: [
@@ -76,32 +76,32 @@ export const privateLimited: ServicePageContent = {
 
   milestones: [
     { when: "Day 1", title: "Documents checked", detail: "We review every document and flag anything that needs redoing before it reaches the MCA." },
-    { when: "Days 1–3", title: "Digital signatures issued", detail: "Each director completes a short video verification with the certifying authority." },
-    { when: "Days 2–5", title: "Name approved", detail: "We file SPICe+ Part A. The MCA approves the name or asks for another." },
-    { when: "Days 4–8", title: "Incorporation filed", detail: "MoA, AoA and SPICe+ Part B are signed by the directors and filed." },
-    { when: "Days 7–14", title: "Certificate issued", detail: "The MCA issues the certificate of incorporation with your CIN, PAN and TAN." },
+    { when: "Days 1–3", title: "Digital signatures issued", detail: "Each director does a short video check so they can sign forms online." },
+    { when: "Days 2–5", title: "Name approved", detail: "We apply for your name. The government approves it or asks for another one." },
+    { when: "Days 4–8", title: "Incorporation filed", detail: "Directors sign the documents online and we file them." },
+    { when: "Days 7–14", title: "Certificate issued", detail: "You get your certificate of incorporation, company PAN and TAN. You're official!" },
   ],
 
   process: [
     {
-      title: "Call and quote",
+      title: "Talk to us",
       you: "Tell us your proposed names, directors, state and capital.",
       us: "Confirm the structure suits you and send a written, itemised quote.",
     },
     {
       title: "Documents",
       you: "Upload the documents listed above.",
-      us: "Check them against MCA requirements and arrange digital signatures.",
+      us: "Check them and arrange digital signatures for each director.",
     },
     {
       title: "Name and drafting",
-      you: "Approve your business objects and share structure.",
-      us: "File for the name and draft the MoA and AoA.",
+      you: "Confirm what your business will do and who owns how much.",
+      us: "Apply for your name and write your company rulebook (MoA and AoA).",
     },
     {
       title: "Signing and filing",
       you: "Sign the forms with your digital signature.",
-      us: "Certify and file SPICe+ Part B, and answer any MCA queries.",
+      us: "Certify and file everything, and answer any questions from the government.",
     },
     {
       title: "Handover",

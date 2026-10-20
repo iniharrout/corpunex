@@ -1,0 +1,68 @@
+.title {
+  font-size: var(--text-h2);
+  text-align: center;
+}
+
+.intro {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: var(--text-lead);
+  color: var(--color-ink-muted);
+}
+
+.steps {
+  list-style: none;
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+  counter-reset: step;
+}
+
+.step {
+  position: relative;
+  padding: var(--space-6) var(--space-5) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: var(--weight-bold);
+  color: #fff;
+}
+
+.stepTitle {
+  margin-top: var(--space-4);
+  font-size: var(--text-h3);
+}
+
+.stepBody {
+  margin-top: var(--space-2);
+  color: var(--color-ink-soft);
+}
+
+@media (min-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  /* Dashed connector between the step numbers */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--space-6) + 1.375rem);
+    left: calc(var(--space-5) + 3.5rem);
+    right: calc(var(--space-5) * -1 - var(--space-5) + var(--space-3));
+    border-top: 2px dashed var(--color-line-input);
+    z-index: 1;
+  }
+}

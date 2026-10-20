@@ -1,5 +1,4 @@
 import { comparisonRows, incorporationTiers } from "@/content/pricing";
-import { Fact } from "@/components/ui/Placeholder";
 import { inr } from "@/lib/fees";
 import styles from "./pricing.module.css";
 
@@ -24,7 +23,7 @@ export default function ComparisonTable({ caption }: { caption: string }) {
               <th scope="row">{row.label}</th>
               {incorporationTiers.map((t) => (
                 <td key={t.entity}>
-                  <Fact value={row.values[t.entity]} />
+                  {row.values[t.entity]}
                 </td>
               ))}
             </tr>

@@ -1,0 +1,45 @@
+.section {
+  padding-block: var(--space-6);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.copy {
+  padding: 0 var(--space-1);
+}
+
+.title {
+  font-size: var(--text-h2);
+  max-width: 16ch;
+}
+
+.body {
+  margin-top: var(--space-4);
+  max-width: 46ch;
+  font-size: var(--text-lead);
+  color: var(--color-ink-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.email {
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+}
+
+@media (min-width: 900px) {
+  .card {
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-8);
+  }
+}

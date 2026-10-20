@@ -6,11 +6,11 @@
   gap: var(--space-2);
   min-height: var(--tap-min);
   padding: 0 var(--space-5);
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: var(--text-small);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
@@ -18,7 +18,17 @@
   transition:
     background-color var(--duration-fast) var(--ease-out),
     border-color var(--duration-fast) var(--ease-out),
-    color var(--duration-fast) var(--ease-out);
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: progress;
 }
 
 .primary {
@@ -31,7 +41,7 @@
 }
 
 .secondary {
-  background: transparent;
+  background: var(--color-surface);
   color: var(--color-ink);
   border-color: var(--color-line-input);
 }
@@ -40,9 +50,19 @@
   border-color: var(--color-ink);
 }
 
+.ghost {
+  background: transparent;
+  color: var(--color-ink);
+  padding-inline: var(--space-3);
+}
+
+.ghost:hover {
+  background: var(--color-paper-deep);
+}
+
 .ink {
   background: var(--color-ink);
-  color: var(--color-on-ink);
+  color: #fff;
 }
 
 .ink:hover {
@@ -50,13 +70,12 @@
 }
 
 .onInk {
-  background: transparent;
-  color: var(--color-on-ink);
-  border-color: var(--color-on-ink-line);
+  background: #fff;
+  color: var(--color-ink);
 }
 
 .onInk:hover {
-  border-color: var(--color-on-ink);
+  background: var(--color-sky);
 }
 
 .large {
@@ -75,10 +94,10 @@
   display: inline;
   padding-block: 0.7em; /* keeps the tap target at 44px+ */
   line-height: 1.6;
-  color: var(--color-ink);
-  font-weight: var(--weight-medium);
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
   text-decoration: underline;
-  text-decoration-color: var(--color-line-strong);
+  text-decoration-color: transparent;
   text-underline-offset: 0.3em;
   transition: text-decoration-color var(--duration-fast) var(--ease-out);
 }
@@ -120,7 +139,7 @@
 .frame {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   background: var(--color-paper-deep);
 }
 

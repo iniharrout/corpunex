@@ -1,30 +1,41 @@
+import { Check } from "lucide-react";
 import { foreignFounderPoints } from "@/content/home";
-import { ButtonLink } from "@/components/ui/Button";
+import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import CallbackButton from "@/components/callback/CallbackButton";
 import styles from "./ForeignFounders.module.css";
 
 export default function ForeignFounders() {
   return (
-    <section className={`section band-ink ${styles.section}`} aria-labelledby="foreign-title">
-      <div className={`wrap ${styles.grid}`}>
-        <div>
-          <h2 id="foreign-title" className={styles.title}>
-            Setting up in India from abroad?
-          </h2>
-          <p className={styles.intro}>
-            Foreign and NRI founders follow the same incorporation process with a few extra rules under the Companies
-            Act and FEMA. We handle the apostilled documents, the resident director question and RBI reporting.
-          </p>
-          <ButtonLink href="/contact" variant="onInk" arrow>
-            Talk to a cross-border advisor
-          </ButtonLink>
-        </div>
-        <div>
-          <h3 className={styles.listTitle}>What is different for you</h3>
-          <ol className={styles.list}>
-            {foreignFounderPoints.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ol>
+    <section className="section" aria-labelledby="foreign-title">
+      <div className="wrap">
+        <div className={styles.card}>
+          <div className={styles.copy}>
+            <h2 id="foreign-title" className={styles.title}>
+              Starting in India from abroad?
+            </h2>
+            <p className={styles.intro}>
+              NRIs and foreign founders can set up a company in India too. There are a few extra steps, and we handle
+              them for you.
+            </p>
+            <ul className={styles.list}>
+              {foreignFounderPoints.map((point) => (
+                <li key={point}>
+                  <Check size={18} strokeWidth={2.25} aria-hidden />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <CallbackButton topic="Foreign founder entering India" variant="ink">
+              Talk to us about it
+            </CallbackButton>
+          </div>
+          <PhotoFrame
+            src="/images/hero-founder.jpg"
+            alt="A smiling founder in a blazer, arms folded"
+            ratio="1 / 1"
+            className={styles.photo}
+            sizes="(min-width: 900px) 30vw, 100vw"
+          />
         </div>
       </div>
     </section>

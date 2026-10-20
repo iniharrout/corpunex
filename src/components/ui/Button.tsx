@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import styles from "./ui.module.css";
 
-type Variant = "primary" | "secondary" | "ink" | "onInk";
+type Variant = "primary" | "secondary" | "ghost" | "ink" | "onInk";
 
 interface StyleProps {
   variant?: Variant;

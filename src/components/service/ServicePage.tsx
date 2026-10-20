@@ -9,6 +9,7 @@ import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink, TextLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
+import CallbackButton from "@/components/callback/CallbackButton";
 import styles from "./ServicePage.module.css";
 
 /** A worked example for the fee summary: the cheapest common case in our home state. */
@@ -51,14 +52,14 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
           </div>
         </dl>
       )}
-      <ButtonLink href="/contact" block size="large">
-        Talk to an advisor
-      </ButtonLink>
+      <div className={styles.quoteActions}>
+        <ButtonLink href="/contact" block size="large">
+          Get started
+        </ButtonLink>
+        <CallbackButton block topic="Register a company or LLP" />
+      </div>
       <div className={styles.quoteLinks}>
-        <a href="#fees">Estimate your total</a>
-        <a href={site.whatsappHref} target="_blank" rel="noopener noreferrer">
-          WhatsApp
-        </a>
+        <a href="#fees">Work out your total cost</a>
       </div>
     </aside>
   );

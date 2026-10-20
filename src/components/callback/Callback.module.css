@@ -1,0 +1,133 @@
+.dialog {
+  margin: auto;
+  width: min(100% - 2rem, 28rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  box-shadow: var(--shadow-menu);
+}
+
+.dialog[open] {
+  animation: pop-in var(--duration-base) var(--ease-out);
+}
+
+.dialog::backdrop {
+  background: rgb(16 24 40 / 0.45);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.inner {
+  position: relative;
+  padding: var(--space-6) var(--space-5) var(--space-5);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: grid;
+  place-items: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--color-paper-deep);
+}
+
+.form,
+.sent {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.title {
+  font-size: var(--text-h3);
+  padding-right: var(--space-7);
+}
+
+.intro {
+  margin-top: calc(var(--space-3) * -1);
+  color: var(--color-ink-muted);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.field label {
+  font-size: var(--text-small);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-line-input);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  font-size: 1rem;
+  color: var(--color-ink);
+}
+
+.field select {
+  appearance: none;
+  padding-right: var(--space-7);
+  background: var(--color-surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23101828' stroke-width='1.75'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E")
+    no-repeat right var(--space-4) center;
+}
+
+.field input:focus-visible,
+.field select:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 0;
+  border-color: var(--color-focus);
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.error {
+  font-size: var(--text-small);
+  color: var(--color-error);
+}
+
+.fine {
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+
+/* Bottom sheet on phones */
+@media (max-width: 599px) {
+  .dialog {
+    margin: auto 0 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .inner {
+    padding-bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
+  }
+}

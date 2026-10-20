@@ -1,53 +1,55 @@
+import { Check } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
-import { Ph } from "@/components/ui/Placeholder";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
+import CallbackButton from "@/components/callback/CallbackButton";
 import { timeline } from "@/config/site";
 import { inr, PROFESSIONAL_FEE } from "@/lib/fees";
 import styles from "./Hero.module.css";
+
+const points = [
+  `Private Limited from ${inr(PROFESSIONAL_FEE.pvt)} + GST`,
+  `Ready in ${timeline.short}`,
+  "Handled by CAs and CSs",
+];
 
 export default function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.copy}>
+          <p className={styles.kicker}>For first-time founders in India</p>
           <h1 id="hero-title" className={styles.title}>
-            Incorporated in {timeline.short}. Compliant every year after.
+            Start your company <span className="highlight">without the paperwork stress.</span>
           </h1>
           <p className={styles.lead}>
-            We register Private Limited companies, LLPs and OPCs for founders in India and abroad, then handle your
-            GST, accounts and annual filings. You see our fee and the government fees separately before you pay.
+            Tell us your idea. We&apos;ll register your company, set up GST and keep your yearly filings on time. Clear
+            prices, simple steps, and real people to help you.
           </p>
           <div className={styles.actions}>
-            <ButtonLink href="/contact" size="large">
-              Talk to an advisor
+            <ButtonLink href="/contact" size="large" arrow>
+              Get started
             </ButtonLink>
-            <ButtonLink href="#pricing" variant="secondary" size="large">
-              Get a quote
-            </ButtonLink>
+            <CallbackButton size="large" />
           </div>
-          <p className={styles.trust}>
-            Private Limited from {inr(PROFESSIONAL_FEE.pvt)} + GST, government fees separate.{" "}
-            <span className={styles.trustBreak}>
-              <Ph>n</Ph> companies incorporated since <Ph>year</Ph>.
-            </span>
-          </p>
+          <ul className={styles.points}>
+            {points.map((p) => (
+              <li key={p}>
+                <Check size={18} strokeWidth={2.25} aria-hidden />
+                {p}
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <PhotoFrame
-          className={styles.photo}
-          alt="A Corpunex advisor reviewing incorporation documents with a founder"
-          brief="Corpunex advisor going through incorporation papers with a founder at the Bhubaneswar office. Natural light, no posing."
-          ratio="4 / 5"
-          priority
-        />
-      </div>
-
-      <div className="wrap">
-        <p className={styles.whoWeAre}>
-          <strong>Who we are.</strong> Corpunex is an independent advisory firm. Your filings are prepared and
-          certified by qualified Chartered Accountants, Company Secretaries and advocates. Approvals are granted by the
-          MCA, GSTN and DPIIT, not by us.
-        </p>
+        <div className={styles.visual}>
+          <PhotoFrame
+            src="/images/founders-meeting.jpg"
+            alt="Two young founders smiling while planning their business on a laptop"
+            ratio="5 / 4"
+            priority
+            sizes="(min-width: 900px) 45vw, 100vw"
+          />
+        </div>
       </div>
     </section>
   );
