@@ -1,27 +1,31 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding-block: var(--space-7) var(--space-8);
+  padding-block: var(--space-8) var(--space-6);
   background:
-    radial-gradient(ellipse 55% 60% at 85% 20%, rgb(26 86 240 / 0.1), transparent 70%),
-    radial-gradient(ellipse 45% 50% at 0% 100%, rgb(255 210 63 / 0.12), transparent 70%),
-    var(--color-paper);
+    radial-gradient(ellipse 60% 70% at 85% 10%, rgb(26 86 240 / 0.55), transparent 65%),
+    radial-gradient(ellipse 50% 60% at 10% 110%, rgb(26 86 240 / 0.35), transparent 70%),
+    linear-gradient(180deg, #0b1b33 0%, #0d2348 100%);
+  color: var(--color-on-ink);
 }
 
+/* Faint grid lines for depth */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgb(11 27 51 / 0.08) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: linear-gradient(to bottom, #000 30%, transparent 90%);
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 30%, #000 30%, transparent 80%);
   pointer-events: none;
 }
 
 .grid {
   position: relative;
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-8);
   align-items: center;
 }
 
@@ -32,31 +36,33 @@
   margin-bottom: var(--space-5);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
-  background: var(--color-sky);
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
   font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
-  color: var(--color-sky-strong);
+  font-weight: var(--weight-medium);
+  color: var(--color-on-ink);
 }
 
-.dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  background: var(--color-accent);
-  box-shadow: 0 0 0 3px rgb(26 86 240 / 0.2);
+.kicker svg {
+  color: var(--color-on-ink-accent);
 }
 
 .title {
   font-size: var(--text-display);
   line-height: var(--leading-tight);
-  max-width: 17ch;
+  max-width: 15ch;
+  color: var(--color-on-ink);
+}
+
+.accent {
+  color: var(--color-on-ink-accent);
 }
 
 .lead {
   margin-top: var(--space-5);
-  max-width: 50ch;
+  max-width: 46ch;
   font-size: var(--text-lead);
-  color: var(--color-ink-soft);
+  color: var(--color-on-ink-muted);
 }
 
 .actions {
@@ -66,6 +72,18 @@
   margin-top: var(--space-6);
 }
 
+/* Ghost button on navy */
+.actions button {
+  color: var(--color-on-ink);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.3);
+  padding-inline: var(--space-5);
+}
+
+.actions button:hover {
+  background: rgb(255 255 255 / 0.08);
+  box-shadow: inset 0 0 0 1px #fff;
+}
+
 .points {
   list-style: none;
   display: flex;
@@ -73,8 +91,7 @@
   gap: var(--space-2) var(--space-5);
   margin-top: var(--space-6);
   font-size: var(--text-small);
-  font-weight: var(--weight-medium);
-  color: var(--color-ink-soft);
+  color: var(--color-on-ink-muted);
 }
 
 .points li {
@@ -84,74 +101,259 @@
 }
 
 .points svg {
-  color: var(--color-success);
+  color: var(--color-green);
 }
 
+.hero :focus-visible {
+  outline-color: #fff;
+}
+
+/* ── Layered visual ────────────────────────────────────── */
 .visual {
-  max-width: 34rem;
+  position: relative;
   width: 100%;
+  max-width: 30rem;
   margin-inline: auto;
+  padding-block: var(--space-7);
+  color: var(--color-ink);
 }
 
-.scene {
-  width: 100%;
+.mainCard {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.5);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cardArt {
+  width: 3.5rem;
   height: auto;
+  flex-shrink: 0;
 }
 
-/* Navy fact strip */
-.strip {
-  background: var(--color-ink-band);
-  color: var(--color-on-ink);
+.cardTitle {
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
 }
 
-.facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-5);
-  padding-block: var(--space-6);
+.cardSub {
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
 }
 
-.facts > div {
+.progress {
+  height: 6px;
+  margin-block: var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-paper-deep);
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  width: 68%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-accent), #4f86ff);
+  animation: grow 1.4s var(--ease-out) 0.3s both;
+}
+
+@keyframes grow {
+  from {
+    width: 8%;
+  }
+}
+
+.steps {
+  list-style: none;
   display: grid;
   gap: var(--space-1);
 }
 
-.factValue {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
-  font-weight: var(--weight-bold);
-  letter-spacing: -0.02em;
-  color: var(--color-on-ink);
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
 }
 
-.factLabel {
+.steps li[data-state="current"] {
+  background: var(--color-sky);
+}
+
+.steps li[data-state="next"] {
+  color: var(--color-ink-muted);
+}
+
+.stepDot {
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--color-paper-deep);
+  box-shadow: inset 0 0 0 1.5px var(--color-line-strong);
+  color: #fff;
+}
+
+li[data-state="done"] .stepDot {
+  background: var(--color-success);
+  box-shadow: none;
+}
+
+li[data-state="current"] .stepDot {
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 4px var(--color-accent);
+}
+
+.stepTag {
+  margin-left: auto;
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink-muted);
+}
+
+li[data-state="done"] .stepTag {
+  color: var(--color-success);
+}
+
+li[data-state="current"] .stepTag {
+  color: var(--color-accent);
+}
+
+.floatCard {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: 0 20px 40px -16px rgb(0 0 0 / 0.45);
+}
+
+.floatArt {
+  width: 3.25rem;
+  height: auto;
+}
+
+.teamArt {
+  width: 4.5rem;
+  height: auto;
+}
+
+.floatTitle {
   font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.floatSub {
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+}
+
+.certCard {
+  top: 0;
+  right: -0.5rem;
+  animation: drift 6s ease-in-out infinite;
+}
+
+.teamCard {
+  bottom: 0;
+  left: -0.5rem;
+  animation: drift 7s ease-in-out 1s infinite reverse;
+}
+
+@keyframes drift {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ── Services row ──────────────────────────────────────── */
+.servicesRow {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+}
+
+.servicesLabel {
+  font-size: var(--text-micro);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
   color: var(--color-on-ink-muted);
+}
+
+.servicesList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.servicesList li {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.12);
+  font-size: var(--text-small);
+  color: var(--color-on-ink);
 }
 
 @media (max-width: 599px) {
   .actions > * {
     flex: 1 1 100%;
   }
+
+  .certCard {
+    right: 0;
+  }
+
+  .teamCard {
+    left: 0;
+  }
+
+  .floatCard {
+    transform: scale(0.92);
+  }
 }
 
 @media (min-width: 900px) {
   .hero {
-    padding-block: var(--space-8) var(--space-9);
+    padding-block: var(--space-9) var(--space-7);
   }
 
   .grid {
     grid-template-columns: 6fr 5fr;
-    gap: var(--space-8);
   }
 
-  .facts {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding-block: var(--space-7);
+  .certCard {
+    right: -2.5rem;
   }
 
-  .facts > div + div {
-    padding-left: var(--space-5);
-    border-left: 1px solid var(--color-on-ink-line);
+  .teamCard {
+    left: -3rem;
   }
 }

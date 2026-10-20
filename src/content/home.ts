@@ -112,7 +112,7 @@ export const homeFaqs: Faq[] = [
   },
   {
     question: "How much does it cost?",
-    answer: `Our fee for a Private Limited company starts at ${inr(PROFESSIONAL_FEE.pvt)} plus GST. On top of that are government fees and digital signatures, which depend on your state and number of directors. Use the calculator on this page to see the full amount.`,
+    answer: `Our fee for a Private Limited company starts at ${inr(PROFESSIONAL_FEE.pvt)} plus GST. On top of that are government fees and digital signatures, which depend on your state and number of directors. We list every one of them separately in your written quote before you pay anything.`,
   },
   {
     question: "Do I need an office to register a company?",

@@ -255,3 +255,31 @@ export function PhoneRing({ className }: { className?: string }) {
     </Svg>
   );
 }
+
+export function Calendar({ className }: { className?: string }) {
+  return (
+    <Svg viewBox="0 0 160 150" className={className}>
+      <circle cx="80" cy="80" r="64" fill="var(--color-peach)" />
+      <rect x="26" y="30" width="108" height="96" rx="12" fill="var(--color-surface)" {...ink} />
+      <path d="M26 42a12 12 0 0 1 12-12h84a12 12 0 0 1 12 12v12H26Z" fill="var(--color-coral)" {...ink} />
+      <path d="M52 22v18M108 22v18" fill="none" {...ink} strokeWidth={3} />
+      {[0, 1, 2].map((r) =>
+        [0, 1, 2, 3].map((c) => (
+          <rect
+            key={`${r}${c}`}
+            x={40 + c * 22}
+            y={66 + r * 18}
+            width={12}
+            height={10}
+            rx={3}
+            fill={r === 1 && c === 2 ? "var(--color-yellow)" : "var(--color-paper-deep)"}
+            {...ink}
+            strokeWidth={r === 1 && c === 2 ? 2.5 : 1.5}
+          />
+        )),
+      )}
+      <circle cx="122" cy="116" r="17" fill="var(--color-green)" {...ink} />
+      <path d="M114 116l6 6 10-11" fill="none" {...ink} stroke="var(--color-surface)" strokeWidth={3} />
+    </Svg>
+  );
+}

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/site/SiteHeader";
+import TopBar from "@/components/site/TopBar";
 import SiteFooter from "@/components/site/SiteFooter";
 import MobileActionBar from "@/components/site/MobileActionBar";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <JsonLd data={organization} />
         <CallbackProvider>
+          <TopBar />
           <SiteHeader />
           <main id="main" className="site-main">
             {children}

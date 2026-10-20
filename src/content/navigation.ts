@@ -6,6 +6,10 @@ export interface NavLink {
 
 export interface NavGroup {
   label: string;
+  /** One line under the group name in the Services menu. */
+  blurb: string;
+  icon: "rocket" | "receipt" | "calendar" | "badge" | "shield";
+  tone: "sky" | "mint" | "sun" | "peach";
   links: NavLink[];
 }
 
@@ -19,6 +23,9 @@ const enquire = "/contact";
 export const serviceGroups: NavGroup[] = [
   {
     label: "Start a business",
+    blurb: "Pick a structure and register",
+    icon: "rocket",
+    tone: "sky",
     links: [
       {
         label: "Private Limited Company",
@@ -49,6 +56,9 @@ export const serviceGroups: NavGroup[] = [
   },
   {
     label: "Tax and accounts",
+    blurb: "GST, books and tax returns",
+    icon: "receipt",
+    tone: "mint",
     links: [
       { label: "GST registration", href: svc("gst-taxation", "gst-registration") },
       { label: "GST returns", href: svc("gst-taxation") },
@@ -59,6 +69,9 @@ export const serviceGroups: NavGroup[] = [
   },
   {
     label: "Yearly compliance",
+    blurb: "Filings and licences",
+    icon: "calendar",
+    tone: "sun",
     links: [
       { label: "Annual ROC filings", href: svc("corporate-compliance", "annual-roc-compliance") },
       { label: "FSSAI food licence", href: svc("licences-registrations", "fssai-licence") },
@@ -69,6 +82,9 @@ export const serviceGroups: NavGroup[] = [
   },
   {
     label: "Startups and funding",
+    blurb: "Recognition and investor prep",
+    icon: "badge",
+    tone: "peach",
     links: [
       { label: "Startup India (DPIIT)", href: svc("startup-services", "startup-india-recognition") },
       { label: "Startup Odisha", href: svc("startup-services", "startup-odisha") },
@@ -78,6 +94,9 @@ export const serviceGroups: NavGroup[] = [
   },
   {
     label: "Brand and legal",
+    blurb: "Trademarks and agreements",
+    icon: "shield",
+    tone: "sky",
     links: [
       { label: "Trademark registration", href: svc("trademark-ip", "trademark-registration") },
       { label: "Copyright and design", href: svc("trademark-ip") },

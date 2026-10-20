@@ -11,6 +11,10 @@ As requested, nothing unconfirmed is shown on the site right now. The items belo
 - [ ] **Confirm the timeline:** "usually 7–14 working days once we have all your documents" (`src/config/site.ts`).
 - [ ] **Replace the stand-in photos** in `public/images/` (`founders-meeting.jpg`, `compliance-advisor.jpg`, `hero-founder.jpg`) with real Corpunex photos.
 
+## Fee calculator (removed for now)
+
+- [ ] The interactive cost calculator has been taken off the homepage, Pricing and service pages until the government fee rates are confirmed. Its logic is still in `src/lib/fees.ts` (`estimateFees`); once every rate there is checked, a calculator component can be added back. Service pages now say government fees are "charged at actual cost" and listed in the quote.
+
 ## Add back later, once available
 
 - [ ] Legal entity name, CIN, GSTIN and registered address in the footer. Recommended before launch for trust; the earlier design had a slot for these.

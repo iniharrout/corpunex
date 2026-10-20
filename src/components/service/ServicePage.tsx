@@ -2,8 +2,7 @@ import Link from "next/link";
 import { Check, Minus } from "lucide-react";
 import type { ServicePageContent } from "@/content/services/types";
 import { site, timeline } from "@/config/site";
-import { ENTITY_LABEL, estimateFees, inr, PROFESSIONAL_FEE, STATES, type EntityType } from "@/lib/fees";
-import FeeEstimator from "@/components/pricing/FeeEstimator";
+import { ENTITY_LABEL, inr, PROFESSIONAL_FEE, type EntityType } from "@/lib/fees";
 import ComparisonTable from "@/components/pricing/ComparisonTable";
 import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
@@ -13,12 +12,10 @@ import CallbackButton from "@/components/callback/CallbackButton";
 import { Art, artForPath } from "@/components/illustrations/artFor";
 import styles from "./ServicePage.module.css";
 
-/** A worked example for the fee summary: the cheapest common case in our home state. */
+/** Price summary for incorporations: our fee only. Government fees are quoted per case. */
 function sampleFees(content: ServicePageContent) {
   if (!content.entity) return null;
-  const state = "odisha";
-  const fees = estimateFees({ entity: content.entity, state, capital: 100000, directors: content.entity === "opc" ? 1 : 2 });
-  return { fees, stateName: STATES[state].name, professional: PROFESSIONAL_FEE[content.entity] };
+  return { professional: PROFESSIONAL_FEE[content.entity] };
 }
 
 /** The two other structures, for the comparison heading. */
@@ -44,10 +41,8 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
           <div>
             <dt>Government fees</dt>
             <dd>
-              <span className="tabular">{inr(sample.fees.governmentTotal)}</span>
-              <span className={styles.quoteNote}>
-                e.g. {sample.stateName}, ₹1 lakh capital. Varies by state.
-              </span>
+              Charged at actual cost
+              <span className={styles.quoteNote}>Depends on your state and capital. Shown in your quote.</span>
             </dd>
           </div>
           <div>
@@ -79,7 +74,7 @@ function QuoteCard({ content }: { content: ServicePageContent }) {
         <CallbackButton block topic={content.callbackTopic ?? "Register a company or LLP"} />
       </div>
       <div className={styles.quoteLinks}>
-        {sample ? <a href="#fees">Work out your total cost</a> : <Link href="/pricing">See how our pricing works</Link>}
+        <Link href="/pricing">See how our pricing works</Link>
       </div>
     </aside>
   );
@@ -304,23 +299,6 @@ export default function ServicePage({ content }: { content: ServicePageContent }
           <QuoteCard content={content} />
         </div>
       </div>
-
-      {content.entity && (
-        <section id="fees" className="section band-deep" aria-labelledby="fees-title">
-          <div className="wrap">
-            <div className={styles.wideHead}>
-              <h2 id="fees-title" className={styles.h2}>
-                Fees: government and ours, separately
-              </h2>
-              <p>
-                Pick your state, capital and number of directors. Government fees are paid at cost and you receive
-                the official receipts.
-              </p>
-            </div>
-            <FeeEstimator entity={content.entity} />
-          </div>
-        </section>
-      )}
 
       {content.entity && (
         <section className="section" aria-labelledby="compare-title">

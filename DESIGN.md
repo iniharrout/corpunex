@@ -8,6 +8,8 @@ Clean and professional, in the spirit of razorpay.com, while keeping the hand-dr
 - **Crisp type.** Inter throughout. Headings are bold with tight tracking; key headline words are set in blue rather than highlighted.
 - **Soft, layered cards.** A white card with a hairline edge and a soft shadow that deepens and lifts slightly on hover. Rounded 10–20px corners.
 - **Illustrations carry the colour.** Their yellow, coral, blue and green fills sit on soft tints, so the pages stay calm while the drawings stay friendly.
+- **Navigation.** A slim navy top bar (Guides, FAQ, Contact, email, Request a call back) above a white main bar (Services menu, Pricing, Guides, About, "Talk to an expert", "Get started"). The Services menu groups links under five labelled headings with icons, and has a footer strip with a call-back button.
+- **Hero.** A navy-to-blue gradient with a faint grid, a white "Get started" button, and a layered visual built from the illustrations: a registration progress card, a certificate card and a CA/CS card.
 - **Calm motion.** 150–220ms fades and lifts, sections that rise into view through CSS scroll-driven animation (`data-reveal`), and a gently bobbing rocket in the hero. All of it is off under `prefers-reduced-motion`.
 - **Help is always one tap away.** "Request a call back" opens a pop-up (name, mobile, topic). No phone number or WhatsApp link appears anywhere; email is the only direct contact.
 - **Honest content.** Prices always split government fees, digital signatures and our fee. Timelines come from one constant. Nothing unconfirmed is shown.

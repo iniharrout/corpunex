@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PricingTiers from "@/components/pricing/PricingTiers";
 import ComparisonTable from "@/components/pricing/ComparisonTable";
 import PriceList from "@/components/pricing/PriceList";
-import FeeEstimator from "@/components/pricing/FeeEstimator";
 import { FaqList, faqSchema } from "@/components/shared/FaqList";
 import CtaBand from "@/components/shared/CtaBand";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -65,20 +64,6 @@ export default function PricingPage() {
             Private Limited, LLP or OPC at a glance
           </h2>
           <ComparisonTable caption="Comparison of Private Limited, LLP and One Person Company" />
-        </div>
-      </section>
-
-      <section className="section band-deep" aria-labelledby="estimate-title">
-        <div className="wrap">
-          <div className={styles.sectionHead}>
-            <h2 id="estimate-title" className={styles.h2}>
-              Estimate your total
-            </h2>
-            <p className={styles.sectionIntro}>
-              Choose your structure, state and capital to see government fees, signatures and our fee together.
-            </p>
-          </div>
-          <FeeEstimator />
         </div>
       </section>
 

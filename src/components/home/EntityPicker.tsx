@@ -58,7 +58,7 @@ export default function EntityPicker() {
             </li>
           ))}
         </ul>
-        <p className={styles.note}>Government fees are extra and depend on your state. See the calculator below.</p>
+        <p className={styles.note}>Government fees and digital signatures are extra, charged at actual cost, and listed separately in your quote.</p>
       </div>
     </section>
   );
