@@ -1,0 +1,124 @@
+/*
+ * Corpunex design tokens — the single source for colour, type, spacing,
+ * radius, elevation and motion. Components read these variables only;
+ * no component should hard-code a hex value or a pixel font size.
+ */
+
+:root {
+  /* ── Colour ─────────────────────────────────────────────── */
+  /* Ink: headlines, primary text, dark sections */
+  --color-ink: #0f1d2e;
+  --color-ink-soft: #24344a;      /* body copy on paper (11.5:1) */
+  --color-ink-muted: #56606e;     /* secondary copy on paper (5.8:1) */
+  --color-ink-faint: #7a828d;     /* decorative marks and 24px+ text only (3.5:1) */
+
+  /* Paper: page and surfaces */
+  --color-paper: #f6f4ef;         /* default page background */
+  --color-surface: #ffffff;       /* raised panels, inputs */
+  --color-paper-deep: #ece8df;    /* alternating bands */
+
+  /* Lines */
+  --color-line: #ddd8cd;
+  --color-line-strong: #b9b2a4;   /* dividers only, not control edges */
+  --color-line-input: #857f73;    /* form controls: 3.6:1 on paper, meets 1.4.11 */
+
+  /* Accent: CTAs and key numbers only. Never for decoration. */
+  --color-accent: #b4461b;        /* white on accent 5.5:1; accent on paper 5.0:1 */
+  --color-accent-hover: #963813;
+  --color-accent-tint: #f6e7de;
+
+  /* On-dark (ink sections) */
+  --color-on-ink: #f6f4ef;
+  --color-on-ink-muted: #b6bec9;  /* 9.1:1 on ink */
+  --color-on-ink-line: #2c3c52;
+
+  /* Status (forms only) */
+  --color-error: #a3261b;
+  --color-success: #1f6a43;
+
+  /* Focus ring */
+  --color-focus: #1f5fbf;
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-display: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-inter), -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Fluid scale, 390px → 1440px */
+  --text-display: clamp(2.5rem, 1.6rem + 3.9vw, 4.75rem);
+  --text-h1: clamp(2.25rem, 1.65rem + 2.6vw, 3.75rem);
+  --text-h2: clamp(1.875rem, 1.45rem + 1.8vw, 2.875rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem);
+  --text-h4: 1.125rem;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-body: 1.0625rem;         /* 17px */
+  --text-small: 0.9375rem;        /* 15px */
+  --text-micro: 0.8125rem;        /* 13px — meta and labels only */
+
+  --leading-tight: 1.06;
+  --leading-heading: 1.18;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.022em;
+  --tracking-label: 0.08em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* ── Spacing (4px base) ─────────────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-section: clamp(4rem, 2.8rem + 5vw, 8rem);
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --layout-max: 1280px;
+  --layout-gutter: 1rem;          /* 16px on phones */
+  --layout-columns: 12;
+  --layout-column-gap: 1.5rem;
+  --measure: 62ch;
+  --header-height: 4.25rem;
+  --tap-min: 2.75rem;             /* 44px */
+
+  /* ── Radius ─────────────────────────────────────────────── */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  /* ── Elevation (used sparingly: menus, sticky bars) ─────── */
+  --shadow-menu: 0 18px 40px -16px rgb(15 29 46 / 0.22), 0 2px 6px rgb(15 29 46 / 0.06);
+  --shadow-bar: 0 -6px 18px rgb(15 29 46 / 0.08);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --layout-gutter: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --layout-gutter: 2.5rem;
+    --layout-column-gap: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+  }
+}

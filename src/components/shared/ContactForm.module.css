@@ -1,0 +1,100 @@
+.form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.field label {
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.optional {
+  font-weight: var(--weight-regular);
+  color: var(--color-ink-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-line-input);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 1rem; /* 16px: stops iOS zooming on focus */
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.field select {
+  appearance: none;
+  padding-right: var(--space-7);
+  background: var(--color-surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%230f1d2e' stroke-width='1.5'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E")
+    no-repeat right var(--space-3) center;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--color-ink-muted);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 0;
+  border-color: var(--color-focus);
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--color-error);
+}
+
+.error {
+  font-size: var(--text-small);
+  color: var(--color-error);
+}
+
+.privacy {
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+}
+
+.sent {
+  padding: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-success);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.sentTitle {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-ink);
+}
+
+@media (min-width: 600px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

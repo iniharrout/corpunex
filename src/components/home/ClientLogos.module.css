@@ -1,0 +1,29 @@
+.row {
+  border-block: 1px solid var(--color-line);
+  padding-block: var(--space-6);
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.caption {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.logos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6) var(--space-8);
+}
+
+.logos img {
+  height: 28px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.8;
+}

@@ -1,0 +1,118 @@
+.hero {
+  padding-block: var(--space-8) var(--space-7);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.title {
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+  max-width: 18ch;
+}
+
+.lead {
+  margin-top: var(--space-5);
+  max-width: 48ch;
+  font-size: var(--text-lead);
+}
+
+.parts {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+  counter-reset: part;
+}
+
+.parts > div {
+  counter-increment: part;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-ink);
+}
+
+.parts dt {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  color: var(--color-ink);
+}
+
+.parts dt::before {
+  content: counter(part) ". ";
+  color: var(--color-ink-faint);
+}
+
+.parts > div:last-child dt {
+  color: var(--color-accent);
+}
+
+.parts dd {
+  margin-top: var(--space-2);
+  max-width: 36ch;
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.h2 {
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-5);
+}
+
+.sectionHead .h2 {
+  margin-bottom: 0;
+}
+
+.sectionIntro {
+  max-width: 48ch;
+  color: var(--color-ink-muted);
+}
+
+.compare {
+  padding-top: 0;
+}
+
+.split {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.excluded {
+  list-style: none;
+  border-top: 1px solid var(--color-ink);
+}
+
+.excluded li {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-line-strong);
+  color: var(--color-ink-soft);
+}
+
+.policy {
+  margin-top: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding-block: var(--space-9) var(--space-8);
+  }
+
+  .parts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--layout-column-gap);
+  }
+
+  .split {
+    grid-template-columns: 4fr 8fr;
+    gap: var(--layout-column-gap);
+  }
+
+  .split > div:first-child .sectionIntro {
+    max-width: 30ch;
+  }
+}

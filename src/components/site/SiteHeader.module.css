@@ -1,0 +1,295 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  /* Solid, not blurred: a backdrop-filter would trap the fixed mobile drawer. */
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.bar {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-6);
+  height: var(--header-height);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: var(--tap-min);
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+/* ── Desktop nav ───────────────────────────────────────── */
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  list-style: none;
+}
+
+.navItem {
+  display: flex;
+  align-items: stretch;
+}
+
+.navTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-3);
+  border: 0;
+  background: none;
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.navTrigger:hover,
+.navTrigger[aria-expanded="true"],
+.navTrigger[aria-current="page"] {
+  color: var(--color-ink);
+  box-shadow: inset 0 -2px 0 var(--color-ink);
+}
+
+.chevron {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.navTrigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-line);
+  box-shadow: var(--shadow-menu);
+  animation: panel-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.panelInner {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  gap: var(--layout-column-gap);
+  max-width: calc(var(--layout-max) + var(--layout-gutter) * 2);
+  margin-inline: auto;
+  padding: var(--space-6) var(--layout-gutter) var(--space-7);
+}
+
+.panelIntro {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  line-height: var(--leading-heading);
+  color: var(--color-ink);
+  max-width: 16ch;
+}
+
+.panelLinks {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1) var(--space-5);
+}
+
+.panelLink,
+.panelFeature {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3) 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.panelLink:hover .panelLinkLabel,
+.panelFeature:hover .panelLinkLabel {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.panelLinkLabel {
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.panelLinkDesc {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.panelFeature {
+  align-self: start;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-paper);
+}
+
+/* ── Right-hand actions ────────────────────────────────── */
+.actions {
+  display: none;
+}
+
+.utilLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  padding: 0 var(--space-2);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.utilLink:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+/* ── Mobile ────────────────────────────────────────────── */
+.menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  align-self: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  border: 0;
+  background: none;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.drawer {
+  position: fixed;
+  inset: var(--header-height) 0 0 0;
+  overflow-y: auto;
+  padding: var(--space-2) var(--layout-gutter) var(--space-9);
+  background: var(--color-paper);
+  animation: panel-in var(--duration-base) var(--ease-out);
+}
+
+.drawerGroup {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.drawerSummary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 3.75rem;
+  padding: var(--space-3) var(--space-7) var(--space-3) 0;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.drawerSummary::-webkit-details-marker {
+  display: none;
+}
+
+.drawerIntro {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.drawerChevron {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  margin-top: -9px;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.drawerGroup[open] .drawerChevron {
+  transform: rotate(180deg);
+}
+
+.drawerLinks {
+  list-style: none;
+  padding-bottom: var(--space-4);
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--color-ink-soft);
+  text-decoration: none;
+}
+
+.drawerPrimary {
+  list-style: none;
+}
+
+.drawerPrimary li {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.drawerActions {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 1080px) {
+  .nav {
+    display: flex;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+  }
+
+  .menuButton,
+  .drawer {
+    display: none;
+  }
+}
+
+@media (min-width: 1080px) and (max-width: 1239px) {
+  .navTrigger {
+    padding: 0 var(--space-2);
+  }
+
+  .bar {
+    gap: var(--space-4);
+  }
+}

@@ -1,0 +1,64 @@
+.panel {
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+.title {
+  font-size: var(--text-h3);
+}
+
+.intro {
+  margin-block: var(--space-2) var(--space-5);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.alternatives {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-line);
+}
+
+.or {
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.alternatives ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-5);
+  margin-top: var(--space-2);
+}
+
+.alternatives a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--color-line-strong);
+  text-underline-offset: 0.25em;
+}
+
+.alternatives a:hover {
+  text-decoration-color: currentColor;
+}
+
+.hours {
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+}
+
+@media (min-width: 900px) {
+  .panel {
+    padding: var(--space-7) var(--space-6);
+  }
+}
