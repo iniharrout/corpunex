@@ -28,12 +28,12 @@ export default function FAQAccordion({ items, defaultOpenIndex = 0 }: FAQAccordi
           <div
             key={idx}
             style={{
-              backgroundColor: "#ffffff",
-              border: `1px solid ${isOpen ? "#cbd5e1" : "var(--border-subtle)"}`,
-              borderRadius: "var(--radius-xl)",
+              backgroundColor: "#FFFFFF",
+              border: `1px solid ${isOpen ? "#1A73E8" : "#DADCE0"}`,
+              borderRadius: "14px",
               overflow: "hidden",
               transition: "all 0.2s ease",
-              boxShadow: isOpen ? "0 4px 12px rgba(0, 0, 0, 0.04)" : "var(--shadow-xs)",
+              boxShadow: isOpen ? "0 1px 3px 0 rgba(60,64,67,0.30), 0 4px 8px 3px rgba(60,64,67,0.15)" : "0 1px 2px 0 rgba(60,64,67,0.15)",
             }}
           >
             <button
@@ -48,19 +48,20 @@ export default function FAQAccordion({ items, defaultOpenIndex = 0 }: FAQAccordi
                 gap: "16px",
                 background: "none",
                 border: "none",
-                color: "#0f172a",
+                color: isOpen ? "#1A73E8" : "#202124",
                 fontSize: "1.02rem",
                 fontWeight: 600,
                 textAlign: "left",
                 cursor: "pointer",
                 fontFamily: "var(--font-heading)",
+                transition: "color 0.15s ease",
               }}
             >
               <span>{item.question}</span>
               <ChevronDown
                 size={18}
                 style={{
-                  color: isOpen ? "#000000" : "#64748b",
+                  color: isOpen ? "#1A73E8" : "#5F6368",
                   transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                   transition: "transform 0.2s ease",
                   flexShrink: 0,
@@ -72,10 +73,10 @@ export default function FAQAccordion({ items, defaultOpenIndex = 0 }: FAQAccordi
               <div
                 style={{
                   padding: "0 24px 22px",
-                  color: "#475569",
+                  color: "#5F6368",
                   fontSize: "0.94rem",
                   lineHeight: "1.7",
-                  borderTop: "1px solid #f1f5f9",
+                  borderTop: "1px solid #F1F3F4",
                   paddingTop: "14px",
                 }}
               >

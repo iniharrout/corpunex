@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, CheckCircle2, ShieldCheck, Receipt, ArrowRight, Info } from "lucide-react";
+import { CheckCircle2, Receipt, ArrowRight } from "lucide-react";
 import ConsultationModal from "./ConsultationModal";
 
 interface StateRule {
@@ -53,32 +53,49 @@ export default function StatutoryFeeCalculator() {
 
   return (
     <>
-      <section style={{ padding: "72px 0", backgroundColor: "#f8fafc", borderTop: "1px solid #edf2f7", borderBottom: "1px solid #edf2f7" }}>
-        <div className="container">
+      <section
+        id="calculator"
+        style={{
+          padding: "76px 0",
+          backgroundColor: "#F8F9FA",
+          borderTop: "1px solid #DADCE0",
+          borderBottom: "1px solid #DADCE0",
+          position: "relative",
+        }}
+      >
+        <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 44px" }}>
             <span
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                padding: "4px 12px",
+                padding: "5px 14px",
                 borderRadius: "9999px",
-                fontSize: "0.78rem",
+                fontSize: "0.80rem",
                 fontWeight: 600,
-                backgroundColor: "#eff6ff",
-                color: "#0066f5",
-                border: "1px solid #dbeafe",
-                marginBottom: "12px",
+                backgroundColor: "#E8F0FE",
+                color: "#1A73E8",
+                border: "1px solid #D2E3FC",
+                marginBottom: "14px",
               }}
             >
               <Receipt size={14} />
               <span>100% Itemized Financial Transparency</span>
             </span>
-            <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.6rem)", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.025em", marginBottom: "12px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.5vw, 2.6rem)",
+                color: "#202124",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                marginBottom: "12px",
+              }}
+            >
               Calculate Your Statutory Incorporation Estimate
             </h2>
-            <p style={{ color: "#475569", fontSize: "1rem", lineHeight: "1.6" }}>
-              Government fees in India are determined by your state of incorporation and authorized capital. Corpunex separates statutory challans from professional consulting with zero markups.
+            <p style={{ color: "#5F6368", fontSize: "1.02rem", lineHeight: "1.6" }}>
+              Government fees in India are determined by your state of incorporation and authorized capital. Corpunex separates official government challans from professional consulting with zero markups.
             </p>
           </div>
 
@@ -95,16 +112,19 @@ export default function StatutoryFeeCalculator() {
               className="cx-card"
               style={{
                 padding: "32px 28px",
-                backgroundColor: "#ffffff",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "16px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 3px 0 rgba(60,64,67,0.15)",
               }}
             >
-              <h3 style={{ fontSize: "1.15rem", color: "#0c2340", fontWeight: 700, marginBottom: "20px" }}>
+              <h3 style={{ fontSize: "1.15rem", color: "#202124", fontWeight: 700, marginBottom: "20px" }}>
                 Select Incorporation Parameters
               </h3>
 
               {/* 1. Entity Type Switcher */}
               <div style={{ marginBottom: "20px" }}>
-                <label className="form-label">Entity Structure</label>
+                <label className="form-label" style={{ fontWeight: 600, color: "#202124" }}>Entity Structure</label>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
                   {[
                     { id: "pvt", label: "Private Limited" },
@@ -118,11 +138,11 @@ export default function StatutoryFeeCalculator() {
                       style={{
                         padding: "10px 8px",
                         fontSize: "0.84rem",
-                        fontWeight: entityType === item.id ? 700 : 500,
-                        color: entityType === item.id ? "#0066f5" : "#475569",
-                        backgroundColor: entityType === item.id ? "#eff6ff" : "#ffffff",
-                        border: entityType === item.id ? "1.5px solid #0066f5" : "1px solid #cbd5e1",
-                        borderRadius: "6px",
+                        fontWeight: entityType === item.id ? 600 : 500,
+                        color: entityType === item.id ? "#1A73E8" : "#3C4043",
+                        backgroundColor: entityType === item.id ? "#E8F0FE" : "#FFFFFF",
+                        border: entityType === item.id ? "1.5px solid #1A73E8" : "1px solid #DADCE0",
+                        borderRadius: "8px",
                         cursor: "pointer",
                         transition: "all 0.15s ease",
                       }}
@@ -135,7 +155,7 @@ export default function StatutoryFeeCalculator() {
 
               {/* 2. State Selection */}
               <div style={{ marginBottom: "20px" }}>
-                <label htmlFor="state-select" className="form-label">
+                <label htmlFor="state-select" className="form-label" style={{ fontWeight: 600, color: "#202124" }}>
                   State of Registered Office
                 </label>
                 <select
@@ -143,6 +163,7 @@ export default function StatutoryFeeCalculator() {
                   className="form-select"
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
+                  style={{ borderRadius: "8px" }}
                 >
                   {Object.entries(STATE_DATA).map(([key, item]) => (
                     <option key={key} value={key}>
@@ -150,14 +171,14 @@ export default function StatutoryFeeCalculator() {
                     </option>
                   ))}
                 </select>
-                <span style={{ fontSize: "0.76rem", color: "#64748b", marginTop: "4px", display: "block" }}>
-                  *State stamp duty varies under local Stamp Acts.
+                <span style={{ fontSize: "0.76rem", color: "#5F6368", marginTop: "4px", display: "block" }}>
+                  *State stamp duty varies under respective State Stamp Acts.
                 </span>
               </div>
 
               {/* 3. Authorized Capital */}
               <div style={{ marginBottom: "20px" }}>
-                <label className="form-label">
+                <label className="form-label" style={{ fontWeight: 600, color: "#202124" }}>
                   Authorized Share Capital: ₹{(capital / 100000).toFixed(0)} Lakh{capital > 100000 ? "s" : ""}
                 </label>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px" }}>
@@ -169,12 +190,13 @@ export default function StatutoryFeeCalculator() {
                       style={{
                         padding: "8px 4px",
                         fontSize: "0.82rem",
-                        fontWeight: capital === val ? 700 : 500,
-                        color: capital === val ? "#0066f5" : "#475569",
-                        backgroundColor: capital === val ? "#eff6ff" : "#ffffff",
-                        border: capital === val ? "1.5px solid #0066f5" : "1px solid #cbd5e1",
-                        borderRadius: "6px",
+                        fontWeight: capital === val ? 600 : 500,
+                        color: capital === val ? "#1A73E8" : "#3C4043",
+                        backgroundColor: capital === val ? "#E8F0FE" : "#FFFFFF",
+                        border: capital === val ? "1.5px solid #1A73E8" : "1px solid #DADCE0",
+                        borderRadius: "8px",
                         cursor: "pointer",
+                        transition: "all 0.15s ease",
                       }}
                     >
                       ₹{val / 100000}L
@@ -182,16 +204,16 @@ export default function StatutoryFeeCalculator() {
                   ))}
                 </div>
                 {capital <= 1500000 && (
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#059669", fontSize: "0.78rem", fontWeight: 600, marginTop: "6px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#1E8E3E", fontSize: "0.78rem", fontWeight: 600, marginTop: "6px" }}>
                     <CheckCircle2 size={13} />
-                    <span>Eligible for ₹0 MCA Government Filing Fee Waiver</span>
+                    <span>Eligible for ₹0 MCA Government SPICe+ Filing Fee Waiver</span>
                   </div>
                 )}
               </div>
 
               {/* 4. Number of Directors */}
               <div>
-                <label className="form-label">
+                <label className="form-label" style={{ fontWeight: 600, color: "#202124" }}>
                   Number of Directors: {directors}
                 </label>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
@@ -203,20 +225,21 @@ export default function StatutoryFeeCalculator() {
                       style={{
                         padding: "8px 4px",
                         fontSize: "0.84rem",
-                        fontWeight: directors === num ? 700 : 500,
-                        color: directors === num ? "#0066f5" : "#475569",
-                        backgroundColor: directors === num ? "#eff6ff" : "#ffffff",
-                        border: directors === num ? "1.5px solid #0066f5" : "1px solid #cbd5e1",
-                        borderRadius: "6px",
+                        fontWeight: directors === num ? 600 : 500,
+                        color: directors === num ? "#1A73E8" : "#3C4043",
+                        backgroundColor: directors === num ? "#E8F0FE" : "#FFFFFF",
+                        border: directors === num ? "1.5px solid #1A73E8" : "1px solid #DADCE0",
+                        borderRadius: "8px",
                         cursor: "pointer",
+                        transition: "all 0.15s ease",
                       }}
                     >
                       {num} Director{num > 1 ? "s" : ""}
                     </button>
                   ))}
                 </div>
-                <span style={{ fontSize: "0.76rem", color: "#64748b", marginTop: "4px", display: "block" }}>
-                  Includes Class-3 Digital Signature (DSC) & DIN allocation for each director.
+                <span style={{ fontSize: "0.76rem", color: "#5F6368", marginTop: "4px", display: "block" }}>
+                  Includes Class-3 Digital Signature (DSC) &amp; DIN generation for each director.
                 </span>
               </div>
             </div>
@@ -226,40 +249,42 @@ export default function StatutoryFeeCalculator() {
               className="cx-card"
               style={{
                 padding: "32px 28px",
-                backgroundColor: "#ffffff",
-                boxShadow: "0 10px 30px -5px rgba(12, 35, 64, 0.08), 0 0 0 1px #e2edfd",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "16px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 3px 0 rgba(60,64,67,0.30), 0 4px 8px 3px rgba(60,64,67,0.15)",
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <span style={{ fontSize: "0.76rem", fontWeight: 700, color: "#0066f5", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                <span style={{ fontSize: "0.76rem", fontWeight: 700, color: "#1A73E8", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                   Itemized Quotation Breakdown
                 </span>
-                <span style={{ fontSize: "0.74rem", color: "#059669", fontWeight: 600, backgroundColor: "#ecfdf5", padding: "2px 8px", borderRadius: "9999px", border: "1px solid #a7f3d0" }}>
+                <span style={{ fontSize: "0.74rem", color: "#1E8E3E", fontWeight: 600, backgroundColor: "#E6F4EA", padding: "3px 9px", borderRadius: "9999px", border: "1px solid #CEEAD6" }}>
                   Official Challans Included
                 </span>
               </div>
 
               {/* Bucket 1: Government Statutory Fees */}
-              <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "16px", marginBottom: "16px" }}>
-                <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0c2340", marginBottom: "10px" }}>
+              <div style={{ borderBottom: "1px solid #F1F3F4", paddingBottom: "16px", marginBottom: "16px" }}>
+                <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#202124", marginBottom: "10px" }}>
                   1. Statutory Government Charges (Official Receipts Provided)
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.82rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", color: "#475569" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", color: "#5F6368" }}>
                     <span>RUN Name Reservation Fee</span>
-                    <span style={{ fontWeight: 600, color: "#0c2340" }}>₹{nameReservationFee.toLocaleString()}</span>
+                    <span style={{ fontWeight: 600, color: "#202124" }}>₹{nameReservationFee.toLocaleString()}</span>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", color: "#475569" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", color: "#5F6368" }}>
                     <span>State Stamp Duty ({stateRule.name})</span>
-                    <span style={{ fontWeight: 600, color: "#0c2340" }}>₹{stampDuty.toLocaleString()}</span>
+                    <span style={{ fontWeight: 600, color: "#202124" }}>₹{stampDuty.toLocaleString()}</span>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", color: "#475569" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", color: "#5F6368" }}>
                     <span>MCA SPICe+ Filing Fee (Up to ₹15L Capital)</span>
-                    <span style={{ fontWeight: 600, color: "#059669" }}>
+                    <span style={{ fontWeight: 600, color: "#1E8E3E" }}>
                       {mcaFilingFee === 0 ? "₹0 (Govt Exemption)" : `₹${mcaFilingFee.toLocaleString()}`}
                     </span>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", color: "#0c2340", fontWeight: 700, paddingTop: "6px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", color: "#202124", fontWeight: 600, paddingTop: "6px" }}>
                     <span>Subtotal Government Statutory:</span>
                     <span>₹{totalStatutoryGovt.toLocaleString()}</span>
                   </div>
@@ -267,47 +292,55 @@ export default function StatutoryFeeCalculator() {
               </div>
 
               {/* Bucket 2: Technical Credentials & DSCs */}
-              <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "16px", marginBottom: "16px" }}>
-                <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0c2340", marginBottom: "10px" }}>
-                  2. Director Credentials & Cryptographic DSCs
+              <div style={{ borderBottom: "1px solid #F1F3F4", paddingBottom: "16px", marginBottom: "16px" }}>
+                <div style={{ fontSize: "0.86rem", fontWeight: 600, color: "#202124", marginBottom: "10px" }}>
+                  2. Director Credentials &amp; Cryptographic DSCs
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "#475569" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.82rem", color: "#5F6368" }}>
                   <span>{directors}x Class-3 DSC (2-Year Validity + ePass Token)</span>
-                  <span style={{ fontWeight: 600, color: "#0c2340" }}>₹{dscCost.toLocaleString()}</span>
+                  <span style={{ fontWeight: 600, color: "#202124" }}>₹{dscCost.toLocaleString()}</span>
                 </div>
               </div>
 
               {/* Bucket 3: Corpunex Professional Facilitation */}
-              <div style={{ borderBottom: "1px solid #f1f5f9", paddingBottom: "16px", marginBottom: "18px" }}>
+              <div style={{ borderBottom: "1px solid #F1F3F4", paddingBottom: "16px", marginBottom: "18px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
-                  <span style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0066f5" }}>
+                  <span style={{ fontSize: "0.86rem", fontWeight: 600, color: "#1A73E8" }}>
                     3. Corpunex Professional Advisory Fee
                   </span>
-                  <span style={{ fontWeight: 800, color: "#0066f5", fontSize: "0.96rem" }}>
+                  <span style={{ fontWeight: 700, color: "#1A73E8", fontSize: "0.96rem" }}>
                     ₹{professionalFee.toLocaleString()}
                   </span>
                 </div>
-                <p style={{ color: "#64748b", fontSize: "0.76rem", lineHeight: "1.4", margin: 0 }}>
+                <p style={{ color: "#5F6368", fontSize: "0.76rem", lineHeight: "1.4", margin: 0 }}>
                   Includes drafting MoA/AoA by corporate advocates, SPICe+ CA certification, DIN generation, PAN, TAN, EPFO, ESIC registration, and zero-balance bank account coordination.
                 </p>
               </div>
 
               {/* Total Estimated Cost */}
-              <div style={{ backgroundColor: "#f8faff", padding: "14px 16px", borderRadius: "8px", border: "1px solid #dbeafe", marginBottom: "20px" }}>
+              <div
+                style={{
+                  backgroundColor: "#F8F9FA",
+                  padding: "16px 18px",
+                  borderRadius: "12px",
+                  border: "1px solid #DADCE0",
+                  marginBottom: "20px",
+                }}
+              >
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
                   <div>
-                    <div style={{ fontSize: "0.72rem", color: "#64748b", textTransform: "uppercase", fontWeight: 700 }}>
+                    <div style={{ fontSize: "0.72rem", color: "#5F6368", textTransform: "uppercase", fontWeight: 600 }}>
                       Total Estimated Investment
                     </div>
-                    <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "#0c2340" }}>
+                    <div style={{ fontSize: "1.7rem", fontWeight: 700, color: "#202124", fontFamily: "var(--font-heading)" }}>
                       ₹{totalEstimatedCost.toLocaleString()}
                     </div>
                   </div>
                   <div style={{ textAlign: "right" }}>
-                    <span style={{ fontSize: "0.76rem", color: "#059669", fontWeight: 700, display: "block" }}>
+                    <span style={{ fontSize: "0.78rem", color: "#1E8E3E", fontWeight: 600, display: "block" }}>
                       Turnaround: 6–8 Days
                     </span>
-                    <span style={{ fontSize: "0.72rem", color: "#64748b" }}>
+                    <span style={{ fontSize: "0.72rem", color: "#5F6368" }}>
                       Zero Hidden Extras
                     </span>
                   </div>
@@ -318,17 +351,18 @@ export default function StatutoryFeeCalculator() {
               <button
                 type="button"
                 onClick={() => setModalOpen(true)}
-                className="btn-electric-blue"
+                className="btn-google-primary"
                 style={{
                   width: "100%",
                   justifyContent: "center",
-                  padding: "12px 20px",
-                  fontSize: "0.92rem",
-                  fontWeight: 600,
-                  borderRadius: "6px",
+                  padding: "13px 20px",
+                  fontSize: "0.94rem",
+                  fontWeight: 500,
+                  borderRadius: "9999px",
                 }}
               >
-                <span>Request Official Proposal with this Breakdown →</span>
+                <span>Request Official Proposal with this Breakdown</span>
+                <ArrowRight size={15} />
               </button>
             </div>
           </div>

@@ -66,17 +66,17 @@ export default function ConsultationModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "20px", borderBottom: "1px solid #eef2f6", paddingBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "20px", borderBottom: "1px solid #DADCE0", paddingBottom: "16px" }}>
           <div>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#0b72e7", fontSize: "0.78rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "6px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#1A73E8", fontSize: "0.78rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "6px" }}>
               <ShieldCheck size={16} />
               <span>Corpunex Professional Advisory</span>
             </div>
-            <h2 style={{ fontSize: "1.5rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontSize: "1.5rem", color: "#202124", fontWeight: 700, letterSpacing: "-0.02em" }}>
               Request an Itemized Quotation
             </h2>
-            <p style={{ color: "#515978", fontSize: "0.92rem", marginTop: "4px" }}>
-              Discuss requirements and get a verified statutory quotation for <strong style={{ color: "#0b72e7" }}>{serviceTitle}</strong>.
+            <p style={{ color: "#5F6368", fontSize: "0.92rem", marginTop: "4px" }}>
+              Discuss requirements and get a verified statutory quotation for <strong style={{ color: "#1A73E8" }}>{serviceTitle}</strong>.
             </p>
           </div>
 

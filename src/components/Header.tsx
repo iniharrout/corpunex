@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -16,21 +16,29 @@ import {
   Award,
   Scale,
   FileText,
-  Headphones,
   Globe,
-  PhoneCall,
   Sparkles,
-  ExternalLink
+  Calculator,
+  PhoneCall,
+  CheckCircle2,
 } from "lucide-react";
 import ConsultationModal from "./ConsultationModal";
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Mega Menu Data structured in Razorpay's clean 4-column product architecture
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const serviceCategories = [
     {
       category: "FORMATION & ENTITY",
@@ -40,6 +48,7 @@ export default function Header() {
           href: "/services/business-registration/private-limited-company",
           desc: "Fast-track SPICe+ MCA incorporation",
           icon: Building2,
+          popular: true,
         },
         {
           title: "Limited Liability Partnership (LLP)",
@@ -50,7 +59,7 @@ export default function Header() {
         {
           title: "One Person Company (OPC)",
           href: "/services/business-registration/one-person-company",
-          desc: "100% ownership with corporate protection",
+          desc: "100% solo ownership with corporate shield",
           icon: Building2,
         },
         {
@@ -65,16 +74,11 @@ export default function Header() {
       category: "TAXATION & GST",
       items: [
         {
-          title: "GST Registration",
+          title: "GST Registration & Filings",
           href: "/services/gst-taxation/gst-registration",
-          desc: "State-wise GSTIN with portal verification",
+          desc: "State-wise GSTIN & monthly GSTR-1, 3B",
           icon: Receipt,
-        },
-        {
-          title: "GST Return Filings",
-          href: "/services/gst-taxation",
-          desc: "GSTR-1, 3B & annual ITC reconciliation",
-          icon: Receipt,
+          popular: true,
         },
         {
           title: "Corporate Income Tax (ITR)",
@@ -85,8 +89,14 @@ export default function Header() {
         {
           title: "Accounting & Bookkeeping",
           href: "/services/accounting-bookkeeping",
-          desc: "Monthly ledger, payroll & MIS reporting",
+          desc: "Monthly ledger, payroll & MIS reports",
           icon: Scale,
+        },
+        {
+          title: "GST Return Filings",
+          href: "/services/gst-taxation",
+          desc: "ITC reconciliation & officer response",
+          icon: Receipt,
         },
       ],
     },
@@ -96,8 +106,9 @@ export default function Header() {
         {
           title: "Startup India Recognition",
           href: "/services/startup-services/startup-india-recognition",
-          desc: "DPIIT certificate, 80-IAC tax exemption",
+          desc: "DPIIT certificate & 80-IAC tax holiday",
           icon: Rocket,
+          popular: true,
         },
         {
           title: "Startup Odisha Grants",
@@ -112,9 +123,9 @@ export default function Header() {
           icon: ShieldCheck,
         },
         {
-          title: "Trademark Registration",
+          title: "Trademark & IP Defense",
           href: "/services/trademark-ip/trademark-registration",
-          desc: "Brand name, logo & IP protection",
+          desc: "Brand name, logo & 45 NICE classes",
           icon: Award,
         },
       ],
@@ -125,7 +136,7 @@ export default function Header() {
         {
           title: "Annual ROC Compliance",
           href: "/services/corporate-compliance/annual-roc-compliance",
-          desc: "AOC-4, MGT-7 filings & secretarial audit",
+          desc: "AOC-4, MGT-7 filings & board resolutions",
           icon: ShieldCheck,
         },
         {
@@ -150,16 +161,6 @@ export default function Header() {
     },
   ];
 
-  const mainNavItems = [
-    { label: "All Services", href: "/services", hasMegaMenu: true },
-    { label: "Business Registration", href: "/services/business-registration" },
-    { label: "Startup India", href: "/services/startup-services/startup-india-recognition" },
-    { label: "GST & Tax", href: "/services/gst-taxation" },
-    { label: "Resources", href: "/resources" },
-    { label: "About Us", href: "/about" },
-    { label: "FAQ", href: "/faq" },
-  ];
-
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
@@ -171,16 +172,17 @@ export default function Header() {
         style={{
           position: "sticky",
           top: 0,
-          zIndex: 999,
-          backgroundColor: "rgba(255, 255, 255, 0.96)",
+          zIndex: 1000,
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.98)" : "#FFFFFF",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
-          borderBottom: "1px solid #e8edf5",
-          boxShadow: "0 1px 3px rgba(12, 35, 64, 0.04)",
+          borderBottom: "1px solid #DADCE0",
+          boxShadow: scrolled ? "0 1px 3px 0 rgba(60,64,67,0.12), 0 1px 2px 0 rgba(60,64,67,0.24)" : "none",
           width: "100%",
+          transition: "all 0.2s ease",
         }}
       >
-        {/* Global Single-Tier Navigation Bar (64px) */}
+        {/* Global Single-Tier Google Header (64px clean height) */}
         <div
           className="container"
           style={{
@@ -188,341 +190,496 @@ export default function Header() {
             alignItems: "center",
             justifyContent: "space-between",
             height: "64px",
+            gap: "20px",
           }}
         >
-          {/* Brand Logo */}
+          {/* Brand Logo with Google-grade crispness */}
           <Link
             href="/"
-            style={{ display: "flex", alignItems: "center", gap: "10px" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              flexShrink: 0,
+              textDecoration: "none",
+            }}
             aria-label="Corpunex Home"
           >
             <Image
               src="/corpunex-logo-dark.png"
               alt="Corpunex"
-              width={210}
-              height={26}
+              width={150}
+              height={22}
               priority
               style={{
                 width: "auto",
-                height: "26px",
+                height: "22px",
                 objectFit: "contain",
                 display: "block",
               }}
             />
           </Link>
 
-          {/* Desktop Navigation Links (Razorpay Style with Active Underline) */}
-          <nav style={{ display: "none" }} className="desktop-nav">
+          {/* Desktop Navigation Links — Google Style Clean Hierarchy */}
+          <nav
+            style={{ display: "none" }}
+            className="cx-desktop-nav"
+            aria-label="Main Navigation"
+          >
             <ul
               style={{
                 display: "flex",
                 listStyle: "none",
                 alignItems: "center",
-                gap: "2px",
+                gap: "8px",
                 margin: 0,
                 padding: 0,
                 height: "64px",
               }}
             >
-              {mainNavItems.map((item) => {
-                const active = isActive(item.href);
+              {/* Services Dropdown */}
+              <li
+                style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+              >
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "5px",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: servicesOpen || isActive("/services") ? 600 : 500,
+                    border: "none",
+                    backgroundColor: "transparent",
+                    color: servicesOpen || isActive("/services") ? "#1A73E8" : "#3C4043",
+                    cursor: "pointer",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  aria-expanded={servicesOpen}
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    size={14}
+                    style={{
+                      transform: servicesOpen ? "rotate(180deg)" : "none",
+                      transition: "transform 0.2s ease",
+                      color: servicesOpen ? "#1A73E8" : "#5F6368",
+                    }}
+                  />
+                  {(servicesOpen || isActive("/services")) && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "12px",
+                        right: "12px",
+                        height: "3px",
+                        backgroundColor: "#1A73E8",
+                        borderRadius: "3px 3px 0 0",
+                      }}
+                    />
+                  )}
+                </button>
 
-                if (item.hasMegaMenu) {
-                  return (
-                    <li
-                      key={item.href}
-                      style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}
-                      onMouseEnter={() => setActiveMegaMenu("services")}
-                      onMouseLeave={() => setActiveMegaMenu(null)}
+                {/* 4-Column Google Elevation Dropdown Menu */}
+                {servicesOpen && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "-120px",
+                      width: "920px",
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #DADCE0",
+                      borderRadius: "16px",
+                      boxShadow: "0 4px 18px 0 rgba(60,64,67,0.18), 0 1px 3px 1px rgba(60,64,67,0.12)",
+                      padding: "24px 28px 18px",
+                      zIndex: 1000,
+                      animation: "cxFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gap: "20px",
+                        marginBottom: "18px",
+                      }}
                     >
-                      <button
-                        onClick={() => setActiveMegaMenu(activeMegaMenu === "services" ? null : "services")}
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "4px",
-                          padding: "0 12px",
-                          height: "100%",
-                          fontSize: "0.88rem",
-                          fontWeight: 500,
-                          border: "none",
-                          backgroundColor: "transparent",
-                          color: activeMegaMenu === "services" || active ? "#0066f5" : "#1e293b",
-                          cursor: "pointer",
-                          position: "relative",
-                          transition: "color 0.15s ease",
-                        }}
-                      >
-                        <span>{item.label}</span>
-                        <ChevronDown
-                          size={14}
-                          style={{
-                            transform: activeMegaMenu === "services" ? "rotate(180deg)" : "none",
-                            transition: "transform 0.2s ease",
-                            color: activeMegaMenu === "services" ? "#0066f5" : "#64748b",
-                          }}
-                        />
-
-                        {/* Razorpay Active Underline Indicator */}
-                        {(activeMegaMenu === "services" || active) && (
-                          <span
-                            style={{
-                              position: "absolute",
-                              bottom: 0,
-                              left: "14px",
-                              right: "14px",
-                              height: "2.5px",
-                              backgroundColor: "#0066f5",
-                              borderRadius: "2px 2px 0 0",
-                            }}
-                          />
-                        )}
-                      </button>
-
-                      {/* Razorpay-Style 4-Column Mega Menu Dropdown */}
-                      {activeMegaMenu === "services" && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "100%",
-                            left: "-180px",
-                            width: "920px",
-                            backgroundColor: "#ffffff",
-                            border: "1px solid #e2edfd",
-                            borderRadius: "12px",
-                            boxShadow: "0 25px 60px -10px rgba(12, 35, 64, 0.14), 0 0 1px 1px rgba(0, 102, 245, 0.06)",
-                            padding: "24px 28px 18px",
-                            zIndex: 1000,
-                          }}
-                        >
+                      {serviceCategories.map((col, idx) => (
+                        <div key={idx}>
                           <div
                             style={{
-                              display: "grid",
-                              gridTemplateColumns: "repeat(4, 1fr)",
-                              gap: "20px",
-                              marginBottom: "18px",
+                              fontSize: "0.72rem",
+                              fontWeight: 700,
+                              color: "#5F6368",
+                              letterSpacing: "0.06em",
+                              marginBottom: "12px",
+                              paddingBottom: "6px",
+                              borderBottom: "1px solid #F1F3F4",
                             }}
                           >
-                            {serviceCategories.map((col, idx) => (
-                              <div key={idx}>
-                                <div
-                                  style={{
-                                    fontSize: "0.72rem",
-                                    fontWeight: 700,
-                                    color: "#64748b",
-                                    letterSpacing: "0.06em",
-                                    marginBottom: "12px",
-                                    paddingBottom: "6px",
-                                    borderBottom: "1px solid #f1f5f9",
-                                  }}
-                                >
-                                  {col.category}
-                                </div>
+                            {col.category}
+                          </div>
 
-                                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                                  {col.items.map((srv, sIdx) => {
-                                    const IconComponent = srv.icon;
-                                    return (
-                                      <Link
-                                        key={sIdx}
-                                        href={srv.href}
-                                        onClick={() => setActiveMegaMenu(null)}
-                                        style={{
-                                          display: "flex",
-                                          alignItems: "flex-start",
-                                          gap: "10px",
-                                          padding: "8px 10px",
-                                          borderRadius: "8px",
-                                          textDecoration: "none",
-                                          transition: "all 0.15s ease",
-                                        }}
-                                        className="rzp-menu-item"
-                                      >
-                                        <div
+                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                            {col.items.map((srv, sIdx) => {
+                              const IconComponent = srv.icon;
+                              return (
+                                <Link
+                                  key={sIdx}
+                                  href={srv.href}
+                                  onClick={() => setServicesOpen(false)}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "flex-start",
+                                    gap: "10px",
+                                    padding: "8px 10px",
+                                    borderRadius: "8px",
+                                    textDecoration: "none",
+                                    transition: "all 0.15s ease",
+                                  }}
+                                  className="cx-google-menu-item"
+                                >
+                                  <div
+                                    style={{
+                                      padding: "6px",
+                                      borderRadius: "8px",
+                                      backgroundColor: "#E8F0FE",
+                                      color: "#1A73E8",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent: "center",
+                                      flexShrink: 0,
+                                      marginTop: "2px",
+                                    }}
+                                  >
+                                    <IconComponent size={14} />
+                                  </div>
+                                  <div>
+                                    <div
+                                      style={{
+                                        color: "#202124",
+                                        fontWeight: 500,
+                                        fontSize: "0.85rem",
+                                        lineHeight: "1.3",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        gap: "5px",
+                                      }}
+                                      className="cx-google-menu-title"
+                                    >
+                                      <span>{srv.title}</span>
+                                      {srv.popular && (
+                                        <span
                                           style={{
-                                            padding: "6px",
-                                            borderRadius: "6px",
-                                            backgroundColor: "#eff6ff",
-                                            color: "#0066f5",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            flexShrink: 0,
-                                            marginTop: "2px",
+                                            fontSize: "0.62rem",
+                                            fontWeight: 600,
+                                            color: "#1E8E3E",
+                                            backgroundColor: "#E6F4EA",
+                                            padding: "1px 5px",
+                                            borderRadius: "9999px",
                                           }}
                                         >
-                                          <IconComponent size={15} />
-                                        </div>
-                                        <div>
-                                          <div
-                                            style={{
-                                              color: "#0c2340",
-                                              fontWeight: 600,
-                                              fontSize: "0.86rem",
-                                              lineHeight: "1.25",
-                                            }}
-                                            className="rzp-menu-title"
-                                          >
-                                            {srv.title}
-                                          </div>
-                                          <div
-                                            style={{
-                                              color: "#64748b",
-                                              fontSize: "0.74rem",
-                                              marginTop: "2px",
-                                              lineHeight: "1.3",
-                                            }}
-                                          >
-                                            {srv.desc}
-                                          </div>
-                                        </div>
-                                      </Link>
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Mega Menu Footer Banner (Razorpay style) */}
-                          <div
-                            style={{
-                              borderTop: "1px solid #f1f5f9",
-                              paddingTop: "14px",
-                              marginTop: "6px",
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                              backgroundColor: "#f8fafc",
-                              margin: "0 -28px -18px",
-                              padding: "12px 28px",
-                              borderRadius: "0 0 12px 12px",
-                            }}
-                          >
-                            <span style={{ fontSize: "0.82rem", color: "#475569" }}>
-                              Looking for custom company structures, agreements, or NGO filings?
-                            </span>
-                            <Link
-                              href="/services"
-                              onClick={() => setActiveMegaMenu(null)}
-                              style={{
-                                color: "#0066f5",
-                                fontSize: "0.85rem",
-                                fontWeight: 700,
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "6px",
-                                textDecoration: "none",
-                              }}
-                            >
-                              <span>Explore All 40+ Corporate Services</span>
-                              <ArrowRight size={14} />
-                            </Link>
+                                          Popular
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div
+                                      style={{
+                                        color: "#5F6368",
+                                        fontSize: "0.72rem",
+                                        marginTop: "2px",
+                                        lineHeight: "1.3",
+                                      }}
+                                    >
+                                      {srv.desc}
+                                    </div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
                           </div>
                         </div>
-                      )}
-                    </li>
-                  );
-                }
+                      ))}
+                    </div>
 
-                return (
-                  <li
-                    key={item.href}
-                    style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}
-                  >
-                    <Link
-                      href={item.href}
+                    {/* Google-Style Dropdown Bottom Strip */}
+                    <div
                       style={{
-                        display: "inline-flex",
+                        borderTop: "1px solid #DADCE0",
+                        paddingTop: "12px",
+                        marginTop: "8px",
+                        display: "flex",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        padding: "0 12px",
-                        height: "100%",
-                        fontSize: "0.88rem",
-                        fontWeight: 500,
-                        color: active ? "#0066f5" : "#334155",
-                        textDecoration: "none",
-                        position: "relative",
-                        transition: "color 0.15s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "#0066f5";
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!active) e.currentTarget.style.color = "#334155";
+                        backgroundColor: "#F8F9FA",
+                        margin: "0 -28px -18px",
+                        padding: "12px 28px",
+                        borderRadius: "0 0 16px 16px",
                       }}
                     >
-                      <span>{item.label}</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "0.82rem", color: "#3C4043" }}>
+                        <span style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "#1E8E3E", fontWeight: 500 }}>
+                          <CheckCircle2 size={15} />
+                          100% Itemized Government Receipts
+                        </span>
+                        <span>•</span>
+                        <span>Official MCA SPICe+ & GSTN Integrated</span>
+                      </div>
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        style={{
+                          color: "#1A73E8",
+                          fontSize: "0.84rem",
+                          fontWeight: 600,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "5px",
+                          textDecoration: "none",
+                        }}
+                      >
+                        <span>Explore all corporate services</span>
+                        <ArrowRight size={14} />
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </li>
 
-                      {/* Active Underline */}
-                      {active && (
-                        <span
-                          style={{
-                            position: "absolute",
-                            bottom: 0,
-                            left: "12px",
-                            right: "12px",
-                            height: "2px",
-                            backgroundColor: "#0066f5",
-                            borderRadius: "2px 2px 0 0",
-                          }}
-                        />
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
+              {/* Startup India */}
+              <li style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}>
+                <Link
+                  href="/services/startup-services/startup-india-recognition"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: isActive("/services/startup-services/startup-india-recognition") ? 600 : 500,
+                    color: isActive("/services/startup-services/startup-india-recognition") ? "#1A73E8" : "#3C4043",
+                    textDecoration: "none",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  className="cx-google-nav-link"
+                >
+                  <span>Startup India</span>
+                  <span
+                    style={{
+                      fontSize: "0.65rem",
+                      fontWeight: 600,
+                      color: "#1E8E3E",
+                      backgroundColor: "#E6F4EA",
+                      border: "1px solid #CEEAD6",
+                      padding: "1px 6px",
+                      borderRadius: "9999px",
+                    }}
+                  >
+                    80-IAC
+                  </span>
+                  {isActive("/services/startup-services/startup-india-recognition") && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "12px",
+                        right: "12px",
+                        height: "3px",
+                        backgroundColor: "#1A73E8",
+                        borderRadius: "3px 3px 0 0",
+                      }}
+                    />
+                  )}
+                </Link>
+              </li>
+
+              {/* GST & Taxation */}
+              <li style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}>
+                <Link
+                  href="/services/gst-taxation"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: isActive("/services/gst-taxation") ? 600 : 500,
+                    color: isActive("/services/gst-taxation") ? "#1A73E8" : "#3C4043",
+                    textDecoration: "none",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  className="cx-google-nav-link"
+                >
+                  <span>GST & Tax</span>
+                  {isActive("/services/gst-taxation") && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "12px",
+                        right: "12px",
+                        height: "3px",
+                        backgroundColor: "#1A73E8",
+                        borderRadius: "3px 3px 0 0",
+                      }}
+                    />
+                  )}
+                </Link>
+              </li>
+
+              {/* Fee Calculator */}
+              <li style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}>
+                <a
+                  href="#calculator"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: 500,
+                    color: "#3C4043",
+                    textDecoration: "none",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  className="cx-google-nav-link"
+                >
+                  <Calculator size={14} style={{ color: "#1A73E8" }} />
+                  <span>Fee Calculator</span>
+                </a>
+              </li>
+
+              {/* Resources */}
+              <li style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}>
+                <Link
+                  href="/resources"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: isActive("/resources") ? 600 : 500,
+                    color: isActive("/resources") ? "#1A73E8" : "#3C4043",
+                    textDecoration: "none",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  className="cx-google-nav-link"
+                >
+                  <span>Resources</span>
+                  {isActive("/resources") && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "12px",
+                        right: "12px",
+                        height: "3px",
+                        backgroundColor: "#1A73E8",
+                        borderRadius: "3px 3px 0 0",
+                      }}
+                    />
+                  )}
+                </Link>
+              </li>
+
+              {/* About */}
+              <li style={{ position: "relative", height: "100%", display: "flex", alignItems: "center" }}>
+                <Link
+                  href="/about"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0 12px",
+                    height: "100%",
+                    fontSize: "0.88rem",
+                    fontWeight: isActive("/about") ? 600 : 500,
+                    color: isActive("/about") ? "#1A73E8" : "#3C4043",
+                    textDecoration: "none",
+                    position: "relative",
+                    whiteSpace: "nowrap",
+                    transition: "color 0.15s ease",
+                  }}
+                  className="cx-google-nav-link"
+                >
+                  <span>About</span>
+                  {isActive("/about") && (
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: "12px",
+                        right: "12px",
+                        height: "3px",
+                        backgroundColor: "#1A73E8",
+                        borderRadius: "3px 3px 0 0",
+                      }}
+                    />
+                  )}
+                </Link>
+              </li>
             </ul>
           </nav>
 
-          {/* Desktop Right Actions (Global Clean Standard) */}
+          {/* Desktop Right Actions — Google Pill Button Standard */}
           <div
-            style={{ display: "none", alignItems: "center", gap: "10px" }}
-            className="desktop-actions"
+            style={{ display: "none", alignItems: "center", gap: "12px", flexShrink: 0 }}
+            className="cx-desktop-actions"
           >
-            {/* MCA Status Indicator */}
-            <div
+            {/* Direct Support Pill */}
+            <a
+              href="tel:+918260177700"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                fontSize: "0.76rem",
-                color: "#059669",
-                fontWeight: 600,
-                backgroundColor: "#ecfdf5",
-                border: "1px solid #a7f3d0",
-                padding: "4px 10px",
+                fontSize: "0.84rem",
+                color: "#3C4043",
+                fontWeight: 500,
+                padding: "8px 14px",
                 borderRadius: "9999px",
+                textDecoration: "none",
+                backgroundColor: "#F1F3F4",
+                transition: "all 0.15s ease",
+                whiteSpace: "nowrap",
               }}
+              className="cx-google-support-pill"
             >
-              <span
-                style={{
-                  width: "6px",
-                  height: "6px",
-                  borderRadius: "50%",
-                  backgroundColor: "#10b981",
-                  display: "inline-block",
-                  boxShadow: "0 0 6px rgba(16, 185, 129, 0.6)",
-                }}
-              />
-              <span>MCA Verified</span>
-            </div>
+              <PhoneCall size={14} style={{ color: "#1A73E8" }} />
+              <span>Talk to an Advisor</span>
+            </a>
 
-            {/* Primary Action Button */}
+            {/* Google Primary Blue Pill Button */}
             <button
               onClick={() => setModalOpen(true)}
-              className="btn-electric-blue"
+              className="btn-google-primary"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-                padding: "8px 18px",
-                fontSize: "0.86rem",
-                fontWeight: 600,
-                borderRadius: "6px",
-                boxShadow: "0 2px 8px rgba(0, 102, 245, 0.25)",
+                padding: "9px 22px",
+                fontSize: "0.88rem",
+                fontWeight: 500,
+                borderRadius: "9999px",
+                whiteSpace: "nowrap",
               }}
             >
-              <span>Request Consultation</span>
+              <span>Get Started</span>
               <ArrowRight size={14} />
             </button>
           </div>
@@ -536,15 +693,15 @@ export default function Header() {
               justifyContent: "center",
               padding: "8px",
               backgroundColor: "transparent",
-              border: "1px solid #dbe3ee",
-              borderRadius: "6px",
-              color: "#0c2340",
+              border: "1px solid #DADCE0",
+              borderRadius: "8px",
+              color: "#202124",
               cursor: "pointer",
             }}
-            className="mobile-toggle"
+            className="cx-mobile-toggle"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
@@ -552,28 +709,39 @@ export default function Header() {
         {mobileMenuOpen && (
           <div
             style={{
-              backgroundColor: "#ffffff",
-              borderTop: "1px solid #e8edf5",
-              padding: "18px 20px 28px",
+              backgroundColor: "#FFFFFF",
+              borderTop: "1px solid #DADCE0",
+              padding: "16px 20px 24px",
               display: "flex",
               flexDirection: "column",
-              gap: "10px",
-              maxHeight: "80vh",
+              gap: "8px",
+              maxHeight: "85vh",
               overflowY: "auto",
             }}
           >
-            {mainNavItems.map((item) => (
+            {[
+              { label: "All Corporate Services", href: "/services" },
+              { label: "Private Limited Company", href: "/services/business-registration/private-limited-company" },
+              { label: "Startup India (DPIIT 80-IAC)", href: "/services/startup-services/startup-india-recognition" },
+              { label: "GST Registration & Returns", href: "/services/gst-taxation" },
+              { label: "Trademark & IP Defense", href: "/services/trademark-ip/trademark-registration" },
+              { label: "Annual ROC Filings", href: "/services/corporate-compliance/annual-roc-compliance" },
+              { label: "Fee Calculator", href: "#calculator" },
+              { label: "Resources & MCA Guides", href: "/resources" },
+              { label: "About Corpunex", href: "/about" },
+              { label: "FAQ Desk", href: "/faq" },
+            ].map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   padding: "10px 14px",
-                  fontSize: "0.96rem",
-                  fontWeight: 600,
-                  borderRadius: "6px",
-                  color: isActive(item.href) ? "#0066f5" : "#0c2340",
-                  backgroundColor: isActive(item.href) ? "#eff6ff" : "transparent",
+                  fontSize: "0.92rem",
+                  fontWeight: 500,
+                  borderRadius: "8px",
+                  color: isActive(item.href) ? "#1A73E8" : "#202124",
+                  backgroundColor: isActive(item.href) ? "#E8F0FE" : "transparent",
                   textDecoration: "none",
                 }}
               >
@@ -583,8 +751,8 @@ export default function Header() {
 
             <div
               style={{
-                paddingTop: "16px",
-                borderTop: "1px solid #e8edf5",
+                paddingTop: "14px",
+                borderTop: "1px solid #DADCE0",
                 display: "flex",
                 flexDirection: "column",
                 gap: "10px",
@@ -595,15 +763,16 @@ export default function Header() {
                   setMobileMenuOpen(false);
                   setModalOpen(true);
                 }}
-                className="btn-electric-blue"
+                className="btn-google-primary"
                 style={{
                   width: "100%",
                   justifyContent: "center",
-                  padding: "12px",
+                  padding: "11px",
+                  borderRadius: "9999px",
                 }}
               >
-                <span>Request Consultation</span>
-                <ArrowRight size={16} />
+                <span>Get Started</span>
+                <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -614,26 +783,43 @@ export default function Header() {
       <ConsultationModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        serviceTitle="General Business Consulting"
+        serviceTitle="General Corporate Consultation"
       />
 
       <style jsx>{`
-        @media (min-width: 992px) {
-          .desktop-nav {
+        @keyframes cxFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(6px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @media (min-width: 960px) {
+          .cx-desktop-nav {
             display: block !important;
           }
-          .desktop-actions {
+          .cx-desktop-actions {
             display: flex !important;
           }
-          .mobile-toggle {
+          .cx-mobile-toggle {
             display: none !important;
           }
         }
-        :global(.rzp-menu-item:hover) {
-          background-color: #f8faff !important;
+        :global(.cx-google-nav-link:hover) {
+          color: #1A73E8 !important;
         }
-        :global(.rzp-menu-item:hover .rzp-menu-title) {
-          color: #0066f5 !important;
+        :global(.cx-google-menu-item:hover) {
+          background-color: #F8F9FA !important;
+        }
+        :global(.cx-google-menu-item:hover .cx-google-menu-title) {
+          color: #1A73E8 !important;
+        }
+        :global(.cx-google-support-pill:hover) {
+          background-color: #E8F0FE !important;
+          color: #1A73E8 !important;
         }
       `}</style>
     </>

@@ -318,13 +318,13 @@ export default function ConsultationForm({
                 alignItems: "center",
                 gap: "6px",
                 fontSize: "0.85rem",
-                fontWeight: 500,
-                color: formData.preferredContact === item.label ? "#0b72e7" : "#515978",
+                fontWeight: 600,
+                color: formData.preferredContact === item.label ? "#1A73E8" : "#202124",
                 cursor: "pointer",
-                padding: "8px 14px",
-                background: formData.preferredContact === item.label ? "#eef4ff" : "#ffffff",
-                border: `1px solid ${formData.preferredContact === item.label ? "#0b72e7" : "#dbe3ee"}`,
-                borderRadius: "4px",
+                padding: "8px 16px",
+                background: formData.preferredContact === item.label ? "#E8F0FE" : "#FFFFFF",
+                border: `1px solid ${formData.preferredContact === item.label ? "#1A73E8" : "#DADCE0"}`,
+                borderRadius: "9999px",
                 transition: "all 0.15s ease",
               }}
             >
@@ -334,7 +334,7 @@ export default function ConsultationForm({
                 value={item.label}
                 checked={formData.preferredContact === item.label}
                 onChange={handleChange}
-                style={{ accentColor: "#0b72e7" }}
+                style={{ accentColor: "#1A73E8" }}
               />
               {item.icon}
               {item.label}
@@ -344,12 +344,12 @@ export default function ConsultationForm({
       </div>
 
       {/* Submit Button */}
-      <div style={{ marginTop: "8px" }}>
+      <div style={{ marginTop: "16px" }}>
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="btn btn-primary"
-          style={{ width: "100%", padding: "14px 24px", fontSize: "1rem" }}
+          className="btn-google-primary"
+          style={{ width: "100%", padding: "13px 24px", fontSize: "0.98rem", borderRadius: "9999px" }}
         >
           {status === "submitting" ? (
             <span>Processing Consultation Request...</span>
@@ -360,8 +360,8 @@ export default function ConsultationForm({
             </>
           )}
         </button>
-        <p style={{ fontSize: "0.78rem", color: "#94a3b8", marginTop: "8px", textAlign: "center" }}>
-          Strict privacy guaranteed. We will not share your business details with third parties without consent.
+        <p style={{ fontSize: "0.78rem", color: "#5F6368", marginTop: "10px", textAlign: "center" }}>
+          Strict privacy guaranteed. 100% itemized statutory quotation provided within 24 business hours.
         </p>
       </div>
     </form>

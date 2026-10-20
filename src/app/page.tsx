@@ -2,86 +2,81 @@ import React from "react";
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import AbstractHeroBackground from "@/components/AbstractHeroBackground";
 import GlobalHero from "@/components/GlobalHero";
-import { 
-  Building2, 
-  Rocket, 
-  Receipt, 
-  ShieldCheck, 
-  Award, 
-  FileCheck2, 
-  Calculator, 
-  FileText, 
-  HeartHandshake, 
-  ArrowRight, 
-  CheckCircle2, 
-  HelpCircle, 
-  Sparkles, 
-  ShieldAlert,
-  Clock,
-  Check,
-  TrendingUp,
-  FileBadge,
-  UserCheck,
-  ChevronRight,
-  Zap,
-  Star,
+import {
+  Rocket,
+  Receipt,
+  ShieldCheck,
+  Award,
+  ArrowRight,
+  CheckCircle2,
   Scale,
-  PhoneCall
+  Building2,
+  Clock,
+  Sparkles,
+  PhoneCall,
+  Check,
+  FileText,
+  Star,
+  Users,
 } from "lucide-react";
 import ConsultationForm from "@/components/ConsultationForm";
 import FAQAccordion from "@/components/FAQAccordion";
 import StatutoryFeeCalculator from "@/components/StatutoryFeeCalculator";
 
 export const metadata: Metadata = {
-  title: "Corpunex — Business Registration, Taxation & Corporate Compliance in India",
+  title: "Corpunex — Company Registration, GST & Compliance for Indian Businesses",
   description:
-    "India's trusted business consulting platform. Fast-track company registration, Startup India recognition, GST filings, trademark protection, and corporate ROC compliance with complete statutory transparency.",
+    "India's modern corporate services platform. Fast-track company registration, GST return filing, Startup India tax exemptions, and trademark protection with dedicated CA support and zero hidden fees.",
 };
 
 export default function HomePage() {
   const homeFaqs = [
     {
-      question: "Which business structure should I choose: Private Limited or LLP?",
+      question: "Which business structure is right for me: Private Limited, LLP, or Sole Proprietorship?",
       answer:
-        "A Private Limited Company is ideal if you plan to raise venture capital, issue ESOPs to employees, or build a scalable startup. An LLP (Limited Liability Partnership) is best for service firms, consulting agencies, and bootstrap ventures looking for limited liability with lower annual statutory compliance costs.",
-      category: "Business Registration",
+        "If you plan to raise venture capital, bring on co-founders, or give equity/ESOPs to early employees, a Private Limited Company is the standard choice. If you run a service agency, consulting firm, or freelance practice and want limited liability protection with lower annual compliance costs, an LLP (Limited Liability Partnership) is ideal. A Sole Proprietorship is best for single-person retail shops or small local traders.",
+      category: "Choosing an Entity",
     },
     {
-      question: "What is Startup India (DPIIT) Recognition and how does it help?",
+      question: "Can I register a company using my home or rented flat as the registered office?",
       answer:
-        "Startup India recognition is a flagship initiative by the Government of India that officially certifies your business as an innovative startup. Key benefits include eligibility for 3-year income tax exemption (Section 80-IAC), 80% discount on government patent fees, 50% discount on trademark fees, and easier access to public procurement tenders.",
+        "Yes, absolutely. The Ministry of Corporate Affairs permits residential premises to be used as a company's registered office. All you need is a recent electricity bill (under 2 months old), a No Objection Certificate (NOC) from the owner, and a valid rent agreement if the premises are rented.",
+      category: "Requirements",
+    },
+    {
+      question: "How long does it take to get a Certificate of Incorporation from the MCA?",
+      answer:
+        "Once your KYC documents (PAN, Aadhaar, bank statement) are submitted and digitally signed, our fast-track SPICe+ filing typically takes 6 to 8 business days for MCA name approval and incorporation. You will receive your official Certificate of Incorporation, PAN, and TAN directly via email.",
+      category: "Timelines",
+    },
+    {
+      question: "Are government fees and stamp duty included in your pricing?",
+      answer:
+        "We believe in 100% financial transparency. Government statutory fees (such as state stamp duty, MCA filing fees, and trademark challans) are itemized separately from our professional consulting fees. You receive verified official government receipts for every statutory fee paid.",
+      category: "Pricing & Transparency",
+    },
+    {
+      question: "What is Startup India (DPIIT) recognition and how does it save me money?",
+      answer:
+        "Startup India is a flagship government initiative that officially certifies innovative startups. Major benefits include 3 years of 100% corporate income tax holiday (Section 80-IAC), an 80% discount on government patent fees, a 50% discount on trademark fees, and exemption from angel tax scrutiny.",
       category: "Startup Support",
-    },
-    {
-      question: "How long does it take to register a Private Limited Company?",
-      answer:
-        "Standard company registration in India typically takes 7 to 10 business days once all required KYC documents (PAN, Aadhaar, bank statement) and office address proofs are verified and digitally signed. Actual turnaround depends on Ministry of Corporate Affairs (MCA) portal processing times.",
-      category: "Process & Timelines",
-    },
-    {
-      question: "Can I use my residential home or rented flat as my registered company office?",
-      answer:
-        "Yes, the Companies Act allows any residential premises to be used as a company's registered office, provided you submit an electricity/water bill (not older than 2 months), an NOC (No Objection Certificate) from the property owner, and a valid rent agreement if the premises are rented.",
-      category: "Documentation",
-    },
-    {
-      question: "Are government fees included in your consulting fee?",
-      answer:
-        "At Corpunex, we maintain 100% financial transparency. Government statutory fees (such as MCA name reservation fees, state stamp duties, and trademark registry challans) are itemized separately from our professional consulting fees. You receive official government payment receipts for every statutory fee paid.",
-      category: "Pricing & Fees",
     },
   ];
 
   return (
-    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
-      {/* 1. HERO SECTION (Global Enterprise Tech Platform) */}
+    <div style={{ backgroundColor: "#FFFFFF", minHeight: "100vh" }}>
+      {/* 1. HERO SECTION (Google Style with Omnibar Search & Live Console Tracker) */}
       <GlobalHero />
 
-
-      {/* 2. STATS & SOCIAL PROOF STRIP */}
-      <section style={{ padding: "40px 0", borderBottom: "1px solid #e8edf5", backgroundColor: "#f8fafc" }}>
+      {/* 2. SOCIAL PROOF & KEY METRICS STRIP (Google Style) */}
+      <section
+        style={{
+          padding: "36px 0",
+          borderBottom: "1px solid #DADCE0",
+          backgroundColor: "#F8F9FA",
+        }}
+      >
         <div className="container">
           <div
             style={{
@@ -89,480 +84,647 @@ export default function HomePage() {
               gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               gap: "28px",
               textAlign: "center",
+              alignItems: "center",
             }}
           >
             <div>
-              <div style={{ fontSize: "2.4rem", fontWeight: 800, color: "#0b72e7", lineHeight: 1.1 }}>10,000+</div>
-              <div style={{ fontSize: "0.9rem", color: "#515978", marginTop: "4px", fontWeight: 600 }}>Filings & Registrations Facilitated</div>
+              <div
+                style={{
+                  fontSize: "2.3rem",
+                  fontWeight: 700,
+                  color: "#1A73E8",
+                  lineHeight: 1,
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                10,000+
+              </div>
+              <div style={{ fontSize: "0.88rem", color: "#5F6368", marginTop: "6px", fontWeight: 500 }}>
+                Businesses Registered &amp; Guided
+              </div>
             </div>
+
             <div>
-              <div style={{ fontSize: "2.4rem", fontWeight: 800, color: "#00b574", lineHeight: 1.1 }}>100%</div>
-              <div style={{ fontSize: "0.9rem", color: "#515978", marginTop: "4px", fontWeight: 600 }}>Statutory Fee Transparency</div>
+              <div
+                style={{
+                  fontSize: "2.3rem",
+                  fontWeight: 700,
+                  color: "#1E8E3E",
+                  lineHeight: 1,
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                6–8 Days
+              </div>
+              <div style={{ fontSize: "0.88rem", color: "#5F6368", marginTop: "6px", fontWeight: 500 }}>
+                Average MCA SPICe+ Turnaround
+              </div>
             </div>
+
             <div>
-              <div style={{ fontSize: "2.4rem", fontWeight: 800, color: "#0c2340", lineHeight: 1.1 }}>28+</div>
-              <div style={{ fontSize: "0.9rem", color: "#515978", marginTop: "4px", fontWeight: 600 }}>Indian States & UTs Covered</div>
+              <div
+                style={{
+                  fontSize: "2.3rem",
+                  fontWeight: 700,
+                  color: "#202124",
+                  lineHeight: 1,
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                100%
+              </div>
+              <div style={{ fontSize: "0.88rem", color: "#5F6368", marginTop: "6px", fontWeight: 500 }}>
+                Itemized Government Receipts
+              </div>
             </div>
+
             <div>
-              <div style={{ fontSize: "2.4rem", fontWeight: 800, color: "#ff8a00", lineHeight: 1.1 }}>24 hrs</div>
-              <div style={{ fontSize: "0.9rem", color: "#515978", marginTop: "4px", fontWeight: 600 }}>Consultation Response Guarantee</div>
+              <div
+                style={{
+                  fontSize: "2.3rem",
+                  fontWeight: 700,
+                  color: "#202124",
+                  lineHeight: 1,
+                  fontFamily: "var(--font-heading)",
+                }}
+              >
+                4.9 / 5
+              </div>
+              <div style={{ fontSize: "0.88rem", color: "#5F6368", marginTop: "6px", fontWeight: 500 }}>
+                Founder Satisfaction Rating
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 3. PRODUCT SUITE SHOWCASE (Razorpay "The all in one finance platform" Style) */}
-      <section style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
+      {/* 3. SOLUTION SUITE — Google Cloud / Workspace Bento Architecture */}
+      <section style={{ padding: "80px 0", backgroundColor: "#FFFFFF" }}>
         <div className="container">
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
-            <h2 style={{ fontSize: "clamp(2rem, 3.8vw, 2.8rem)", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "16px" }}>
-              The all-in-one <span style={{ color: "#00b574" }}>business compliance platform</span> you&rsquo;ve been looking for.
+          <div style={{ textAlign: "center", maxWidth: "720px", margin: "0 auto 56px" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "5px 14px",
+                borderRadius: "9999px",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#E8F0FE",
+                color: "#1A73E8",
+                border: "1px solid #D2E3FC",
+                marginBottom: "14px",
+              }}
+            >
+              <span>Product Suite</span>
+            </span>
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.5vw, 2.7rem)",
+                color: "#202124",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                marginBottom: "14px",
+              }}
+            >
+              Everything you need to launch, run, and scale.
             </h2>
-            <p style={{ fontSize: "1.1rem", color: "#515978", lineHeight: "1.7", margin: 0 }}>
-              Say goodbye to fragmented consultants, opaque government fees, and missed regulatory deadlines. Corpunex brings company setup, taxation, and legal documentation under one structured advisory roof.
+            <p style={{ fontSize: "1.05rem", color: "#5F6368", lineHeight: "1.6", margin: 0 }}>
+              No confusing legal jargon, no surprise costs, and no running around government offices. Choose what you need help with, and our dedicated professionals take care of the rest.
             </p>
           </div>
 
-          {/* Featured Feature Card 1: Incorporation & Setup with Image */}
+          {/* Hub 1: Company Registration (Featured Split Row with Real Image) */}
           <div
-            className="rzp-card"
             style={{
-              padding: "0",
-              overflow: "hidden",
-              marginBottom: "40px",
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "48px",
               alignItems: "center",
+              padding: "40px",
+              backgroundColor: "#F8F9FA",
+              borderRadius: "20px",
+              border: "1px solid #DADCE0",
+              marginBottom: "40px",
             }}
           >
-            <div style={{ padding: "48px 40px" }}>
-              <span className="badge badge-blue" style={{ marginBottom: "14px" }}>
-                Company Formation
+            <div>
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  fontSize: "0.74rem",
+                  fontWeight: 600,
+                  color: "#1A73E8",
+                  backgroundColor: "#E8F0FE",
+                  border: "1px solid #D2E3FC",
+                  padding: "4px 11px",
+                  borderRadius: "9999px",
+                  marginBottom: "16px",
+                }}
+              >
+                <span>Company Formation Hub</span>
               </span>
-              <h3 style={{ fontSize: "1.9rem", color: "#0c2340", fontWeight: 800, marginBottom: "14px", lineHeight: "1.25" }}>
-                Fast-track your Private Limited, LLP, or OPC setup.
+
+              <h3 style={{ fontSize: "1.9rem", color: "#202124", fontWeight: 700, marginBottom: "14px", lineHeight: 1.25 }}>
+                Incorporate your company without the paperwork maze.
               </h3>
-              <p style={{ color: "#515978", fontSize: "1rem", lineHeight: "1.7", marginBottom: "24px" }}>
-                We guide you through RUN name reservation, SPICe+ Part A & B drafting, digital signature certificates (DSC), Memorandum of Association (MoA), and official incorporation with the Ministry of Corporate Affairs (MCA).
+              <p style={{ color: "#5F6368", fontSize: "1rem", lineHeight: 1.65, marginBottom: "22px" }}>
+                Whether you are a tech startup preparing for angel funding or a consulting agency wanting limited liability, we guide you through name reservation, digital signatures, legal MoA/AoA drafting, and official MCA approval.
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "28px" }}>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Free PAN & TAN Allocation</span>
+              {/* Bullet Options with Google Green checkmarks */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "26px" }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.92rem", color: "#3C4043" }}>
+                  <CheckCircle2 size={18} style={{ color: "#1E8E3E", flexShrink: 0, marginTop: "2px" }} />
+                  <span><strong>Private Limited Company:</strong> Ideal for startups looking to raise venture funding &amp; issue ESOPs.</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Class 3 DSC Included</span>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.92rem", color: "#3C4043" }}>
+                  <CheckCircle2 size={18} style={{ color: "#1E8E3E", flexShrink: 0, marginTop: "2px" }} />
+                  <span><strong>Limited Liability Partnership (LLP):</strong> Best for agencies and consultancies seeking lower annual compliance.</span>
                 </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Bank Account Resolution</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#00b574", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Verified Government Challans</span>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.92rem", color: "#3C4043" }}>
+                  <CheckCircle2 size={18} style={{ color: "#1E8E3E", flexShrink: 0, marginTop: "2px" }} />
+                  <span><strong>One Person Company (OPC):</strong> 100% solo founder ownership with full corporate limited liability.</span>
                 </div>
               </div>
 
               <Link
                 href="/services/business-registration/private-limited-company"
-                className="btn btn-primary"
-                style={{ padding: "12px 24px" }}
+                className="btn-google-primary"
+                style={{
+                  padding: "11px 24px",
+                  fontSize: "0.92rem",
+                }}
               >
-                <span>Learn More & Check Requirements</span>
-                <ArrowRight size={16} />
+                <span>Explore Company Registration</span>
+                <ArrowRight size={15} />
               </Link>
             </div>
 
-            <div style={{ position: "relative", height: "100%", minHeight: "360px", backgroundColor: "#f8fafc" }}>
+            {/* Real Human Photography for Hub 1 */}
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "380px",
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15)",
+                border: "1px solid #DADCE0",
+              }}
+            >
               <Image
-                src="/images/founders-meeting.jpg"
-                alt="Founders reviewing company incorporation documents"
+                src="/images/startup-founders.jpg"
+                alt="Young startup founders in India working together after company registration"
                 fill
                 style={{ objectFit: "cover" }}
               />
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "16px",
+                  left: "16px",
+                  right: "16px",
+                  backgroundColor: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(6px)",
+                  padding: "10px 14px",
+                  borderRadius: "10px",
+                  fontSize: "0.80rem",
+                  fontWeight: 600,
+                  color: "#202124",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span>✓ Name Approved in 24 hrs</span>
+                <span style={{ color: "#1E8E3E" }}>Active Bank Account</span>
+              </div>
             </div>
           </div>
 
-          {/* Featured Feature Card 2: Taxation & Analytics with Image */}
+          {/* Hub 2 & Hub 3 Grid (Taxation & Startup India) */}
           <div
-            className="rzp-card"
             style={{
-              padding: "0",
-              overflow: "hidden",
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-              alignItems: "center",
+              gap: "32px",
+              marginBottom: "40px",
             }}
           >
-            <div style={{ position: "relative", height: "100%", minHeight: "360px", backgroundColor: "#f8fafc" }}>
-              <Image
-                src="/images/dashboard-analytics.jpg"
-                alt="GST compliance and corporate tax reporting dashboard"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
+            {/* Hub 2: GST & Taxes */}
+            <div
+              style={{
+                padding: "36px",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "20px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.12), 0 1px 3px 1px rgba(60,64,67,0.08)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                {/* Photo for Tax Hub */}
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "220px",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    marginBottom: "24px",
+                    border: "1px solid #DADCE0",
+                  }}
+                >
+                  <Image
+                    src="/images/dashboard-analytics.jpg"
+                    alt="GST monthly returns and tax filing dashboard"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
 
-            <div style={{ padding: "48px 40px" }}>
-              <span className="badge badge-green" style={{ marginBottom: "14px" }}>
-                Tax & Financial Advisory
-              </span>
-              <h3 style={{ fontSize: "1.9rem", color: "#0c2340", fontWeight: 800, marginBottom: "14px", lineHeight: "1.25" }}>
-                GST filing, corporate taxes, and bookkeeping without stress.
-              </h3>
-              <p style={{ color: "#515978", fontSize: "1rem", lineHeight: "1.7", marginBottom: "24px" }}>
-                Stay audit-ready and avoid hefty late fees. Our dedicated Chartered Accountants manage your monthly GST return filings (GSTR-1, GSTR-3B), Input Tax Credit (ITC) matching, advance tax estimates, and annual balance sheet preparations.
-              </p>
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "4px 11px",
+                    borderRadius: "9999px",
+                    fontSize: "0.74rem",
+                    fontWeight: 600,
+                    backgroundColor: "#E6F4EA",
+                    color: "#1E8E3E",
+                    border: "1px solid #CEEAD6",
+                    marginBottom: "12px",
+                  }}
+                >
+                  GST &amp; Corporate Taxes
+                </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "28px" }}>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#0b72e7", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Monthly GST Returns (1 & 3B)</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#0b72e7", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Input Tax Credit Reconciliation</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#0b72e7", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Annual Corporate Income Tax</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#0b72e7", flexShrink: 0, marginTop: "2px" }} />
-                  <span>TDS Quarterly Filings</span>
+                <h3 style={{ fontSize: "1.5rem", color: "#202124", fontWeight: 700, marginBottom: "10px" }}>
+                  GST registration and monthly returns on autopilot.
+                </h3>
+                <p style={{ color: "#5F6368", fontSize: "0.94rem", lineHeight: 1.6, marginBottom: "20px" }}>
+                  Get your official 15-digit GSTIN without state tax office queries. Our chartered accountants handle your monthly GSTR-1 and GSTR-3B filings, reconcile Input Tax Credit, and ensure you never pay late fees.
+                </p>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "24px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>State &amp; Central GSTIN Registration in 3–5 days</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>Automated GSTR-1, 3B &amp; Input Tax Credit Matching</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>Annual Corporate Income Tax (ITR) &amp; CA Balance Sheet Audit</span>
+                  </div>
                 </div>
               </div>
 
               <Link
                 href="/services/gst-taxation"
-                className="btn btn-secondary"
-                style={{ padding: "12px 24px" }}
+                style={{
+                  color: "#1A73E8",
+                  fontWeight: 600,
+                  fontSize: "0.94rem",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  textDecoration: "none",
+                }}
               >
-                <span>Explore Tax & GST Advisory</span>
-                <ArrowRight size={16} />
+                <span>Learn more about tax services</span>
+                <ArrowRight size={15} />
               </Link>
             </div>
-          </div>
 
-          {/* Featured Feature Card 3: Ongoing Compliance & Advisory with Image */}
-          <div
-            className="rzp-card"
-            style={{
-              padding: "0",
-              overflow: "hidden",
-              marginTop: "40px",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-              alignItems: "center",
-            }}
-          >
-            <div style={{ padding: "48px 40px" }}>
-              <span className="badge badge-purple" style={{ marginBottom: "14px" }}>
-                Secretarial & Annual Governance
-              </span>
-              <h3 style={{ fontSize: "1.9rem", color: "#0c2340", fontWeight: 800, marginBottom: "14px", lineHeight: "1.25" }}>
-                Never miss an ROC deadline, AGM, or statutory filing.
-              </h3>
-              <p style={{ color: "#515978", fontSize: "1rem", lineHeight: "1.7", marginBottom: "24px" }}>
-                Protect your company from MCA disqualification and severe director penalties. Corpunex acts as your outsourced compliance department—managing annual returns (AOC-4, MGT-7), Director KYC, Board Resolutions, and statutory registers.
-              </p>
+            {/* Hub 3: Startup India */}
+            <div
+              style={{
+                padding: "36px",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "20px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.12), 0 1px 3px 1px rgba(60,64,67,0.08)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <div>
+                {/* Photo for Startup India Hub */}
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "220px",
+                    borderRadius: "12px",
+                    overflow: "hidden",
+                    marginBottom: "24px",
+                    border: "1px solid #DADCE0",
+                  }}
+                >
+                  <Image
+                    src="/images/compliance-advisor.jpg"
+                    alt="Corpunex compliance advisor reviewing DPIIT certificate with founder"
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px", marginBottom: "28px" }}>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Annual ROC Filings (AOC-4 & MGT-7)</span>
+                <div
+                  style={{
+                    display: "inline-block",
+                    padding: "4px 11px",
+                    borderRadius: "9999px",
+                    fontSize: "0.74rem",
+                    fontWeight: 600,
+                    backgroundColor: "#FEF7E0",
+                    color: "#B06000",
+                    border: "1px solid #FEEFC3",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Government Tax Holidays &amp; Grants
                 </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Annual Director KYC Verification</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#0c2340", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Board Meeting Minutes & Resolutions</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.9rem", color: "#00b574", fontWeight: 600 }}>
-                  <CheckCircle2 size={18} style={{ color: "#00b574", flexShrink: 0, marginTop: "2px" }} />
-                  <span>Statutory Register Maintenance</span>
+
+                <h3 style={{ fontSize: "1.5rem", color: "#202124", fontWeight: 700, marginBottom: "10px" }}>
+                  Startup India recognition &amp; 3-year tax exemptions.
+                </h3>
+                <p style={{ color: "#5F6368", fontSize: "0.94rem", lineHeight: 1.6, marginBottom: "20px" }}>
+                  Get officially recognized by the Department for Promotion of Industry and Internal Trade (DPIIT). Unlock 100% corporate tax exemption for 3 consecutive years (Section 80-IAC) and an 80% discount on patent fees.
+                </p>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "24px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>Official DPIIT Recognition Certificate in 10–14 days</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>Section 80-IAC 3-Year Income Tax Holiday Application</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.88rem", color: "#3C4043" }}>
+                    <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                    <span>80% Patent &amp; 50% Trademark Government Subsidy</span>
+                  </div>
                 </div>
               </div>
 
               <Link
-                href="/services/corporate-compliance/annual-roc-compliance"
-                className="btn btn-primary"
-                style={{ padding: "12px 24px" }}
+                href="/services/startup-services/startup-india-recognition"
+                style={{
+                  color: "#1A73E8",
+                  fontWeight: 600,
+                  fontSize: "0.94rem",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  textDecoration: "none",
+                }}
               >
-                <span>Protect Your Company Today</span>
-                <ArrowRight size={16} />
+                <span>Claim Startup India benefits</span>
+                <ArrowRight size={15} />
               </Link>
             </div>
-
-            <div style={{ position: "relative", height: "100%", minHeight: "360px", backgroundColor: "#f8fafc" }}>
-              <Image
-                src="/images/compliance-advisor.jpg"
-                alt="Corporate compliance advisor and founder reviewing legal certificates"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. INTERACTIVE STATUTORY FEE CALCULATOR */}
-      <StatutoryFeeCalculator />
-
-      {/* 5. CORE SERVICES GRID (Daylight Card Grid) */}
-      <section style={{ padding: "80px 0", backgroundColor: "#f8fafc", borderTop: "1px solid #e8edf5" }}>
-        <div className="container">
-          <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 48px" }}>
-            <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
-              Full Service Catalog
-            </span>
-            <h2 style={{ fontSize: "2.2rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "12px" }}>
-              Everything your business needs in India.
-            </h2>
-            <p style={{ color: "#515978", fontSize: "1rem" }}>
-              Select a service below to review eligibility, document checklists, and consulting roadmaps.
-            </p>
           </div>
 
+          {/* Quick Hub Grid: Trademark, Annual ROC & Food Licences */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
               gap: "24px",
             }}
           >
-            {/* Service 1 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#eef4ff", display: "flex", alignItems: "center", justifyContent: "center", color: "#0b72e7" }}>
-                    <Building2 size={24} />
-                  </div>
-                  <span className="badge badge-blue">Most Popular</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  Private Limited Company
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  The gold standard for startups raising venture capital, issuing employee ESOPs, and building scalable ventures with limited liability protection.
-                </p>
+            {/* Card 1: Trademark */}
+            <div
+              style={{
+                padding: "28px",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "16px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.12)",
+              }}
+            >
+              <div
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  backgroundColor: "#FCE8E6",
+                  color: "#D93025",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "16px",
+                }}
+              >
+                <Award size={22} />
               </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>7–10 Days Turnaround</span>
-                <Link href="/services/business-registration/private-limited-company" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
+              <h4 style={{ fontSize: "1.2rem", color: "#202124", fontWeight: 700, marginBottom: "8px" }}>
+                Trademark &amp; Brand Protection
+              </h4>
+              <p style={{ color: "#5F6368", fontSize: "0.90rem", lineHeight: 1.6, marginBottom: "16px" }}>
+                Protect your brand name, logo, and tagline across all 45 NICE categories with 10-year legal ownership.
+              </p>
+              <Link
+                href="/services/trademark-ip/trademark-registration"
+                style={{ color: "#1A73E8", fontWeight: 600, fontSize: "0.88rem", display: "inline-flex", alignItems: "center", gap: "4px" }}
+              >
+                <span>Protect brand name</span>
+                <ArrowRight size={13} />
+              </Link>
             </div>
 
-            {/* Service 2 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#e6f9f2", display: "flex", alignItems: "center", justifyContent: "center", color: "#00b574" }}>
-                    <Rocket size={24} />
-                  </div>
-                  <span className="badge badge-green">Tax Benefits</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  Startup India Recognition
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  Official DPIIT recognition unlocking 3-year income tax holiday, patent fee discounts up to 80%, trademark discounts, and fast-track public tender access.
-                </p>
+            {/* Card 2: Annual ROC Compliance */}
+            <div
+              style={{
+                padding: "28px",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "16px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.12)",
+              }}
+            >
+              <div
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  backgroundColor: "#E6F4EA",
+                  color: "#1E8E3E",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "16px",
+                }}
+              >
+                <ShieldCheck size={22} />
               </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>Section 80-IAC Ready</span>
-                <Link href="/services/startup-services/startup-india-recognition" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
+              <h4 style={{ fontSize: "1.2rem", color: "#202124", fontWeight: 700, marginBottom: "8px" }}>
+                Annual ROC Governance
+              </h4>
+              <p style={{ color: "#5F6368", fontSize: "0.90rem", lineHeight: 1.6, marginBottom: "16px" }}>
+                Annual returns (AOC-4, MGT-7), Director KYC, and board resolutions to avoid ₹100/day penalties.
+              </p>
+              <Link
+                href="/services/corporate-compliance/annual-roc-compliance"
+                style={{ color: "#1A73E8", fontWeight: 600, fontSize: "0.88rem", display: "inline-flex", alignItems: "center", gap: "4px" }}
+              >
+                <span>Manage compliance</span>
+                <ArrowRight size={13} />
+              </Link>
             </div>
 
-            {/* Service 3 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#fff4e6", display: "flex", alignItems: "center", justifyContent: "center", color: "#ff8a00" }}>
-                    <Receipt size={24} />
-                  </div>
-                  <span className="badge badge-amber">Compliance</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  GST Registration & Returns
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  New GSTIN setup, jurisdiction verification, monthly return filings (GSTR-1, 3B), and input tax credit reconciliation to avoid officer scrutiny.
-                </p>
+            {/* Card 3: Food & Trade Licences */}
+            <div
+              style={{
+                padding: "28px",
+                backgroundColor: "#FFFFFF",
+                borderRadius: "16px",
+                border: "1px solid #DADCE0",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.12)",
+              }}
+            >
+              <div
+                style={{
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "12px",
+                  backgroundColor: "#E8F0FE",
+                  color: "#1A73E8",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: "16px",
+                }}
+              >
+                <FileText size={22} />
               </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>State & Central GST</span>
-                <Link href="/services/gst-taxation/gst-registration" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
+              <h4 style={{ fontSize: "1.2rem", color: "#202124", fontWeight: 700, marginBottom: "8px" }}>
+                FSSAI &amp; Operating Licences
+              </h4>
+              <p style={{ color: "#5F6368", fontSize: "0.90rem", lineHeight: 1.6, marginBottom: "16px" }}>
+                FSSAI food business licensing, Import Export Code (IEC) from DGFT, and Shop &amp; Establishment registration.
+              </p>
+              <Link
+                href="/services/licences-registrations/fssai-licence"
+                style={{ color: "#1A73E8", fontWeight: 600, fontSize: "0.88rem", display: "inline-flex", alignItems: "center", gap: "4px" }}
+              >
+                <span>Get licences</span>
+                <ArrowRight size={13} />
+              </Link>
             </div>
-
-            {/* Service 4 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#f3e8ff", display: "flex", alignItems: "center", justifyContent: "center", color: "#9333ea" }}>
-                    <Award size={24} />
-                  </div>
-                  <span className="badge" style={{ backgroundColor: "#f3e8ff", color: "#9333ea", border: "1px solid #e9d5ff" }}>Brand Protection</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  Trademark Registration
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  Comprehensive brand name search across 45 NICE classes, TM application filing, Vienna codification, and handling examination reports.
-                </p>
-              </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>10-Year Protection</span>
-                <Link href="/services/trademark-ip/trademark-registration" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 5 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#eef4ff", display: "flex", alignItems: "center", justifyContent: "center", color: "#0b72e7" }}>
-                    <FileCheck2 size={24} />
-                  </div>
-                  <span className="badge badge-blue">Mandatory ROC</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  Annual Corporate Compliance
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  Annual ROC filings (Form AOC-4, MGT-7), Director KYC (DIR-3 KYC), AGM resolutions, and maintaining statutory registers to prevent heavy daily penalties.
-                </p>
-              </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>Avoid ₹100/day fines</span>
-                <Link href="/services/corporate-compliance/annual-roc-compliance" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 6 */}
-            <div className="rzp-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "10px", backgroundColor: "#e6f9f2", display: "flex", alignItems: "center", justifyContent: "center", color: "#00b574" }}>
-                    <ShieldCheck size={24} />
-                  </div>
-                  <span className="badge badge-green">Food & Trade</span>
-                </div>
-                <h3 style={{ fontSize: "1.28rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
-                  FSSAI & Operating Licences
-                </h3>
-                <p style={{ color: "#515978", fontSize: "0.92rem", lineHeight: "1.65", marginBottom: "20px" }}>
-                  FSSAI food business registration, state & central licences for manufacturers/restaurants, Import Export Code (IEC) from DGFT, and Shop Act permits.
-                </p>
-              </div>
-              <div style={{ borderTop: "1px solid #e8edf5", paddingTop: "16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.82rem", color: "#7f8ba4" }}>Food Safety Compliance</span>
-                <Link href="/services/licences-registrations/fssai-licence" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.9rem", display: "flex", alignItems: "center", gap: "4px" }}>
-                  <span>View Details</span>
-                  <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "40px" }}>
-            <Link href="/services" className="btn btn-primary" style={{ padding: "14px 28px" }}>
-              <span>View All 9 Service Categories & Detailed Directory</span>
-              <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* 5. HOW IT WORKS: 4-STEP PROCESS (Razorpay Clean Step Workflow) */}
-      <section style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
+      {/* 4. STATUTORY FEE CALCULATOR */}
+      <StatutoryFeeCalculator />
+
+      {/* 5. HOW IT WORKS — Simple 3-Step Google Flow */}
+      <section style={{ padding: "80px 0", backgroundColor: "#FFFFFF" }}>
         <div className="container">
-          <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 56px" }}>
-            <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
-              Procedural Transparency
+          <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 52px" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "5px 14px",
+                borderRadius: "9999px",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#E8F0FE",
+                color: "#1A73E8",
+                border: "1px solid #D2E3FC",
+                marginBottom: "12px",
+              }}
+            >
+              <span>Simple 3-Step Flow</span>
             </span>
-            <h2 style={{ fontSize: "2.2rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "12px" }}>
-              How Corpunex works for you.
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.4vw, 2.6rem)",
+                color: "#202124",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                marginBottom: "12px",
+              }}
+            >
+              How Corpunex works for you
             </h2>
-            <p style={{ color: "#515978", fontSize: "1rem" }}>
-              A transparent, 4-step workflow designed to save you weeks of bureaucratic confusion.
+            <p style={{ color: "#5F6368", fontSize: "1.02rem" }}>
+              No paperwork headaches, no standing in queues. A 100% online process designed for busy founders.
             </p>
           </div>
 
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: "24px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "28px",
             }}
           >
             {[
               {
-                step: "01",
-                title: "Advisory & Structure Selection",
-                desc: "We discuss your business model, shareholder distribution, and growth plans to recommend the right entity structure.",
+                step: "1",
+                title: "Tell us about your business",
+                desc: "Fill out a simple 5-minute online questionnaire with your proposed business name and founder details. No complex legal forms.",
               },
               {
-                step: "02",
-                title: "Digital Document Collection",
-                desc: "Submit your KYC proofs and registered office documents through our secure online checklist. Zero paper hassles.",
+                step: "2",
+                title: "Your dedicated CA prepares everything",
+                desc: "Our chartered accountants and corporate advocates verify your documents, draft your MoA/AoA, and file directly with the government.",
               },
               {
-                step: "03",
-                title: "Statutory Drafting & Filing",
-                desc: "Our Chartered Accountants and legal personnel compile e-forms, acquire DSCs, and submit applications directly to government portals.",
-              },
-              {
-                step: "04",
-                title: "Official Approval Delivery",
-                desc: "Receive your verified Incorporation Certificate, PAN, TAN, and compliance calendar to start operations immediately.",
+                step: "3",
+                title: "Receive your certificate & bank account",
+                desc: "Get your official Certificate of Incorporation, PAN, TAN, and instant corporate bank account delivered straight to your email.",
               },
             ].map((st, idx) => (
               <div
                 key={idx}
-                className="rzp-card"
                 style={{
-                  padding: "32px 26px",
+                  padding: "36px 30px",
+                  borderRadius: "16px",
+                  backgroundColor: "#F8F9FA",
+                  border: "1px solid #DADCE0",
+                  display: "flex",
+                  flexDirection: "column",
                   position: "relative",
                 }}
               >
                 <div
                   style={{
-                    fontSize: "2rem",
-                    fontWeight: 900,
-                    color: "#e2edfd",
-                    lineHeight: 1,
-                    marginBottom: "16px",
-                    fontFamily: "var(--font-heading)",
+                    width: "44px",
+                    height: "44px",
+                    borderRadius: "50%",
+                    backgroundColor: "#1A73E8",
+                    color: "#FFFFFF",
+                    fontSize: "1.2rem",
+                    fontWeight: 700,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "20px",
                   }}
                 >
                   {st.step}
                 </div>
-                <h3 style={{ fontSize: "1.15rem", color: "#0c2340", fontWeight: 800, marginBottom: "8px" }}>
+
+                <h3 style={{ fontSize: "1.25rem", color: "#202124", fontWeight: 700, marginBottom: "10px" }}>
                   {st.title}
                 </h3>
-                <p style={{ color: "#515978", fontSize: "0.9rem", lineHeight: "1.65", margin: 0 }}>
+                <p style={{ color: "#5F6368", fontSize: "0.94rem", lineHeight: 1.6, margin: 0 }}>
                   {st.desc}
                 </p>
               </div>
@@ -571,187 +733,244 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. COMPARISON MATRIX: WHY DISCERNING FOUNDERS CHOOSE CORPUNEX */}
-      <section style={{ padding: "80px 0", backgroundColor: "#f8fafc", borderTop: "1px solid #e8edf5" }}>
+      {/* 6. REAL CUSTOMER STORIES (Google Enterprise Showcase) */}
+      <section style={{ padding: "80px 0", backgroundColor: "#F8F9FA", borderTop: "1px solid #DADCE0" }}>
         <div className="container">
-          <div style={{ textAlign: "center", maxWidth: "760px", margin: "0 auto 48px" }}>
-            <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
-              Commercial Standards & Accountability
+          <div style={{ textAlign: "center", maxWidth: "660px", margin: "0 auto 48px" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "5px 14px",
+                borderRadius: "9999px",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#FFFFFF",
+                color: "#1A73E8",
+                border: "1px solid #DADCE0",
+                marginBottom: "12px",
+                boxShadow: "0 1px 2px 0 rgba(60,64,67,0.15)",
+              }}
+            >
+              <span>Customer Stories</span>
             </span>
-            <h2 style={{ fontSize: "2.2rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "12px" }}>
-              Why Discerning Founders Choose Corpunex
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.4vw, 2.6rem)",
+                color: "#202124",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                marginBottom: "12px",
+              }}
+            >
+              Trusted by 10,000+ Indian Entrepreneurs
             </h2>
-            <p style={{ color: "#515978", fontSize: "1rem", lineHeight: "1.6" }}>
-              Compare our structured professional corporate advisory against unorganized local brokers and generic low-cost aggregators.
+            <p style={{ color: "#5F6368", fontSize: "1.02rem" }}>
+              See how founders like you launched and scaled with complete legal peace of mind.
             </p>
           </div>
 
           <div
             style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "16px",
-              border: "1px solid #e2e8f0",
-              boxShadow: "0 4px 20px -2px rgba(15, 23, 42, 0.05)",
-              overflowX: "auto",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "28px",
             }}
           >
-            <table
-              style={{
-                width: "100%",
-                minWidth: "760px",
-                borderCollapse: "collapse",
-                textAlign: "left",
-                fontSize: "0.92rem",
-              }}
-            >
-              <thead>
-                <tr style={{ borderBottom: "1px solid #e2e8f0", backgroundColor: "#fafcff" }}>
-                  <th style={{ padding: "20px 24px", color: "#0c2340", fontWeight: 700, width: "28%" }}>
-                    Standard of Service
-                  </th>
-                  <th
+            {[
+              {
+                quote:
+                  "Corpunex got our Private Limited incorporated in just 7 days with zero back-and-forth. The itemized government challan receipts gave our angel investors complete confidence.",
+                author: "Rohit Verma",
+                role: "Co-Founder & CEO",
+                company: "Kronos Tech (Delhi)",
+                achievement: "Incorporated in 7 Days",
+              },
+              {
+                quote:
+                  "Securing Startup India recognition and the Section 80-IAC 3-year tax exemption saved us lakhs. Their CAs understood our tech business model and drafted our application seamlessly.",
+                author: "Ananya Patnaik",
+                role: "Founder",
+                company: "BioVeda Health (Odisha)",
+                achievement: "Saved ₹1.8L on Patent Fees",
+              },
+              {
+                quote:
+                  "Our monthly GST returns (GSTR-1, 3B) and annual ROC compliance are completely automated now. We never worry about government notices or late penalty fees anymore.",
+                author: "Siddharth Rao",
+                role: "Managing Director",
+                company: "Strata Labs (Bengaluru)",
+                achievement: "Zero Default for 3 Years",
+              },
+            ].map((t, idx) => (
+              <div
+                key={idx}
+                style={{
+                  padding: "32px",
+                  borderRadius: "16px",
+                  backgroundColor: "#FFFFFF",
+                  border: "1px solid #DADCE0",
+                  boxShadow: "0 1px 3px 0 rgba(60,64,67,0.15)",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div>
+                  <div style={{ display: "flex", color: "#F9AB00", gap: "2px", marginBottom: "14px" }}>
+                    <Star size={16} fill="#F9AB00" stroke="#F9AB00" />
+                    <Star size={16} fill="#F9AB00" stroke="#F9AB00" />
+                    <Star size={16} fill="#F9AB00" stroke="#F9AB00" />
+                    <Star size={16} fill="#F9AB00" stroke="#F9AB00" />
+                    <Star size={16} fill="#F9AB00" stroke="#F9AB00" />
+                  </div>
+                  <p
                     style={{
-                      padding: "20px 24px",
-                      color: "#0066f5",
-                      fontWeight: 800,
-                      width: "32%",
-                      backgroundColor: "#f0f6ff",
-                      borderLeft: "2px solid #0066f5",
-                      borderRight: "2px solid #0066f5",
+                      color: "#3C4043",
+                      fontSize: "0.96rem",
+                      lineHeight: 1.65,
+                      marginBottom: "20px",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                      <ShieldCheck size={20} style={{ color: "#0066f5" }} />
-                      <span>Corpunex Advisory</span>
-                    </div>
-                  </th>
-                  <th style={{ padding: "20px 24px", color: "#64748b", fontWeight: 600, width: "20%" }}>
-                    Offline Local Brokers
-                  </th>
-                  <th style={{ padding: "20px 24px", color: "#64748b", fontWeight: 600, width: "20%" }}>
-                    Generic Portals
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    feature: "Statutory Fee Transparency",
-                    cx: "100% itemized MCA/GST challans provided directly. Zero hidden markup on govt fees.",
-                    offline: "Opaque lump sum pricing with surprise demands later for state stamp duty.",
-                    portals: "Misleading 'Free' claims hiding mandatory recurring monthly retainers.",
-                  },
-                  {
-                    feature: "Professional Expertise",
-                    cx: "Directly handled by qualified CAs, CSs & corporate advocates with verified credentials.",
-                    offline: "Unvetted freelance runners without legal drafting competence.",
-                    portals: "Call center telemarketers reading generic scripts without legal qualification.",
-                  },
-                  {
-                    feature: "MoA & AoA Customization",
-                    cx: "Tailored object clauses, cap table structuring, ESOP reservations, and founder protections.",
-                    offline: "Outdated xerox templates prone to MCA ROC rejection queries.",
-                    portals: "Rigid automated generic form generator unsuitable for VC due diligence.",
-                  },
-                  {
-                    feature: "Post-Incorporation Onboarding",
-                    cx: "Complete 30-day compliance checklist: ADT-1, INC-20A, Board Resolutions & bank setup.",
-                    offline: "Complete abandonment once the Certificate of Incorporation is handed over.",
-                    portals: "Aggressive automated marketing calls demanding expensive add-on subscriptions.",
-                  },
-                  {
-                    feature: "Data Privacy & KYC Security",
-                    cx: "Confidential document vault under strict non-disclosure; zero data monetization.",
-                    offline: "Physical PAN & Aadhaar copies left insecurely at commercial print shops.",
-                    portals: "Founder phone numbers frequently shared with unsolicited third-party lenders.",
-                  },
-                ].map((row, idx) => (
-                  <tr
-                    key={idx}
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div style={{ borderTop: "1px solid #F1F3F4", paddingTop: "16px" }}>
+                  <div style={{ fontWeight: 700, color: "#202124", fontSize: "0.96rem" }}>{t.author}</div>
+                  <div style={{ fontSize: "0.82rem", color: "#5F6368", marginTop: "2px" }}>
+                    {t.role} • <strong>{t.company}</strong>
+                  </div>
+                  <div
                     style={{
-                      borderBottom: idx < 4 ? "1px solid #f1f5f9" : "none",
-                      backgroundColor: idx % 2 === 0 ? "#ffffff" : "#fbfdff",
+                      marginTop: "8px",
+                      display: "inline-block",
+                      fontSize: "0.72rem",
+                      fontWeight: 600,
+                      color: "#1E8E3E",
+                      backgroundColor: "#E6F4EA",
+                      padding: "2px 8px",
+                      borderRadius: "9999px",
                     }}
                   >
-                    <td style={{ padding: "18px 24px", color: "#0c2340", fontWeight: 600 }}>
-                      {row.feature}
-                    </td>
-                    <td
-                      style={{
-                        padding: "18px 24px",
-                        color: "#0f172a",
-                        fontWeight: 600,
-                        backgroundColor: "#f4f8ff",
-                        borderLeft: "2px solid #0066f5",
-                        borderRight: "2px solid #0066f5",
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      <div style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
-                        <CheckCircle2 size={16} style={{ color: "#059669", flexShrink: 0, marginTop: "3px" }} />
-                        <span>{row.cx}</span>
-                      </div>
-                    </td>
-                    <td style={{ padding: "18px 24px", color: "#64748b", lineHeight: 1.5 }}>
-                      {row.offline}
-                    </td>
-                    <td style={{ padding: "18px 24px", color: "#64748b", lineHeight: 1.5 }}>
-                      {row.portals}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    ✓ {t.achievement}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 7. FAQ SECTION */}
-      <section style={{ padding: "80px 0", backgroundColor: "#ffffff", borderTop: "1px solid #e8edf5" }}>
+      {/* 7. FAQ ACCORDION SECTION */}
+      <section style={{ padding: "80px 0", backgroundColor: "#FFFFFF", borderTop: "1px solid #DADCE0" }}>
         <div className="container" style={{ maxWidth: "860px" }}>
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
-            <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
-              Got Questions?
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "5px 14px",
+                borderRadius: "9999px",
+                fontSize: "0.78rem",
+                fontWeight: 600,
+                backgroundColor: "#E8F0FE",
+                color: "#1A73E8",
+                border: "1px solid #D2E3FC",
+                marginBottom: "12px",
+              }}
+            >
+              <span>Common Questions</span>
             </span>
-            <h2 style={{ fontSize: "2.2rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "12px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(2rem, 3.4vw, 2.6rem)",
+                color: "#202124",
+                fontWeight: 700,
+                letterSpacing: "-0.025em",
+                marginBottom: "12px",
+              }}
+            >
               Frequently Asked Questions
             </h2>
-            <p style={{ color: "#515978", fontSize: "1rem" }}>
-              Clear answers to the most common questions entrepreneurs ask about registrations in India.
+            <p style={{ color: "#5F6368", fontSize: "1.02rem" }}>
+              Quick, honest answers to the questions founders ask us every day.
             </p>
           </div>
 
           <FAQAccordion items={homeFaqs} defaultOpenIndex={0} />
 
           <div style={{ textAlign: "center", marginTop: "36px" }}>
-            <Link href="/faq" style={{ color: "#0b72e7", fontWeight: 700, fontSize: "0.95rem", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <span>View All 30+ Frequently Asked Questions</span>
-              <ArrowRight size={16} />
+            <Link
+              href="/faq"
+              style={{
+                color: "#1A73E8",
+                fontWeight: 600,
+                fontSize: "0.94rem",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                textDecoration: "none",
+              }}
+            >
+              <span>View all 30+ frequently asked questions</span>
+              <ArrowRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 7. HIGH-CONVERTING CONSULTATION FORM SECTION */}
-      <section style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
+      {/* 8. GOOGLE-STYLE FINAL CONVERSION SECTION */}
+      <section
+        style={{
+          padding: "80px 0",
+          backgroundColor: "#F8F9FA",
+          borderTop: "1px solid #DADCE0",
+        }}
+      >
         <div className="container" style={{ maxWidth: "880px" }}>
           <div
-            className="rzp-card"
             style={{
-              padding: "48px 44px",
-              boxShadow: "0 16px 40px -10px rgba(11, 114, 231, 0.14)",
-              border: "1px solid #d0e2ff",
+              padding: "48px 40px",
+              borderRadius: "20px",
+              border: "1px solid #DADCE0",
+              boxShadow: "0 1px 3px 0 rgba(60,64,67,0.30), 0 4px 8px 3px rgba(60,64,67,0.15)",
+              backgroundColor: "#FFFFFF",
             }}
           >
-            <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 36px" }}>
-              <span className="badge badge-blue" style={{ marginBottom: "12px" }}>
-                Direct Consultation
+            <div style={{ textAlign: "center", maxWidth: "620px", margin: "0 auto 36px" }}>
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "5px 14px",
+                  borderRadius: "9999px",
+                  fontSize: "0.78rem",
+                  fontWeight: 600,
+                  backgroundColor: "#E8F0FE",
+                  color: "#1A73E8",
+                  border: "1px solid #D2E3FC",
+                  marginBottom: "14px",
+                }}
+              >
+                <span>Free Initial Advisory</span>
               </span>
-              <h2 style={{ fontSize: "2.1rem", color: "#0c2340", fontWeight: 800, letterSpacing: "-0.02em", marginBottom: "10px" }}>
-                Request an Itemized Quotation
+              <h2
+                style={{
+                  fontSize: "clamp(2rem, 3.4vw, 2.5rem)",
+                  color: "#202124",
+                  fontWeight: 700,
+                  letterSpacing: "-0.025em",
+                  marginBottom: "12px",
+                }}
+              >
+                Ready to launch your business in India?
               </h2>
-              <p style={{ color: "#515978", fontSize: "0.98rem", margin: 0 }}>
-                Speak with our business consulting desk. We will review your requirements and provide a clear timeline and cost estimate within 24 business hours.
+              <p style={{ color: "#5F6368", fontSize: "1rem", margin: 0, lineHeight: 1.6 }}>
+                Speak directly with our senior corporate advisory desk. We review your requirements and provide an itemized government fee breakdown and timeline within 24 business hours.
               </p>
             </div>
 

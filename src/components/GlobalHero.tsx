@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -8,116 +9,47 @@ import {
   CheckCircle2,
   Building2,
   Rocket,
-  Scale,
   Receipt,
-  Sparkles,
-  ChevronRight,
-  Clock,
-  FileCheck,
   Award,
-  Zap,
+  Calculator,
+  Search,
+  Star,
+  Users,
+  Check,
+  FileCheck,
+  Sparkles,
 } from "lucide-react";
 import ConsultationModal from "./ConsultationModal";
 
-interface EntityTab {
-  id: "pvt-ltd" | "startup-india" | "llp" | "gst";
-  label: string;
-  badge: string;
-  entityName: string;
-  regDetails: string;
-  statusBadge: string;
-  turnaround: string;
-  receiptStatus: string;
-  deliverables: { text: string; tag: string }[];
-  targetHref: string;
-  ctaText: string;
-}
-
 export default function GlobalHero() {
-  const [activeTabId, setActiveTabId] = useState<EntityTab["id"]>("pvt-ltd");
   const [consultModalOpen, setConsultModalOpen] = useState(false);
-  const [quickInput, setQuickInput] = useState("");
+  const [selectedService, setSelectedService] = useState("Private Limited Company Registration");
+  const [searchIntent, setSearchIntent] = useState("");
 
-  const tabs: Record<EntityTab["id"], EntityTab> = {
-    "pvt-ltd": {
-      id: "pvt-ltd",
-      label: "Private Limited",
-      badge: "SPICe+ Fast-Track",
-      entityName: "KRONOS TECHNOLOGIES PVT. LTD.",
-      regDetails: "CIN: U72900DL2024PTC39281 • ROC Delhi",
-      statusBadge: "MCA SPICe+ Certified",
-      turnaround: "6–8 Business Days",
-      receiptStatus: "100% Itemized Govt Receipt",
-      deliverables: [
-        { text: "Company Name Reservation (RUN Portal)", tag: "Approved" },
-        { text: "Class-3 Digital Signatures (DSC) for all Directors", tag: "Issued" },
-        { text: "MoA & AoA Drafting with SPICe+ Part A & B Filing", tag: "CA Verified" },
-        { text: "PAN, TAN, EPFO, ESIC & Corporate Bank Account", tag: "Activated" },
-      ],
-      targetHref: "/services/business-registration/private-limited-company",
-      ctaText: "Incorporate Private Limited →",
-    },
-    "startup-india": {
-      id: "startup-india",
-      label: "Startup India (DPIIT)",
-      badge: "Govt Certified",
-      entityName: "DPIIT FLAGSHIP RECOGNITION",
-      regDetails: "Dept for Promotion of Industry and Internal Trade",
-      statusBadge: "Official DPIIT Certified",
-      turnaround: "10–14 Business Days",
-      receiptStatus: "Official Govt Certificate",
-      deliverables: [
-        { text: "3-Year 100% Corporate Income Tax Holiday (Sec 80-IAC)", tag: "Eligible" },
-        { text: "80% Patent & 50% Trademark Official Govt Fee Subsidy", tag: "Activated" },
-        { text: "Self-Certification Compliance under 9 Labour & Env Laws", tag: "Compliant" },
-        { text: "Fast-Track Public Procurement & EMD Exemption", tag: "Enabled" },
-      ],
-      targetHref: "/services/startup-services/startup-india-recognition",
-      ctaText: "Get Startup India Recognition →",
-    },
-    llp: {
-      id: "llp",
-      label: "LLP Registration",
-      badge: "Limited Liability",
-      entityName: "STRATA ADVISORY LLP",
-      regDetails: "LLPIN: ABC-1234 • Ministry of Corporate Affairs",
-      statusBadge: "MCA FiLLiP Approved",
-      turnaround: "7–9 Business Days",
-      receiptStatus: "100% Itemized Govt Receipt",
-      deliverables: [
-        { text: "FiLLiP Electronic Filing & Designated Partner DPIN", tag: "Approved" },
-        { text: "Customized Legal LLP Agreement Drafting", tag: "Advocate Signed" },
-        { text: "Form 3 MCA Stamp Duty Filing & Portal Verification", tag: "Verified" },
-        { text: "PAN & Official Corporate Bank Account Opening", tag: "Ready" },
-      ],
-      targetHref: "/services/business-registration/llp-registration",
-      ctaText: "Register Your LLP →",
-    },
-    gst: {
-      id: "gst",
-      label: "GST & Compliance",
-      badge: "Zero Default",
-      entityName: "STATUTORY CORPORATE COMPLIANCE",
-      regDetails: "GSTN Portal • Ministry of Corporate Affairs",
-      statusBadge: "Active Zero-Default",
-      turnaround: "Continuous Filing",
-      receiptStatus: "Official ARN & Challans",
-      deliverables: [
-        { text: "State-wise GSTIN Registration & Portal Authentication", tag: "Active" },
-        { text: "Monthly GSTR-1, 3B & Input Tax Credit (ITC) Reconciliation", tag: "Automated" },
-        { text: "Annual ROC Filings (Form AOC-4, MGT-7) & Director KYC", tag: "Up to Date" },
-        { text: "Statutory Financial Balance Sheet CA Tax Audit", tag: "CA Certified" },
-      ],
-      targetHref: "/services/gst-taxation/gst-registration",
-      ctaText: "Manage GST & Compliance →",
-    },
+  const popularSearches = [
+    { label: "Private Limited Company", service: "Private Limited Company Setup", icon: Building2 },
+    { label: "GST Registration & Returns", service: "GST Registration & Filing", icon: Receipt },
+    { label: "Startup India 80-IAC Tax Exemption", service: "Startup India Recognition", icon: Rocket },
+    { label: "Trademark Brand Name", service: "Trademark Registration", icon: Award },
+    { label: "Calculate State Govt Fees", href: "#calculator", icon: Calculator },
+  ];
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchIntent.trim()) {
+      setSelectedService(`Consultation for: ${searchIntent}`);
+    }
+    setConsultModalOpen(true);
   };
 
-  const current = tabs[activeTabId];
-
-  const handleQuickSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setConsultModalOpen(true);
+  const handleQuickSelect = (item: (typeof popularSearches)[0]) => {
+    if (item.href) {
+      const el = document.querySelector(item.href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else if (item.service) {
+      setSelectedService(item.service);
+      setConsultModalOpen(true);
+    }
   };
 
   return (
@@ -125,44 +57,12 @@ export default function GlobalHero() {
       <section
         style={{
           position: "relative",
-          backgroundColor: "#ffffff",
-          padding: "58px 0 48px",
-          borderBottom: "1px solid #edf2f7",
+          backgroundColor: "#FFFFFF",
+          padding: "56px 0 68px",
+          borderBottom: "1px solid #DADCE0",
           overflow: "hidden",
         }}
       >
-        {/* Subtle Ambient Radial Lighting (Pure daylight, zero grid lines) */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-120px",
-            right: "0",
-            width: "650px",
-            height: "650px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(0, 102, 245, 0.06) 0%, rgba(56, 189, 248, 0.03) 50%, transparent 70%)",
-            filter: "blur(60px)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-          aria-hidden="true"
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-150px",
-            left: "-80px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 65%)",
-            filter: "blur(50px)",
-            pointerEvents: "none",
-            zIndex: 0,
-          }}
-          aria-hidden="true"
-        />
-
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
@@ -172,395 +72,515 @@ export default function GlobalHero() {
               alignItems: "center",
             }}
           >
-            {/* Left Column: World-Class Corporate Copy */}
+            {/* Left Column: Clean Google-Style Typography & Intent */}
             <div>
-              {/* Prestigious Tag */}
+              {/* Google Pill Announcement */}
               <div
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: "7px",
-                  padding: "4px 12px",
-                  backgroundColor: "#eff6ff",
-                  border: "1px solid #dbeafe",
-                  borderRadius: "9999px",
-                  fontSize: "0.78rem",
-                  fontWeight: 600,
-                  color: "#0066f5",
-                  marginBottom: "18px",
-                }}
-              >
-                <ShieldCheck size={14} style={{ color: "#0066f5" }} />
-                <span>MCA SPICe+ Integrated • Certified Corporate Advisory</span>
-              </div>
-
-              {/* Authoritative Global Headline */}
-              <h1
-                style={{
-                  fontSize: "clamp(2.3rem, 4vw, 3.5rem)",
-                  lineHeight: "1.14",
-                  fontWeight: 800,
-                  letterSpacing: "-0.035em",
-                  color: "#0c2340",
-                  marginBottom: "18px",
-                }}
-              >
-                The corporate platform for{" "}
-                <span style={{ color: "#0066f5" }}>ambitious companies.</span>
-              </h1>
-
-              {/* High-Clarity Value Proposition */}
-              <p
-                style={{
-                  fontSize: "1.06rem",
-                  color: "#475569",
-                  lineHeight: "1.65",
-                  marginBottom: "26px",
-                  fontWeight: 400,
-                  maxWidth: "530px",
-                }}
-              >
-                Corpunex unifies company incorporation, Startup India DPIIT recognition, GST taxation, and statutory ROC filings into one transparent platform. Backed by certified corporate advocates and CAs with 100% itemized government receipts.
-              </p>
-
-              {/* Quick Start Input Bar (Stripe / Mercury Global Standard) */}
-              <form
-                onSubmit={handleQuickSubmit}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
                   gap: "8px",
-                  maxWidth: "490px",
-                  backgroundColor: "#ffffff",
-                  padding: "5px 6px 5px 14px",
-                  borderRadius: "8px",
-                  border: "1px solid #cbd5e1",
-                  boxShadow: "0 2px 8px rgba(12, 35, 64, 0.05)",
+                  padding: "5px 14px",
+                  backgroundColor: "#E8F0FE",
+                  border: "1px solid #D2E3FC",
+                  borderRadius: "9999px",
+                  fontSize: "0.80rem",
+                  fontWeight: 500,
+                  color: "#1A73E8",
                   marginBottom: "20px",
-                  transition: "border-color 0.15s ease",
                 }}
               >
-                <input
-                  type="text"
-                  placeholder="Enter proposed company name or work email..."
-                  value={quickInput}
-                  onChange={(e) => setQuickInput(e.target.value)}
+                <span
                   style={{
-                    flex: 1,
-                    border: "none",
-                    outline: "none",
-                    fontSize: "0.88rem",
-                    color: "#0c2340",
-                    backgroundColor: "transparent",
-                  }}
-                  aria-label="Proposed company name or work email"
-                />
-                <button
-                  type="submit"
-                  className="btn-electric-blue"
-                  style={{
-                    padding: "9px 18px",
-                    fontSize: "0.86rem",
-                    fontWeight: 600,
-                    borderRadius: "6px",
-                    whiteSpace: "nowrap",
+                    backgroundColor: "#1A73E8",
+                    color: "#FFFFFF",
+                    fontSize: "0.68rem",
+                    fontWeight: 700,
+                    padding: "2px 7px",
+                    borderRadius: "9999px",
                   }}
                 >
-                  <span>Start Now</span>
-                  <ArrowRight size={14} />
-                </button>
-              </form>
+                  NEW
+                </span>
+                <span>Fast-track 6-day SPICe+ MCA company incorporation</span>
+                <ArrowRight size={13} />
+              </div>
 
-              {/* Trust Checkmarks: Crisp Single Line */}
+              {/* Headline — Google Sans Inspired, Crisp & Authoritative */}
+              <h1
+                style={{
+                  fontSize: "clamp(2.4rem, 4.4vw, 3.6rem)",
+                  lineHeight: "1.16",
+                  fontWeight: 700,
+                  letterSpacing: "-0.025em",
+                  color: "#202124",
+                  marginBottom: "18px",
+                }}
+              >
+                Start, protect, and grow your company in India.
+              </h1>
+
+              {/* Subheadline — Written with Google Clarity */}
+              <p
+                style={{
+                  fontSize: "1.08rem",
+                  color: "#5F6368",
+                  lineHeight: "1.65",
+                  marginBottom: "28px",
+                  maxWidth: "540px",
+                }}
+              >
+                The unified platform for company incorporation, GST filings, and Startup India 80-IAC tax exemptions. Complete government fee transparency, dedicated Chartered Accountants, and zero paperwork confusion.
+              </p>
+
+              {/* Action Buttons: Google Blue Pill + Outlined Pill */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "14px",
                   flexWrap: "wrap",
-                  fontSize: "0.82rem",
-                  color: "#475569",
-                  fontWeight: 500,
-                  marginBottom: "20px",
+                  marginBottom: "32px",
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <CheckCircle2 size={15} style={{ color: "#0066f5" }} />
-                  <span>6–8 Days Fast-Track</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedService("Private Limited Company Registration");
+                    setConsultModalOpen(true);
+                  }}
+                  className="btn-google-primary"
+                  style={{
+                    padding: "13px 28px",
+                    fontSize: "0.98rem",
+                  }}
+                >
+                  <span>Start Registration Free</span>
+                  <ArrowRight size={16} />
+                </button>
+
+                <a
+                  href="#calculator"
+                  className="btn-google-secondary"
+                  style={{
+                    padding: "12px 24px",
+                    fontSize: "0.98rem",
+                  }}
+                >
+                  <Calculator size={16} style={{ color: "#1A73E8" }} />
+                  <span>Calculate State Govt Fees</span>
+                </a>
+              </div>
+
+              {/* Google Omnibar Search: What are you looking to do? */}
+              <div
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  border: "1px solid #DADCE0",
+                  borderRadius: "20px",
+                  padding: "16px 18px",
+                  boxShadow: "0 1px 6px rgba(32,33,36,0.14)",
+                  maxWidth: "540px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "0.74rem",
+                    fontWeight: 600,
+                    color: "#5F6368",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    marginBottom: "10px",
+                  }}
+                >
+                  What would you like to do today?
                 </div>
-                <span style={{ color: "#cbd5e1" }}>•</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <CheckCircle2 size={15} style={{ color: "#0066f5" }} />
-                  <span>100% Itemized Govt Receipts</span>
-                </div>
-                <span style={{ color: "#cbd5e1" }}>•</span>
-                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <CheckCircle2 size={15} style={{ color: "#0066f5" }} />
-                  <span>Dedicated CA & Legal Advisor</span>
+
+                <form
+                  onSubmit={handleSearchSubmit}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    backgroundColor: "#F8F9FA",
+                    border: "1px solid #DADCE0",
+                    borderRadius: "9999px",
+                    padding: "6px 8px 6px 16px",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <Search size={16} style={{ color: "#5F6368", flexShrink: 0 }} />
+                  <input
+                    type="text"
+                    placeholder="e.g. Register a Private Limited, get GST number, file trademark..."
+                    value={searchIntent}
+                    onChange={(e) => setSearchIntent(e.target.value)}
+                    style={{
+                      flex: 1,
+                      border: "none",
+                      outline: "none",
+                      fontSize: "0.88rem",
+                      color: "#202124",
+                      backgroundColor: "transparent",
+                    }}
+                    aria-label="Search what you want to do"
+                  />
+                  <button
+                    type="submit"
+                    className="btn-google-primary"
+                    style={{
+                      padding: "6px 16px",
+                      fontSize: "0.82rem",
+                    }}
+                  >
+                    Search
+                  </button>
+                </form>
+
+                {/* Popular Google-Style Filter Pills */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                  {popularSearches.map((item, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => handleQuickSelect(item)}
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        fontSize: "0.76rem",
+                        fontWeight: 500,
+                        color: "#3C4043",
+                        backgroundColor: "#FFFFFF",
+                        border: "1px solid #DADCE0",
+                        padding: "5px 11px",
+                        borderRadius: "9999px",
+                        cursor: "pointer",
+                        transition: "all 0.15s ease",
+                      }}
+                      className="hover-google-chip"
+                    >
+                      <item.icon size={12} style={{ color: "#1A73E8" }} />
+                      <span>{item.label}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
 
-              {/* Social Proof Strip */}
+              {/* Three Google Green Checkmarks */}
               <div
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   alignItems: "center",
-                  gap: "10px",
-                  padding: "6px 12px",
-                  backgroundColor: "#f8fafc",
-                  borderRadius: "6px",
-                  border: "1px solid #e2e8f0",
-                  fontSize: "0.8rem",
+                  gap: "18px",
+                  flexWrap: "wrap",
+                  fontSize: "0.84rem",
+                  color: "#3C4043",
+                  fontWeight: 500,
+                  marginTop: "24px",
                 }}
               >
-                <span style={{ color: "#f59e0b" }}>★★★★★</span>
-                <span style={{ fontWeight: 700, color: "#0c2340" }}>4.9/5 Rating</span>
-                <span style={{ color: "#64748b" }}>from 1,200+ founders across India</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                  <span>100% Online &amp; Paperless</span>
+                </div>
+                <span>•</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                  <span>Official Government Receipts</span>
+                </div>
+                <span>•</span>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  <CheckCircle2 size={16} style={{ color: "#1E8E3E" }} />
+                  <span>Dedicated CA &amp; Legal Advisor</span>
+                </div>
               </div>
             </div>
 
-            {/* Right Column: Global-Standard Interactive Corporate Cockpit */}
+            {/* Right Column: Google Cloud Console Style Live Tracker + Founder Photo */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
               <div
                 style={{
                   position: "relative",
                   width: "100%",
-                  maxWidth: "480px",
-                  borderRadius: "14px",
-                  backgroundColor: "#ffffff",
-                  boxShadow: "0 20px 45px -10px rgba(12, 35, 64, 0.09), 0 0 0 1px #e2edfd",
-                  overflow: "hidden",
+                  maxWidth: "520px",
                 }}
               >
-                {/* Cockpit Top Segmented Controller */}
+                {/* Main Interactive Google Console Card */}
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(4, 1fr)",
-                    backgroundColor: "#f8faff",
-                    borderBottom: "1px solid #e8edf5",
-                    padding: "6px",
-                    gap: "4px",
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: "16px",
+                    border: "1px solid #DADCE0",
+                    boxShadow: "0 4px 20px 0 rgba(60,64,67,0.15)",
+                    overflow: "hidden",
                   }}
-                  role="tablist"
-                  aria-label="Corporate Service Selector"
                 >
-                  {(Object.keys(tabs) as EntityTab["id"][]).map((tabId) => {
-                    const tab = tabs[tabId];
-                    const isActive = activeTabId === tabId;
-                    return (
-                      <button
-                        key={tabId}
-                        role="tab"
-                        aria-selected={isActive}
-                        onClick={() => setActiveTabId(tabId)}
-                        style={{
-                          padding: "7px 6px",
-                          fontSize: "0.76rem",
-                          fontWeight: isActive ? 700 : 500,
-                          color: isActive ? "#0066f5" : "#64748b",
-                          backgroundColor: isActive ? "#ffffff" : "transparent",
-                          border: isActive ? "1px solid #dbeafe" : "1px solid transparent",
-                          borderRadius: "6px",
-                          boxShadow: isActive ? "0 1px 3px rgba(0, 102, 245, 0.08)" : "none",
-                          cursor: "pointer",
-                          transition: "all 0.15s ease",
-                          whiteSpace: "nowrap",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                        }}
-                      >
-                        {tab.label}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Cockpit Body */}
-                <div style={{ padding: "20px 22px" }}>
-                  {/* Entity Header Banner */}
+                  {/* Console Header Bar */}
                   <div
                     style={{
+                      backgroundColor: "#F8F9FA",
+                      borderBottom: "1px solid #DADCE0",
+                      padding: "12px 18px",
                       display: "flex",
+                      alignItems: "center",
                       justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      marginBottom: "14px",
                     }}
                   >
-                    <div>
-                      <div
-                        style={{
-                          fontSize: "0.96rem",
-                          fontWeight: 800,
-                          color: "#0c2340",
-                          letterSpacing: "-0.01em",
-                        }}
-                      >
-                        {current.entityName}
-                      </div>
-                      <div style={{ fontSize: "0.75rem", color: "#64748b", marginTop: "2px" }}>
-                        {current.regDetails}
-                      </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#EA4335" }} />
+                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#FBBC05" }} />
+                      <span style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: "#34A853" }} />
+                      <span style={{ fontSize: "0.76rem", color: "#5F6368", fontWeight: 500, marginLeft: "6px" }}>
+                        Corpunex Cloud • Corporate Governance Workspace
+                      </span>
                     </div>
                     <span
                       style={{
-                        fontSize: "0.72rem",
-                        color: "#059669",
+                        backgroundColor: "#E6F4EA",
+                        color: "#1E8E3E",
+                        fontSize: "0.70rem",
                         fontWeight: 600,
-                        backgroundColor: "#ecfdf5",
-                        border: "1px solid #a7f3d0",
-                        padding: "3px 9px",
+                        padding: "2px 8px",
                         borderRadius: "9999px",
-                        whiteSpace: "nowrap",
                       }}
                     >
-                      {current.statusBadge}
+                      ● Live Sync
                     </span>
                   </div>
 
-                  {/* Clean Deliverables Pipeline */}
-                  <div
-                    style={{
-                      borderTop: "1px solid #f1f5f9",
-                      paddingTop: "12px",
-                      marginBottom: "16px",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "9px",
-                    }}
-                  >
-                    {current.deliverables.map((item, idx) => (
-                      <div
-                        key={idx}
+                  {/* Active Company Status Header */}
+                  <div style={{ padding: "20px 22px 16px", borderBottom: "1px solid #F1F3F4" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "6px" }}>
+                      <div>
+                        <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "#202124" }}>
+                          Nexus Health Technologies Pvt. Ltd.
+                        </div>
+                        <div style={{ fontSize: "0.78rem", color: "#5F6368" }}>
+                          CIN: U72200DL2024PTC389201 • RoC Delhi
+                        </div>
+                      </div>
+                      <span
                         style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          fontSize: "0.82rem",
-                          gap: "8px",
+                          backgroundColor: "#E8F0FE",
+                          color: "#1A73E8",
+                          fontWeight: 600,
+                          fontSize: "0.75rem",
+                          padding: "4px 10px",
+                          borderRadius: "9999px",
                         }}
                       >
-                        <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#1e293b" }}>
-                          <CheckCircle2 size={15} style={{ color: "#0066f5", flexShrink: 0 }} />
-                          <span style={{ lineHeight: 1.3 }}>{item.text}</span>
-                        </div>
-                        <span
+                        SPICe+ Certified
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Live 4-Step Pipeline Tracker */}
+                  <div style={{ padding: "18px 22px" }}>
+                    <div
+                      style={{
+                        fontSize: "0.74rem",
+                        fontWeight: 600,
+                        color: "#5F6368",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.05em",
+                        marginBottom: "14px",
+                      }}
+                    >
+                      Incorporation Milestones
+                    </div>
+
+                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      {[
+                        { step: "RUN Name Reservation", status: "Approved by MCA", done: true, time: "Day 1" },
+                        { step: "Class-3 DSC & DIN Issuance", status: "2 Directors Registered", done: true, time: "Day 2" },
+                        { step: "SPICe+ Incorporation Form", status: "Approved with MoA & AoA", done: true, time: "Day 5" },
+                        { step: "PAN, TAN & Corporate Bank Account", status: "Delivered & Active", done: true, time: "Day 6" },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
                           style={{
-                            fontSize: "0.72rem",
-                            color: "#059669",
-                            fontWeight: 600,
-                            backgroundColor: "#f0fdf4",
-                            padding: "2px 7px",
-                            borderRadius: "4px",
-                            flexShrink: 0,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            padding: "8px 12px",
+                            backgroundColor: "#F8F9FA",
+                            borderRadius: "8px",
+                            border: "1px solid #E8EAED",
                           }}
                         >
-                          {item.tag}
-                        </span>
-                      </div>
-                    ))}
+                          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            <div
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                borderRadius: "50%",
+                                backgroundColor: "#1E8E3E",
+                                color: "#FFFFFF",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                flexShrink: 0,
+                              }}
+                            >
+                              <Check size={12} strokeWidth={3} />
+                            </div>
+                            <div>
+                              <div style={{ fontSize: "0.82rem", fontWeight: 600, color: "#202124" }}>
+                                {item.step}
+                              </div>
+                              <div style={{ fontSize: "0.70rem", color: "#5F6368" }}>
+                                {item.status}
+                              </div>
+                            </div>
+                          </div>
+                          <span style={{ fontSize: "0.72rem", color: "#1A73E8", fontWeight: 600 }}>
+                            {item.time}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Fee & Timeline Transparency Row */}
+                  {/* Real Founder Photo Banner at the bottom of the card */}
                   <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr 1fr",
-                      gap: "10px",
-                      padding: "10px 14px",
-                      backgroundColor: "#f8fafc",
-                      borderRadius: "8px",
-                      border: "1px solid #edf2f7",
-                      marginBottom: "16px",
+                      position: "relative",
+                      height: "140px",
+                      borderTop: "1px solid #DADCE0",
+                      overflow: "hidden",
                     }}
                   >
-                    <div>
-                      <div style={{ fontSize: "0.68rem", color: "#64748b", fontWeight: 600, textTransform: "uppercase" }}>
-                        Typical Turnaround
+                    <Image
+                      src="/images/founders-meeting.jpg"
+                      alt="Indian founders meeting and celebrating company registration"
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "linear-gradient(180deg, rgba(32,33,36,0.2) 0%, rgba(32,33,36,0.75) 100%)",
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "10px",
+                        left: "14px",
+                        right: "14px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        color: "#FFFFFF",
+                      }}
+                    >
+                      <div style={{ fontSize: "0.78rem", fontWeight: 600 }}>
+                        Real Founders • Real MCA Registrations
                       </div>
-                      <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#0c2340", marginTop: "1px" }}>
-                        {current.turnaround}
-                      </div>
-                    </div>
-                    <div>
-                      <div style={{ fontSize: "0.68rem", color: "#64748b", fontWeight: 600, textTransform: "uppercase" }}>
-                        Govt Transparency
-                      </div>
-                      <div style={{ fontSize: "0.86rem", fontWeight: 700, color: "#059669", marginTop: "1px" }}>
-                        {current.receiptStatus}
-                      </div>
+                      <span
+                        style={{
+                          backgroundColor: "#FFFFFF",
+                          color: "#1A73E8",
+                          fontSize: "0.70rem",
+                          fontWeight: 700,
+                          padding: "2px 8px",
+                          borderRadius: "9999px",
+                        }}
+                      >
+                        Verified Client
+                      </span>
                     </div>
                   </div>
+                </div>
 
-                  {/* Primary CTA Button */}
-                  <Link
-                    href={current.targetHref}
-                    className="btn-electric-blue"
+                {/* Floating Animated Badge: Top Right (Government Compliance Verified) */}
+                <div
+                  className="animate-float-slow"
+                  style={{
+                    position: "absolute",
+                    top: "-18px",
+                    right: "-12px",
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: "14px",
+                    padding: "10px 16px",
+                    boxShadow: "0 4px 16px 0 rgba(60,64,67,0.18)",
+                    border: "1px solid #DADCE0",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    zIndex: 2,
+                  }}
+                >
+                  <div
                     style={{
-                      width: "100%",
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "50%",
+                      backgroundColor: "#E6F4EA",
+                      color: "#1E8E3E",
+                      display: "flex",
+                      alignItems: "center",
                       justifyContent: "center",
-                      padding: "10px 16px",
-                      fontSize: "0.88rem",
-                      fontWeight: 600,
-                      borderRadius: "6px",
+                      flexShrink: 0,
                     }}
                   >
-                    <span>{current.ctaText}</span>
-                  </Link>
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#202124" }}>
+                      MCA SPICe+ Approved
+                    </div>
+                    <div style={{ fontSize: "0.72rem", color: "#5F6368" }}>
+                      Direct Registrar Integration
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Animated Badge: Bottom Left (CA Advisory Assigned) */}
+                <div
+                  className="animate-float-reverse"
+                  style={{
+                    position: "absolute",
+                    bottom: "28px",
+                    left: "-18px",
+                    backgroundColor: "#FFFFFF",
+                    borderRadius: "14px",
+                    padding: "10px 16px",
+                    boxShadow: "0 4px 16px 0 rgba(60,64,67,0.18)",
+                    border: "1px solid #DADCE0",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    zIndex: 2,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "50%",
+                      backgroundColor: "#E8F0FE",
+                      color: "#1A73E8",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <ShieldCheck size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "#202124" }}>
+                      Dedicated Chartered Accountant
+                    </div>
+                    <div style={{ fontSize: "0.72rem", color: "#5F6368" }}>
+                      Zero Hidden Government Markups
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Clean Popular Services Row */}
-          <div
-            style={{
-              marginTop: "38px",
-              paddingTop: "20px",
-              borderTop: "1px solid #f1f5f9",
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              flexWrap: "wrap",
-            }}
-          >
-            <span style={{ color: "#64748b", fontWeight: 600, fontSize: "0.82rem" }}>
-              Quick Navigation:
-            </span>
-
-            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", alignItems: "center" }}>
-              <Link href="/services/business-registration/private-limited-company" className="rzp-pill">
-                <Building2 size={13} style={{ color: "#0066f5" }} />
-                <span>Private Limited</span>
-              </Link>
-              <Link href="/services/business-registration/llp-registration" className="rzp-pill">
-                <Scale size={13} style={{ color: "#0066f5" }} />
-                <span>LLP Registration</span>
-              </Link>
-              <Link href="/services/startup-services/startup-india-recognition" className="rzp-pill">
-                <Rocket size={13} style={{ color: "#0066f5" }} />
-                <span>Startup India</span>
-              </Link>
-              <Link href="/services/gst-taxation/gst-registration" className="rzp-pill">
-                <Receipt size={13} style={{ color: "#0066f5" }} />
-                <span>GST Filing</span>
-              </Link>
-              <Link href="/services/trademark-ip/trademark-registration" className="rzp-pill">
-                <Award size={13} style={{ color: "#0066f5" }} />
-                <span>Trademark</span>
-              </Link>
-              <Link
-                href="/services"
-                style={{
-                  color: "#0066f5",
-                  fontSize: "0.82rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  marginLeft: "4px",
-                }}
-              >
-                View all 40+ services →
-              </Link>
             </div>
           </div>
         </div>
@@ -570,8 +590,16 @@ export default function GlobalHero() {
       <ConsultationModal
         isOpen={consultModalOpen}
         onClose={() => setConsultModalOpen(false)}
-        serviceTitle={current.label}
+        serviceTitle={selectedService}
       />
+
+      <style jsx>{`
+        :global(.hover-google-chip:hover) {
+          border-color: #1A73E8 !important;
+          color: #1A73E8 !important;
+          background-color: #E8F0FE !important;
+        }
+      `}</style>
     </>
   );
 }
