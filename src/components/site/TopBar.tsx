@@ -12,7 +12,7 @@ export default function TopBar() {
         <p className={styles.tagline}>Company registration, GST and compliance for founders across India</p>
         <ul className={styles.links}>
           <li>
-            <Link href="/resources">Guides</Link>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <Link href="/faq">FAQ</Link>

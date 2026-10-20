@@ -295,7 +295,7 @@ export default function ServicePage({ content }: { content: ServicePageContent }
               <h2 id="compare-title" className={styles.h2}>
                 How it compares with {alternatives(content.entity)}
               </h2>
-              <TextLink href="/resources/pvt-ltd-vs-llp">Read the full comparison</TextLink>
+              <TextLink href="/blog/pvt-ltd-vs-llp">Read the full comparison</TextLink>
             </div>
             <ComparisonTable caption={`${ENTITY_LABEL[content.entity]} compared with the other structures`} />
           </div>

@@ -23,12 +23,12 @@ export default function Guides() {
           <div>
             <p className={styles.eyebrow}>Resources</p>
             <h2 id="guides-title" className={styles.title}>
-              Guides for founders
+              From the blog
             </h2>
             <p className={styles.intro}>Clear, practical explainers on registration, tax and compliance in India.</p>
           </div>
-          <ButtonLink href="/resources" variant="secondary" arrow>
-            View all guides
+          <ButtonLink href="/blog" variant="secondary" arrow>
+            Read the blog
           </ButtonLink>
         </div>
         <ul className={styles.list}>
@@ -39,7 +39,7 @@ export default function Guides() {
               : covers[a.category];
             return (
               <li key={a.slug}>
-                <Link href={`/resources/${a.slug}`} className={`sticker ${styles.card}`} data-reveal>
+                <Link href={`/blog/${a.slug}`} className={`sticker ${styles.card}`} data-reveal>
                   <div className={`${styles.cover} ${styles[tone]}`}>
                     <Art className={styles.art} />
                   </div>

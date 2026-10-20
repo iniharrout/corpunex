@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { categories } from "@/content/categories";
 import { servicePages } from "@/content/services";
 import { articles } from "@/content/articles";
+import { roles } from "@/content/careers";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.corpunex.com";
@@ -13,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/about",
     "/services",
-    "/resources",
+    "/blog",
+    "/careers",
     "/faq",
     "/contact",
     "/privacy-policy",
@@ -45,11 +47,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Educational article pages
   const articlePages = articles.map((article) => ({
-    url: `${baseUrl}/resources/${article.slug}`,
+    url: `${baseUrl}/blog/${article.slug}`,
     lastModified: buildDate,
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }));
 
-  return [...staticPages, ...categoryPages, ...serviceDetailPages, ...articlePages];
+  const rolePages = roles.map((r) => ({
+    url: `${baseUrl}/careers/${r.slug}`,
+    lastModified: buildDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...categoryPages, ...serviceDetailPages, ...articlePages, ...rolePages];
 }

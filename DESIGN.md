@@ -57,7 +57,8 @@ All tokens live in [`src/styles/tokens.css`](src/styles/tokens.css).
 - `content/services/<slug>.ts`: one per service page, all listed in `content/services/index.ts`, which the sitemap reads.
 - `content/categories.ts`: the nine categories for the hubs, /services and /about.
 - `content/faqs.ts`: FAQ groups for /faq and the hubs.
-- `content/articles.ts`: the guides under /resources. Reading time is worked out from word count.
+- `content/articles.ts`: the articles under /blog (the old /resources URLs redirect there). Reading time is worked out from word count.
+- `content/careers.ts`: open roles, the hiring steps and team values for /careers and /careers/[slug].
 - `content/legal.ts`: the four legal pages.
 
 ## SEO and tech

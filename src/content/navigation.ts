@@ -106,7 +106,8 @@ export const serviceGroups: NavGroup[] = [
 ];
 
 export const primaryNav: NavLink[] = [
-  { label: "Guides", href: "/resources" },
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -127,7 +128,8 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Guides", href: "/resources" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ],

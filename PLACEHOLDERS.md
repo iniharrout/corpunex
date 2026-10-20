@@ -36,3 +36,8 @@ These were removed rather than marked up. Add them back once someone has checked
 - [ ] **Legal pages** (`src/content/legal.ts`): plain-language rewrites of the old text. An advocate should review them, and add any liability cap, the courts with jurisdiction, the grievance officer required by the DPDP Act, and the refund processing time.
 - [ ] **Guides** (`src/content/articles.ts`): rewritten from the old articles. A CA or CS should read each one before launch.
 
+## Careers (`src/content/careers.ts`)
+
+- [ ] **Confirm the four open roles** (Company Secretary associate, Accounts and tax executive, Client advisor, Content writer intern), with their locations and requirements. They're drafts written from the work Corpunex does. Delete any role you aren't hiring for; the page counts what's left.
+- [ ] **Confirm where applications should go.** "Apply" opens an email to `contact@corpunex.com`. If you want a separate careers address, add it to `src/config/site.ts` and use it in `applyHref`.
+

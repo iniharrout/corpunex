@@ -92,11 +92,24 @@ export const benefits = [
   },
 ];
 
-export const foreignFounderPoints = [
-  "You can own 100% of an Indian company in most sectors.",
-  "At least one director needs to have lived in India for 182 days or more in the last financial year.",
-  "Documents signed abroad need to be notarised and apostilled.",
-  "Money you invest is reported to the RBI. We take care of the form.",
+/** The setup path for founders and companies based outside India. */
+export const foreignSetupSteps = [
+  {
+    title: "Choose your structure",
+    body: "Most overseas founders and companies set up a Private Limited company, often as a wholly owned subsidiary. In most sectors you can own 100% of it.",
+  },
+  {
+    title: "Prepare documents abroad",
+    body: "Passports, address proofs and board resolutions signed outside India need to be notarised and apostilled. We send you a checklist and check each one.",
+  },
+  {
+    title: "Register the company",
+    body: "We file everything with the government. At least one director needs to have lived in India for 182 days or more in the last financial year.",
+  },
+  {
+    title: "Bring in your investment",
+    body: "Once the bank account is open and your money arrives, the investment has to be reported to the RBI. We take care of the form.",
+  },
 ];
 
 export const homeFaqs: Faq[] = [

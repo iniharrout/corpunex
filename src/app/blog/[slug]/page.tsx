@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const { slug } = await params;
   const article = articles.find((a) => a.slug === slug);
   if (!article) return {};
-  const path = `/resources/${article.slug}`;
+  const path = `/blog/${article.slug}`;
   return {
     title: article.title,
     description: article.summary,
@@ -44,7 +44,7 @@ async function Article({ params }: ArticlePageProps) {
   const article = articles.find((a) => a.slug === slug);
   if (!article) notFound();
 
-  const path = `/resources/${article.slug}`;
+  const path = `/blog/${article.slug}`;
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -61,7 +61,7 @@ async function Article({ params }: ArticlePageProps) {
       <PageHeader
         crumbs={[
           { label: "Home", href: "/" },
-          { label: "Guides", href: "/resources" },
+          { label: "Blog", href: "/blog" },
           { label: article.title, href: path },
         ]}
         title={article.title}
@@ -125,8 +125,8 @@ async function Article({ params }: ArticlePageProps) {
               </li>
             ))}
           </ul>
-          <Link href="/resources" className={styles.back}>
-            All guides
+          <Link href="/blog" className={styles.back}>
+            All articles
           </Link>
         </aside>
       </div>

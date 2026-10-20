@@ -1,7 +1,7 @@
 import { timeline } from "@/config/site";
 
 /**
- * Guides for /resources, written for first-time founders. Laws and fees
+ * Articles for /blog, written for first-time founders. Laws and fees
  * change often, so figures are kept to the ones that have been stable for
  * years; anything else is described without a number.
  */
