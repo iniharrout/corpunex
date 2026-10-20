@@ -9,6 +9,7 @@ import CtaBand from "@/components/shared/CtaBand";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
 import CallbackButton from "@/components/callback/CallbackButton";
+import { site } from "@/config/site";
 import styles from "./CategoryHub.module.css";
 
 /** Call-back topic for each category, from ENQUIRY_TOPICS. */
@@ -31,8 +32,19 @@ export default function CategoryHub({ category }: { category: Category }) {
   const faqs = category.faqGroup ? faqGroup(category.faqGroup).faqs : [];
   const topic = callbackTopic[category.slug] ?? "Something else";
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+      { "@type": "ListItem", position: 3, name: category.name, item: `${site.url}${category.path}` },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={breadcrumbSchema} />
       {faqs.length > 0 && <JsonLd data={faqSchema(faqs)} />}
 
       <PageHeader

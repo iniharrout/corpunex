@@ -75,9 +75,20 @@ export default async function RolePage({ params }: RolePageProps) {
     directApply: false,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Careers", item: `${site.url}/careers` },
+      { "@type": "ListItem", position: 3, name: role.title, item: `${site.url}/careers/${role.slug}` },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={jobPosting} />
+      <JsonLd data={breadcrumbSchema} />
       <PageHeader
         crumbs={[
           { label: "Home", href: "/" },

@@ -69,9 +69,20 @@ async function Article({ params }: ArticlePageProps) {
     mainEntityOfPage: `${site.url}${path}`,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog` },
+      { "@type": "ListItem", position: 3, name: article.title, item: `${site.url}${path}` },
+    ],
+  };
+
   return (
     <>
       <JsonLd data={schema} />
+      <JsonLd data={breadcrumbSchema} />
 
       <PageHeader
         crumbs={[

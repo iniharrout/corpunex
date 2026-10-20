@@ -1,0 +1,42 @@
+# Corpunex
+
+> Online company registration, GST, accounting, trademark filing, and yearly corporate compliance for founders and growing businesses in India.
+
+Filings are prepared and certified by qualified Chartered Accountants (CAs), Company Secretaries (CSs), and advocates.
+
+## Core Services
+
+- [Private Limited Company Registration](https://www.corpunex.com/services/business-registration/private-limited-company): Standard structure for startups raising equity or granting ESOPs. Includes DIN, DSC, SPICe+ filing, PAN, TAN, and bank account setup.
+- [Limited Liability Partnership (LLP) Registration](https://www.corpunex.com/services/business-registration/llp-registration): Limited liability for professional services and partnerships with lower annual compliance burden.
+- [One Person Company (OPC) Registration](https://www.corpunex.com/services/business-registration/one-person-company): Separate legal entity with 100% solo founder ownership and limited liability.
+- [Indian Subsidiary Registration](https://www.corpunex.com/services/business-registration/indian-subsidiary): Incorporation for foreign companies and NRI/overseas founders expanding into India.
+- [Sole Proprietorship Registration](https://www.corpunex.com/services/business-registration/sole-proprietorship): Single-owner setup via Udyam, GST, and current bank account.
+- [Partnership Firm Registration](https://www.corpunex.com/services/business-registration/partnership-firm-registration): Deed drafting and ROF registration.
+- [Section 8 Company](https://www.corpunex.com/services/business-registration/section-8-company): Non-profit company under Companies Act, 2013 with 12A/80G assistance.
+- [GST Registration](https://www.corpunex.com/services/gst-taxation/gst-registration): Application, ARN tracking, and certificate issuance for goods and services.
+- [GST Return Filing](https://www.corpunex.com/services/gst-taxation/gst-return-filing): Monthly and quarterly GSTR-1, GSTR-3B, and annual GSTR-9 reconciliations.
+- [Income Tax Return Filing](https://www.corpunex.com/services/gst-taxation/income-tax-filing): Corporate ITR-6, LLP ITR-5, and individual ITR filings by CAs.
+- [Annual ROC Compliance](https://www.corpunex.com/services/corporate-compliance/annual-roc-compliance): AOC-4, MGT-7/7A, DIR-3 KYC, and AGM documentation.
+- [Change of Directors](https://www.corpunex.com/services/corporate-compliance/change-of-directors): Appointment or resignation via DIR-11 and DIR-12.
+- [Company Strike Off / Fast Track Exit](https://www.corpunex.com/services/corporate-compliance/close-a-company): Form STK-2 filing to close inactive companies cleanly.
+- [Trademark Registration](https://www.corpunex.com/services/trademark-ip/trademark-registration): Search, class classification, and TM-A filing.
+- [Trademark Objection Reply](https://www.corpunex.com/services/trademark-ip/trademark-objection-reply): Formal legal responses under Section 9 and Section 11 of the Trade Marks Act, 1999.
+- [Startup India Recognition](https://www.corpunex.com/services/startup-services/startup-india-recognition): DPIIT certificate application for Section 80-IAC tax exemption and angel tax relief.
+- [Startup Odisha Recognition](https://www.corpunex.com/services/startup-services/startup-odisha): Recognition, monthly allowance, and state seed fund guidance.
+- [Udyam MSME Registration](https://www.corpunex.com/services/startup-services/udyam-msme-registration): MSME certificate for priority lending and interest subsidies.
+- [FSSAI Food Licence](https://www.corpunex.com/services/licences-registrations/fssai-licence): Basic registration, state license, and central license for food businesses.
+- [Import Export Code (IEC)](https://www.corpunex.com/services/licences-registrations/import-export-code): DGFT 10-digit business identification number for cross-border trade.
+
+## Interactive Tools & Resources
+
+- [GST Calculator](https://www.corpunex.com/tools/gst-calculator): Calculate inclusive and exclusive GST for standard Indian rates (0%, 5%, 12%, 18%, 28%) with CGST, SGST, and IGST breakdown.
+- [Company Type Finder](https://www.corpunex.com/tools/company-type-finder): Interactive decision tool comparing Private Limited, LLP, OPC, and Proprietorship based on capital, founders, and fundraising intent.
+- [Compliance Calendar](https://www.corpunex.com/compliance-calendar): Chronological deadlines for ROC, GST, Advance Tax, TDS, and trademark renewals.
+- [Legal & Business Glossary](https://www.corpunex.com/glossary): Explanations of DIN, DSC, MOA, AOA, SPICe+, RUN, GSTR, and other statutory terms.
+
+## Company Details
+
+- Website: https://www.corpunex.com
+- Contact: contact@corpunex.com
+- Locations: Bhubaneswar, Odisha & New Delhi, India
+- Hours: Monday–Saturday, 9:30 AM – 6:30 PM IST
