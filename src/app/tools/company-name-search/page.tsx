@@ -8,7 +8,7 @@ import { nameSearchFaqs } from "@/content/nameSearch";
 import styles from "./nameSearchPage.module.css";
 
 export const metadata: Metadata = {
-  title: "MCA Company Name & Trademark Public Search Online | Corpunex",
+  title: "Company Name Search: MCA and Trademark Check",
   description:
     "Check company name availability against MCA compliance rules, RUN guidelines, and IP India trademark classes. Avoid rejections before filing your Private Limited or LLP.",
   alternates: { canonical: "/tools/company-name-search" },

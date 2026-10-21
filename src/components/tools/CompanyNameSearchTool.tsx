@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import {
   CheckCircle2,
@@ -35,6 +35,36 @@ export default function CompanyNameSearchTool() {
   const [entityType, setEntityType] = useState("Private Limited");
   const [authorizedCapital, setAuthorizedCapital] = useState("1000000"); // ₹10 Lakhs
 
+  // A name passed from elsewhere on the site (?q=, e.g. the homepage hero) fills the form.
+  // Read once on mount, so the page can still be prerendered.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q")?.trim();
+    if (!q) return;
+    let rest = q.replace(/\s+/g, " ");
+    let type: string | null = null;
+    const suffixes: [RegExp, string][] = [
+      [/\s+opc\s+(private|pvt\.?)\s+(limited|ltd\.?)$/i, "OPC Private Limited"],
+      [/\s+(private|pvt\.?)\s+(limited|ltd\.?)$/i, "Private Limited"],
+      [/\s+llp$/i, "LLP"],
+      [/\s+opc$/i, "OPC Private Limited"],
+    ];
+    for (const [pattern, entity] of suffixes) {
+      const m = rest.match(pattern);
+      if (m) {
+        type = entity;
+        rest = rest.slice(0, m.index).trim();
+        break;
+      }
+    }
+    const words = rest.split(" ");
+    const frame = requestAnimationFrame(() => {
+      if (type) setEntityType(type);
+      setBrandName(words.length > 1 ? words.slice(0, -1).join(" ") : rest);
+      setActivityWord(words.length > 1 ? words[words.length - 1] : "");
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   // Trademark Tab State
   const [selectedIndustry, setSelectedIndustry] = useState<string>("all");
   const [classSearchQuery, setClassSearchQuery] = useState("");
@@ -55,11 +85,7 @@ export default function CompanyNameSearchTool() {
   const startsWithArticle = /^(a|an|the)\b/i.test(trimmedBrand);
 
   // Check 3: Restricted regulator words
-  const matchedRestrictedWord = useMemo(() => {
-    return restrictedMcaWords.find((r) =>
-      lowerCombined.includes(r.word.toLowerCase())
-    );
-  }, [lowerCombined]);
+  const matchedRestrictedWord = restrictedMcaWords.find((r) => lowerCombined.includes(r.word.toLowerCase()));
 
   // Check 4: Capital threshold for scale words
   const capitalInt = parseInt(authorizedCapital, 10) || 100000;

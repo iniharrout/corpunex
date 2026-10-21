@@ -8,7 +8,7 @@ import { templatesFaqs, allTemplates } from "@/content/templates";
 import styles from "./templatesPage.module.css";
 
 export const metadata: Metadata = {
-  title: "Free Startup Legal & Business Templates for Indian Founders | Corpunex",
+  title: "Free Legal and Business Templates for Startups",
   description:
     "Download ready-to-use, customizable legal templates: Co-Founder Agreements, NDAs, Startup Offer Letters, and Board Resolutions for Private Limited & LLP companies in India.",
   alternates: { canonical: "/templates" },

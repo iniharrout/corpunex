@@ -1,170 +1,150 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  BadgeCheck,
-  CalendarClock,
-  Check,
-  FileText,
-  MapPin,
-  MessagesSquare,
-  ReceiptText,
-  ShieldCheck,
-} from "lucide-react";
-import { paths } from "@/content/home";
-import { timeline } from "@/config/site";
-import { Calculator, Globe, Medal, Rocket } from "@/components/illustrations/Spots";
+import { ArrowRight, BadgeCheck, Landmark, MapPin, ReceiptText, Search, ShieldCheck } from "lucide-react";
+import { Calculator, Calendar, Medal, Rocket } from "@/components/illustrations/Spots";
+import CallbackButton from "@/components/callback/CallbackButton";
 import CallbackLink from "@/components/callback/CallbackLink";
-import ServicePicker from "./ServicePicker";
-import styles from "./Hero.module.css";
+import { timeline } from "@/config/site";
+import s from "./Hero.module.css";
 
-const art = { rocket: Rocket, receipt: Calculator, badge: Medal, globe: Globe };
-
-const trust = [
-  { icon: ShieldCheck, label: "Filings certified by CAs and CSs" },
-  { icon: ReceiptText, label: "Itemised quote before you start" },
-  { icon: MapPin, label: "Bhubaneswar and New Delhi" },
-];
-
-/** The steps shown in the illustrated tracker. Generic, not a real client's file. */
-const trackerSteps = [
-  { title: "Name approved", detail: "Checked against existing companies and trademarks", state: "done" },
-  { title: "Documents checked", detail: "Every ID and address proof reviewed", state: "done" },
-  { title: "Registration filed", detail: "Rulebook (MoA and AoA) and forms, signed online", state: "active" },
-  { title: "Certificate issued", detail: "Certificate of incorporation, PAN and TAN", state: "todo" },
-] as const;
-
-function Tracker() {
-  return (
-    <div className={styles.scene} aria-hidden>
-      <div className={styles.tracker}>
-        <div className={styles.trackerHead}>
-          <span className={styles.trackerIcon}>
-            <FileText size={18} strokeWidth={2} />
-          </span>
-          <div>
-            <p className={styles.trackerLabel}>Your company setup</p>
-            <p className={styles.trackerName}>Your Company Private Limited</p>
-          </div>
-          <span className={styles.trackerStatus}>In progress</span>
-        </div>
-
-        <div className={styles.progress}>
-          <span className={styles.progressFill} />
-        </div>
-        <p className={styles.progressNote}>{timeline.sentence}</p>
-
-        <ol className={styles.steps}>
-          {trackerSteps.map((s) => (
-            <li key={s.title} className={styles.step} data-state={s.state}>
-              <span className={styles.dot}>{s.state === "done" && <Check size={12} strokeWidth={3} />}</span>
-              <div>
-                <p className={styles.stepTitle}>{s.title}</p>
-                <p className={styles.stepDetail}>{s.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-
-      <div className={`${styles.float} ${styles.floatGst}`}>
-        <span className={`${styles.floatIcon} ${styles.mint}`}>
-          <BadgeCheck size={18} strokeWidth={2} />
-        </span>
-        <div>
-          <p className={styles.floatTitle}>GST registration</p>
-          <p className={styles.floatBody}>Set up when you need it</p>
-        </div>
-      </div>
-
-      <div className={`${styles.float} ${styles.floatDue}`}>
-        <span className={`${styles.floatIcon} ${styles.sun}`}>
-          <CalendarClock size={18} strokeWidth={2} />
-        </span>
-        <div>
-          <p className={styles.floatTitle}>Yearly filings</p>
-          <p className={styles.floatBody}>Reminded before each due date</p>
-        </div>
-      </div>
-
-      <div className={`${styles.float} ${styles.floatAdvisor}`}>
-        <span className={`${styles.floatIcon} ${styles.sky}`}>
-          <MessagesSquare size={18} strokeWidth={2} />
-        </span>
-        <div>
-          <p className={styles.floatTitle}>Real people to ask</p>
-          <p className={styles.floatBody}>By email or a call back</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+/**
+ * Homepage hero: a brand-blue band with the company-name search as the main
+ * action, an illustrated stack of the documents a founder receives (generic,
+ * aria-hidden, not a real certificate), and a bento of services rising out
+ * of the band.
+ */
 export default function Hero() {
   return (
     <>
-      <section className={styles.hero} aria-labelledby="hero-title">
-        <div className={`wrap ${styles.inner}`}>
-          <div className={styles.copy}>
-            <p className={styles.kicker}>
-              <span className={styles.kickerDot} aria-hidden />
-              Company registration, GST and compliance in India
+      <section className={s.hero} aria-labelledby="hero-title">
+        <div className={`wrap ${s.inner}`}>
+          <div className={s.copy}>
+            <p className={s.kicker}>
+              <ShieldCheck size={16} strokeWidth={2} aria-hidden />
+              Filings prepared and certified by CAs and CSs
             </p>
-            <h1 id="hero-title" className={styles.title}>
-              Your business, set up right <em>and kept compliant.</em>
+            <h1 id="hero-title" className={s.title}>
+              Start your company in India, <em>the right way.</em>
             </h1>
-            <p className={styles.lead}>
-              We register your company, set up GST and take care of every yearly filing. You get one clear quote up
-              front and a team of CAs and CSs behind every form, so you can focus on building.
+            <p className={s.lead}>
+              Check your company name, then let us register it, set up GST and handle every yearly filing. You get a
+              clear, itemised quote before anything starts.
             </p>
 
-            <div className={styles.picker}>
-              <ServicePicker />
-            </div>
-
-            <p className={styles.alt}>
-              Not sure what you need? <CallbackLink className={styles.altLink} />
-              <span className={styles.altSep} aria-hidden>
-                or
-              </span>
-              <Link href="/tools/company-type-finder" className={styles.altLink}>
-                find your company type
-              </Link>
+            <form className={s.search} action="/tools/company-name-search">
+              <Search size={20} strokeWidth={2} aria-hidden className={s.searchIcon} />
+              <label htmlFor="hero-name" className="visually-hidden">
+                Your company name
+              </label>
+              <input id="hero-name" name="q" placeholder="Type the company name you want" autoComplete="off" />
+              <button type="submit">
+                Check name
+                <ArrowRight size={18} strokeWidth={2.25} aria-hidden />
+              </button>
+            </form>
+            <p className={s.alt}>
+              Not sure what you need? <CallbackLink className={s.altLink} />
             </p>
 
-            <ul className={styles.trust}>
-              {trust.map(({ icon: Icon, label }) => (
-                <li key={label}>
-                  <Icon size={16} strokeWidth={2} aria-hidden />
-                  {label}
-                </li>
-              ))}
+            <ul className={s.trust}>
+              <li>
+                <BadgeCheck size={16} strokeWidth={2} aria-hidden /> Usually {timeline.short}
+              </li>
+              <li>
+                <ReceiptText size={16} strokeWidth={2} aria-hidden /> Government fees at actual cost
+              </li>
+              <li>
+                <MapPin size={16} strokeWidth={2} aria-hidden /> Bhubaneswar and New Delhi
+              </li>
             </ul>
           </div>
 
-          <Tracker />
+          <div className={s.stack} aria-hidden>
+            <div className={`${s.doc} ${s.docGst}`}>
+              <p className={s.docTag}>GST</p>
+              <p className={s.docTitle}>GST Registration Certificate</p>
+              <span className={s.line} />
+              <span className={`${s.line} ${s.short}`} />
+              <div className={s.gstin}>
+                <span>GSTIN</span>
+                <span className={s.mask} />
+              </div>
+            </div>
+            <div className={`${s.doc} ${s.docPan}`}>
+              <p className={s.docTag}>Company PAN</p>
+              <p className={s.docTitle}>Permanent Account Number</p>
+              <div className={s.panRow}>
+                <span className={s.panChip} />
+                <div>
+                  <span className={s.line} />
+                  <span className={`${s.line} ${s.short}`} />
+                </div>
+              </div>
+            </div>
+            <div className={`${s.doc} ${s.docCert}`}>
+              <div className={s.seal}>
+                <Landmark size={24} strokeWidth={1.75} />
+              </div>
+              <p className={s.certKicker}>Issued when you&apos;re registered</p>
+              <p className={s.certTitle}>Certificate of Incorporation</p>
+              <p className={s.certName}>Your Company Private Limited</p>
+              <span className={s.line} />
+              <span className={s.line} />
+              <span className={`${s.line} ${s.short}`} />
+            </div>
+            <div className={s.toast}>
+              <span className={s.toastIcon}>
+                <BadgeCheck size={18} strokeWidth={2.25} />
+              </span>
+              <div>
+                <p className={s.toastTitle}>Company registered</p>
+                <p className={s.toastBody}>Certificate, PAN and TAN issued</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* The four starting points */}
-      <section className={styles.pathsWrap} aria-label="Choose where you are">
-        <ul className={`wrap ${styles.paths}`}>
-          {paths.map((p) => {
-            const Art = art[p.icon];
-            return (
-              <li key={p.title}>
-                <Link href={p.href} className={styles.path}>
-                  <Art className={styles.pathArt} />
-                  <span className={styles.pathTitle}>{p.title}</span>
-                  <span className={styles.pathBody}>{p.body}</span>
-                  <span className={styles.pathCta}>
-                    {p.cta}
-                    <ArrowRight size={16} strokeWidth={2.25} aria-hidden />
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <section className={s.bentoWrap} aria-label="Our services">
+        <div className={`wrap ${s.bento}`}>
+          <Link href="/services/business-registration" className={`${s.tile} ${s.big}`}>
+            <Rocket className={s.art} />
+            <span className={s.tileKicker}>Start a business</span>
+            <span className={s.tileTitle}>Register your company</span>
+            <span className={s.tileBody}>Private Limited, LLP, One Person Company or proprietorship, start to finish.</span>
+            <span className={s.pills}>
+              <span>Private Limited</span>
+              <span>LLP</span>
+              <span>OPC</span>
+            </span>
+            <span className={s.cta}>
+              See your options <ArrowRight size={16} strokeWidth={2.25} aria-hidden />
+            </span>
+          </Link>
+
+          <Link href="/services/gst-taxation/gst-registration" className={`${s.tile} ${s.mint}`}>
+            <Calculator className={s.artSmall} />
+            <span className={s.tileTitle}>GST registration</span>
+            <span className={s.tileBody}>Your GST number, checked before filing</span>
+          </Link>
+
+          <Link href="/services/trademark-ip/trademark-registration" className={`${s.tile} ${s.sun}`}>
+            <Medal className={s.artSmall} />
+            <span className={s.tileTitle}>Trademark</span>
+            <span className={s.tileBody}>Protect your brand name and logo</span>
+          </Link>
+
+          <Link href="/services/corporate-compliance/annual-roc-compliance" className={`${s.tile} ${s.peach}`}>
+            <Calendar className={s.artSmall} />
+            <span className={s.tileTitle}>Yearly filings</span>
+            <span className={s.tileBody}>ROC, tax and GST, done on time</span>
+          </Link>
+
+          <div className={`${s.tile} ${s.dark}`}>
+            <span className={s.tileTitle}>Not sure where to start?</span>
+            <span className={s.tileBody}>Tell us about your business and an advisor will call you back.</span>
+            <CallbackButton variant="onInk" />
+          </div>
+        </div>
       </section>
     </>
   );

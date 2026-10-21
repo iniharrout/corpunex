@@ -8,48 +8,6 @@ export const clientLogos: { name: string; src: string; width: number; height: nu
 
 export type Tone = "sky" | "mint" | "sun" | "peach";
 
-export const paths: {
-  title: string;
-  body: string;
-  href: string;
-  cta: string;
-  tone: Tone;
-  icon: "rocket" | "receipt" | "badge" | "globe";
-}[] = [
-  {
-    title: "I'm starting a new business",
-    body: "We'll help you pick the right type of company and register it, start to finish.",
-    href: "/services/business-registration/private-limited-company",
-    cta: "Register a company",
-    tone: "sky",
-    icon: "rocket",
-  },
-  {
-    title: "I already have a company",
-    body: "GST returns, accounts and yearly filings, handled on time so you don't pay penalties.",
-    href: "/services/corporate-compliance/annual-roc-compliance",
-    cta: "Stay compliant",
-    tone: "mint",
-    icon: "receipt",
-  },
-  {
-    title: "I want Startup India recognition",
-    body: "Get recognised by DPIIT and get ready for the paperwork investors will ask for.",
-    href: "/services/startup-services/startup-india-recognition",
-    cta: "Get recognised",
-    tone: "sun",
-    icon: "badge",
-  },
-  {
-    title: "I'm a founder outside India",
-    body: "Set up an Indian company or subsidiary, including the extra steps for foreign founders.",
-    href: "/services/business-registration/indian-subsidiary",
-    cta: "Set up in India",
-    tone: "peach",
-    icon: "globe",
-  },
-];
-
 export const steps = [
   {
     title: "Tell us about your business",
