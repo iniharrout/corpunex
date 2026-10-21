@@ -1,0 +1,166 @@
+.toolSection {
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.compareSection {
+  padding-block: var(--space-8);
+  background: var(--color-paper-deep);
+  border-top: 1px solid var(--color-line);
+}
+
+.compareGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.eyebrow {
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.sectionTitle {
+  font-size: var(--text-h2);
+  color: var(--color-ink);
+}
+
+.sectionLead {
+  font-size: var(--text-lead);
+  color: var(--color-ink-muted);
+  max-width: 52ch;
+}
+
+/* Comparison Table */
+.tableCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  box-shadow: var(--shadow-card);
+}
+
+.compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--text-small);
+}
+
+.compareTable th {
+  background: var(--color-paper-deep);
+  padding: var(--space-4) var(--space-5);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-line-strong);
+}
+
+.compareTable td {
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-line);
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+}
+
+.compareTable tr:last-child td {
+  border-bottom: none;
+}
+
+.colFeature {
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  width: 25%;
+}
+
+.colMca {
+  width: 37.5%;
+}
+
+.colTm {
+  width: 37.5%;
+}
+
+/* Rules Breakdown */
+.rulesSection {
+  padding-block: var(--space-8);
+  background: var(--color-paper);
+}
+
+.rulesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .rulesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .rulesGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.ruleCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ruleNumber {
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-label);
+}
+
+.ruleTitle {
+  font-size: 1.15rem;
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.ruleDesc {
+  font-size: var(--text-small);
+  color: var(--color-ink-soft);
+  line-height: var(--leading-body);
+}
+
+/* FAQ Layout */
+.faqSection {
+  padding-block: var(--space-8);
+  background: var(--color-paper-deep);
+  border-top: 1px solid var(--color-line);
+}
+
+.faqInner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .faqInner {
+    grid-template-columns: 1fr 1.3fr;
+    align-items: start;
+  }
+}

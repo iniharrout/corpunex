@@ -116,6 +116,8 @@ export const primaryNav: NavLink[] = [
 
 /** Free tools and reference pages. */
 export const resourceLinks: NavLink[] = [
+  { label: "Company name search", href: "/tools/company-name-search" },
+  { label: "Startup templates", href: "/templates" },
   { label: "Blog", href: "/blog" },
   { label: "Compliance calendar", href: "/compliance-calendar" },
   { label: "GST calculator", href: "/tools/gst-calculator" },

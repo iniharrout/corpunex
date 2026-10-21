@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
+import TrustBar from "@/components/home/TrustBar";
 import ClientLogos from "@/components/home/ClientLogos";
 import HowItWorks from "@/components/home/HowItWorks";
 import EntityPicker from "@/components/home/EntityPicker";
+import ToolsShowcase from "@/components/home/ToolsShowcase";
 import Benefits from "@/components/home/Benefits";
+import TemplatesShowcase from "@/components/home/TemplatesShowcase";
 import TalkToUs from "@/components/home/TalkToUs";
 import ForeignFounders from "@/components/home/ForeignFounders";
 import Guides from "@/components/home/Guides";
@@ -25,10 +28,13 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema(homeFaqs)} />
       <Hero />
+      <TrustBar />
       <ClientLogos />
       <HowItWorks />
       <EntityPicker />
+      <ToolsShowcase />
       <Benefits />
+      <TemplatesShowcase />
       <TalkToUs />
       <ForeignFounders />
       <Guides />
@@ -37,3 +43,4 @@ export default function HomePage() {
     </>
   );
 }
+

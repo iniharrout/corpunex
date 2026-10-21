@@ -430,6 +430,256 @@ export const articles: Article[] = [
       { label: "Annual ROC compliance", href: "/services/corporate-compliance/annual-roc-compliance" },
     ],
   },
+
+  {
+    slug: "mca-company-naming-rules",
+    title: "MCA Company Naming Rules: Why Names Get Rejected and How to Pass",
+    category: "Starting up",
+    published: "October 2026",
+    summary:
+      "Over 60% of RUN and SPICe+ Part A applications get rejected due to Rule 8 non-compliance, generic words, or hidden trademark conflicts. Here is how the CRC checks your name and how to get first-pass approval.",
+    takeaways: [
+      "A compliant company name requires three distinct parts: a unique brand prefix, an activity noun, and an entity suffix.",
+      "Single-word generic names or descriptive industry terms are automatically rejected by the Central Registration Centre (CRC).",
+      "Words like 'International', 'Global', or 'Hindustan' require minimum authorised capital between ₹5 lakh and ₹50 lakh.",
+      "Check registered trademarks in Class 35 and your core industry classes before filing RUN or Part A of SPICe+.",
+    ],
+    sections: [
+      {
+        heading: "The Rule 8 formula (Prefix + Activity + Suffix)",
+        paragraphs: [
+          "Under Rule 8 of the Companies (Incorporation) Rules, 2014, the Ministry of Corporate Affairs evaluates every proposed name through a strict structural formula. A compliant name must contain a distinctive brand identifier followed by an activity noun and the statutory entity suffix.",
+          "For instance, proposing 'Fast Delivery Private Limited' will be instantly rejected because 'Fast Delivery' is descriptive and lacks a coined or distinctive identity. Proposing 'Zephyr Express Logistics Private Limited' succeeds because 'Zephyr' functions as a distinctive coined brand, 'Express Logistics' identifies the primary object, and 'Private Limited' designates the corporate structure.",
+        ],
+      },
+      {
+        heading: "The 5 most common reasons CRC rejects name applications",
+        paragraphs: [
+          "The MCA Central Registration Centre (CRC) in Manesar uses automated matching algorithms followed by examiner verification. These five issues trigger most resubmission notices:",
+        ],
+        bullets: [
+          "Phonetic similarity: Changing spelling while retaining sound (e.g., 'Kool' instead of 'Cool', or 'Phonics' instead of 'Fonix') violates Rule 8A.",
+          "Direct translation: Translating an existing company's name into Hindi or another regional language is considered identical under Rule 8B.",
+          "Missing activity word: Names like 'Starlight Private Limited' lack an object noun indicating whether the company does IT, textiles, or finance.",
+          "Unchecked trademark conflicts: A name identical or deceptively similar to a registered trademark in the Trade Marks Register under Section 4(2) cannot be approved without a trademark NOC.",
+          "Sectoral regulatory terms without NOC: Words like 'Bank', 'Insurance', 'Mutual Fund', or 'Venture' filed without prior regulatory consent.",
+        ],
+      },
+      {
+        heading: "Scale words and required capital thresholds",
+        paragraphs: [
+          "Many first-time founders add words like 'International' or 'Global' to make their startup sound established, only to have their application returned. Under MCA guidelines, scale words require adequate authorised capital to prevent misleading the public.",
+        ],
+        bullets: [
+          "International, Globe, Universal, Continental: Minimum authorised capital of ₹5 Lakhs.",
+          "Asia, Asian: Minimum authorised capital of ₹10 Lakhs.",
+          "Bharat, Hindustan, India (as prefix): Minimum authorised capital of ₹50 Lakhs.",
+          "Corporation: Minimum authorised capital of ₹5 Crore.",
+        ],
+      },
+      {
+        heading: "Sectoral keywords requiring regulator NOCs",
+        paragraphs: [
+          "Certain activities are governed by statutory regulators. Using these words in your name requires an in-principle approval or No Objection Certificate (NOC) before the CRC will approve the name:",
+        ],
+        bullets: [
+          "Banking & Lending ('Bank', 'Banking', 'NBFC', 'Microfinance'): Requires Reserve Bank of India (RBI) prior approval.",
+          "Securities & Investment ('Stock Exchange', 'Asset Management', 'Mutual Fund', 'Venture Capital'): Requires SEBI clearance.",
+          "Insurance ('Insurance', 'Assurance', 'Reinsurance'): Requires IRDAI approval.",
+          "National & State Emblems ('Republic', 'President', 'Union', 'Federal'): Prohibited under the Emblems and Names (Prevention of Improper Use) Act, 1950.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Company name and trademark search tool", href: "/tools/company-name-search" },
+      { label: "Private Limited Company registration", href: "/services/business-registration/private-limited-company" },
+      { label: "Trademark registration", href: "/services/trademark-ip/trademark-registration" },
+    ],
+  },
+
+  {
+    slug: "co-founder-agreements-guide",
+    title: "Co-Founder Agreements for Indian Startups: Equity Split, Vesting & Deadlocks",
+    category: "Starting up",
+    published: "October 2026",
+    summary:
+      "Splitting equity 50/50 without a vesting schedule is the number one cause of early startup cap table destruction. How to structure vesting, cliff periods, IP assignment, and deadlock clauses under Indian law.",
+    takeaways: [
+      "Never grant 100% upfront unconditional equity on day one; implement a 4-year vesting schedule with a 1-year cliff.",
+      "All pre-incorporation and future intellectual property must be explicitly assigned to the company, not held personally.",
+      "Distinguish clearly between 'Good Leaver' and 'Bad Leaver' scenarios for share repurchase rights.",
+      "Establish tie-breaking mechanisms (mediation, independent director casting vote) to prevent deadlocks in 2-founder companies.",
+    ],
+    sections: [
+      {
+        heading: "Why a handshake agreement fails when money arrives",
+        paragraphs: [
+          "When starting out, founders share an unspoken bond of trust and long hours. But if one founder steps back after 6 months while retaining 50% of the company's equity, the remaining founders are left running the company for an inactive shareholder.",
+          "New institutional investors will rarely invest in a startup with dead equity on its cap table. A signed co-founders' agreement establishes expectations, deliverables, and clean departure paths before valuation and real stakes complicate relationships.",
+        ],
+      },
+      {
+        heading: "The standard 4-year vesting schedule with a 1-year cliff",
+        paragraphs: [
+          "The venture capital industry standard across India is 4-year linear monthly vesting with a 12-month cliff. Here is how the mechanics work in practice:",
+        ],
+        bullets: [
+          "The 1-Year Cliff: If a co-founder leaves or is terminated before completing 12 full months, they walk away with 0% vested equity. Their unvested shares are repurchased by the company or surrendered.",
+          "Post-Cliff Vesting: At the completion of Month 12, exactly 25% of their total equity allocation vests immediately.",
+          "Monthly Accrual: The remaining 75% vests in equal monthly increments (approx. 2.08% per month) across the remaining 36 months.",
+          "Reverse Vesting: In Indian Private Limited companies, founders legally hold the shares upfront, subject to a contractual right of repurchase by the promoters or company if they leave before full vesting.",
+        ],
+      },
+      {
+        heading: "Good leaver vs bad leaver share transfer",
+        paragraphs: [
+          "A robust agreement defines what happens to vested shares upon exit depending on the nature of the departure:",
+        ],
+        bullets: [
+          "Good Leaver: Leaving due to permanent illness, mutual consent, or redundancy. The departing founder typically retains their vested shares, or the company repurchases them at independent Fair Market Value (FMV).",
+          "Bad Leaver: Termination for gross misconduct, material breach of confidentiality, fraud, or joining a direct competitor. The company typically retains the right to claw back all unvested shares and buy back vested shares at face value (e.g., ₹10 per share).",
+        ],
+      },
+      {
+        heading: "IP assignment: Why investors reject unassigned code",
+        paragraphs: [
+          "Under the Indian Copyright Act, 1957, software code and designs authored by an individual remain their personal property unless there is a written assignment deed transferring ownership to the company.",
+          "Your co-founder agreement must contain an explicit 'Assignment of Inventions and Intellectual Property' clause. This ensures every line of code, patentable invention, and brand asset created before and after incorporation belongs irrevocably to the company entity.",
+        ],
+      },
+      {
+        heading: "Resolving deadlocks in 50/50 setups",
+        paragraphs: [
+          "Two-founder companies with equal 50/50 shareholding are prone to corporate paralysis whenever a strategic disagreement arises. Practical resolution mechanisms include:",
+        ],
+        bullets: [
+          "Domain allocation: Assigning the final casting vote on product and engineering to the CTO, and on sales, fundraising, and finance to the CEO.",
+          "Independent advisor tie-breaker: Naming a respected mentor or lead angel whose decision is binding in unresolved deadlocks.",
+          "Russian Roulette / Buy-Sell: One founder makes an offer to buy the other's shares at price X per share; the other founder must either accept the offer to sell or buy the first founder out at the exact same valuation.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Free Co-Founder Agreement template", href: "/templates" },
+      { label: "Private Limited Company registration", href: "/services/business-registration/private-limited-company" },
+      { label: "Legal documentation services", href: "/services/legal-documentation" },
+    ],
+  },
+
+  {
+    slug: "startup-india-80iac-tax-exemption",
+    title: "Startup India Section 80-IAC Tax Exemption: Complete Eligibility & Filing Checklist",
+    category: "Startup schemes",
+    published: "October 2026",
+    summary:
+      "DPIIT recognition is not the same as the 3-year 100% tax holiday under Section 80-IAC. How the Inter-Ministerial Board evaluates applications, which startups qualify, and how to avoid outright rejection.",
+    takeaways: [
+      "DPIIT certificate provides self-certification and tender exemptions, but Section 80-IAC requires separate Inter-Ministerial Board (IMB) approval.",
+      "Only Private Limited companies and LLPs incorporated on or after 1 April 2016 qualify for Section 80-IAC.",
+      "The startup must demonstrate true product or process innovation, scalability, and significant employment generation potential.",
+      "Businesses formed by splitting up or reconstructing an existing business entity are strictly ineligible.",
+    ],
+    sections: [
+      {
+        heading: "DPIIT Recognition vs Section 80-IAC Tax Holiday",
+        paragraphs: [
+          "Most founders celebrate when they receive their DPIIT certificate under Startup India, believing they are automatically exempt from corporate income tax. In reality, DPIIT recognition and Section 80-IAC tax exemption are two completely distinct levels of government clearance.",
+          "DPIIT recognition (granted via Form 1) gives self-certification under 6 labour laws and 3 environmental laws, 80% rebate on patent filings, and exemption from angel tax scrutiny. However, Section 80-IAC provides a 100% deduction of corporate profits for 3 consecutive financial years out of 10 years from incorporation. This requires rigorous approval from the Inter-Ministerial Board (IMB).",
+        ],
+      },
+      {
+        heading: "The 4 Non-Negotiable Eligibility Conditions",
+        paragraphs: [
+          "To be eligible for consideration under Section 80-IAC of the Income Tax Act, 1961, the entity must meet all four criteria:",
+        ],
+        bullets: [
+          "Entity structure: Must be incorporated as a Private Limited Company or a Limited Liability Partnership (LLP). Sole proprietorships and partnership firms do not qualify.",
+          "Incorporation timeline: Must have been incorporated on or after 1 April 2016.",
+          "Turnover threshold: Total turnover must not exceed ₹100 Crore in any financial year since incorporation.",
+          "Original enterprise: Must not be formed by splitting up, reconstruction, or rebranding an existing business entity.",
+        ],
+      },
+      {
+        heading: "What the Inter-Ministerial Board (IMB) looks for",
+        paragraphs: [
+          "The IMB consists of representatives from DPIIT, Department of Biotechnology, and Ministry of Electronics & IT. They evaluate applications on genuine novelty and technical differentiation rather than standard operational metrics:",
+        ],
+        bullets: [
+          "Working Proof of Concept (PoC) or MVP: Live software, hardware prototype, or validated commercial traction.",
+          "Demonstrable innovation: Development of an innovative product, service, or process that solves an unsolved problem or drastically lowers unit costs.",
+          "Scalability & Employment: Potential to generate substantial domestic direct employment and wealth creation.",
+          "IP protection: Pending or granted patents, registered designs, or proprietary algorithms significantly improve approval probability.",
+        ],
+      },
+      {
+        heading: "Step-by-step submission package on the National Single Window System (NSWS)",
+        paragraphs: [
+          "Applications are submitted digitally through the National Single Window System (NSWS) portal. A complete filing package must include:",
+        ],
+        bullets: [
+          "Detailed Business Plan and Pitch Deck covering market problem, proprietary solution, revenue model, and 5-year projections.",
+          "CA-certified financial statements and balance sheets since incorporation.",
+          "A 2 to 3-minute unedited video demonstration showcasing the product or service in action and how the proprietary innovation functions.",
+          "Copies of published or granted patents, trademarks, and copyright certificates.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Startup India DPIIT recognition service", href: "/services/startup-services/startup-india-recognition" },
+      { label: "Income tax filing & advisory", href: "/services/gst-taxation/income-tax-filing" },
+      { label: "Startup legal templates hub", href: "/templates" },
+    ],
+  },
+
+  {
+    slug: "post-incorporation-compliance-first-30-days",
+    title: "Post-Incorporation Compliance: The First 30 Days After Getting Your CIN",
+    category: "Compliance",
+    published: "October 2026",
+    summary:
+      "Getting your Certificate of Incorporation is only the beginning. The statutory steps you must complete within 30 to 180 days to avoid director disqualification and ROC strike-off notices under INC-20A.",
+    takeaways: [
+      "Hold the first Board of Directors meeting within 30 days of the incorporation date.",
+      "Appoint the first statutory auditor via Form ADT-1 within 30 days of incorporation.",
+      "Subscribers must deposit share capital from their personal bank accounts into the company's current account before filing INC-20A.",
+      "Issue stamped physical or demat share certificates to subscribers within 60 days of incorporation.",
+    ],
+    sections: [
+      {
+        heading: "Week 1: First Board Meeting and Banking Setup",
+        paragraphs: [
+          "Under Section 173(1) of the Companies Act, 2013, every newly incorporated company must hold its first Board of Directors meeting within 30 days of the date on the Certificate of Incorporation.",
+          "In this meeting, the board formally adopts the common seal (if any), approves the opening of a bank current account, authorises signatories, and notes the company's registered office. The company current account requires the CIN, Certificate of Incorporation, PAN, TAN, MoA & AoA, and a certified copy of the board resolution.",
+        ],
+      },
+      {
+        heading: "Week 2: Appointing the Statutory Auditor (Form ADT-1)",
+        paragraphs: [
+          "Under Section 139(6), the Board of Directors must appoint the company's first statutory auditor (a practising Chartered Accountant or firm) within 30 days of registration.",
+          "If the board fails to appoint the auditor within 30 days, it must inform the shareholders, who must convene an Extraordinary General Meeting (EGM) within 90 days to appoint the auditor. While ADT-1 is technically optional for first auditors in certain MCA circular interpretations, filing Form ADT-1 within 30 days creates an immutable ROC record and avoids disputes during subsequent annual filings.",
+        ],
+      },
+      {
+        heading: "Week 3-4: Share Capital Deposit and Stamp Duty on Certificates",
+        paragraphs: [
+          "Every subscriber named in the Memorandum of Association (MoA) must deposit their agreed subscription amount into the new company current account. A critical compliance rule: this money must be transferred directly from the subscriber's individual bank account, not in cash or from third-party accounts.",
+          "Within 60 days of incorporation under Section 56(4), the company must issue Share Certificates (Form SH-1) to every subscriber. In states like Maharashtra, Delhi, Karnataka, and Tamil Nadu, share certificates must be stamped within 30 days of issuance under the relevant state Stamp Act.",
+        ],
+      },
+      {
+        heading: "Filing Form INC-20A (Commencement of Business)",
+        paragraphs: [
+          "Under Section 10A of the Companies Act, no company with share capital can begin business operations or exercise borrowing powers until the directors file Form INC-20A with the Registrar of Companies within 180 days of incorporation.",
+          "The mandatory attachment to Form INC-20A is the bank statement showing credit of the subscription money paid by each promoter, along with photographic proof of the registered office showing external signboards. Missing INC-20A attracts a ₹50,000 fine for the company and ₹1,000 per day for directors, and empowers the ROC to initiate strike-off proceedings.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Annual ROC compliance service", href: "/services/corporate-compliance/annual-roc-compliance" },
+      { label: "Compliance calendar for companies", href: "/compliance-calendar" },
+      { label: "Board resolution for bank account template", href: "/templates" },
+    ],
+  },
 ];
 
 /** Reading time from word count, at 220 words a minute. */

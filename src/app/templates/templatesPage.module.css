@@ -1,0 +1,92 @@
+.guideSection {
+  padding-block: var(--space-8);
+  background: var(--color-paper-deep);
+  border-top: 1px solid var(--color-line);
+}
+
+.guideGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+}
+
+@media (min-width: 900px) {
+  .guideGrid {
+    grid-template-columns: 1.1fr 1fr;
+    align-items: start;
+  }
+}
+
+.guideText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.guideTitle {
+  font-size: var(--text-h2);
+  color: var(--color-ink);
+}
+
+.guideLead {
+  font-size: var(--text-lead);
+  color: var(--color-ink-soft);
+  line-height: var(--leading-body);
+}
+
+.stepList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.stepNumber {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-sky);
+  color: var(--color-accent);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stepContent h4 {
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+  margin-bottom: 2px;
+}
+
+.stepContent p {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.faqSide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.faqTitle {
+  font-size: var(--text-h2);
+  color: var(--color-ink);
+}

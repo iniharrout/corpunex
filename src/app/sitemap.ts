@@ -18,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/compliance-calendar", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/glossary", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/templates", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/tools/company-name-search", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/tools/gst-calculator", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/tools/company-type-finder", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/faq", priority: 0.75, changeFrequency: "monthly" as const },

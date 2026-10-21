@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 const tools = [
+  { label: "Company name search", href: "/tools/company-name-search", body: "MCA Rule 8 validator and Nice trademark class lookup." },
+  { label: "Startup legal templates", href: "/templates", body: "8 free, CA/CS-vetted legal agreements for founders." },
   { label: "Compliance calendar", href: "/compliance-calendar", body: "Every yearly due date for companies and LLPs." },
   { label: "GST calculator", href: "/tools/gst-calculator", body: "Add or remove GST, with the CGST, SGST or IGST split." },
   { label: "Company type finder", href: "/tools/company-type-finder", body: "Three questions to find the right structure." },

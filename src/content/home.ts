@@ -143,3 +143,167 @@ export const homeFaqs: Faq[] = [
       "You open a bank account, appoint an auditor within 30 days and file a short declaration within 180 days. After that there are yearly filings. We send you a calendar with every date, and we can handle them for you.",
   },
 ];
+
+export interface TrustPillar {
+  id: string;
+  badge: string;
+  title: string;
+  description: string;
+  stat: string;
+  statLabel: string;
+  icon: "shield" | "clock" | "receipt" | "award";
+  tone: Tone;
+}
+
+export const trustPillars: TrustPillar[] = [
+  {
+    id: "licensed-professionals",
+    badge: "Qualified Experts",
+    title: "100% CA & CS Certified Filings",
+    description: "Every SPICe+ form, MOA, and AOA is prepared and certified by practicing Chartered Accountants and Company Secretaries.",
+    stat: "100%",
+    statLabel: "CA / CS Verified",
+    icon: "shield",
+    tone: "mint",
+  },
+  {
+    id: "speed-sla",
+    badge: "Turnaround SLA",
+    title: "7–10 Days Average Timeline",
+    description: "Rapid MCA name reservation, same-day Digital Signatures (DSC), and instant DIN allocation with proactive follow-up.",
+    stat: "7–10",
+    statLabel: "Working Days",
+    icon: "clock",
+    tone: "peach",
+  },
+  {
+    id: "transparent-fees",
+    badge: "Zero Hidden Markups",
+    title: "Transparent Itemised Quotes",
+    description: "Government filing fees, stamp duties, and professional charges are itemised line by line before you pay a single rupee.",
+    stat: "₹0",
+    statLabel: "Hidden Charges",
+    icon: "receipt",
+    tone: "sky",
+  },
+  {
+    id: "starter-kit",
+    badge: "Founder Onboarding",
+    title: "Complete Startup Kit Included",
+    description: "Certificate of Incorporation, PAN, TAN, Bank Account Resolution, and 1st-Year Compliance Calendar delivered together.",
+    stat: "5-in-1",
+    statLabel: "Launch Package",
+    icon: "award",
+    tone: "sun",
+  },
+];
+
+export interface FounderTool {
+  id: string;
+  title: string;
+  badge: string;
+  description: string;
+  href: string;
+  ctaText: string;
+  tone: Tone;
+  icon: "searchDoc" | "calculator" | "calendar" | "rocket";
+}
+
+export const founderTools: FounderTool[] = [
+  {
+    id: "company-name-search",
+    title: "Company name & trademark check",
+    badge: "MCA Rule 8 & Trademarks",
+    description: "Check MCA Rule 8 compliance, prohibited regulatory keywords, and Nice trademark classes before submitting RUN.",
+    href: "/tools/company-name-search",
+    ctaText: "Check name availability",
+    tone: "sky",
+    icon: "searchDoc",
+  },
+  {
+    id: "gst-calculator",
+    title: "GST & threshold calculator",
+    badge: "Tax Calculator",
+    description: "Calculate CGST, SGST, IGST splits across 5%, 12%, 18%, and 28% slabs and verify mandatory ₹20L/₹40L registration thresholds.",
+    href: "/tools/gst-calculator",
+    ctaText: "Calculate GST split",
+    tone: "mint",
+    icon: "calculator",
+  },
+  {
+    id: "compliance-calendar",
+    title: "Statutory compliance calendar",
+    badge: "Due Dates & Penalities",
+    description: "Never miss an ROC, GST, or TDS due date. Full statutory calendar with MCA late fee and penalty calculators.",
+    href: "/compliance-calendar",
+    ctaText: "View compliance dates",
+    tone: "peach",
+    icon: "calendar",
+  },
+  {
+    id: "company-type-finder",
+    title: "Company type finder",
+    badge: "Entity Quiz",
+    description: "Answer three quick questions on funding goals, co-founders, and liability to find whether Pvt Ltd, LLP, or OPC fits you best.",
+    href: "/tools/company-type-finder",
+    ctaText: "Find my entity type",
+    tone: "sun",
+    icon: "rocket",
+  },
+];
+
+export interface TemplateShowcaseItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  href: string;
+  ctaText: string;
+  tone: Tone;
+  icon: "people" | "shieldBadge" | "certificate" | "legalDocument";
+}
+
+export const templateShowcaseItems: TemplateShowcaseItem[] = [
+  {
+    id: "co-founder-agreement",
+    title: "Co-Founder Agreement",
+    category: "Founders & Equity",
+    description: "Equity splits, 4-year reverse vesting with 1-year cliff, decision rights, and intellectual property assignment before incorporating.",
+    href: "/templates",
+    ctaText: "View agreement",
+    tone: "sky",
+    icon: "people",
+  },
+  {
+    id: "mutual-nda",
+    title: "Mutual NDA (Confidentiality)",
+    category: "Legal & IP Protection",
+    description: "Two-way non-disclosure agreement to safeguard confidential code, pitch decks, client lists, and technical architectures.",
+    href: "/templates",
+    ctaText: "View NDA template",
+    tone: "mint",
+    icon: "shieldBadge",
+  },
+  {
+    id: "offer-letter-ip",
+    title: "Offer Letter & IP Assignment",
+    category: "Hiring & Talent",
+    description: "Employment appointment letter specifying probation, notice period, compensation, and work-for-hire IP assignment.",
+    href: "/templates",
+    ctaText: "View offer letter",
+    tone: "sun",
+    icon: "certificate",
+  },
+  {
+    id: "bank-resolution",
+    title: "Board Resolution for Bank Account",
+    category: "Corporate Governance",
+    description: "Statutory board resolution required by banks to open a company current account and authorise director signatories.",
+    href: "/templates",
+    ctaText: "View resolution",
+    tone: "peach",
+    icon: "legalDocument",
+  },
+];
+
+

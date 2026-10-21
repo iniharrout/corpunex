@@ -283,3 +283,62 @@ export function Calendar({ className }: { className?: string }) {
     </Svg>
   );
 }
+
+export function SearchDoc({ className }: { className?: string }) {
+  return (
+    <Svg viewBox="0 0 160 160" className={className}>
+      <circle cx="80" cy="80" r="64" fill="var(--color-sky)" />
+      <rect x="36" y="26" width="68" height="92" rx="8" fill="var(--color-surface)" {...ink} />
+      <path d="M48 46h44M48 60h32M48 74h40M48 88h24" fill="none" {...ink} />
+      <circle cx="98" cy="94" r="28" fill="var(--color-yellow)" {...ink} />
+      <circle cx="98" cy="94" r="18" fill="var(--color-surface)" {...ink} strokeWidth={2} />
+      <path d="M88 84a12 12 0 0 1 12-4" fill="none" stroke="var(--color-blue)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M118 114l20 20" fill="none" {...ink} strokeWidth={8} strokeLinecap="round" />
+      <path d="M118 114l20 20" fill="none" stroke="var(--color-coral)" strokeWidth={4} strokeLinecap="round" />
+    </Svg>
+  );
+}
+
+export function ShieldBadge({ className }: { className?: string }) {
+  return (
+    <Svg viewBox="0 0 160 160" className={className}>
+      <circle cx="80" cy="80" r="64" fill="var(--color-mint)" />
+      <path
+        d="M80 24c26 0 44 10 44 32 0 38-24 64-44 76-20-12-44-38-44-76 0-22 18-32 44-32Z"
+        fill="var(--color-surface)"
+        {...ink}
+      />
+      <circle cx="80" cy="74" r="22" fill="var(--color-green)" {...ink} />
+      <path d="M71 74l6 7 13-14" fill="none" {...ink} stroke="var(--color-surface)" strokeWidth={3.5} />
+      <path d="M26 42l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5Z" fill="var(--color-yellow)" {...ink} strokeWidth={2} />
+    </Svg>
+  );
+}
+
+export function PackageBox({ className }: { className?: string }) {
+  return (
+    <Svg viewBox="0 0 160 160" className={className}>
+      <circle cx="80" cy="80" r="64" fill="var(--color-sun)" />
+      <path d="M30 64l50-24 50 24-50 24-50-24Z" fill="var(--color-surface)" {...ink} />
+      <path d="M30 64v52l50 24V88L30 64Z" fill="var(--color-coral)" {...ink} />
+      <path d="M80 88v52l50-24V64L80 88Z" fill="var(--color-peach)" {...ink} />
+      <path d="M55 52l50 24M105 52L55 76" fill="none" {...ink} stroke="var(--color-yellow)" strokeWidth={3} />
+      <path d="M34 32l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5Z" fill="var(--color-surface)" {...ink} strokeWidth={2} />
+      <path d="M128 36l3 6 6 3-6 3-3 6-3-6-6-3 6-3Z" fill="var(--color-yellow)" {...ink} strokeWidth={2} />
+    </Svg>
+  );
+}
+
+export function LegalDocument({ className }: { className?: string }) {
+  return (
+    <Svg viewBox="0 0 160 160" className={className}>
+      <circle cx="80" cy="80" r="64" fill="var(--color-peach)" />
+      <rect x="36" y="24" width="76" height="104" rx="8" fill="var(--color-surface)" {...ink} />
+      <path d="M50 44h48M50 58h40M50 72h48M50 86h32" fill="none" {...ink} />
+      <circle cx="94" cy="102" r="16" fill="var(--color-coral)" {...ink} />
+      <path d="M88 102l4 4 9-9" fill="none" stroke="var(--color-surface)" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M50 106h24" fill="none" {...ink} strokeWidth={2} />
+    </Svg>
+  );
+}
+

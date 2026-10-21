@@ -1,0 +1,274 @@
+.section {
+  padding-block: var(--space-8);
+  background: var(--color-paper);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 54ch;
+}
+
+.eyebrow {
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  font-family: var(--font-statement);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-medium);
+  line-height: 1.15;
+  color: var(--color-ink);
+  letter-spacing: -0.015em;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: var(--weight-regular);
+}
+
+.lead {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: 1.35fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* ── Left Spotlight Hero Card ───────────────────────────── */
+.spotlightCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-6);
+  background:
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgb(0 87 255 / 0.05), transparent 70%),
+    var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 24px -6px rgb(11 27 51 / 0.08);
+}
+
+.spotlightHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.spotlightTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-micro);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.02em;
+  background: var(--color-sky);
+  color: var(--color-accent);
+  border: 1px solid rgb(0 87 255 / 0.15);
+}
+
+.liveIndicator {
+  font-size: var(--text-micro);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-muted);
+}
+
+.spotlightBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.spotlightTitle {
+  font-family: var(--font-statement);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.spotlightDesc {
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--color-ink-muted);
+}
+
+/* Visual Formula Mockup inside Spotlight */
+.formulaBox {
+  margin-block: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-paper-deep);
+  border: 1px dashed var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.formulaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.formulaPart {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+
+.formulaLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+  font-weight: var(--weight-bold);
+}
+
+.formulaValue {
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.formulaPlus {
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink-muted);
+}
+
+.checksList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.checkPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: var(--weight-medium);
+  background: var(--color-surface);
+  color: #0b7a42;
+  border: 1px solid rgb(11 122 66 / 0.2);
+}
+
+.spotlightAction {
+  margin-top: var(--space-2);
+}
+
+/* ── Right Stacked Utility Rows ─────────────────────────── */
+.stackedList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+}
+
+.utilityRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  box-shadow: 0 2px 8px -2px rgb(11 27 51 / 0.05);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+  flex: 1;
+}
+
+.utilityRow:hover {
+  transform: translateX(4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 16px -4px rgb(0 87 255 / 0.15);
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.utilityTag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-accent);
+}
+
+.rowTitle {
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+  line-height: 1.25;
+}
+
+.rowDesc {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+}
+
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-paper-deep);
+  color: var(--color-ink-muted);
+  flex-shrink: 0;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.utilityRow:hover .arrowWrap {
+  background: var(--color-accent);
+  color: #fff;
+  transform: translateX(2px);
+}
