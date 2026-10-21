@@ -46,13 +46,14 @@
 
 .bentoGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, …) lets the cards shrink to the screen instead of growing to fit their content */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-4);
 }
 
 @media (min-width: 1024px) {
   .bentoGrid {
-    grid-template-columns: 1.35fr 1fr;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
     align-items: stretch;
   }
 }
@@ -227,6 +228,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
+  min-width: 0;
 }
 
 .utilityTag {
