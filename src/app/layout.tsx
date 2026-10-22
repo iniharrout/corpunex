@@ -8,6 +8,7 @@ import MobileActionBar from "@/components/site/MobileActionBar";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { site } from "@/config/site";
 import CallbackProvider from "@/components/callback/CallbackProvider";
+import FloatingCallbackButton from "@/components/callback/FloatingCallbackButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 /** Serif for statement headlines only: the homepage hero and the footer. */
@@ -202,6 +203,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </main>
           <SiteFooter />
           <MobileActionBar />
+          <FloatingCallbackButton />
         </CallbackProvider>
       </body>
     </html>

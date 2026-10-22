@@ -1,0 +1,118 @@
+.floatingBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px 12px 16px;
+  background: var(--color-ink);
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.28), 0 4px 10px -2px rgba(0, 0, 0, 0.16);
+  font-family: inherit;
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  transition: all var(--duration-fast) cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+
+.floatingBtn:hover {
+  background: var(--color-brand);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px -4px rgba(0, 87, 255, 0.45), 0 6px 14px -2px rgba(0, 0, 0, 0.2);
+}
+
+.floatingBtn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.floatingBtn:hover .iconWrapper {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pulseRing {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 214, 143, 0.6);
+  animation: ripple 2.2s infinite ease-out;
+  pointer-events: none;
+}
+
+.statusDot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 8px;
+  height: 8px;
+  background: #00d68f;
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+}
+
+.floatingBtn:hover .statusDot {
+  border-color: var(--color-brand);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.mainText {
+  font-size: var(--text-small);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.subText {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  white-space: nowrap;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+/* Hide on mobile where MobileActionBar already provides a sticky 'Call me back' button */
+@media (max-width: 899px) {
+  .floatingBtn {
+    display: none;
+  }
+}

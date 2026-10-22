@@ -13,7 +13,10 @@ import {
   ExternalLink,
   Layers,
   FileSearch,
+  Mail,
+  Send,
 } from "lucide-react";
+import { postLeadToGoogleChat } from "@/lib/leadNotifier";
 import {
   restrictedMcaWords,
   startupTrademarkClasses,
@@ -68,6 +71,12 @@ export default function CompanyNameSearchTool() {
   // Trademark Tab State
   const [selectedIndustry, setSelectedIndustry] = useState<string>("all");
   const [classSearchQuery, setClassSearchQuery] = useState("");
+
+  // Email / WhatsApp Report Dispatch State
+  const [reportPhone, setReportPhone] = useState("");
+  const [reportEmail, setReportEmail] = useState("");
+  const [reportStatus, setReportStatus] = useState<"idle" | "submitting" | "sent">("idle");
+  const [reportError, setReportError] = useState("");
 
   // Validation Engine
   const trimmedBrand = brandName.trim();
@@ -131,6 +140,71 @@ export default function CompanyNameSearchTool() {
       );
     });
   }, [selectedIndustry, classSearchQuery]);
+
+  async function handleSendReport(e: React.FormEvent) {
+    e.preventDefault();
+    setReportError("");
+
+    const phoneClean = reportPhone.trim().replace(/[\s-]/g, "");
+    const emailClean = reportEmail.trim();
+
+    if (!phoneClean && !emailClean) {
+      setReportError("Enter your WhatsApp mobile number or Email to receive the report.");
+      return;
+    }
+
+    if (phoneClean && !/^(\+?\d{1,3})?\d{10}$/.test(phoneClean)) {
+      setReportError("Enter a valid 10-digit WhatsApp or mobile number.");
+      return;
+    }
+
+    if (emailClean && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailClean)) {
+      setReportError("Enter a valid email address.");
+      return;
+    }
+
+    setReportStatus("submitting");
+
+    try {
+      await postLeadToGoogleChat({
+        formName: "MCA Report Request (WhatsApp & Email)",
+        name: "Founder",
+        phone: reportPhone.trim() || undefined,
+        email: reportEmail.trim() || undefined,
+        topic: "MCA Company Name & Trademark Report",
+        extra: {
+          "Proposed Legal Name": fullLegalName,
+          "Viability Status":
+            viabilityStatus === "approved"
+              ? "High Likelihood of MCA Approval"
+              : viabilityStatus === "warning"
+              ? "Notice / Capital Adjustment Needed"
+              : "Statutory Rejection Risk",
+          "Brand Prefix": brandName,
+          "Activity Word": activityWord,
+          "Entity Type": entityType,
+          "Planned Authorized Capital": `₹${parseInt(authorizedCapital, 10).toLocaleString("en-IN")}`,
+          "Restricted Word Issue": matchedRestrictedWord
+            ? `${matchedRestrictedWord.word} (${matchedRestrictedWord.regulator})`
+            : "None (Clean)",
+          "Scale Word Issue": matchedScaleWord
+            ? hasSufficientScaleCapital
+              ? `${matchedScaleWord} (Compliant Capital)`
+              : `${matchedScaleWord} (Requires ₹1 Cr Capital)`
+            : "None (Clean)",
+          "2-Part Name Structure": hasValidLength && hasActivity ? "Pass" : "Fail",
+          "Special Characters": hasNoSpecialChars ? "Clean" : "Contains illegal characters",
+          "Delivery Method":
+            phoneClean && emailClean ? "WhatsApp + Email" : phoneClean ? "WhatsApp" : "Email",
+        },
+      });
+
+      setReportStatus("sent");
+    } catch {
+      setReportError("Unable to submit right now. Please try again or request a callback.");
+      setReportStatus("idle");
+    }
+  }
 
   return (
     <div className={styles.toolWrapper}>
@@ -368,6 +442,97 @@ export default function CompanyNameSearchTool() {
                     </div>
                   </li>
                 </ul>
+              </div>
+
+              {/* WhatsApp & Email MCA Report Card */}
+              <div className={styles.reportCard}>
+                <div className={styles.reportHeader}>
+                  <div className={styles.reportIconWrap} aria-hidden>
+                    <Mail size={18} strokeWidth={2.25} />
+                  </div>
+                  <div className={styles.reportHeadText}>
+                    <h5 className={styles.reportTitle}>
+                      Email or WhatsApp me this MCA report
+                    </h5>
+                    <p className={styles.reportSubtitle}>
+                      Get this Rule 8 diagnostic breakdown, restricted keyword checks, and trademark notes sent to your phone or inbox.
+                    </p>
+                  </div>
+                </div>
+
+                {reportStatus === "sent" ? (
+                  <div className={styles.reportSuccess}>
+                    <CheckCircle2 size={20} className={styles.reportSuccessIcon} aria-hidden />
+                    <div className={styles.reportSuccessContent}>
+                      <strong>Report requested successfully!</strong>
+                      <p style={{ margin: "4px 0 0 0" }}>
+                        We have queued the full MCA &amp; trademark clearance summary for{" "}
+                        <strong>{fullLegalName}</strong>. You will receive it via{" "}
+                        {reportPhone.trim() && reportEmail.trim()
+                          ? "WhatsApp and Email"
+                          : reportPhone.trim()
+                          ? "WhatsApp"
+                          : "Email"}{" "}
+                        shortly.
+                      </p>
+                      <button
+                        type="button"
+                        className={styles.reportResetBtn}
+                        onClick={() => {
+                          setReportStatus("idle");
+                          setReportError("");
+                        }}
+                      >
+                        Send to another number or email
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSendReport} className={styles.reportForm}>
+                    <div className={styles.reportInputGrid}>
+                      <div className={styles.reportInputWrap}>
+                        <label htmlFor="report-phone-input" className={styles.reportInputLabel}>
+                          WhatsApp / Mobile
+                        </label>
+                        <input
+                          id="report-phone-input"
+                          type="tel"
+                          placeholder="e.g. 98765 43210"
+                          value={reportPhone}
+                          onChange={(e) => setReportPhone(e.target.value)}
+                          className={styles.reportTextInput}
+                        />
+                      </div>
+
+                      <div className={styles.reportInputWrap}>
+                        <label htmlFor="report-email-input" className={styles.reportInputLabel}>
+                          Email Address
+                        </label>
+                        <input
+                          id="report-email-input"
+                          type="email"
+                          placeholder="founder@company.com"
+                          value={reportEmail}
+                          onChange={(e) => setReportEmail(e.target.value)}
+                          className={styles.reportTextInput}
+                        />
+                      </div>
+                    </div>
+
+                    {reportError && <div className={styles.reportError}>{reportError}</div>}
+
+                    <button
+                      type="submit"
+                      disabled={reportStatus === "submitting"}
+                      className={styles.reportSendBtn}
+                    >
+                      <Send size={15} strokeWidth={2.25} aria-hidden />
+                      {reportStatus === "submitting"
+                        ? "Dispatching MCA Report..."
+                        : "Send MCA Report to WhatsApp & Email"}
+                    </button>
+                  </form>
+                )}
               </div>
 
               {/* Action Card */}
