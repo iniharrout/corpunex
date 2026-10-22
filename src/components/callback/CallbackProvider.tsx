@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import { ENQUIRY_TOPICS } from "@/components/shared/ContactForm";
 import { Button } from "@/components/ui/Button";
 import { PhoneRing } from "@/components/illustrations/Spots";
+import { postLeadToGoogleChat } from "@/lib/leadNotifier";
 import styles from "./Callback.module.css";
 
 interface CallbackContextValue {
@@ -93,8 +94,15 @@ export default function CallbackProvider({ children }: { children: ReactNode }) 
       return;
     }
     setStatus("sending");
-    // TODO: send to the CRM or email endpoint. No backend is connected yet.
-    await new Promise((r) => setTimeout(r, 500));
+    await postLeadToGoogleChat({
+      formName: "Request a Call Back Modal",
+      name: fields.name,
+      phone: fields.mobile,
+      topic: fields.topic,
+      extra: {
+        "User Request": "Phone Call Back",
+      },
+    });
     setStatus("sent");
   }
 

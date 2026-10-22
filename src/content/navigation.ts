@@ -116,7 +116,9 @@ export const primaryNav: NavLink[] = [
 
 /** Free tools and reference pages. */
 export const resourceLinks: NavLink[] = [
+  { label: "Locations across India", href: "/locations" },
   { label: "Company name search", href: "/tools/company-name-search" },
+  { label: "City registration hubs", href: "/company-registration" },
   { label: "Startup templates", href: "/templates" },
   { label: "Blog", href: "/blog" },
   { label: "Compliance calendar", href: "/compliance-calendar" },
@@ -144,6 +146,7 @@ export const footerNav: { heading: string; links: NavLink[] }[] = [
     heading: "Company",
     links: [
       { label: "About", href: "/about" },
+      { label: "Locations", href: "/locations" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],

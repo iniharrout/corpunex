@@ -5,12 +5,20 @@ import ContactForm from "./ContactForm";
 import styles from "./ContactPanel.module.css";
 
 /** Short enquiry form, with email and call-back as alternatives. */
-export default function ContactPanel({ title = "Tell us what you need" }: { title?: string }) {
+export default function ContactPanel({
+  title = "Tell us what you need",
+  formSource = "Contact Page Panel",
+  defaultTopic = "",
+}: {
+  title?: string;
+  formSource?: string;
+  defaultTopic?: string;
+}) {
   return (
     <div className={styles.panel}>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.intro}>It takes a minute. No obligation.</p>
-      <ContactForm />
+      <ContactForm formSource={formSource} defaultTopic={defaultTopic} />
       <div className={styles.alternatives}>
         <p className={styles.or}>Prefer to talk?</p>
         <div className={styles.row}>

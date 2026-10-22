@@ -1,7 +1,8 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { postLeadToGoogleChat } from "@/lib/leadNotifier";
 import styles from "./ContactForm.module.css";
 
 export const ENQUIRY_TOPICS = [
@@ -33,11 +34,26 @@ function validate(f: Fields): Errors {
   return e;
 }
 
-export default function ContactForm({ defaultTopic = "" }: { defaultTopic?: string }) {
+export default function ContactForm({
+  defaultTopic = "",
+  formSource = "Contact Form",
+}: {
+  defaultTopic?: string;
+  formSource?: string;
+}) {
   const id = useId();
   const [fields, setFields] = useState<Fields>({ name: "", phone: "", email: "", topic: defaultTopic, message: "" });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const topicParam = new URLSearchParams(window.location.search).get("topic");
+      if (topicParam && ENQUIRY_TOPICS.includes(topicParam)) {
+        setFields((f) => ({ ...f, topic: topicParam }));
+      }
+    }
+  }, []);
 
   function update<K extends keyof Fields>(key: K, value: string) {
     setFields((f) => ({ ...f, [key]: value }));
@@ -54,8 +70,14 @@ export default function ContactForm({ defaultTopic = "" }: { defaultTopic?: stri
       return;
     }
     setStatus("sending");
-    // TODO: send to the CRM or email endpoint. No backend is connected yet.
-    await new Promise((r) => setTimeout(r, 500));
+    await postLeadToGoogleChat({
+      formName: formSource,
+      name: fields.name,
+      phone: fields.phone,
+      email: fields.email,
+      topic: fields.topic,
+      message: fields.message,
+    });
     setStatus("sent");
   }
 

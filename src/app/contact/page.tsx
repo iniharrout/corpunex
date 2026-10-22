@@ -50,7 +50,10 @@ export default function ContactPage() {
             proof for the office handy. Registration usually takes {timeline.short} once we have everything.
           </p>
         </div>
-        <ContactPanel title="Send us a message" />
+        <ContactPanel
+          title="Send us a message"
+          formSource="Contact Us Page Form"
+        />
       </div>
     </section>
   );

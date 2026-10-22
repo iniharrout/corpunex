@@ -4,7 +4,7 @@ As requested, nothing unconfirmed is shown on the site right now. The items belo
 
 ## Before launch
 
-- [ ] **Form backend.** The call-back pop-up (`components/callback/CallbackProvider.tsx`) and the enquiry form (`components/shared/ContactForm.tsx`) check what's entered but don't send it anywhere yet. Each has a TODO where the CRM or email endpoint goes.
+- [x] **Form backend.** Fully connected to Google Chat webhook (`src/lib/leadNotifier.ts`). Both the call-back pop-up (`components/callback/CallbackProvider.tsx`) and the enquiry forms (`components/shared/ContactForm.tsx`) post real-time lead alerts directly to the designated Google Chat space, tracking the website origin, exact page URL, form source, and timestamp.
 - [ ] **Confirm government rates in the calculator:** stamp duty for each state, the LLP filing fee bands, the ₹1,000 name reservation fee, and the ₹1,000 digital signature cost.
 - [ ] **Confirm Corpunex is GST-registered,** since 18% GST is added to our fee on every quote.
 - [ ] **Confirm the timeline:** "usually 7–14 working days once we have all your documents" (`src/config/site.ts`).

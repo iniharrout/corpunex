@@ -4,6 +4,7 @@ import { categories } from "@/content/categories";
 import { servicePages } from "@/content/services";
 import { articles } from "@/content/articles";
 import { roles } from "@/content/careers";
+import { cities } from "@/content/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = site.url;
@@ -14,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", priority: 1.0, changeFrequency: "weekly" as const },
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/services", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/locations", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/company-registration", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/blog", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/careers", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/compliance-calendar", priority: 0.8, changeFrequency: "monthly" as const },
@@ -59,6 +62,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Programmatic city hub pages
+  const cityPages = cities.map((c) => ({
+    url: `${baseUrl}/company-registration/${c.slug}`,
+    lastModified: buildDate,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
   // Career role pages
   const rolePages = roles.map((r) => ({
     url: `${baseUrl}/careers/${r.slug}`,
@@ -67,5 +78,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...coreStaticPages, ...categoryPages, ...serviceDetailPages, ...articlePages, ...rolePages];
+  return [
+    ...coreStaticPages,
+    ...categoryPages,
+    ...serviceDetailPages,
+    ...cityPages,
+    ...articlePages,
+    ...rolePages,
+  ];
 }

@@ -37,6 +37,17 @@ export const metadata: Metadata = {
     "CA and CS legal advisory",
   ],
   category: "Legal & Corporate Advisory",
+  alternates: {
+    canonical: site.url,
+    languages: {
+      "en-IN": site.url,
+      "en-US": site.url,
+      "en-GB": site.url,
+      "en-AE": site.url,
+      "en-SG": site.url,
+      "x-default": site.url,
+    },
+  },
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   publisher: site.name,
@@ -109,10 +120,35 @@ const organization = {
     addressRegion: "Odisha",
     addressCountry: "IN",
   },
-  areaServed: {
-    "@type": "Country",
-    name: "India",
-  },
+  department: [
+    {
+      "@type": "ProfessionalService",
+      name: "Corpunex Corporate Advisory — Head Office",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bhubaneswar",
+        addressRegion: "Odisha",
+        addressCountry: "IN",
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      name: "Corpunex Corporate Advisory — New Delhi Desk",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "New Delhi",
+        addressRegion: "Delhi",
+        addressCountry: "IN",
+      },
+    },
+  ],
+  areaServed: [
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "Singapore" },
+    { "@type": "Country", name: "United Kingdom" },
+  ],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

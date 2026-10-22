@@ -1,0 +1,343 @@
+.section {
+  padding-block: var(--space-8);
+}
+
+.sectionHeader {
+  margin-bottom: var(--space-6);
+  max-width: 720px;
+}
+
+.eyebrow {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.sectionTitle {
+  font-size: var(--text-h2);
+  color: var(--color-ink);
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.sectionLead {
+  font-size: var(--text-body);
+  color: var(--color-ink-muted);
+  line-height: 1.6;
+}
+
+/* Primary Offices Section */
+.headOfficeSection {
+  margin-bottom: var(--space-9);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.officeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .officeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.officeCard {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-line-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.officeTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.badge {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.stateTag {
+  font-size: var(--text-caption);
+  color: var(--color-ink-faint);
+  font-weight: 500;
+}
+
+.officeCity {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+}
+
+.officeDesc {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line-subtle);
+  font-size: var(--text-small);
+  color: var(--color-ink);
+}
+
+.metaRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.metaIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.metaLink {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Hubs Section & Grid */
+.hubsSection {
+  margin-top: var(--space-6);
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: minmax(0, 1.85fr) minmax(320px, 1.15fr);
+  }
+}
+
+.citiesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .citiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cityCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cityCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.cityCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.cityRegionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  color: var(--color-ink-muted);
+  font-weight: 500;
+}
+
+.rocBenchTag {
+  font-size: 11px;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cityName {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.cityTagline {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+  margin-bottom: var(--space-3);
+}
+
+.rocBox {
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-line-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.rocTitle {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.rocIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.rocAddress {
+  font-size: 12px;
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.zonesSection {
+  margin-bottom: var(--space-4);
+  flex-grow: 1;
+}
+
+.zonesLabel {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-faint);
+  margin-bottom: 6px;
+}
+
+.zonePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.zonePill {
+  font-size: 11px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.cityCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-line-subtle);
+  color: var(--color-accent);
+  font-size: var(--text-small);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.cityCta:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    position: sticky;
+    top: var(--space-6);
+  }
+}
+
+.guaranteeBox {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.guaranteeTitle {
+  font-size: var(--text-small);
+  font-weight: 700;
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: var(--space-3);
+}
+
+.guaranteeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  line-height: 1.4;
+}
+
+.guaranteeList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.gIcon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
